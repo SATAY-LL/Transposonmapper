@@ -9,14 +9,15 @@ default_path = pkg_resources.resource_filename("transposonmapper", "data_files/f
 bamfile = os.path.join(default_path,
                          "SRR062634.filt_trimmed.sorted.bam")
         
-bam = pysam.AlignmentFile(bamfile, "rb")
+#bam = pysam.AlignmentFile(bamfile, "rb")
 
-readnumb_array, tncoordinates_array, tncoordinatescopy_array=get_reads(bam)
 
-def test_ouput_format():
-    assert type(readnumb_array)==numpy.ndarray, "The outputs of get_reads.py should be  arrays"
-    assert type(tncoordinates_array)==numpy.ndarray, "The outputs of get_reads.py should be  arrays"
-    assert type(tncoordinatescopy_array)==numpy.ndarray, "The outputs of get_reads.py should be  arrays"
+# readnumb_array, tncoordinates_array, tncoordinatescopy_array=get_reads(bam)
 
-    assert tncoordinates_array.shape[1]==3, "This array should have three columns"
-    assert tncoordinatescopy_array.shape[1]==3, "This array should have three columns"
+# def test_ouput_format():
+#     assert type(readnumb_array)==numpy.ndarray, "The outputs of get_reads.py should be  arrays"
+#     assert type(tncoordinates_array)==numpy.ndarray, "The outputs of get_reads.py should be  arrays"
+#     assert type(tncoordinatescopy_array)==numpy.ndarray, "The outputs of get_reads.py should be  arrays"
+
+#     assert tncoordinates_array.shape[1]==3, "This array should have three columns"
+#     assert tncoordinatescopy_array.shape[1]==3, "This array should have three columns"
