@@ -6,7 +6,6 @@ on:
     types: [opened, reopened]
 
 jobs:
-
   first_check:
     name: first code check / python-3.8 / ubuntu-latest
     runs-on: ubuntu-latest
@@ -33,9 +32,4 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
-          
-          
-          
-         
-
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
