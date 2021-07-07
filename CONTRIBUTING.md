@@ -13,13 +13,13 @@ The sections below outline the steps in each case.
 
 ## You have a question
 
-1. use the search functionality [here](https://github.com/leilaicruz/LaanLab-SATAY-DataAnalysis/issues) to see if someone already filed the same issue;
+1. use the search functionality [here](https://github.com/SATAY-LL/Transposonmapper/issues) to see if someone already filed the same issue;
 1. if your issue search did not yield any relevant results, make a new issue;
 1. apply the "Question" label; apply other labels when relevant.
 
 ## You think you may have found a bug
 
-1. use the search functionality [here](https://github.com/leilaicruz/LaanLab-SATAY-DataAnalysis/issues) to see if someone already filed the same issue;
+1. use the search functionality [here](https://github.com/SATAY-LL/Transposonmapper/issues) to see if someone already filed the same issue;
 1. if your issue search did not yield any relevant results, make a new issue, making sure to provide enough information to the rest of the community to understand the cause and context of the problem. Depending on the issue, you may want to include:
     - the [SHA hashcode](https://help.github.com/articles/autolinked-references-and-urls/#commit-shas) of the commit that is causing your problem;
     - some identifying information (name and version number) for dependencies you're using;
@@ -47,7 +47,7 @@ To create release you need write permission on the repository.
 1. Check author list in `citation.cff` and `.zenodo.json` files
 1. Bump the version using `bump2version <major|minor|patch>`. For example, `bump2version major` will increase major version numbers everywhere its needed (code, meta, etc.) in the repo.
 1. Update the `CHANGELOG.md` to include changes made
-1. Goto [GitHub release page](https://github.com/leilaicruz/LaanLab-SATAY-DataAnalysis/releases)
+1. Goto [GitHub release page](https://github.com/SATAY-LL/Transposonmapper/releases)
 1. Press draft a new release button
 1. Fill version, title and description field
 1. Press the Publish Release button

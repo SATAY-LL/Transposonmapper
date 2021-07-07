@@ -2,7 +2,7 @@ import os
 from setuptools import setup
 from setuptools import find_packages
 
-here = os.path.abspath(os.path.dirname('__file__'))
+here = os.path.abspath(os.path.dirname("__file__"))
 
 version = {}
 with open(os.path.join(here, "transposonmapper", "__version__.py")) as f:
@@ -13,7 +13,7 @@ with open("README.md") as readme_file:
     readme = readme_file.read()
 
 setup(
-    name="transponsonmapper",
+    name="transposonmapper",
     version=version["__version__"],
     description="A libray for processing sequencing data for SAturated Transposon Analysis in Yeast (SATAY)",
     long_description=readme,
@@ -35,6 +35,6 @@ setup(
         "Programming Language :: Bash",
     ],
     test_suite="tests",
-    install_requires=["matplotlib", "numpy", "pandas", "scipy", "seaborn","pysam"],
+    install_requires=["matplotlib", "numpy", "pandas", "scipy", "seaborn", "pysam"],
     extras_require={"dev": ["bump2version", "pytest", "pytest-cov"]},
 )

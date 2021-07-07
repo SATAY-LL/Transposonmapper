@@ -2,13 +2,18 @@
     "creators": [
         {
             "affiliation": "Technische Universiteit Delft, Department of Bionanoscience",
-            "name": "van Beek, Gregory",
-            "orcid": ""
+            "name": "Iñigo de la Cruz, Leila",
+            "orcid": "https://orcid.org/0000-0003-0852-9219"
         },
         {
-            "affiliation": "Technische Universiteit Delft, Department of Bionanoscience",
-            "name": "Iñigo de la Cruz, Leila",
-            "orcid": ""
+            "affiliation": "Eramus MC Rotterdam, department of Hematology",
+            "name": "van Beek, Gregory",
+            "orcid": "https://orcid.org/0000-0003-0283-7069"
+        },
+        {
+            "affiliation": "Technische Universiteit Delft, Digital Competence Center",
+            "name": "Kok, Maurits",
+            "orcid": "https://orcid.org/0000-0002-0564-2614"
         }
     ],
     "description": "Automated workflow for processing sequencing data for SAturated Transposon Analysis in Yeast (SATAY).",
@@ -19,5 +24,5 @@
     "license": {
         "id": "Apache-2.0"
     },
-    "title": "satay"
+    "title": "transposonmapper"
 }

@@ -6,12 +6,18 @@ authors:
     affiliation: "Technische Universiteit Delft"
     family-names: "Iñigo de la Cruz"
     given-names: "Leila"
-    orcid: "0000-0003-0852-9219"
+    orcid: "https://orcid.org/0000-0003-0852-9219"
   - 
-    affiliation: " Eramus MC Rotterdam, department of Hematology"
+    affiliation: "Eramus MC Rotterdam, department of Hematology"
     family-names: "van Beek"
     given-names: "Gregory"
-    orcid: "0000-0003-0283-7069"
+    orcid: "https://orcid.org/0000-0003-0283-7069"
+
+  - 
+    affiliation: "Technische Universiteit Delft, Digital Competence Center"
+    family-names: "Kok"
+    given-names: "Maurits"
+    orcid: "https://orcid.org/0000-0002-0564-2614"
     
 cff-version: "1.1.0"
 keywords:
@@ -20,5 +26,5 @@ keywords:
 license: "Apache-2.0"
 message: "If you use this software, please cite it using these metadata."
 repository-code: "https://github.com/leilaicruz/LaanLab-SATAY-DataAnalysis"
-title: satay
+title: transposonmapper
 ...

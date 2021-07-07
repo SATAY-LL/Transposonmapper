@@ -37,7 +37,7 @@ main () {
 	adapterfile=$adapters
 
 	#REFERENCE GENOME (path to the fasta file of the reference genome).
-	path_refgenome="/opt/satay/data_files/S288C_reference_sequence_R64-2-1_20150113.fsa"
+	path_refgenome="/opt/transposonmapper/data_files/S288C_reference_sequence_R64-2-1_20150113.fsa"
 
 	#DDBUK SOFTWARE (path to bbduk for trimming).
 	bbduk_software=$bbduk
@@ -46,7 +46,7 @@ main () {
 	path_trimm_software="/opt/conda/bin/trimmomatic"
 
 	#PYTHON CODES (path to python code for transposon_mapping).
-	path_python_codes="/opt/satay/transposonmapping/"
+	path_python_codes="/opt/transposonmapper/"
 
 ############################################################
 
