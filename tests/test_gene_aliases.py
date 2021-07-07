@@ -10,7 +10,7 @@ def test_packaged_data():
     """Test default arguments and outputs type and content """
 
     data_path = pkg_resources.resource_filename("transposonmapper", "data_files/")
-    data_file = "Yeast_Protein_Names.protein_names.txt"
+    data_file = "Yeast_Protein_Names.txt"
     filepath = os.path.join(data_path, data_file)
 
     aliases_designation_dict, aliases_sgd_dict, aliases_swissprot_dict = gene_aliases(
