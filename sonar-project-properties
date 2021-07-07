@@ -1,12 +1,5 @@
-sonar.organization=satay
 sonar.projectKey=SATAY-LL_Transposonmapper
-sonar.tests=tests/
-sonar.links.homepage=https://github.com/SATAY-LL/Transposonmapper
-sonar.links.issue=https://github.com/SATAY-LL/Transposonmapper/issues
-sonar.links.ci=https://github.com/SATAY-LL/Transposonmapper/actions
-sonar.python.coverage.reportPaths=coverage.xml
-sonar.python.xunit.reportPath=xunit-result.xml
-
+sonar.organization=satay
 
 # This is the name and version displayed in the SonarCloud UI.
 #sonar.projectName=Transposonmapper
