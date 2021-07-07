@@ -26,7 +26,7 @@ jobs:
           pip install -e .[dev]
       - name: Test with coverage
         run: |
-          pytest --cov= --cov-report term --cov-report xml --junitxml=xunit-result.xml          
+          pytest --cov=./ --cov-report=xml
       - name: Correct coverage paths
         run: sed -i "s+$PWD/++g" coverage.xml      
       - name: SonarCloud Scan
