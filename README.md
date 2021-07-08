@@ -1,6 +1,6 @@
 # SATAY analysis workflow
 
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=SATAY-LL_Transposonmapper&metric=coverage)](https://sonarcloud.io/dashboard?id=SATAY-LL_Transposonmapper)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=SATAY-LL_Transposonmapper&metric=coverage)](https://sonarcloud.io/dashboard?id=SATAY-LL_Transposonmapper) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=SATAY-LL_Transposonmapper&metric=bugs)](https://sonarcloud.io/dashboard?id=SATAY-LL_Transposonmapper)
 
 Our first release of the pipeline has now a DOI :) to be citable, and findable!!! 
 [![DOI](https://zenodo.org/badge/248577762.svg)](https://zenodo.org/badge/latestdoi/248577762)
