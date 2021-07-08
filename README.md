@@ -11,10 +11,10 @@ Our first release of the pipeline has now a DOI :) to be citable, and findable!!
 
 This workflow is created for processing sequencing data for SAturated Transposon Analysis in Yeast (SATAY) for Saccharomyces Cerevisiae.
 It performs the steps from raw sequencing data until the transposon mapping that outputs files containing all insertion sites combined with the number of reads.
-For more information about this project, see our [JupyterBook](https://leilaicruz.github.io/SATAY-jupyter-book/Introduction.html).
+For more information about this project, see our [JupyterBook](https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html).
 For more information regarding SATAY, see [the satay user website](https://sites.google.com/site/satayusers/) created by the Kornmann-lab.
 
-For a complete guide how to use it, see the [documentation](https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/satay_processing/documentation/documentation_satay.md).
+For a complete guide how to use it, see the [documentation](https://github.com/SATAY-LL/Transposonmapper/blob/main/documentation/documentation_satay.md).
 
 ## Features
 
@@ -33,7 +33,7 @@ Also a list of genes is generated where the number and distribution of insertion
 
 ## Running the project
 
-The main workflow is called [satay.sh](https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/satay_processing/satay.sh) and runs in Linux.
+The main workflow is called [satay.sh](https://github.com/SATAY-LL/Transposonmapper/blob/main/satay.sh) and runs in Linux.
 Start the workflow using the command `bash satay.sh`.
 NOTE: Before starting the workflow on your Linux machine, you might need to change some paths in the script, which can be done in the `define paths` section of the code.
 
@@ -54,8 +54,8 @@ NOTE: Before starting the workflow on your Linux machine, you might need to chan
 [LaanLab. Department of BioNanoScience, Delft University of Technology](https://www.tudelft.nl/en/faculty-of-applied-sciences/about-faculty/departments/bionanoscience/research/research-labs/liedewij-laan-lab/research-projects/evolvability-and-modularity-of-essential-functions-in-budding-yeast)
 
 - Leila Iñigo de la Cruz
-- Enzo Kingma
 - Gregory van Beek
+- Maurits Kok
 
 ## License
 
