@@ -5,7 +5,7 @@
 Our first release of the pipeline has now a DOI :) to be citable, and findable!!! 
 [![DOI](https://zenodo.org/badge/248577762.svg)](https://zenodo.org/badge/latestdoi/248577762)
 
-[Look our documentation using Jupyter Book 🎆🎉](https://leilaicruz.github.io/SATAY-jupyter-book/Introduction.html) 
+[Look our documentation using Jupyter Book 🎆🎉](https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html) 
 
 ## Overview
 
