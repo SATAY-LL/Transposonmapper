@@ -5,6 +5,8 @@ SATAY and Transposonmapper
 This workflow is created for processing sequencing data for SAturated Transposon Analysis in Yeast (SATAY) for Saccharomyces Cerevisiae.
 It performs the steps from raw sequencing data until the transposon mapping that outputs files containing all insertion sites combined with the number of reads.
 
+For more information regarding SATAY, see `the satay user website <https://sites.google.com/site/satayusers/>`_ created by the Kornmann-lab.
+
 The workflow requires input sequencing data in fastq format.
 It can perform the following tasks:
 
@@ -98,7 +100,7 @@ SATAY pipeline
 ==============
 
 .. image:: https://user-images.githubusercontent.com/15414938/125289522-9c421580-e31f-11eb-9fc9-79c5f96d994c.png
-   :width: 600
+   :width: 400
    :align: center
 
 We provide two methods to run the SATAY pipeline, either with a Docker container (recommended) or a Linux system. The workflow relies
