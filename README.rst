@@ -6,6 +6,7 @@ This workflow is created for processing sequencing data for SAturated Transposon
 It performs the steps from raw sequencing data until the transposon mapping that outputs files containing all insertion sites combined with the number of reads.
 
 For more information regarding SATAY, see `the satay user website <https://sites.google.com/site/satayusers/>`_ created by the Kornmann-lab.
+For more extensive documentation, `see our JupyterBook <https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html>`_.
 
 The workflow requires input sequencing data in fastq format.
 It can perform the following tasks:
