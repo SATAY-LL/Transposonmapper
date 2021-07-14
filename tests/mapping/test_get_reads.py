@@ -8,6 +8,7 @@ from transposonmapper.mapping import get_reads
 
 
 def test_ouput_format():
+
     default_path = pkg_resources.resource_filename("transposonmapper", "data_files/files4test")
     bamfile = os.path.join(default_path,"SRR062634.filt_trimmed.sorted.bam")
         
