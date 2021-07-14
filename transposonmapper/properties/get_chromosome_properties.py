@@ -2,15 +2,17 @@ import warnings
 
 
 def get_chromosome_names(bam):
-    """
+    """ This functions translate the format of the chromosome names
+    from the alignment file from the pysam module into numbers
+    
 
     Parameters
     ----------
-    bam : dict        
+    bam : dict , It is the output of the function  pysam.AlignmentFile(bamfile, "rb")    
 
     Returns
     -------
-    ref_tid : dict
+    ref_tid : dict, where the values are the chromosome numbers per key in the bam file. 
     
     """
 
