@@ -1,6 +1,24 @@
 import numpy as np
 
 def add_chromosome_length_inserts(coordinates, ref_names, chr_lengths):
+    """ For each insertion location, add the length of all previous chromosomes
+
+    Parameters
+    ----------
+    coordinates : numpy.array
+        readnumb_array, tncoordinates_array, coordinates = get_reads(bam)
+    ref_names : list
+        ref_tid = get_chromosome_names(bam)
+        ref_names = list(ref_tid.keys())
+    chr_lengths : dict
+        chr_lengths, _ = get_sequence_length(bam)
+   
+
+    Returns
+    -------
+    coordinates: numpy.array
+        
+    """
     
     ll = 0
     for ii in range(1,len(ref_names)):
