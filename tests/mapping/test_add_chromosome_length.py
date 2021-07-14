@@ -78,4 +78,17 @@ def test_output_is_dict(coordinates,chr_sum,ref_tid_roman):
     
     assert isinstance(coord, dict), "Expected dict type"
 
+def test_output_first_value(coordinates,chr_sum,ref_tid_roman):
+    
+    coord = add_chromosome_length(coordinates,chr_sum,ref_tid_roman)
+    
+    #read the first value of the dict
+    first_value=next(iter(coord.values()))
+    
+    # read the first key
+    first_key=next(iter(coord))
+    
+    assert first_value==['I', 335, 649, '+'], "The first value of the gene coordinates is wrong"
+    
+    assert first_key== 'YAL069W', "The first gene in the array should be YAL069W"
 
