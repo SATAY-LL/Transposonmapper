@@ -1,8 +1,8 @@
 import numpy as np
 import timeit
 
-from .find_chromosome_reads import find_chromosome_reads
-from .correct_read_position import correct_read_position
+from transposonmapper.mapping.find_chromosome_reads import find_chromosome_reads
+from transposonmapper.mapping.correct_read_position import correct_read_position
 
 from transposonmapper.properties import (
     get_chromosome_names,
@@ -36,7 +36,7 @@ def get_reads(bam):
     chr_lengths, _ = get_sequence_length(bam)
     chr_mapped_reads = get_chromosome_reads(bam)
 
-    #%% GET ALL READS WITHIN A SPECIFIED GENOMIC REGION
+    ### GET ALL READS WITHIN A SPECIFIED GENOMIC REGION
     tnnumber_dict = {}
     unique_insertions = 0
 
