@@ -27,16 +27,19 @@ def get_chromosome_names(bam):
 
 
 def get_sequence_length(bam):
-    """
+    """ This function returns the length of each chromosome and a cumulative sum of them.
     
     Parameters
     ----------
-    bam : dict        
+    bam : dict, It is the output of the function  pysam.AlignmentFile(bamfile, "rb")          
 
     Returns
     -------
-    chr_lengths : dict
-    chr_lengths_cumsum : dict
+    chr_lengths : dict, A dictionary which very value is the length in basepairs
+    of each chromosome in the alignment file. 
+    chr_lengths_cumsum : dict , A dictionary which very value is the sum of the length in basepairs
+    of the previous chromosomes in the alignment file. chr_lengths_cumsum{n}=cumulative sum (n-1 previous chromosomes
+    length)
 
     """
 
@@ -54,11 +57,11 @@ def get_sequence_length(bam):
 
 
 def get_chromosome_reads(bam):
-    """
-    
+    """ This function returns statistics about mapped/unmapped reads per chromosome as they are stored in the index.
+    It makes use of the method get_index_statistics() from the pysam module. 
     Parameters
     ----------
-    bam : dict        
+    bam : dict, It is the output of the function  pysam.AlignmentFile(bamfile, "rb")              
 
     Returns
     -------
