@@ -37,7 +37,7 @@ main () {
 	adapterfile=$adapters
 
 	#REFERENCE GENOME (path to the fasta file of the reference genome).
-	path_refgenome="/opt/transposonmapper/data_files/S288C_reference_sequence_R64-2-1_20150113.fsa"
+	path_refgenome="/opt/src/transposonmapper/data_files/S288C_reference_sequence_R64-2-1_20150113.fsa"
 
 	#DDBUK SOFTWARE (path to bbduk for trimming).
 	bbduk_software=$bbduk
@@ -46,7 +46,7 @@ main () {
 	path_trimm_software="/opt/conda/bin/trimmomatic"
 
 	#PYTHON CODES (path to python code for transposon_mapping).
-	path_python_codes="/opt/transposonmapper/"
+	path_python_codes="/opt/src/transposonmapper/"
 
 ############################################################
 
@@ -137,7 +137,7 @@ main () {
 	if [ ${no_args} == 'true' ]; then
 		if [ ! -f $cachefile ];
 		then
-			fileselections=`yad --width=1000 --height=400 --title="Select fastq file" --center --on-top --buttons-layout=spread --multiple --file-selection="Please select datafile (or two files in case of paired-end noninterleaved fastq files)" --file-filter="*.fq" --file-filter="*.fastq" --file-filter="*.fq.gz" --file-filter="*.fastq.gz"`
+			fileselections=`yad --width=1000 --height=400 --title="Select fastq file" --center --on-top --buttons-layout=spread --multiple --file-selection="Please select datafile (or two files in case of paired-end noninterleaved fastq files)" --file-filter="*.fastq.gz" --file-filter="*.fq" --file-filter="*.fastq" --file-filter="*.fq.gz"`
 			filepath1=$(echo $fileselections | awk 'BEGIN {FS="|" } { print $1 }')
 			filepath2=$(echo $fileselections | awk 'BEGIN {FS="|" } { print $2 }')
 			
