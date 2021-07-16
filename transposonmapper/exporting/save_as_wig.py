@@ -11,7 +11,7 @@ def save_as_wig(wigfile, tncoordinates_array, ref_tid, readnumb_array):
     wigfile : str 
         Path with the filename extension included(e.g "data_file/wigfile_name.wig") describing where do you want to store the results.
         By default it will be stored in the same location as the bamfile, with the same basename. 
-        Example, if the bamfile path is data_file/data_1.bam then the wig file will be data_file/data_1.wig
+        Example, if the bamfile path is data_file/data_1.bam then the wig file will be data_file/data_1.bam.wig
     tncoordinates_array : numpy array 
         Second Output from the get_reads.py function : _,tncoordinates_array,_=get_reads(bam)
     ref_tid : dict 

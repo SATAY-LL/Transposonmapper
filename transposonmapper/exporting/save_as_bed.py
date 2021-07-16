@@ -10,7 +10,7 @@ def save_as_bed(file, tncoordinates_array, ref_tid, readnumb_array):
     file : str
         Path with the filename extension included(e.g "data_file/bedfile_name.bed") describing where do you want to store the results.
         By default it will be stored in the same location as the bamfile, with the same basename. 
-        Example, if the bamfile path is data_file/data_1.bam then the bed file will be data_file/data_1.bed 
+        Example, if the bamfile path is data_file/data_1.bam then the bed file will be data_file/data_1.bam.bed 
     tncoordinates_array : numpy array 
         Second Output from the get_reads.py function : _,tncoordinates_array,_=get_reads(bam)
     ref_tid : dict 

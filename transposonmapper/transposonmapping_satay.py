@@ -22,26 +22,26 @@ Version history:
 import pysam
 
 # Local imports
-from .properties import (
+from transposonmapper.properties import (
     get_chromosome_names,
     get_sequence_length,
 )
 
-from .mapping import (
+from transposonmapper.mapping import (
     get_reads,
     add_chromosome_length,
     add_chromosome_length_inserts,
     get_insertions_and_reads,
 )
 
-from .utils import chromosomename_roman_to_arabic
+from transposonmapper.utils import chromosomename_roman_to_arabic
 
-from .importing import (
+from transposonmapper.importing import (
     load_default_files,
     read_genes,
 )
 
-from .exporting import (
+from transposonmapper.exporting import (
     save_as_bed,
     save_per_gene,
     save_per_gene_insertions,
