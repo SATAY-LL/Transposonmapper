@@ -2,7 +2,7 @@ import os
 import numpy as np
 
 
-def export_as_wig(wigfile, ref_names, readnumb_array, tncoordinates_array, ref_tid):
+def save_as_wig(wigfile, ref_names, readnumb_array, tncoordinates_array, ref_tid):
     """
 
     """

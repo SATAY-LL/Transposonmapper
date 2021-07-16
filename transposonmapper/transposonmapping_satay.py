@@ -46,7 +46,7 @@ from .exporting import (
     save_per_gene,
     save_per_gene_insertions,
     save_per_essential_insertions,
-    export_as_wig,
+    save_as_wig
 )
 
 
@@ -209,7 +209,7 @@ def transposonmapper(bamfile, gff_file=None, essential_file=None, gene_name_file
     print("Writing wig file at: ", wigfile)
     print("")
 
-    export_as_wig(wigfile, ref_names, readnumb_array, tncoordinates_array, ref_tid)
+    save_as_wig(wigfile, ref_names, readnumb_array, tncoordinates_array, ref_tid)
 
 
 #%%
