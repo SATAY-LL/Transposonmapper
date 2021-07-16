@@ -27,12 +27,18 @@ ENV adapters=/opt/conda/bbtools/lib/resources/adapters.fa
 ENV bbduk=/opt/conda/bbtools/lib/bbduk.sh
 ENV satay=/opt/satay.sh
 
+
 # Avoid accessibility warning from yad
 ENV NO_AT_BRIDGE=1
 
 # Copy code to container
 COPY ./transposonmapper /opt/transposonmapper
 COPY satay.sh /opt
+COPY setup.py /opt
 
+# Install the transposonmapper package inside the container
+
+RUN cd opt/
+RUN pip install -e .
 # Default command when running the container
 CMD bash ${satay}
