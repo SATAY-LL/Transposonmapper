@@ -210,10 +210,3 @@ def transposonmapper(bamfile, gff_file=None, essential_file=None, gene_name_file
     print("")
 
     export_as_wig(wigfile, ref_names, readnumb_array, tncoordinates_array, ref_tid)
-
-
-#%%
-if __name__ == "__main__":
-    bamfile = "transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam"
-    transposonmapper(bamfile=bamfile)
-

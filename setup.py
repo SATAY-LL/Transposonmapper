@@ -36,5 +36,5 @@ setup(
     ],
     test_suite="tests",
     install_requires=["numpy", "pysam"],
-    extras_require={"dev": ["bump2version", "pytest", "pytest-cov"]},
+    extras_require={"dev": ["bump2version", "pandas", "pytest", "pytest-cov"]},
 )

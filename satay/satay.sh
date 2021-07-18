@@ -46,7 +46,7 @@ main () {
 	path_trimm_software="/opt/conda/bin/trimmomatic"
 
 	#PYTHON CODES (path to python code for transposon_mapping).
-	path_python_codes="/opt/src/transposonmapper/"
+	path_python_codes="/opt/satay/"
 
 ############################################################
 
@@ -61,7 +61,7 @@ main () {
 	paired="Single-end" #-p
 	trimming_software="bbduk" #-s
 	trimming_settings="ktrim=l k=15 mink=10 hdist=1 qtrim=r trimq=10 minlen=30" #-t
-	alignment_settings=" -v 2" #-a
+	alignment_settings=" -t 1 -v 2" #-a
 	sort_and_index="TRUE" #-i
 	mapping="TRUE" #-m
 	delete_sam="TRUE" #-d
@@ -165,7 +165,7 @@ main () {
 			"Single-end!Paired-end" \
 			"bbduk!trimmomatic!donottrim" \
 			"ktrim=l k=15 mink=10 hdist=1 qtrim=r trimq=10 minlen=30" \
-			" -v 2" \
+			" -t 1 -v 2" \
 			"FALSE" \
 			"TRUE" \
 			"FALSE" \
@@ -599,7 +599,7 @@ fi
 	then
 		echo 'Transposon mapping ...'
 		cd ${path_python_codes}
-		python3 ${path_python_codes}transposonmapping_satay.py ${path_align_out}/${filename_sort}
+		python3 ${path_python_codes}satay_transposonmapping.py ${path_align_out}/${filename_sort}
 		cd ~/
 		echo ''
 		echo 'Transposon mapping complete. Results are stored in' ${path_align_out}
