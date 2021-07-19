@@ -160,7 +160,7 @@ To build the image locally in your computer, from DockerHub :
    docker build . -t mwakok/satay:latest
 
 - Move to the location where you have the data you would like to mount to the container ,
-to use `$(pwd)` in the command bellow (simplest option) , otherwise indicate the absolute path from your computer
+to use ``$(pwd)`` in the command bellow (simplest option) , otherwise indicate the absolute path from your computer
 you would like to be loaded. 
 
 To run the docker container, use the commands for your Operating System:
@@ -188,11 +188,7 @@ If an error regarding the connection pops up :
 
     Gtk-WARNING **: cannot open display: :0
 
-There is a  solution in Linux is typing the  following command in the terminal :
-
-.. code-block:: console
-   
-   `xhost +`  
+There is a  solution in Linux is typing the  following command in the terminal : ``xhost +``
       
  
 
