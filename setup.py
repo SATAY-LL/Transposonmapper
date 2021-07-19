@@ -25,7 +25,7 @@ setup(
     package_data={"transposonmapper": ["data_files/*"]},
     key_words=["transposon-mapping", "Saccharomyces Cerevisiae",],
     classifiers=[
-        "Development Status :: 1 - Beta",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Education",
         "Intended Audience :: Science/Research",
         "Intended Audience :: Developers",
@@ -35,6 +35,6 @@ setup(
         "Programming Language :: Bash",
     ],
     test_suite="tests",
-    install_requires=["matplotlib", "numpy", "pandas", "scipy", "seaborn", "pysam"],
-    extras_require={"dev": ["bump2version", "pytest", "pytest-cov"]},
+    install_requires=["numpy", "pysam"],
+    extras_require={"dev": ["bump2version", "pandas", "pytest", "pytest-cov"]},
 )
