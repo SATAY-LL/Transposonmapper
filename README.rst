@@ -139,16 +139,23 @@ To build the image locally in your computer, from DockerHub :
 - Pull the image 
 
 .. code-block:: console
+
+
    docker pull mwakok/satay:latest
 
 - Verify the image is in your computer 
 
+
 .. code-block:: console
+
+
    docker images
 
 - Move to where you have the Dockerfile and build the image 
 
 .. code-block:: console
+
+
    docker build . -t mwakok/satay:latest
 
 - Move to the location where you have the data you would like to mount to the container ,
