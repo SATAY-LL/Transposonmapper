@@ -24,3 +24,5 @@ def test_ouput_format():
 
     assert tncoordinates_array.shape[1]==3, "This array should have three columns"
     assert tncoordinatescopy_array.shape[1]==3, "This array should have three columns"
+    assert readnumb_array.shape[0]==tncoordinates_array.shape[0], "This array should have same number of rows than the coordinates array"
+                                                                 
