@@ -52,18 +52,13 @@ main () {
  
 	custom_adapter=/data/adapters.fa
 	if test -f "$custom_adapter"; then
-		echo "$custom_adapter exists."
-		echo "Do you want to use the adapter file in /data/ for further processing? yes or no"
-		read n
-		if [[  "$n" = "yes"  ]] ; then
-			echo "Custom adapter file chosen"
-			adapterfile=$custom_adapter
-			else
-			echo "Using the default adapter file"
-			fi
+		echo "*****$custom_adapter exists. The pipeline will use that adapter file*****"
+		adapterfile=$custom_adapter
+	
 		else
-			echo "$custom_adapter does not exist. It will use the default one"
+			echo "*****$custom_adapter does not exist. The pipeline will use a default one*****"
 
+			
 		
 	fi
 
