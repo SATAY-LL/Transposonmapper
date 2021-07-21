@@ -1,8 +1,6 @@
-from transposonmapper.processing.sum_from_chrom_list import summed_chr
-from transposonmapper.processing.l_genome import length_genome
 from transposonmapper.processing.chromosome_names_in_files import chromosome_name_bedfile
 from transposonmapper.properties.get_chromosome_position import chromosome_position
-from transposonmapper.processing.l_genome import length_genome 
+
 import numpy as np
 
 def summed_chr(chr_length_dict):
@@ -83,8 +81,8 @@ def counts_genome(variable,bed_file,gff_file):
     return allcounts_list
 
 def binned_list(allcounts_list,bar_width):
-    """ 
-    allcounts_list=counts_genome(l_genome,variable,bed_file,gff_file)
+    """ binned list from all counts list
+    
     
     """
     
