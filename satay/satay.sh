@@ -34,7 +34,7 @@ main () {
 	cachefile="/data/processing_workflow_cache.txt"
 
 	#ADAPTERFILE (this refers to the file with adapter sequences that are used for trimming).
-	adapterfile=$adapters
+	adapterfile=$adapters # default file
 
 	#REFERENCE GENOME (path to the fasta file of the reference genome).
 	path_refgenome="/opt/src/transposonmapper/data_files/S288C_reference_sequence_R64-2-1_20150113.fsa"
@@ -49,6 +49,18 @@ main () {
 	path_python_codes="/opt/satay/"
 
 ############################################################
+ 
+	custom_adapter=/data/adapters.fa
+	if test -f "$custom_adapter"; then
+		echo "*****$custom_adapter exists. The pipeline will use that adapter file*****"
+		adapterfile=$custom_adapter
+	
+		else
+			echo "*****$custom_adapter does not exist. The pipeline will use a default one*****"
+
+			
+		
+	fi
 
 
 
