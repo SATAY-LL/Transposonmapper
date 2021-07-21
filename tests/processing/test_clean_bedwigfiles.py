@@ -3,8 +3,21 @@ import pkg_resources
 import glob
 import pandas as pd
 import pytest
+import pysam 
 
 from transposonmapper.processing.clean_bedwigfiles import cleanfiles
+from transposonmapper import transposonmapper
+
+@pytest.fixture
+def bamfile():
+    """
+    Load bamfile for testing
+    """
+    data_path = pkg_resources.resource_filename("transposonmapper", "data_files/files4test/")
+    filename = "SRR062634.filt_trimmed.sorted.bam"
+    bamfile = os.path.join(data_path, filename)
+    
+    return bamfile
 
 @pytest.fixture
 def datapath():
@@ -12,22 +25,24 @@ def datapath():
     return datapath
 
 @pytest.fixture
-def bedfile():
-    data_path = pkg_resources.resource_filename("transposonmapper", "data_files/files4test")
+def bedfile(datapath):
+   
+    
     data_file = "SRR062634.filt_trimmed.sorted.bam.bed"
-    bedfile = os.path.join(data_path, data_file)
+    bedfile = os.path.join(datapath, data_file)
     return bedfile 
 
 @pytest.fixture
-def wigfile():
-    data_path = pkg_resources.resource_filename("transposonmapper", "data_files/files4test")
+def wigfile(datapath):
+    
     data_file = "SRR062634.filt_trimmed.sorted.bam.wig"
-    wigfile = os.path.join(data_path, data_file)
+    wigfile = os.path.join(datapath, data_file)
     return wigfile
 
 
-def test_output_data(wigfile,bedfile,datapath):
-    
+def test_output_data(bamfile,wigfile,bedfile,datapath):
+
+    transposonmapper(bamfile)
     cleanfiles(filepath=wigfile,custom_header="", split_chromosomes=False)
     cleanfiles(filepath=bedfile,custom_header="", split_chromosomes=False)
     
@@ -38,9 +53,9 @@ def test_output_data(wigfile,bedfile,datapath):
     assert len(file_bed)>=1, "There is a clean file per bedfile"
 
 
-def test_empty_custom_header_bed(bedfile,datapath):
+def test_empty_custom_header_bed(bamfile,bedfile,datapath):
     
-
+    transposonmapper(bamfile)
     cleanfiles(filepath=bedfile,custom_header="", split_chromosomes=False)
     
     with open(bedfile, "r") as f:
@@ -54,9 +69,9 @@ def test_empty_custom_header_bed(bedfile,datapath):
     assert data.columns[0]==lines[0].strip('\n') , "Expect a different name when custom header is empty"
 
 
-def test_empty_custom_header_wig(wigfile,datapath):
+def test_empty_custom_header_wig(bamfile,wigfile,datapath):
     
-
+    transposonmapper(bamfile)
     cleanfiles(filepath=wigfile,custom_header="", split_chromosomes=False)
     
     with open(wigfile, "r") as f:
@@ -70,7 +85,9 @@ def test_empty_custom_header_wig(wigfile,datapath):
     assert data.columns[0]==lines[0].replace(',','').strip('\n'), "Expect a different name when custom header is empty"
     
 
-def test_nonempty_custom_header_wig(wigfile,datapath):
+def test_nonempty_custom_header_wig(bamfile,wigfile,datapath):
+
+    transposonmapper(bamfile)
     
     custom_header="test_name"
 

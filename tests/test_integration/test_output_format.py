@@ -139,12 +139,12 @@ def test_output_format_wig():
 
     data = pd.read_csv(file[0], delimiter=" ")
 
-    # assert data.columns.tolist() == [
-    #     "track",
-    #     "type=wiggle_0",
-    #     ",maxheightPixels=60",
-    #     "name=SRR062634.filt_trimmed.sorted.bam",
-    # ], "wrong columns names"
+    assert data.columns.tolist() == [
+        "track",
+        "type=wiggle_0",
+        ",maxheightPixels=60",
+        "name=SRR062634.filt_trimmed.sorted.bam",
+    ], "wrong columns names"
     assert data.iloc[:, 0].dtypes == "object", "Incorrect data type"
     assert data.iloc[:, 1].dtypes == "object", "Incorrect data type"
     assert data.iloc[0, 1] == "chrom=chrref|NC_001133|", "Incorrect first headline"
@@ -165,11 +165,11 @@ def test_output_format_bed():
 
     data = pd.read_csv(file[0], delimiter=" ")
 
-    # assert data.columns.tolist() == [
-    #     "track",
-    #     "name=SRR062634.filt_trimmed.sorted.bam",
-    #     "useScore=1",
-    # ], "wrong columns names"
+    assert data.columns.tolist() == [
+        "track",
+        "name=SRR062634.filt_trimmed.sorted.bam",
+        "useScore=1",
+    ], "wrong columns names"
     assert data.iloc[:, 0].dtypes == "int64", "Incorrect data type"
     assert data.iloc[:, 1].dtypes == "object", "Incorrect data type"
     assert (
