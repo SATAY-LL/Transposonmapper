@@ -1,4 +1,4 @@
-track type=wiggle_0 maxheightPixels=60 name=SRR062634.filt_trimmed.sorted.bam
+track type=wiggle_0 maxheightPixels=60 name=test_name
 variablestep chrom=chrI
 23708 1
 23719 1
