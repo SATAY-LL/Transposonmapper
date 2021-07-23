@@ -6,11 +6,9 @@ import pandas as pd
 import pytest
 import numpy 
 from transposonmapper.importing import load_default_files
-from transposonmapper.processing.chromosome_names_in_files import chromosome_name_bedfile
 from transposonmapper.properties.get_chromosome_position import chromosome_position
-from transposonmapper.processing.clean_bedwigfiles import cleanfiles
 from transposonmapper import transposonmapper
-from transposonmapper.processing.profileplot_genome_helpers import * 
+from transposonmapper.processing import summed_chr,counts_genome,length_genome,binned_list,middle_chrom_pos
 
 @pytest.fixture
 def bamfile():

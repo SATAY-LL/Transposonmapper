@@ -6,7 +6,7 @@ import pytest
 from transposonmapper import transposonmapper
 from transposonmapper.importing import load_default_files
 from transposonmapper.properties.get_chromosome_position import chromosome_position
-from transposonmapper.processing.transposonread_profileplot_genome import profile_genome
+from transposonmapper.processing import profile_genome
 from transposonmapper.processing.profileplot_genome_helpers import length_genome
 
 @pytest.fixture
