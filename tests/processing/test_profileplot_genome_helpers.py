@@ -1,0 +1,68 @@
+import os
+import pkg_resources
+import glob
+import pandas as pd
+
+import pytest
+
+from transposonmapper.importing import load_default_files
+from transposonmapper.processing.chromosome_names_in_files import chromosome_name_bedfile
+from transposonmapper.properties.get_chromosome_position import chromosome_position
+from transposonmapper.processing.clean_bedwigfiles import cleanfiles
+from transposonmapper import transposonmapper
+from transposonmapper.processing.profileplot_genome_helpers import * 
+
+@pytest.fixture
+def bamfile():
+    """
+    Load bamfile for testing
+    """
+    data_path = pkg_resources.resource_filename("transposonmapper", "data_files/files4test/")
+    filename = "SRR062634.filt_trimmed.sorted.bam"
+    bamfile = os.path.join(data_path, filename)
+    
+    return bamfile
+
+@pytest.fixture
+def datapath():
+    datapath = pkg_resources.resource_filename("transposonmapper", "data_files/files4test")
+    return datapath
+
+@pytest.fixture
+def gff_file():
+    gff_file, _, _ = load_default_files(
+        gff_file=None, essentials_file=None, gene_names_file=None
+    )
+    return gff_file
+
+@pytest.fixture
+def chr_input(gff_file):
+    chr_input, _, _ = chromosome_position(gff_file)
+
+    return chr_input
+
+def test_summed_chr(chr_input):
+    """Checking type of output data"""
+   
+    a=summed_chr(chr_input)
+
+    assert len(a)==16 , "There are 16 chromosomes summed "
+    
+    assert isinstance(a['I'],int), "The sum should be an integer"
+    
+def test_length_genome(chr_input):
+    """Checking type of output data"""
+
+    l_genome=length_genome(chr_input)
+    
+    assert isinstance(l_genome,int) , "The length of the genome should be an integer"
+   
+def test_middle_chrom_pos(chr_input):
+    """Checking type of output data"""
+
+    middle_chr_position=middle_chrom_pos(chr_input)
+    
+    assert len(middle_chr_position)==16 , "There are 16 chromosomes to analyze in yeast"
+    assert isinstance(middle_chr_position,list), "The output should be a list"
+    
+    

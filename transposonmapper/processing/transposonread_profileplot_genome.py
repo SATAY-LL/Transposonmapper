@@ -77,7 +77,7 @@ def profile_genome(bed_file=None, variable="transposons", bar_width=None, savefi
     genes_essential_list = list_known_essentials(essential_file)
 
 
-    allcounts_list=counts_genome(variable,bed_file,gff_file,bar_width)
+    allcounts_list=counts_genome(variable,bed_file,gff_file)
 
     allcounts_binnedlist=binned_list(allcounts_list,bar_width)
 

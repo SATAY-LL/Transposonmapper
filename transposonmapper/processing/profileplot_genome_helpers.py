@@ -1,10 +1,20 @@
 from transposonmapper.processing.chromosome_names_in_files import chromosome_name_bedfile
 from transposonmapper.properties.get_chromosome_position import chromosome_position
 
-import numpy as np
+import numpy as np 
 
 def summed_chr(chr_length_dict):
-    """
+    """Create a dictionary where each value is the cumulative sum of all bp in each chromosomes
+
+    Parameters
+    ----------
+    chr_length_dict : dict
+        A dictionary describing the length of each chromosome. 
+
+    Returns
+    -------
+    dict
+        A dictionary where each value corresponds to the cumulative sum of the previous chromosomes lengths. 
     """
     
     chrom_list = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI']
@@ -19,7 +29,18 @@ def summed_chr(chr_length_dict):
 
 def length_genome(chr_length_dict):
     
-    """Length of the genome in bp
+    """Output the length of the genome in bp 
+
+    Parameters
+    ----------
+
+    chr_length_dict : dict
+        A dictionary describing the length of each chromosome. 
+
+    Returns
+    -------
+    int
+        The length of the genome
     """
     
     chrom_list = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI']
@@ -34,6 +55,18 @@ def length_genome(chr_length_dict):
 
 
 def middle_chrom_pos(chr_length_dict):
+    """Defines the middle poit of each chromosome
+
+    Parameters
+    ----------
+    chr_length_dict : dict
+        A dictionary describing the length of each chromosome. 
+
+    Returns
+    -------
+    list
+        A list describing for each chromosome the middle point. 
+    """
     
     summed_chr_length_dict=summed_chr(chr_length_dict)
     
@@ -56,6 +89,22 @@ def middle_chrom_pos(chr_length_dict):
 
 
 def counts_genome(variable,bed_file,gff_file):
+    """[summary]
+
+    Parameters
+    ----------
+    variable : [type]
+        [description]
+    bed_file : [type]
+        [description]
+    gff_file : [type]
+        [description]
+
+    Returns
+    -------
+    [type]
+        [description]
+    """
     
     with open(bed_file) as f:
         lines = f.readlines()
@@ -81,9 +130,19 @@ def counts_genome(variable,bed_file,gff_file):
     return allcounts_list
 
 def binned_list(allcounts_list,bar_width):
-    """ binned list from all counts list
-    
-    
+    """[summary]
+
+    Parameters
+    ----------
+    allcounts_list : [type]
+        [description]
+    bar_width : [type]
+        [description]
+
+    Returns
+    -------
+    [type]
+        [description]
     """
     
     allcounts_binnedlist = []

@@ -2,8 +2,8 @@ import os
 import pkg_resources
 import glob
 import pandas as pd
+
 import pytest
-import pysam 
 
 from transposonmapper.processing.clean_bedwigfiles import cleanfiles
 from transposonmapper import transposonmapper
