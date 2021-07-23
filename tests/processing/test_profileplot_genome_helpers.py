@@ -88,3 +88,18 @@ def test_counts_genome(gff_file,bamfile,bedfile,chr_input):
     assert type(allcounts_list)==numpy.ndarray, "The counts of the genome output should be an array "
     
     assert len(allcounts_list)==l_genome , " The array should have a length equal to the length of the genome"
+
+def test_binned_list(bedfile,gff_file,bamfile,chr_input):
+    variable="transposons"
+
+    transposonmapper(bamfile)
+    l_genome=length_genome(chr_input) # length of the genome
+    
+    allcounts_list=counts_genome(variable,bedfile,gff_file)
+    bins=1000
+
+    allcounts_binnedlist=binned_list(allcounts_list,bar_width= l_genome/bins)
+    
+    assert isinstance(allcounts_binnedlist,list), "It has to be a list"
+    
+    assert len(allcounts_binnedlist)==bins+1 , "The length should be number of bins+1"
