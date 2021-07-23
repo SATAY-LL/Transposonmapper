@@ -89,21 +89,21 @@ def middle_chrom_pos(chr_length_dict):
 
 
 def counts_genome(variable,bed_file,gff_file):
-    """[summary]
+    """Counts of reads or the transposons per chromosomes
 
     Parameters
     ----------
-    variable : [type]
-        [description]
-    bed_file : [type]
-        [description]
-    gff_file : [type]
-        [description]
+    variable : str
+        "transposons" or "reads"
+    bed_file : str
+        absolute path of the location of the bedfile
+    gff_file : str
+        absolute path of the location of the gff file 
 
     Returns
     -------
-    [type]
-        [description]
+    numpy.ndarray
+        An array of the length of the genome with the counts of each variable per location in the genome. 
     """
     
     with open(bed_file) as f:
@@ -130,19 +130,19 @@ def counts_genome(variable,bed_file,gff_file):
     return allcounts_list
 
 def binned_list(allcounts_list,bar_width):
-    """[summary]
+    """A binned list for a histogram of the counts 
 
     Parameters
     ----------
-    allcounts_list : [type]
-        [description]
-    bar_width : [type]
-        [description]
+    allcounts_list : numpy.ndarray
+        Output of the counts_genome function
+    bar_width : float 
+        It could be a function of the length of the genome e.g. bar_width=l_genome/1000
 
     Returns
     -------
-    [type]
-        [description]
+    list
+        Binned list 
     """
     
     allcounts_binnedlist = []

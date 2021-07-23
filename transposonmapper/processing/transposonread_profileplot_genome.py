@@ -140,9 +140,9 @@ def profile_genome(bed_file=None, variable="transposons", bar_width=None, savefi
     
     # Axis labels
     if variable == "transposons":
-        plt.ylabel('Transposon Count', fontsize=textsize, color=textcolor)
+        ax.set_ylabel('Transposon Count', fontsize=textsize, color=textcolor)
     elif variable == "reads":
-        plt.ylabel('Read Count', fontsize=textsize, color=textcolor)
+        ax.set_ylabel('Read Count', fontsize=textsize, color=textcolor)
 
     # colored bars in the bottom 
     for gene in genes_currentchrom_pos_list:
@@ -166,8 +166,10 @@ def profile_genome(bed_file=None, variable="transposons", bar_width=None, savefi
         print('saving figure at %s' % savepath[0]+'_readplot_genome.png')
         plt.savefig(savepath[0]+'_readplot_genome.png', dpi=400)
         plt.close()
-    else:
-        plt.show()
+    # else:
+    #     plt.show()
+        
+    return allinsertionsites_list,allcounts_binnedlist
 
 
 
