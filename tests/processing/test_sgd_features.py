@@ -6,13 +6,15 @@ from transposonmapper.processing.read_sgdfeatures import sgd_features
 
 def test_output():
     
-    a=sgd_features()[0]
-    b=sgd_features()[1]
-    assert isinstance(a,list) , "The genomic regions should be in a list"
-    assert len(a)==20 , "There should be 20 genomic regions"
+    a=sgd_features()
+    
+    
+    
+    assert isinstance(a[0],list) , "The genomic regions should be in a list"
+    assert len(a[0])>=20 , "There should be  20 genomic regions"
     
 
-    assert isinstance(b, dict) , "The features from all ORF should be a dict"
-    assert len(b)>=6000 , "The number of ORFs in yeast should be more than 6000"
+    assert isinstance(a[1], dict) , "The features from all ORF should be a dict"
+    assert len(a[1])>=6000 , "The number of ORFs in yeast should be more than 6000"
 
 
