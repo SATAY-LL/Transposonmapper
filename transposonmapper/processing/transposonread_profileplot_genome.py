@@ -16,7 +16,7 @@ from transposonmapper.processing.profileplot_genome_helpers import (summed_chr,
 length_genome,middle_chrom_pos,counts_genome,binned_list)
 
 
-def profile_genome(bed_file=None, variable="transposons", bar_width=None, savefig=False):
+def profile_genome(bed_file=None, variable="transposons", bar_width=None, savefig=False,showfig=False):
     '''
     Created on Thu Mar 18 13:05:39 2021
 
@@ -166,8 +166,8 @@ def profile_genome(bed_file=None, variable="transposons", bar_width=None, savefi
         print('saving figure at %s' % savepath[0]+'_readplot_genome.png')
         plt.savefig(savepath[0]+'_readplot_genome.png', dpi=400)
         plt.close()
-    # else:
-    #     plt.show()
+    if showfig==True:
+        plt.show()
         
     return allinsertionsites_list,allcounts_binnedlist
 
