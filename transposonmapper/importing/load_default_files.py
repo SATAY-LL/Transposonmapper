@@ -1,7 +1,7 @@
 import os
 import pkg_resources
 
-def load_default_files(gff_file, essentials_file, gene_names_file):
+def load_default_files(gff_file=None, essentials_file=None, gene_names_file=None):
     """This function loads some files that have a recurrent use throughout the pipeline.
     It will look inside the satay/data_files folder for the files if the input is None. 
     Otherwise it will return the same input file.  
@@ -55,7 +55,7 @@ this release of UniProtKB/Swiss-Prot. Yeast (Saccharomyces cerevisiae): entries,
     return gff_file, essentials_file, gene_names_file
 
 
-def load_sgd_tab(sgd_features_file):
+def load_sgd_tab(sgd_features_file=None):
     """This function loads the file SGD_features.tab
     The latest version of the SGD_features.tab file is based on Genome Version R64-2-1.
     If a specific file is provided it will output that file , otherwise , if it is set to None then 
