@@ -318,7 +318,7 @@ def dna_features(region, wig_file, pergene_insertions_file, variable="reads", pl
 # CREATE BAR PLOT
     if plotting == True:
         create_plottitle = region
-        region_type = 'Gene'
+        
     if plotting == True:
         noncoding_color = "#002538"
         essential_color = "#10e372"
@@ -465,28 +465,3 @@ def feature_position(feature_dict, chrom, start_chr, dna_dict, feature_type=None
     return(dna_dict)
 
 
-
-# #%% INPUT
-
-# # for chrom in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI']:
-# #     region=chrom
-
-# region = 1 #e.g. 1, "I", ["I", 0, 10000"], gene name (e.g. "CDC42")
-# wig_file = r""
-# pergene_insertions_file = r""
-# plotting=True
-# variable="reads" #"reads" or "insertions"
-# savefigure=False
-# verbose=True
-
-# if __name__ == '__main__':
-#     dna_df2 = dna_features(region=region,
-#                  wig_file=wig_file,
-#                  pergene_insertions_file=pergene_insertions_file,
-#                  variable=variable,
-#                  plotting=plotting,
-#                  savefigure=savefigure,
-#                  verbose=verbose)
-
-
-# %%
