@@ -9,8 +9,7 @@ import numpy as np
 import pkg_resources
 
 
-from transposonmapper.properties import chromosome_position,gene_position,list_gene_names,gene_aliases
-from transposonmapper.utils import chromosomename_roman_to_arabic
+from transposonmapper.properties import chromosome_position,gene_aliases
 from transposonmapper.processing import chromosome_name_wigfile
 
 from transposonmapper.processing.read_sgdfeatures import sgd_features
@@ -233,7 +232,7 @@ def dna_features(region, wig_file, pergene_insertions_file, variable="reads", pl
 
     if sorted(orf_position_dict) == sorted(gene_position_dict):
         if verbose == True:
-#            print('Everything alright, just ignore me!')
+            print('Everything alright, just ignore me!')
             pass
         else:
             pass
@@ -505,7 +504,7 @@ def dna_features(region, wig_file, pergene_insertions_file, variable="reads", pl
 
 
         if savefigure == True:
-            file_dirname=pkg_resources.resource_filename("satay/")
+            file_dirname=pkg_resources.resource_filename("transposonmapper", "data_files/")
             if variable == 'reads':
                 saving_name = os.path.join(file_dirname,'GenomicFeaturesReads_Barplot_Chrom'+chrom+'_NonNormalized')
             else:
@@ -569,3 +568,5 @@ def feature_position(feature_dict, chrom, start_chr, dna_dict, feature_type=None
 #                  savefigure=savefigure,
 #                  verbose=verbose)
 
+
+# %%
