@@ -2,7 +2,7 @@ import os
 from transposonmapper.properties.gene_aliases import gene_aliases
 import pkg_resources
 import glob
-import pandas as pd
+import pandas 
 
 import pytest
 import numpy 
@@ -10,7 +10,8 @@ import numpy
 
 from transposonmapper import transposonmapper
 
-from transposonmapper.processing import input_region,read_pergene_file,read_wig_file,gene_location,feature_position,intergenic_regions
+from transposonmapper.processing import (input_region,read_pergene_file,
+read_wig_file,gene_location,feature_position,intergenic_regions, build_dataframe)
 from transposonmapper.utils import chromosomename_roman_to_arabic
 
 
@@ -153,4 +154,20 @@ def test_output_intergenic_regions(pergenefile,bamfile):
     assert isinstance(dna_dict_new2,dict) , "It is expected a dictionary"
     assert isinstance(genomicregions_list,list) , "It is expected a list"
     
+    
+def test_output_build_dataframe(pergenefile,bamfile,wigfile):
+
+    transposonmapper(bamfile)
+    chrom="I"
+    insrt_in_chrom_list, reads_in_chrom_list=read_wig_file(wigfile,chrom)
+    gene_position_dict=read_pergene_file(pergenefile,chrom=chrom)
+    
+    dna_dict,start_chr,end_chr,_,_=gene_location(chrom,gene_position_dict,verbose=True)
+    
+    dna_dict,genomicregions_list=intergenic_regions(chrom,start_chr,dna_dict)
+
+    dataf=build_dataframe(dna_dict,start_chr,end_chr,insrt_in_chrom_list,reads_in_chrom_list,genomicregions_list,chrom)
+
+    assert isinstance(dataf,pandas.core.frame.DataFrame) , "It is expected a dataframe"
+
     

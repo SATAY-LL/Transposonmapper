@@ -6,7 +6,7 @@ from .profileplot_genome_helpers import (summed_chr,counts_genome,length_genome,
 binned_list)
 from .genomicfeatures_dataframe import dna_features
 from .dna_features_helpers import (input_region, read_wig_file, read_pergene_file,gene_location,
-feature_position,intergenic_regions,checking_features)
+feature_position,intergenic_regions,checking_features,build_dataframe)
 
 from .read_sgdfeatures import sgd_features
 
@@ -22,5 +22,5 @@ __all__ = [
 "dna_features", "feature_position", 
 "input_region", "read_wig_file" , "read_pergene_file",
 "sgd_features", "gene_location" ,"intergenic_regions",
-"checking_features"
+"checking_features","build_dataframe"
 ]

@@ -1,5 +1,7 @@
 import os
 import pkg_resources
+import numpy as np
+import pandas as pd 
 from transposonmapper.utils import chromosomename_roman_to_arabic
 from transposonmapper.importing import load_default_files,load_sgd_tab
 from transposonmapper.properties import list_gene_names , gene_position, gene_aliases,chromosome_position
@@ -376,3 +378,185 @@ def checking_features(feature_orf_dict,chrom,gene_position_dict,verbose):
         print('WARNING: Genes in feature_list are not the same as the genes in the gene_position_dict. Please check!')
 
     
+def build_dataframe(dna_dict,start_chr,end_chr,insrt_in_chrom_list,reads_in_chrom_list,genomicregions_list,chrom):
+    """Main function that build the big dataframe with all genes characteristics 
+
+    Parameters
+    ----------
+    dna_dict : dict
+        1st output of the function intergenic_regions
+    start_chr : int
+        2nd output of the function gene_location
+    end_chr : int
+        3rd output of the function gene_location
+    insrt_in_chrom_list : list
+        1st output of the function read_wig_file
+    reads_in_chrom_list : list
+        2nd output of the function read_wig_file
+    genomicregions_list : list
+        All the annotated genomic regions, 2nd output of the intergenic_regions function
+    chrom : str
+        Name of the chromosome in roman where to extract the information.
+
+    Returns
+    -------
+    dataframe
+    - dna_df2: Dataframe containing information about the selected chromosome. This includes the following columns:
+        - Feature name
+        - Standard name of the feature
+        - Aliases of feature name (if any)
+        - Feature type (e.g. gene, telomere, centromere, etc. If None, this region is not defined)
+        - Chromosome
+        - Position of feature type in terms of bp relative to chromosome.
+        - Length of region in terms of basepairs
+        - Number of insertions in region
+        - Number of insertions in truncated region where truncated region is the region without the first and last 100bp.
+        - Number of reads in region
+        - Number of reads in truncated region.
+        - Number of reads per insertion (defined by Nreads/Ninsertions)
+        - Number of reads per insertion in truncated region (defined by Nreads_truncatedgene/Ninsertions_truncatedgene)
+        NOTE: truncated regions are only determined for genes. For the other regions the truncated region values are the same as the non-truncated region values.
+
+
+        
+    """
+
+    _,essentials_file,gene_information_file=load_default_files()
+    
+
+    ## DETERMINE THE NUMBER OF TRANSPOSONS PER BP FOR EACH FEATURE
+
+    reads_loc_list = [0] * len(dna_dict) # CONTAINS ALL READS JUST LIKE READS_IN_CHROM_LIST, BUT THIS LIST HAS THE SAME LENGTH AS THE NUMBER OF BP IN THE CHROMOSOME WHERE THE LOCATIONS WITH NO READS ARE FILLED WITH ZEROS
+    i = 0
+    for ins in insrt_in_chrom_list:
+        reads_loc_list[ins] = reads_in_chrom_list[i]
+        i += 1
+
+    feature_NameAndType_list = []
+    f_previous = dna_dict.get(start_chr)[0]
+    f_type = dna_dict.get(start_chr)[1]
+    N_reads = []
+    N_reads_list_true=[]
+    N_reads_list = []
+    N_reads_truncatedgene_list = []
+    N_insrt_truncatedgene_list = []
+    N_insrt_list = []
+    N_bp = 1
+    N_bp_list = []
+    f_start = 0
+    f_end = 0
+    f_pos_list = []
+    i = 0
+    for bp in dna_dict:
+        f_current = dna_dict.get(bp)[0]
+        if f_current == f_previous:
+            f_type = dna_dict.get(bp)[1]
+            f_end += 1
+            N_bp += 1
+            N_reads.append(reads_loc_list[i])
+        elif (f_current != f_previous or (i+start_chr) == end_chr):# and not f_current.endswith('-A'):
+            feature_NameAndType_list.append([f_previous, f_type])
+            N_reads_list.append(sum(N_reads))
+            N_reads_list_true.append(np.array(N_reads,dtype=float))
+            N_insrt_list.append(len([ins for ins in N_reads if not ins == 0]))
+            if not f_type == None and f_type.startswith('Gene'):
+                N10percent = 100#int(len(N_reads) * 0.1) #TRUNCATED GENE DEFINITION
+                N_reads_truncatedgene_list.append(sum(N_reads[N10percent:-N10percent]))
+                N_insrt_truncatedgene_list.append(len([ins for ins in N_reads[N10percent:-N10percent] if not ins == 0]))
+            else:
+                N_reads_truncatedgene_list.append(sum(N_reads))
+                N_insrt_truncatedgene_list.append(len([ins for ins in N_reads if not ins == 0]))
+
+            N_bp_list.append(N_bp)
+            N_reads = []
+            N_bp = 1
+            f_pos_list.append([f_start, f_end+f_start])
+            f_start = f_start + f_end + 1
+            f_end = 0
+            f_previous = f_current
+        i += 1
+
+    N_reads_per_ins_list = []
+    N_reads_per_ins_truncatedgene_list = []
+    for i in range(len(N_reads_list)):
+        if N_insrt_list[i] < 5:
+            N_reads_per_ins_list.append(0)
+            N_reads_per_ins_truncatedgene_list.append(0)
+        elif N_insrt_truncatedgene_list[i] < 5:
+            N_reads_per_ins_list.append(N_reads_list[i]/(N_insrt_list[i]-1))
+            N_reads_per_ins_truncatedgene_list.append(0)
+        else:
+            N_reads_per_ins_list.append(N_reads_list[i]/(N_insrt_list[i]-1))
+            N_reads_per_ins_truncatedgene_list.append(N_reads_truncatedgene_list[i]/N_insrt_truncatedgene_list[i])
+
+
+    #############get all essential genes together with their aliases##############
+    with open(essentials_file, 'r') as f:
+        essentials_temp_list = f.readlines()[1:]
+    essentials_list = [essential.strip('\n') for essential in essentials_temp_list]
+    del essentials_temp_list
+
+    gene_alias_dict = gene_aliases(gene_information_file)[0]
+    for key, val in gene_alias_dict.items():
+        if key in essentials_list:
+            for alias in val:
+                essentials_list.append(alias)
+
+    #ADD
+    essentiality_list = []
+    for feature in feature_NameAndType_list:
+        if not feature[0] == "noncoding":
+            if feature[1] in genomicregions_list:
+                essentiality_list.append(None)
+            elif feature[0] in essentials_list:
+                essentiality_list.append(True)
+            else:
+                essentiality_list.append(False)
+        else:
+            essentiality_list.append(None)
+
+    
+
+    feature_name_list = []
+    feature_type_list = []
+    feature_alias_list = []
+    feature_standardname_list = []
+    for feature_name in feature_NameAndType_list:
+        feature_name_list.append(feature_name[0])
+        feature_type_list.append(feature_name[1])
+        if feature_name[1] != None and feature_name[1].startswith('Gene') and feature_name[0] in gene_alias_dict:
+            if gene_alias_dict.get(feature_name[0])[0] == feature_name[0]:
+                feature_standardname_list.append(feature_name[0])
+                feature_alias_list.append('')
+            else:
+                if len(gene_alias_dict.get(feature_name[0])) > 1:
+                    feature_standardname_list.append(gene_alias_dict.get(feature_name[0])[0])
+                    feature_alias_list.append(gene_alias_dict.get(feature_name[0])[1:])
+                else:
+                    feature_standardname_list.append(gene_alias_dict.get(feature_name[0])[0])
+                    feature_alias_list.append('')
+        else:
+            feature_standardname_list.append(feature_name[0])
+            feature_alias_list.append('')
+
+
+    all_features = {'Feature_name': feature_name_list,
+                    'Standard_name': feature_standardname_list,
+                    'Feature_alias':feature_alias_list,
+                    'Feature_type': feature_type_list,
+                    'Essentiality': essentiality_list,
+                    'Chromosome': [chrom]*len(feature_name_list),
+                    'Position': f_pos_list,
+                    'Nbasepairs':N_bp_list,
+                    'Ninsertions':N_insrt_list,
+                    'Ninsertions_truncatedgene':N_insrt_truncatedgene_list,
+                    'Nreads':N_reads_list,
+                    'Nreads_list':  N_reads_list_true,
+                    'Nreads_truncatedgene':N_reads_truncatedgene_list,
+                    'Nreadsperinsrt':N_reads_per_ins_list,
+                    'Nreadsperinsrt_truncatedgene':N_reads_per_ins_truncatedgene_list}
+
+
+    dna_df2 = pd.DataFrame(all_features, columns = [column_name for column_name in all_features]) #search for feature using: dna_df2.loc[dna_df2['Feature'] == 'CDC42']
+    #CREATE NEW COLUMN WITH ALL DOMAINS OF THE GENE (IF PRESENT) AND ANOTHER COLUMN THAT INCLUDES LISTS OF THE BP POSITIONS OF THESE DOMAINS
+    return dna_df2
