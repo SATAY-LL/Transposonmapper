@@ -1,4 +1,5 @@
 import os
+from transposonmapper.properties.gene_aliases import gene_aliases
 import pkg_resources
 import glob
 import pandas as pd
@@ -9,10 +10,10 @@ import numpy
 
 from transposonmapper import transposonmapper
 
-from transposonmapper.processing import input_region
+from transposonmapper.processing import input_region,read_pergene_file,read_wig_file
 from transposonmapper.utils import chromosomename_roman_to_arabic
 
-from transposonmapper.processing import read_wig_file
+
 
 @pytest.fixture
 def bamfile():
@@ -29,6 +30,7 @@ def bamfile():
 def datapath():
     datapath = pkg_resources.resource_filename("transposonmapper", "data_files/files4test")
     return datapath
+
 @pytest.fixture
 def wigfile(datapath):
    
@@ -36,6 +38,14 @@ def wigfile(datapath):
     data_file = "SRR062634.filt_trimmed.sorted.bam.wig"
     wigfile = os.path.join(datapath, data_file)
     return wigfile 
+
+@pytest.fixture
+def pergenefile(datapath):
+   
+    
+    data_file = "SRR062634.filt_trimmed.sorted.bam_pergene_insertions.txt"
+    pergenefile = os.path.join(datapath, data_file)
+    return pergenefile 
 
 
 def test_output_chrom_input_region():
@@ -83,3 +93,14 @@ def test_output_read_wig_file(bamfile,wigfile):
     
     assert isinstance(insertions,list), "The insertions in the region of interest are a list"
     assert isinstance(reads,list), "The reads in the region of interest are a list"
+
+
+def test_output_pergene_file(bamfile,pergenefile):
+
+    transposonmapper(bamfile)
+    chrom='I'
+    gene_locations=read_pergene_file(pergenefile,chrom)
+    
+    assert isinstance(gene_locations,dict) , "It is expected a dictionary"
+    
+    assert any(chrom in val for val in gene_locations.values()) , "The chromosome name should be in the values of the dictionary"

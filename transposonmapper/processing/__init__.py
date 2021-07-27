@@ -5,7 +5,7 @@ from .transposonread_profileplot_genome import profile_genome
 from .profileplot_genome_helpers import (summed_chr,counts_genome,length_genome,middle_chrom_pos,
 binned_list)
 from .genomicfeatures_dataframe import dna_features, feature_position
-from .dna_features_helpers import input_region, read_wig_file
+from .dna_features_helpers import input_region, read_wig_file, read_pergene_file
 
 
 __all__ = [
@@ -17,5 +17,5 @@ __all__ = [
     "length_genome","middle_chrom_pos",
 "binned_list", "profile_genome",
 "dna_features", "feature_position", 
-"input_region", "read_wig_file"
+"input_region", "read_wig_file" , "read_pergene_file"
 ]

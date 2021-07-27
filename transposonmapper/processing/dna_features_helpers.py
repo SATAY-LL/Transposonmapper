@@ -140,3 +140,57 @@ def read_wig_file(wig_file,chrom):
         reads_in_chrom_list.append(int(l.strip('\n').split(' ')[1]))
         
     return insrt_in_chrom_list,reads_in_chrom_list
+
+
+def read_pergene_file(pergene_insertions_file,chrom):
+    """Reading the pergene file , the information per gene , related to where it starts and ends in the genome. 
+
+    Parameters
+    ----------
+    pergene_insertions_file : str
+        absolute path of the per gene file location
+    chrom : str
+        Name of the chromosome in roman where to extract the informatiion from the wigfile
+
+    Returns
+    -------
+    gene_position_dict : dict 
+        A dictionary describing the chromosome, start, and end location of every gene in the chromosome of interest. 
+    """
+
+    with open(pergene_insertions_file) as f:
+        lines = f.readlines()
+
+
+    gene_position_dict = {}
+    for line in lines[1:]:
+        line_split = line.strip('\n').split('\t')
+
+
+        if line_split[1] == chrom:
+            genename = line_split[0]
+            gene_chrom = line_split[1]
+            gene_start = int(line_split[2])
+            gene_end = int(line_split[3])
+
+            gene_position_dict[genename] = [gene_chrom, gene_start, gene_end] #DICT CONTAINING ALL GENES WITHIN THE DEFINED CHROMOSOME INCLUDING ITS START AND END POSITION
+
+
+            geneinserts_str = line_split[4].strip('[]')
+            if not geneinserts_str == '':
+                geneinserts_list = [int(ins) for ins in geneinserts_str.split(',')]
+            else:
+                geneinserts_list = []
+
+
+            genereads_str = line_split[5].strip('[]')
+            if not genereads_str == '':
+                genereads_list = [int(read) for read in genereads_str.split(',')]
+            else:
+                genereads_list = []
+
+
+            if len(geneinserts_list) != len(genereads_list):
+                print('WARNING: %s has different number of reads compared with the number of inserts' % genename )
+
+    return gene_position_dict

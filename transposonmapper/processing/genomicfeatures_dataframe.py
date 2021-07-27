@@ -20,7 +20,7 @@ from transposonmapper.importing import (
 )
 
 
-from transposonmapper.processing.dna_features_helpers import input_region, read_wig_file
+from transposonmapper.processing.dna_features_helpers import input_region, read_pergene_file, read_wig_file
 
 def dna_features(region, wig_file, pergene_insertions_file, variable="reads", plotting=True, savefigure=False, verbose=True):
     """This scripts takes a user defined genomic region (i.e. chromosome number, region or gene) and creates a dataframe including information about all genomic features in the chromosome (i.e. genes, nc-DNA etc.).
@@ -121,43 +121,7 @@ def dna_features(region, wig_file, pergene_insertions_file, variable="reads", pl
 
 # READ PERGENE_INSERTIONS FILE FOR LOCATION OF ALL INSERTIONS PER EACH GENE.
 
-    with open(pergene_insertions_file) as f:
-        lines = f.readlines()
-
-
-    gene_position_dict = {}
-    for line in lines[1:]:
-        line_split = line.strip('\n').split('\t')
-
-
-        if line_split[1] == chrom:
-            genename = line_split[0]
-            gene_chrom = line_split[1]
-            gene_start = int(line_split[2])
-            gene_end = int(line_split[3])
-
-            gene_position_dict[genename] = [gene_chrom, gene_start, gene_end] #DICT CONTAINING ALL GENES WITHIN THE DEFINED CHROMOSOME INCLUDING ITS START AND END POSITION
-
-
-            geneinserts_str = line_split[4].strip('[]')
-            if not geneinserts_str == '':
-                geneinserts_list = [int(ins) for ins in geneinserts_str.split(',')]
-            else:
-                geneinserts_list = []
-
-
-            genereads_str = line_split[5].strip('[]')
-            if not genereads_str == '':
-                genereads_list = [int(read) for read in genereads_str.split(',')]
-            else:
-                genereads_list = []
-
-
-            if len(geneinserts_list) != len(genereads_list):
-                print('WARNING: %s has different number of reads compared with the number of inserts' % genename )
-
-
-    #del (f, lines, line, line_split, genename, gene_chrom, gene_start, gene_end, geneinserts_list, geneinserts_str, genereads_str, genereads_list)
+    gene_position_dict=read_pergene_file(pergene_insertions_file=pergene_insertions_file,chrom=chrom)
 
 # DETERMINE THE LOCATION GENOMIC FEATURES IN THE CURRENT CHROMOSOME AND STORE THIS IN A DICTIONARY
 
