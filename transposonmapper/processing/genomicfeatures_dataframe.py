@@ -1,6 +1,3 @@
-
-
-#%%
 import os, sys
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -20,8 +17,8 @@ from transposonmapper.importing import (
 )
 
 
-from transposonmapper.processing.dna_features_helpers import (input_region, read_pergene_file, 
-                                                              read_wig_file,gene_location)
+from transposonmapper.processing.dna_features_helpers import (input_region, intergenic_regions, read_pergene_file, 
+                                                              read_wig_file,gene_location,checking_features)
 
 def dna_features(region, wig_file, pergene_insertions_file, variable="reads", plotting=True, savefigure=False, verbose=True):
     """This scripts takes a user defined genomic region (i.e. chromosome number, region or gene) and creates a dataframe including information about all genomic features in the chromosome (i.e. genes, nc-DNA etc.).
@@ -130,37 +127,11 @@ def dna_features(region, wig_file, pergene_insertions_file, variable="reads", pl
 
 ## GET FEATURES FROM INTERGENIC REGIONS 
 
-    genomicregions_list = sgd_features(sgd_features_file)[0]
-
-    i = 2
-    for genomicregion in genomicregions_list[1:]:
-        dna_dict = feature_position(sgd_features(sgd_features_file)[i], chrom, start_chr, dna_dict, genomicregion)
-        i += 1
+    dna_dict,genomicregions_list=intergenic_regions(chrom,start_chr,dna_dict)
 
 
     ### TEST IF ELEMENTS IN FEATURE_ORF_DICT FOR SELECTED CHROMOSOME ARE THE SAME AS THE GENES IN GENE_POSITION_DICT BY CREATING THE DICTIONARY FEATURE_POSITION_DICT CONTAINING ALL THE GENES IN FEATURE_ORF_DICT WITH THEIR CORRESPONDING POSITION IN THE CHROMOSOME
-    gene_alias_dict = gene_aliases(gene_information_file)[0]
-    orf_position_dict = {}
-    for feature in feature_orf_dict:
-        if feature_orf_dict.get(feature)[5] == chrom:
-            if feature in gene_position_dict:
-                orf_position_dict[feature] = [feature_orf_dict.get(feature)[6], feature_orf_dict.get(feature)[7]]
-            else:
-                for feature_alias in gene_alias_dict.get(feature):
-                    if feature_alias in gene_position_dict:
-                        orf_position_dict[feature_alias] = [feature_orf_dict.get(feature)[6], feature_orf_dict.get(feature)[7]]
-
-
-
-    if sorted(orf_position_dict) == sorted(gene_position_dict):
-        if verbose == True:
-            print('Everything alright, just ignore me!')
-        
-    else:
-        print('WARNING: Genes in feature_list are not the same as the genes in the gene_position_dict. Please check!')
-
-
-    del (sgd_features_file, feature_orf_dict, orf_position_dict, feature, feature_alias, gene_position_dict)
+    checking_features(feature_orf_dict,chrom,gene_position_dict,verbose)
 
 ## DETERMINE THE NUMBER OF TRANSPOSONS PER BP FOR EACH FEATURE
 
@@ -441,27 +412,5 @@ def dna_features(region, wig_file, pergene_insertions_file, variable="reads", pl
 
 
 
-def feature_position(feature_dict, chrom, start_chr, dna_dict, feature_type=None):
-    
-    position_dict = {}
-    for feat in feature_dict:
-        if feature_dict.get(feat)[5] == chrom:
-#            if feat.startswith("TEL") and feat.endswith('L'): #correct for the fact that telomeres at the end of a chromosome are stored in the reverse order.
-            if int(feature_dict.get(feat)[6]) > int(feature_dict.get(feat)[7]):
-                position_dict[feat] = [feature_dict.get(feat)[5], feature_dict.get(feat)[7], feature_dict.get(feat)[6]]
-            else:
-                position_dict[feat] = [feature_dict.get(feat)[5], feature_dict.get(feat)[6], feature_dict.get(feat)[7]]
-
-
-    for feat in position_dict:
-        for bp in range(int(position_dict.get(feat)[1])+start_chr, int(position_dict.get(feat)[2])+start_chr):
-            if dna_dict[bp] == ['noncoding', None]:
-                dna_dict[bp] = [feat, feature_type]
-            else:
-#                print('Bp %i is already occupied by %s' % (bp, str(dna_dict.get(bp))))
-                pass
-
-
-    return(dna_dict)
 
 

@@ -204,7 +204,7 @@ def gene_location(chrom,gene_position_dict,verbose):
     Parameters
     ----------
     chrom : str
-        Name of the chromosome in roman where to extract the informatiion from the wigfile
+        Name of the chromosome in roman where to extract the information.
     gene_position_dict : dict
         Dictionary with info of the genes inside the chromosome . It is the output of the function
         read_pergene_file
@@ -256,3 +256,123 @@ def gene_location(chrom,gene_position_dict,verbose):
                 dna_dict[bp] = [gene_alias, "Gene; "+feature_orf_dict.get(gene_alias)[1]]
 
     return dna_dict,start_chr,end_chr,len_chr,feature_orf_dict
+
+
+def feature_position(feature_dict, chrom, start_chr, dna_dict, feature_type=None):
+    """ Get features for every gene in the chromosome of interest 
+
+    Parameters
+    ----------
+    feature_dict : dict
+        output of sgd_features(sgd_features_file)[i]
+    chrom : str
+        Name of the chromosome in roman where to extract the information.
+    start_chr : int
+        [description]
+    dna_dict : dict 
+        first output of the gene_location function 
+    feature_type : [type], optional
+        [description], by default None
+
+    Output
+    ---------
+    dna_dict: dict 
+
+    """
+    
+    position_dict = {}
+    for feat in feature_dict:
+        if feature_dict.get(feat)[5] == chrom:
+#            if feat.startswith("TEL") and feat.endswith('L'): #correct for the fact that telomeres at the end of a chromosome are stored in the reverse order.
+            if int(feature_dict.get(feat)[6]) > int(feature_dict.get(feat)[7]):
+                position_dict[feat] = [feature_dict.get(feat)[5], feature_dict.get(feat)[7], feature_dict.get(feat)[6]]
+            else:
+                position_dict[feat] = [feature_dict.get(feat)[5], feature_dict.get(feat)[6], feature_dict.get(feat)[7]]
+
+
+    for feat in position_dict:
+        for bp in range(int(position_dict.get(feat)[1])+start_chr, int(position_dict.get(feat)[2])+start_chr):
+            if dna_dict[bp] == ['noncoding', None]:
+                dna_dict[bp] = [feat, feature_type]
+            else:
+
+                pass
+
+
+    return(dna_dict)
+
+
+def intergenic_regions(chrom,start_chr,dna_dict):
+    """Getting intergenic regions from chromosome of interest 
+
+    Parameters
+    ----------
+    chrom : str
+        Name of the chromosome in roman where to extract the information.
+    start_chr : int
+       2nd output of the gene_location function 
+    dna_dict : dict 
+        1st output of the gene_location function 
+
+    Returns
+    -------
+    dna_dict_new : dict
+        
+    genomicregions_list: list
+
+    
+    """
+
+
+    sgd_features_file=load_sgd_tab()
+    ## GET FEATURES FROM INTERGENIC REGIONS 
+
+    genomicregions_list = sgd_features(sgd_features_file)[0]
+
+    i = 2
+    for genomicregion in genomicregions_list[1:]:
+        dna_dict_new = feature_position(sgd_features(sgd_features_file)[i], chrom, start_chr, dna_dict, genomicregion)
+        i += 1
+    
+    return dna_dict_new,genomicregions_list
+
+
+def checking_features(feature_orf_dict,chrom,gene_position_dict,verbose):
+    """ Checking input values 
+
+    Parameters
+    ----------
+    feature_orf_dict : dict 
+        last output of the gene_location function 
+    chrom : str
+        Name of the chromosome in roman where to extract the information.
+    gene_position_dict : dict
+        output of the read_pergene_file function 
+    verbose : bool 
+        If True it allows for warning messages 
+    """
+
+    ### TEST IF ELEMENTS IN FEATURE_ORF_DICT FOR SELECTED CHROMOSOME ARE THE SAME AS THE GENES IN GENE_POSITION_DICT BY CREATING THE DICTIONARY FEATURE_POSITION_DICT CONTAINING ALL THE GENES IN FEATURE_ORF_DICT WITH THEIR CORRESPONDING POSITION IN THE CHROMOSOME
+    _,_,gene_information_file=load_default_files()
+
+    gene_alias_dict = gene_aliases(gene_information_file)[0]
+    orf_position_dict = {}
+    for feature in feature_orf_dict:
+        if feature_orf_dict.get(feature)[5] == chrom:
+            if feature in gene_position_dict:
+                orf_position_dict[feature] = [feature_orf_dict.get(feature)[6], feature_orf_dict.get(feature)[7]]
+            else:
+                for feature_alias in gene_alias_dict.get(feature):
+                    if feature_alias in gene_position_dict:
+                        orf_position_dict[feature_alias] = [feature_orf_dict.get(feature)[6], feature_orf_dict.get(feature)[7]]
+
+
+
+    if sorted(orf_position_dict) == sorted(gene_position_dict):
+        if verbose == True:
+            print('Everything alright, just ignore me!')
+        
+    else:
+        print('WARNING: Genes in feature_list are not the same as the genes in the gene_position_dict. Please check!')
+
+    

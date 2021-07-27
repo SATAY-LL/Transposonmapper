@@ -10,7 +10,7 @@ import numpy
 
 from transposonmapper import transposonmapper
 
-from transposonmapper.processing import input_region,read_pergene_file,read_wig_file,gene_location
+from transposonmapper.processing import input_region,read_pergene_file,read_wig_file,gene_location,feature_position,intergenic_regions
 from transposonmapper.utils import chromosomename_roman_to_arabic
 
 
@@ -125,8 +125,32 @@ def test_output_gene_location(bamfile, pergenefile):
     
     assert isinstance(feature_orf_dict,dict) , "It is expected a dictionary"
     
+   
+
+def test_output_feature_position():
+    
+    chrom='I'
+    value=[1,2,3,4,5,chrom,6,7,8,9,10]
+    dict_toy=dict.fromkeys(range(10), value)
+    
+    dna_dict=feature_position(dict_toy, chrom, 0, dict_toy, feature_type=None)
+    
+    assert isinstance(dna_dict,dict) , "It is expected a dictionary"
+    
+    assert len(dna_dict)==len(dict_toy), "It is expected same length"
     
     
+def test_output_intergenic_regions(pergenefile,bamfile):
     
+    transposonmapper(bamfile)
+    chrom="I"
+    gene_position_dict=read_pergene_file(pergenefile,chrom=chrom)
+    
+    dna_dict,start_chr,_,_,_=gene_location(chrom,gene_position_dict,verbose=True)
+    
+    dna_dict_new2,genomicregions_list=intergenic_regions(chrom,start_chr,dna_dict)
+    
+    assert isinstance(dna_dict_new2,dict) , "It is expected a dictionary"
+    assert isinstance(genomicregions_list,list) , "It is expected a list"
     
     
