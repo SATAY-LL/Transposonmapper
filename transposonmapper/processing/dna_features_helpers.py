@@ -296,9 +296,6 @@ def feature_position(feature_dict, chrom, start_chr, dna_dict, feature_type=None
         for bp in range(int(position_dict.get(feat)[1])+start_chr, int(position_dict.get(feat)[2])+start_chr):
             if dna_dict[bp] == ['noncoding', None]:
                 dna_dict[bp] = [feat, feature_type]
-            else:
-
-                pass
 
 
     return(dna_dict)
