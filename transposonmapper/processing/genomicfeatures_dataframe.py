@@ -20,7 +20,7 @@ from transposonmapper.importing import (
 )
 
 
-from transposonmapper.processing.dna_features_helpers import input_region
+from transposonmapper.processing.dna_features_helpers import input_region, read_wig_file
 
 def dna_features(region, wig_file, pergene_insertions_file, variable="reads", plotting=True, savefigure=False, verbose=True):
     """This scripts takes a user defined genomic region (i.e. chromosome number, region or gene) and creates a dataframe including information about all genomic features in the chromosome (i.e. genes, nc-DNA etc.).
@@ -110,31 +110,14 @@ def dna_features(region, wig_file, pergene_insertions_file, variable="reads", pl
 
 # DETERMINE INPUTTED REGION
 
-    warningmessage = "WARNING: Specified chromosome or gene name not found. Enter chromosome as a number (or roman numeral) between 1 and 16 (I and XVI), a list in the form ['chromosome number, start_position, end_position'] or a valid gene name."
-
-# refactor
-# roi_start,roi_end,region_type,chrom=input_region(verbose,region,gene_information_file)
     roi_start,roi_end,region_type,chrom=input_region(region=region,verbose=verbose)
 
     
-    
-####
-
 
 #READ WIG FILE FOR GETTING LOCATIONS OF ALL TN INSERTIONS
 
-    with open(wig_file, 'r') as f:
-        lines = f.readlines()
+    insrt_in_chrom_list,reads_in_chrom_list=read_wig_file(wig_file=wig_file,chrom=chrom)
 
-    chrom_start_line_dict, chrom_end_line_dict = chromosome_name_wigfile(lines)[1:]
-
-    insrt_in_chrom_list = []
-    reads_in_chrom_list = []
-    for l in lines[chrom_start_line_dict.get(chrom):chrom_end_line_dict.get(chrom)]:
-        insrt_in_chrom_list.append(int(l.strip('\n').split(' ')[0]))
-        reads_in_chrom_list.append(int(l.strip('\n').split(' ')[1]))
-
-    #del (lines, l, f, chrom_start_line_dict, chrom_end_line_dict)
 
 # READ PERGENE_INSERTIONS FILE FOR LOCATION OF ALL INSERTIONS PER EACH GENE.
 
@@ -233,9 +216,7 @@ def dna_features(region, wig_file, pergene_insertions_file, variable="reads", pl
     if sorted(orf_position_dict) == sorted(gene_position_dict):
         if verbose == True:
             print('Everything alright, just ignore me!')
-            pass
-        else:
-            pass
+        
     else:
         print('WARNING: Genes in feature_list are not the same as the genes in the gene_position_dict. Please check!')
 

@@ -3,6 +3,7 @@ import pkg_resources
 from transposonmapper.utils import chromosomename_roman_to_arabic
 from transposonmapper.importing import load_default_files
 from transposonmapper.properties import list_gene_names , gene_position, gene_aliases
+from transposonmapper.processing import chromosome_name_wigfile
 
 def input_region(region,verbose=True):
     """Defines the region of interest for further processing 
@@ -104,3 +105,38 @@ def input_region(region,verbose=True):
         return()
     
     return roi_start,roi_end,region_type,chrom
+
+
+
+
+def read_wig_file(wig_file,chrom):
+    """Extract the information in the wigfile related to the chromosome of interested
+
+    Parameters
+    ----------
+    wig_file : str
+        absolute path of the wigfile location
+    chrom : str
+        Name of the chromosome in roman where to extract the informatiion from the wigfile
+
+    Returns
+    -------
+    insrt_in_chrom_list : list 
+        Genomic locations of transposon insertions in the given chromosome.
+    reads_in_chrom_list: list
+        How many reads are in each of the genomic locations of the insertions. 
+    
+    """
+
+    with open(wig_file, 'r') as f:
+        lines = f.readlines()
+
+    chrom_start_line_dict, chrom_end_line_dict = chromosome_name_wigfile(lines)[1:]
+
+    insrt_in_chrom_list = []
+    reads_in_chrom_list = []
+    for l in lines[chrom_start_line_dict.get(chrom):chrom_end_line_dict.get(chrom)]:
+        insrt_in_chrom_list.append(int(l.strip('\n').split(' ')[0]))
+        reads_in_chrom_list.append(int(l.strip('\n').split(' ')[1]))
+        
+    return insrt_in_chrom_list,reads_in_chrom_list
