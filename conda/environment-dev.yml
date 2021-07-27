@@ -21,3 +21,4 @@ dependencies:
       - bump2version
       - pytest
       - pytest-cov
+      - matplotlib 

@@ -1,3 +1,7 @@
+
+import os
+import pkg_resources
+
 def list_gene_names(gene_information_file=None):
     """Create a list of all known gene names and their aliases as listed on SGD (or as provided as an optional input file)
     Input is a standard file downloaded from https://www.uniprot.org/docs/yeast.
@@ -5,13 +9,13 @@ def list_gene_names(gene_information_file=None):
     """
 
     if gene_information_file == None:
-        import os
-
-        file_dirname = os.path.dirname(os.path.abspath("__file__"))
+       
+        default_path = pkg_resources.resource_filename("transposonmapper", "data_files/")
+    
         gene_information_file = os.path.join(
-            file_dirname, "..", "..", "data_files", "Yeast_Protein_Names.txt"
+            default_path, "Yeast_Protein_Names.txt"
         )
-
+        
     gene_name_list = []  # INLCUDES ALL GENE NAMES AND POTENTIAL ALIASES
     gene_oln_list = []  # INCLUDE ONLY THE OLN NAMING CONVENTION
     gene_sgd_list = []  # INCLUDE THE FIRST DESIGNATION NAME THAT IS IN THE INPUT LIST

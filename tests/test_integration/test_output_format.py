@@ -135,7 +135,8 @@ def test_output_format_wig():
     filepath = os.path.join(data_path, filename)
     transposonmapper(bamfile=filepath)
 
-    file = glob.glob(data_path + "/**/*" + ".wig", recursive=True)
+    #file = glob.glob(data_path + "/**/*" + ".wig", recursive=True)
+    file=[filepath+'.wig']
 
     data = pd.read_csv(file[0], delimiter=" ")
 
@@ -145,6 +146,7 @@ def test_output_format_wig():
         ",maxheightPixels=60",
         "name=SRR062634.filt_trimmed.sorted.bam",
     ], "wrong columns names"
+
     assert data.iloc[:, 0].dtypes == "object", "Incorrect data type"
     assert data.iloc[:, 1].dtypes == "object", "Incorrect data type"
     assert data.iloc[0, 1] == "chrom=chrref|NC_001133|", "Incorrect first headline"
@@ -159,10 +161,12 @@ def test_output_format_bed():
     )
     filename = "SRR062634.filt_trimmed.sorted.bam"
     filepath = os.path.join(data_path, filename)
+
     transposonmapper(bamfile=filepath)
 
-    file = glob.glob(data_path + "/**/*" + ".bed", recursive=True)
-
+    #file = glob.glob(data_path + "/**/*" + ".bed", recursive=True)
+    file=[filepath+'.bed']
+    
     data = pd.read_csv(file[0], delimiter=" ")
 
     assert data.columns.tolist() == [
