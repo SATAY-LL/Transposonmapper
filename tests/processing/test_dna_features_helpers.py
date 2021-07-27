@@ -10,7 +10,7 @@ import numpy
 
 from transposonmapper import transposonmapper
 
-from transposonmapper.processing import input_region,read_pergene_file,read_wig_file
+from transposonmapper.processing import input_region,read_pergene_file,read_wig_file,gene_location
 from transposonmapper.utils import chromosomename_roman_to_arabic
 
 
@@ -52,7 +52,7 @@ def test_output_chrom_input_region():
     
     region=['I', 1]
     for region in region: 
-        roi_start,roi_end,region_type,chrom=input_region(region=region)
+        _,_,region_type,chrom=input_region(region=region,verbose=True)
         
         if type(region)==str or type(region)==int:
         
@@ -75,7 +75,7 @@ def test_output_gene_input_region():
 
     region='cdc42'
 
-    roi_start,roi_end,region_type,chrom=input_region(region=region)
+    roi_start,roi_end,region_type,chrom=input_region(region=region,verbose=True)
         
         
     assert region_type=='Gene', "It should be a Gene according the region provided"
@@ -104,3 +104,29 @@ def test_output_pergene_file(bamfile,pergenefile):
     assert isinstance(gene_locations,dict) , "It is expected a dictionary"
     
     assert any(chrom in val for val in gene_locations.values()) , "The chromosome name should be in the values of the dictionary"
+
+
+def test_output_gene_location(bamfile, pergenefile):
+
+    transposonmapper(bamfile)
+    chrom='I'
+    gene_dict=read_pergene_file(pergenefile,chrom)
+    
+    dna_dict,start_chr,end_chr,len_chr,feature_orf_dict=gene_location(chrom,gene_dict,verbose=True)
+
+    
+    assert isinstance(dna_dict,dict) , "It is expected a dictionary"
+    
+    assert isinstance(start_chr,int), "It is expected an integer"
+    
+    assert isinstance(end_chr,int), "It is expected an integer"
+    
+    assert isinstance(len_chr,int) , "Its is expected an integer"
+    
+    assert isinstance(feature_orf_dict,dict) , "It is expected a dictionary"
+    
+    
+    
+    
+    
+    

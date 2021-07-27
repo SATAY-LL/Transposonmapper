@@ -20,7 +20,8 @@ from transposonmapper.importing import (
 )
 
 
-from transposonmapper.processing.dna_features_helpers import input_region, read_pergene_file, read_wig_file
+from transposonmapper.processing.dna_features_helpers import (input_region, read_pergene_file, 
+                                                              read_wig_file,gene_location)
 
 def dna_features(region, wig_file, pergene_insertions_file, variable="reads", plotting=True, savefigure=False, verbose=True):
     """This scripts takes a user defined genomic region (i.e. chromosome number, region or gene) and creates a dataframe including information about all genomic features in the chromosome (i.e. genes, nc-DNA etc.).
@@ -125,35 +126,9 @@ def dna_features(region, wig_file, pergene_insertions_file, variable="reads", pl
 
 # DETERMINE THE LOCATION GENOMIC FEATURES IN THE CURRENT CHROMOSOME AND STORE THIS IN A DICTIONARY
 
-    len_chr = chromosome_position(gff_file)[0].get(chrom)
-    start_chr = chromosome_position(gff_file)[1].get(chrom)
-    end_chr = chromosome_position(gff_file)[2].get(chrom)
-    if verbose == True:
-        print('Chromosome length = ', len_chr)
+    dna_dict,start_chr,end_chr,len_chr,feature_orf_dict=gene_location(chrom,gene_position_dict,verbose)
 
-    dna_dict = {} #for each bp in chromosome, determine whether it belongs to a noncoding or coding region
-    for bp in range(start_chr, end_chr + 1): #initialize dna_dict with all basepair positions as ['noncoding', None]
-        dna_dict[bp] = ['noncoding', None] #form is: ['element_name', 'type']
-
-
-    feature_orf_dict = sgd_features(sgd_features_file)[1]
-    gene_alias_dict = gene_aliases(gene_information_file)[0]
-
-
-    for gene in gene_position_dict:
-        if gene in feature_orf_dict:
-            if (not gene.endswith("-A") and not feature_orf_dict.get(gene)[1] == 'Verified') and (not gene.endswith("-B") and not feature_orf_dict.get(gene)[1] == 'Verified'):
-                for bp in range(gene_position_dict.get(gene)[1]+start_chr, gene_position_dict.get(gene)[2]+start_chr+1):
-                    dna_dict[bp] = [gene, "Gene; "+feature_orf_dict.get(gene)[1]]
-        else:
-            gene_alias = [key for key, val in gene_alias_dict.items() if gene in val][0]
-            for bp in range(gene_position_dict.get(gene)[1]+start_chr, gene_position_dict.get(gene)[2]+start_chr+1):
-                dna_dict[bp] = [gene_alias, "Gene; "+feature_orf_dict.get(gene_alias)[1]]
-
-
-    del (gff_file, gene, bp, gene_alias)
-
-## GET FEATURES FROM INTERGENIC REGIONS (-> SEE SGD_features.tab IN DATA_FILES IN GITHUB FOLDER)
+## GET FEATURES FROM INTERGENIC REGIONS 
 
     genomicregions_list = sgd_features(sgd_features_file)[0]
 

@@ -1,11 +1,13 @@
 import os
 import pkg_resources
 from transposonmapper.utils import chromosomename_roman_to_arabic
-from transposonmapper.importing import load_default_files
-from transposonmapper.properties import list_gene_names , gene_position, gene_aliases
+from transposonmapper.importing import load_default_files,load_sgd_tab
+from transposonmapper.properties import list_gene_names , gene_position, gene_aliases,chromosome_position
 from transposonmapper.processing import chromosome_name_wigfile
+from transposonmapper.processing.read_sgdfeatures import sgd_features   
 
-def input_region(region,verbose=True):
+
+def input_region(region,verbose):
     """Defines the region of interest for further processing 
 
     Parameters
@@ -13,8 +15,8 @@ def input_region(region,verbose=True):
     region : str, int or list
         Enter chromosome as a number (or roman numeral) between 1 and 16 (I and XVI), 
         a list in the form ['chromosome number, start_position, end_position'] or a valid gene name.
-    verbose : bool, optional
-        To allow warning messages, by default True
+    verbose : bool
+        To allow warning messages. 
     
 
     Returns
@@ -194,3 +196,63 @@ def read_pergene_file(pergene_insertions_file,chrom):
                 print('WARNING: %s has different number of reads compared with the number of inserts' % genename )
 
     return gene_position_dict
+
+
+def gene_location(chrom,gene_position_dict,verbose):
+    """It gives structured information from the genes inside the chromosome of interest
+
+    Parameters
+    ----------
+    chrom : str
+        Name of the chromosome in roman where to extract the informatiion from the wigfile
+    gene_position_dict : dict
+        Dictionary with info of the genes inside the chromosome . It is the output of the function
+        read_pergene_file
+
+    verbose : bool 
+        Same as main function dna_features. If True allows for warning messages. 
+
+    Returns
+    -------
+    dna_dict: dict
+        Dictionary with info about genes encoded in the sgd features file 
+    start_ch : int
+        Integer indicating the genomic location of where the chromosome of interest starts
+    end_chr: int 
+        Integer indicating the genomic location of where the chromosome of interest ends
+    len_chr: int
+        Length of the chromosome of interest
+    feature_orf_dict: dict
+        Dictionary with info about genes in the chromosome of interest 
+    """
+
+    gff_file,_,gene_information_file=load_default_files()
+    sgd_features_file=load_sgd_tab()
+    
+
+    len_chr = chromosome_position(gff_file)[0].get(chrom)
+    start_chr = chromosome_position(gff_file)[1].get(chrom)
+    end_chr = chromosome_position(gff_file)[2].get(chrom)
+    if verbose == True:
+        print('Chromosome length = ', len_chr)
+
+    dna_dict = {} #for each bp in chromosome, determine whether it belongs to a noncoding or coding region
+    for bp in range(start_chr, end_chr + 1): #initialize dna_dict with all basepair positions as ['noncoding', None]
+        dna_dict[bp] = ['noncoding', None] #form is: ['element_name', 'type']
+
+
+    feature_orf_dict = sgd_features(sgd_features_file)[1]
+    gene_alias_dict = gene_aliases(gene_information_file)[0]
+
+
+    for gene in gene_position_dict:
+        if gene in feature_orf_dict:
+            if (not gene.endswith("-A") and not feature_orf_dict.get(gene)[1] == 'Verified') and (not gene.endswith("-B") and not feature_orf_dict.get(gene)[1] == 'Verified'):
+                for bp in range(gene_position_dict.get(gene)[1]+start_chr, gene_position_dict.get(gene)[2]+start_chr+1):
+                    dna_dict[bp] = [gene, "Gene; "+feature_orf_dict.get(gene)[1]]
+        else:
+            gene_alias = [key for key, val in gene_alias_dict.items() if gene in val][0]
+            for bp in range(gene_position_dict.get(gene)[1]+start_chr, gene_position_dict.get(gene)[2]+start_chr+1):
+                dna_dict[bp] = [gene_alias, "Gene; "+feature_orf_dict.get(gene_alias)[1]]
+
+    return dna_dict,start_chr,end_chr,len_chr,feature_orf_dict
