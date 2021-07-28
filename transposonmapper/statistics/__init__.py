@@ -6,7 +6,7 @@ from .dataframe_from_pergene_helpers import read_pergene_file, reads_per_inserti
 __all__ = [
 "dataframe_from_pergenefile", "volcano",
 "read_pergene_file","reads_per_insertion",
-"essentials_genes"
+"essential_genes"
 
 
 ]
