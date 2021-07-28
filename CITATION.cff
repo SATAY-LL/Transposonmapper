@@ -1,5 +1,4 @@
-# YAML 1.2
----
+cff-version: 1.2.0
 abstract: "A libray for processing sequencing data for SAturated Transposon Analysis in Yeast (SATAY)."
 authors:
   -
@@ -27,4 +26,3 @@ license: "Apache-2.0"
 message: "If you use this software, please cite it using these metadata."
 repository-code: "https://github.com/leilaicruz/LaanLab-SATAY-DataAnalysis"
 title: transposonmapper
-...
