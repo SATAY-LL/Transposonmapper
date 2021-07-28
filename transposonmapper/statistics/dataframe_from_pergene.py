@@ -2,10 +2,12 @@
 import os, sys
 import numpy as np
 import pandas as pd
-import re
+
 
 from transposonmapper.processing import list_known_essentials
 from transposonmapper.importing import load_default_files
+
+from transposonmapper.statistics.dataframe_from_pergene_helpers import read_pergene_file
 
 def dataframe_from_pergenefile(pergenefile, verbose=True):
     """This function creates a dataframe with the information from a pergene.txt file.
@@ -34,26 +36,7 @@ def dataframe_from_pergenefile(pergenefile, verbose=True):
 
    
 # read file
-    assert os.path.isfile(pergenefile), 'File not found at: %s' % pergenefile
-
-    with open(pergenefile) as f:
-        lines = f.readlines()[1:] #skip header
-
-    genenames_list = [np.nan]*len(lines)
-    tnpergene_list = [np.nan]*len(lines)
-    readpergene_list = [np.nan]*len(lines) 
-
-    line_counter = 0
-    for line in lines:
-        line_split = re.split(' |\t', line.strip('\n'))
-        l = [x for x in line_split if x]
-
-        if len(l) == 3:
-            genenames_list[line_counter] = l[0]
-            tnpergene_list[line_counter] = int(l[1])
-            readpergene_list[line_counter] = int(l[2])
-
-            line_counter += 1
+    genenames_list,tnpergene_list,readpergene_list,lines=read_pergene_file(pergenefile)
 
     
 
