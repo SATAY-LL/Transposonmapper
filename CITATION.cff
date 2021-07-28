@@ -25,4 +25,6 @@ license: "Apache-2.0"
 message: "If you use this software, please cite it using these metadata."
 repository-code: "https://github.com/SATAY-LL/Transposonmapper"
 title: transposonmapper
+doi: 10.5281/zenodo.4636301
+version: 1.0.0
 ...
