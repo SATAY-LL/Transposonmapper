@@ -7,7 +7,7 @@ import pandas as pd
 from transposonmapper.processing import list_known_essentials
 from transposonmapper.importing import load_default_files
 
-from transposonmapper.statistics.dataframe_from_pergene_helpers import read_pergene_file
+from transposonmapper.statistics.dataframe_from_pergene_helpers import read_pergene_file, reads_per_insertion
 
 def dataframe_from_pergenefile(pergenefile, verbose=True):
     """This function creates a dataframe with the information from a pergene.txt file.
@@ -41,12 +41,7 @@ def dataframe_from_pergenefile(pergenefile, verbose=True):
     
 
 # determine number of reads per insertion per gene
-    readperinspergene_list = [np.nan]*len(lines)
-    for i in range(len(tnpergene_list)):
-        if not tnpergene_list[i] == 0:
-            readperinspergene_list[i] = readpergene_list[i] / tnpergene_list[i]
-        else:
-            readperinspergene_list[i] = 0
+    readperinspergene_list=reads_per_insertion(tnpergene_list,readpergene_list,lines)
 
    
 

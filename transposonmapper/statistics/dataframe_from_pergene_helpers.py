@@ -1,4 +1,3 @@
-
 import os
 import numpy as np
 import re 
@@ -26,3 +25,15 @@ def read_pergene_file(pergenefile):
 
             line_counter += 1
     return genenames_list,tnpergene_list,readpergene_list,lines
+
+
+def reads_per_insertion(tnpergene_list,readpergene_list,lines):
+
+    readperinspergene_list = [np.nan]*len(lines)
+    for i in range(len(tnpergene_list)):
+        if not tnpergene_list[i] < 5:
+            readperinspergene_list[i] = readpergene_list[i] / (tnpergene_list[i] -1)
+        else:
+            readperinspergene_list[i] = 0
+
+    return readperinspergene_list

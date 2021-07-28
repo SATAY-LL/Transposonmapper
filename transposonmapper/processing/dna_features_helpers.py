@@ -476,7 +476,7 @@ def build_dataframe(dna_dict,start_chr,end_chr,insrt_in_chrom_list,reads_in_chro
     N_reads_per_ins_list = []
     N_reads_per_ins_truncatedgene_list = []
     for i in range(len(N_reads_list)):
-        if N_insrt_list[i] < 5:
+        if N_insrt_list[i] < 5: # upper bound of low number of transposons 
             N_reads_per_ins_list.append(0)
             N_reads_per_ins_truncatedgene_list.append(0)
         elif N_insrt_truncatedgene_list[i] < 5:
