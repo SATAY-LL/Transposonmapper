@@ -3,7 +3,7 @@ import pandas
 import pkg_resources
 import os 
 
-from transposonmapper.statistics import read_pergene_file,reads_per_insertion
+from transposonmapper.statistics import read_pergene_file,reads_per_insertion,essential_genes
 from transposonmapper import transposonmapper
 
 @pytest.fixture
@@ -56,4 +56,13 @@ def test_reads_per_insertion(bamfile,pergene):
     
     assert len(data)==len(readpergene_list), "It is expected the same length"
     
-    
+def test_essential_genes(bamfile,pergene):
+
+    transposonmapper(bamfile)
+
+    genenames_list,_,_,lines=read_pergene_file(pergene)
+
+    essentials=essential_genes(genenames_list,lines)
+
+    assert isinstance(essentials,list) , "It is expected a list"
+    assert len(essentials)==len(genenames_list), "It is expected the same length"

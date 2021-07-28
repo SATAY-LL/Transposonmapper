@@ -2,6 +2,9 @@ import os
 import numpy as np
 import re 
 
+from transposonmapper.importing import load_default_files
+from transposonmapper.processing import list_known_essentials
+
 def read_pergene_file(pergenefile):
 
     assert os.path.isfile(pergenefile), 'File not found at: %s' % pergenefile
@@ -37,3 +40,16 @@ def reads_per_insertion(tnpergene_list,readpergene_list,lines):
             readperinspergene_list[i] = 0
 
     return readperinspergene_list
+    
+def essential_genes(genenames_list,lines):
+
+    _,essential_genes_list,_=load_default_files()
+    known_essential_gene_list = list_known_essentials(essential_genes_list)
+    geneessentiality_list = [None]*len(lines)
+    for i in range(len(genenames_list)):
+        if genenames_list[i] in known_essential_gene_list:
+            geneessentiality_list[i] = True
+        else:
+            geneessentiality_list[i] = False
+        
+    return geneessentiality_list

@@ -7,7 +7,8 @@ import pandas as pd
 from transposonmapper.processing import list_known_essentials
 from transposonmapper.importing import load_default_files
 
-from transposonmapper.statistics.dataframe_from_pergene_helpers import read_pergene_file, reads_per_insertion
+from transposonmapper.statistics.dataframe_from_pergene_helpers import (essential_genes, 
+                                                                        read_pergene_file, reads_per_insertion)
 
 def dataframe_from_pergenefile(pergenefile, verbose=True):
     """This function creates a dataframe with the information from a pergene.txt file.
@@ -46,15 +47,7 @@ def dataframe_from_pergenefile(pergenefile, verbose=True):
    
 
 # determine essential genes
-    _,essential_genes_list,_=load_default_files()
-    known_essential_gene_list = list_known_essentials(essential_genes_list)
-
-    geneessentiality_list = [None]*len(lines)
-    for i in range(len(genenames_list)):
-        if genenames_list[i] in known_essential_gene_list:
-            geneessentiality_list[i] = True
-        else:
-            geneessentiality_list[i] = False
+    geneessentiality_list=essential_genes(genenames_list,lines)
 
 
 # create dataframe
