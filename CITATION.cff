@@ -1,23 +1,28 @@
-cff-version: 1.2.0
-message: "If you use this software, please cite it using these metadata."
+# YAML 1.2
+---
 abstract: "A libray for processing sequencing data for SAturated Transposon Analysis in Yeast (SATAY)."
-authors:
-- affiliation: "Technische Universiteit Delft"
+authors: 
+  -
+    affiliation: "Technische Universiteit Delft"
     family-names: "Iñigo de la Cruz"
-    given-names: "Leila"
+    given-names: "Leila "
     orcid: "https://orcid.org/0000-0003-0852-9219"
-- affiliation: "Eramus MC Rotterdam, department of Hematology"
+  -
+    affiliation: "Eramus MC Rotterdam, department of Hematology"
     family-names: "van Beek"
-    given-names: "Gregory"
+    given-names: Gregory
     orcid: "https://orcid.org/0000-0003-0283-7069"
-- affiliation: "Technische Universiteit Delft, Digital Competence Center"
-    family-names: "Kok"
-    given-names: "Maurits"
+  -
+    affiliation: "Technische Universiteit Delft,Digital Competence Center"
+    family-names: Kok
+    given-names: Maurits
     orcid: "https://orcid.org/0000-0002-0564-2614"
-    
-keywords:
-- "transposon-mapping"
-- "Saccharomyces Cerevisiae"
+cff-version: "1.1.0"
+keywords: 
+  - "transposon-mapping"
+  - "Saccharomyces Cerevisiae"
 license: "Apache-2.0"
-url: "https://github.com/SATAY-LL/Transposonmapper"
+message: "If you use this software, please cite it using these metadata."
+repository-code: "https://github.com/SATAY-LL/Transposonmapper"
 title: transposonmapper
+...
