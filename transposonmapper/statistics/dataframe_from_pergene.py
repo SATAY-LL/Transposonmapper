@@ -1,11 +1,8 @@
 
-import os, sys
 import numpy as np
 import pandas as pd
 
 
-from transposonmapper.processing import list_known_essentials
-from transposonmapper.importing import load_default_files
 
 from transposonmapper.statistics.dataframe_from_pergene_helpers import (essential_genes, 
                                                                         read_pergene_file, reads_per_insertion)
