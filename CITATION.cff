@@ -1,6 +1,6 @@
 # YAML 1.2
 ---
-abstract: "A libray for processing sequencing data for SAturated Transposon Analysis in Yeast (SATAY)."
+abstract: "A library for processing sequencing data for SAturated Transposon Analysis in Yeast (SATAY)."
 authors: 
   -
     affiliation: "Technische Universiteit Delft"
