@@ -22,31 +22,31 @@ Version history:
 import pysam
 
 # Local imports
-from .properties import (
+from transposonmapper.properties import (
     get_chromosome_names,
     get_sequence_length,
 )
 
-from .mapping import (
+from transposonmapper.mapping import (
     get_reads,
     add_chromosome_length,
     add_chromosome_length_inserts,
     get_insertions_and_reads,
 )
 
-from .utils import chromosomename_roman_to_arabic
+from transposonmapper.utils import chromosomename_roman_to_arabic
 
-from .importing import (
+from transposonmapper.importing import (
     load_default_files,
     read_genes,
 )
 
-from .exporting import (
+from transposonmapper.exporting import (
     save_as_bed,
     save_per_gene,
     save_per_gene_insertions,
     save_per_essential_insertions,
-    export_as_wig,
+    save_as_wig
 )
 
 
@@ -209,7 +209,7 @@ def transposonmapper(bamfile, gff_file=None, essential_file=None, gene_name_file
     print("Writing wig file at: ", wigfile)
     print("")
 
-    export_as_wig(wigfile, ref_names, readnumb_array, tncoordinates_array, ref_tid)
+    save_as_wig(wigfile, tncoordinates_array, ref_tid, readnumb_array)
 
 
 #%%

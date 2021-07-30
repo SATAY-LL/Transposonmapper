@@ -8,6 +8,7 @@ from transposonmapper.mapping import get_reads
 
 
 def test_ouput_format():
+
     default_path = pkg_resources.resource_filename("transposonmapper", "data_files/files4test")
     bamfile = os.path.join(default_path,"SRR062634.filt_trimmed.sorted.bam")
         
@@ -23,3 +24,5 @@ def test_ouput_format():
 
     assert tncoordinates_array.shape[1]==3, "This array should have three columns"
     assert tncoordinatescopy_array.shape[1]==3, "This array should have three columns"
+    assert readnumb_array.shape[0]==tncoordinates_array.shape[0], "This array should have same number of rows than the coordinates array"
+                                                                 

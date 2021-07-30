@@ -34,10 +34,10 @@ main () {
 	cachefile="/data/processing_workflow_cache.txt"
 
 	#ADAPTERFILE (this refers to the file with adapter sequences that are used for trimming).
-	adapterfile=$adapters
+	adapterfile=$adapters # default file
 
 	#REFERENCE GENOME (path to the fasta file of the reference genome).
-	path_refgenome="/opt/transposonmapper/data_files/S288C_reference_sequence_R64-2-1_20150113.fsa"
+	path_refgenome="/opt/src/transposonmapper/data_files/S288C_reference_sequence_R64-2-1_20150113.fsa"
 
 	#DDBUK SOFTWARE (path to bbduk for trimming).
 	bbduk_software=$bbduk
@@ -46,9 +46,21 @@ main () {
 	path_trimm_software="/opt/conda/bin/trimmomatic"
 
 	#PYTHON CODES (path to python code for transposon_mapping).
-	path_python_codes="/opt/transposonmapper/"
+	path_python_codes="/opt/satay/"
 
 ############################################################
+ 
+	custom_adapter=/data/adapters.fa
+	if test -f "$custom_adapter"; then
+		echo "*****$custom_adapter exists. The pipeline will use that adapter file*****"
+		adapterfile=$custom_adapter
+	
+		else
+			echo "*****$custom_adapter does not exist. The pipeline will use a default one*****"
+
+			
+		
+	fi
 
 
 
@@ -61,7 +73,7 @@ main () {
 	paired="Single-end" #-p
 	trimming_software="bbduk" #-s
 	trimming_settings="ktrim=l k=15 mink=10 hdist=1 qtrim=r trimq=10 minlen=30" #-t
-	alignment_settings=" -v 2" #-a
+	alignment_settings=" -t 1 -v 2" #-a
 	sort_and_index="TRUE" #-i
 	mapping="TRUE" #-m
 	delete_sam="TRUE" #-d
@@ -137,7 +149,7 @@ main () {
 	if [ ${no_args} == 'true' ]; then
 		if [ ! -f $cachefile ];
 		then
-			fileselections=`yad --width=1000 --height=400 --title="Select fastq file" --center --on-top --buttons-layout=spread --multiple --file-selection="Please select datafile (or two files in case of paired-end noninterleaved fastq files)" --file-filter="*.fq" --file-filter="*.fastq" --file-filter="*.fq.gz" --file-filter="*.fastq.gz"`
+			fileselections=`yad --width=1000 --height=400 --title="Select fastq file" --center --on-top --buttons-layout=spread --multiple --file-selection="Please select datafile (or two files in case of paired-end noninterleaved fastq files)" --file-filter="*.fastq.gz" --file-filter="*.fq" --file-filter="*.fastq" --file-filter="*.fq.gz"`
 			filepath1=$(echo $fileselections | awk 'BEGIN {FS="|" } { print $1 }')
 			filepath2=$(echo $fileselections | awk 'BEGIN {FS="|" } { print $2 }')
 			
@@ -165,7 +177,7 @@ main () {
 			"Single-end!Paired-end" \
 			"bbduk!trimmomatic!donottrim" \
 			"ktrim=l k=15 mink=10 hdist=1 qtrim=r trimq=10 minlen=30" \
-			" -v 2" \
+			" -t 1 -v 2" \
 			"FALSE" \
 			"TRUE" \
 			"FALSE" \
@@ -599,7 +611,7 @@ fi
 	then
 		echo 'Transposon mapping ...'
 		cd ${path_python_codes}
-		python3 ${path_python_codes}transposonmapping_satay.py ${path_align_out}/${filename_sort}
+		python3 ${path_python_codes}satay_transposonmapping.py ${path_align_out}/${filename_sort}
 		cd ~/
 		echo ''
 		echo 'Transposon mapping complete. Results are stored in' ${path_align_out}
