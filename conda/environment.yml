@@ -1,11 +1,21 @@
-name: satay
+name: satay-linux
 channels:
   - conda-forge
+  - bioconda
+  - agbiome
   - defaults
 dependencies:
-  - matplotlib
-  - numpy
-  - pandas
-  - scipy
-  - seaborn
-  - python >=3.7,<3.9
+  - bbtools==37.62
+  - bcftools==1.10.2
+  - bwa==0.7.17
+  - fastqc==0.11.9
+  - numpy==1.19.4
+  - sambamba==0.8.0
+  - pip
+  - pysam==0.16.0.1
+  - python >=3.7,<3.8
+  - samtools==1.10
+  - trimmomatic==0.39
+  - pip:
+      - matplotlib 
+      - scipy

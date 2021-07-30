@@ -1,4 +1,6 @@
 from ..utils import chromosomename_roman_to_arabic
+import pkg_resources
+import os
 
 def chromosome_position(gff_file):
     """Get the start and end position of each chromosome and determine their respective length.
@@ -10,6 +12,11 @@ def chromosome_position(gff_file):
     'c' = chromosome end position
     """
 
+    if gff_file==None:
+        default_path = pkg_resources.resource_filename("transposonmapper", "data_files/")
+        gff_file = os.path.join(
+            default_path, "Saccharomyces_cerevisiae.R64-1-1.99.gff3"
+        )
     # Get roman to arabic dictionary
     roman_to_arabic = chromosomename_roman_to_arabic()[1]
 

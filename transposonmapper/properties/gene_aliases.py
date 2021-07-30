@@ -1,3 +1,5 @@
+import pkg_resources
+import os
 def gene_aliases(gene_information_file=None):
     """Create three dictionaries containing aliases for genes
     Input is the path to 'Protein_Names.txt' file downloaded from https://www.uniprot.org/docs/yeast.
@@ -13,12 +15,13 @@ def gene_aliases(gene_information_file=None):
     """
 
     if gene_information_file == None:
-        import os
 
-        file_dirname = os.path.dirname(os.path.abspath("__file__"))
-        gene_information_file = os.path.join(
-            file_dirname, "..", "..", "data_files", "Yeast_Protein_Names.txt"
-        )
+        default_path = pkg_resources.resource_filename("transposonmapper", "data_files/")
+    
+        gene_information_file = os.path.join(default_path, "Yeast_Protein_Names.txt")
+        
+
+        
 
     aliases_designation_dict = {}
     aliases_sgd_dict = {}
