@@ -16,3 +16,6 @@ dependencies:
   - python >=3.7,<3.8
   - samtools==1.10
   - trimmomatic==0.39
+  - pip:
+      - matplotlib 
+      - scipy
