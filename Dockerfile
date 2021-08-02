@@ -14,6 +14,11 @@ RUN conda env update -n base -f opt/environment.yml --quiet \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete 
 
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN apt -y  install ./google-chrome-stable_current_amd64.deb
+
+RUN xdg-settings set default-web-browser google-chrome.desktop
+
 # Copy code to container
 COPY ./transposonmapper /opt/src/transposonmapper 
 COPY ./satay /opt/satay
@@ -36,3 +41,5 @@ WORKDIR /data
 
 # Default command when running the container
 CMD bash ${satay}
+
+
