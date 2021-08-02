@@ -73,6 +73,7 @@ main () {
 	paired="Single-end" #-p
 	trimming_software="bbduk" #-s
 	trimming_settings="ktrim=l k=15 mink=10 hdist=1 qtrim=r trimq=10 minlen=30" #-t
+	trimming_settings_trimmomatic="ILLUMINACLIPPING:1:30:10 TRAILING:20 SLIDINGWINDOW:5:10 MINLEN:15"
 	alignment_settings=" -t 1 -v 2" #-a
 	sort_and_index="TRUE" #-i
 	mapping="TRUE" #-m
@@ -162,7 +163,7 @@ main () {
 			--field="Selected file secondary reads":RO \
 			--field="Data type":CB \
 			--field="Which trimming to use":CB \
-			--field="Enter trimming settings" \
+			--field="Enter trimming settings for bbduk" \
 			--field="Enter alignment settings" \
 			--field="Quality checking raw data":CHK \
 			--field="Quality checking trimmed data":CHK \
@@ -175,7 +176,7 @@ main () {
 			$filepath1 \
 			$filepath2 \
 			"Single-end!Paired-end" \
-			"bbduk!trimmomatic!donottrim" \
+			"bbduk!donottrim" \
 			"ktrim=l k=15 mink=10 hdist=1 qtrim=r trimq=10 minlen=30" \
 			" -t 1 -v 2" \
 			"FALSE" \
@@ -249,7 +250,7 @@ main () {
 	trimming_settings=$(echo $settings | awk 'BEGIN {FS="|" } { print $5 }')
 	#define settings for trimmomatic
 	trimmomatic_initialization='-phred33'
-	trimming_settings=$(echo $settings | awk 'BEGIN {FS="|" } { print $5 }')
+	#trimming_settings=$(echo $settings | awk 'BEGIN {FS="|" } { print $14 }')
 	#set options for alignment software (bwa mem)
 	alignment_settings=$(echo $settings | awk 'BEGIN {FS="|" } { print $6 }')
 	#create sorted and indexed bam file ('TRUE' or 'FALSE')
@@ -278,7 +279,7 @@ fi
 	echo 'paired ' ${paired^} #set first letter to uppercase
 	echo 'trimming_software ' $trimming_software
 	echo 'trimming_settings bbduk ' $trimming_settings
-	echo 'trimming_settings trimmomatic ' $trimming_settings
+	echo 'trimming_settings trimmomatic ' $trimming_settings_trimmomatic	
 	echo 'alignment_settings ' $alignment_settings
 	echo 'sort_and_index ' ${sort_and_index^^}
 	echo 'mapping ' ${mapping^^}
@@ -481,13 +482,14 @@ fi
 
 		elif [[ ${trimming_software} == 'trimmomatic' ]]
 		then
-			if [[ ${trimming_settings} == *'ILLUMINACLIP'* ]]
+			echo "ILLUMINACLIPPING trimmer not working neither command bc line 490"
+			if [[ ${trimming_settings_trimmomatic} == *'ILLUMINACLIP'* ]]
 			then
-				clip_startlocation=$(echo ${trimming_settings} | grep -b -o ILLUMINACLIP | awk 'BEGIN {FS=":"}{print $1}')
+				clip_startlocation=$(echo ${trimming_settings_trimmomatic} | grep -b -o ILLUMINACLIP | awk 'BEGIN {FS=":"}{print $1}')
 				clip_endlocation=$(echo ${clip_startlocation}+12 | bc)
-				trimming_settings_trimmomatic=$(echo ${trimming_settings:0:${clip_startlocation}}${trimming_settings:${clip_startlocation}:12}:${adapterfile}${trimming_settings:${clip_endlocation}})
+				trimming_settings=$(echo ${trimming_settings_trimmomatic:0:${clip_startlocation}}${trimming_settings_trimmomatic:${clip_startlocation}:12}:${adapterfile}${trimming_settings_trimmomatic:${clip_endlocation}})
 			else
-				trimming_settings_trimmomatic=${trimming_settings}
+				trimming_settings=${trimming_settings_trimmomatic}
 			fi
 
 			echo 'Trimming settings trimmomatic: '${trimming_settings_trimmomatic}
