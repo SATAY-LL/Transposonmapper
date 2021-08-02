@@ -73,7 +73,7 @@ main () {
 	paired="Single-end" #-p
 	trimming_software="bbduk" #-s
 	trimming_settings="ktrim=l k=15 mink=10 hdist=1 qtrim=r trimq=10 minlen=30" #-t
-	trimming_settings_trimmomatic="ILLUMINACLIPPING:1:30:10 TRAILING:20 SLIDINGWINDOW:5:10 MINLEN:15"
+	trimming_settings_trimmomatic="ILLUMINACLIPPING:1:30:10 TRAILING:20 SLIDINGWINDOW:5:10 MINLEN:15" # Deprecated
 	alignment_settings=" -t 1 -v 2" #-a
 	sort_and_index="TRUE" #-i
 	mapping="TRUE" #-m
@@ -173,6 +173,7 @@ main () {
 			--field="Transposon mapping (NOTE: requires sorting and indexing)":CHK \
 			--field="Create flagstat report":CHK \
 			--field="Open adapters file":FBTN \
+			--field="Open documentation website":FBTN \
 			$filepath1 \
 			$filepath2 \
 			"Single-end!Paired-end" \
@@ -186,7 +187,8 @@ main () {
 			"TRUE" \
 			"TRUE" \
 			"TRUE" \
-			"bash -c 'xdg-open ${adapterfile}'"`
+			"bash -c 'xdg-open ${adapterfile}'"\
+			"xdg-open https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html"` 
 
 			if [ ! -z "$settings" ] && [ $filepath1 != "none" ] && [ $(echo $settings | awk 'BEGIN {FS="|" } { print $9 }') == TRUE ] && [ $(echo $settings | awk 'BEGIN {FS="|" } { print $7 }') == TRUE ] #Create cachefile only if settings or filepath1 is not empty and Qualitycheck interrupt is set to True and Quality check raw files is set to True.
 			then
@@ -215,6 +217,7 @@ main () {
 			--field="Transposon mapping (NOTE: requires sorting and indexing)":CHK \
 			--field="Create flagstat report":CHK \
 			--field="Open adapters file":FBTN \
+			--field="Open documentation website":FBTN \
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $1 }') \
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $2 }') \
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $3 }') \
@@ -228,7 +231,8 @@ main () {
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $11 }') \
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $12 }') \
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $13 }') \
-			"bash -c 'xdg-open ${adapterfile}'"`
+			"bash -c 'xdg-open ${adapterfile}'" \
+			"xdg-open https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html" `
 
 			filepath1=$(echo $settings | awk 'BEGIN {FS="|" } { print $1 }')
 			filepath2=$(echo $settings | awk 'BEGIN {FS="|" } { print $2 }')
@@ -696,19 +700,19 @@ help_text (){
 	echo
 	echo "This is a processing workflow designed for SAturated Transposon Analysis in Yeast (SATAY)."
 	echo
-	echo "The program can be used by running the following command: bash [path]/processing_workflow.sh, where [path] is the path to the processing_workflow.sh file."
+	echo "The program can be used by running the following command: bash [path]/satay.sh, where [path] is the path to the satay.sh file."
 	echo
 	echo "The program can trim sequencing reads, create quality reports of raw data and of the trimmed data, align the reads to a reference genome (S288C yeast genome, downloaded from the SGD) in .sam- and .bam-format, sort and index the bam file and perform transposon-mapping."
 	echo "The following tools are used:"
 	echo "- quality report: FASTQC"
-	echo "- trimming: BBDuk or Trimmomatic"
+	echo "- trimming: BBDuk"
 	echo "- alignment: BWA MEM"
 	echo "- create flagstat report after alignment: SAMTools"
 	echo "- sort and index .bam-files: SAMBamba"
-	echo "- transposon-mapping: Python3 together with custom python software (https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/dev_Gregory/Python_TransposonMapping/transposonmapping_satay.py)"
+	echo "- transposon-mapping: Python3 together with custom python software see (https://github.com/SATAY-LL/Transposonmapper/blob/main/transposonmapper/transposonmapper.py)"
 	echo
-	echo "The program can be ran interactively using a gui or it can be used with command line arguments."
-	echo "The gui is automatically started when no arguments are passed (see below for explanation on how to use the gui)."
+	echo "The program can be ran interactively using a GUI or it can be used with command line arguments."
+	echo "The GUI is automatically started when no arguments are passed (see below for explanation on how to use the gui)."
 	echo
 	echo "For using the program with the command line, the following arguments can be passed (see below for more explanation on the parameters):"
 	echo "- [-h] Show help text"
@@ -728,7 +732,7 @@ help_text (){
 	echo "- [-y] Quality report trimmed sequencing data [TRUE or FALSE, default is TRUE]"
 	echo "- [-z] Interrupt program after raw sequencing quality report [TRUE or FALSE, default is FALSE]"
 	echo
-	echo "When no command line arguments are given, the program launched the gui which start with a window where the datafile(s) can be selected. The datafiles should be in fastq format and must have the extension .fastq or .fq. They can be either unpacked or gzipped (i.e. having the extension .gz)."
+	echo "When no command line arguments are given, the program launched the GUI which start with a window where the datafile(s) can be selected. The datafiles should be in fastq format and must have the extension .fastq or .fq. They can be either unpacked or gzipped (i.e. having the extension .gz)."
 	echo "Select the right extension in the bottom right corner and navigate to the datafile(s)."
 	echo "In case of single-end data or paired-end interleaved data select only one file. In case of paired-end data where the pairs are stored in two seperate files, select two files by holding ctrl-button and clicking the two files."
 	echo "After pressing 'ok', a new window appears where some options and parameters can be selected."
@@ -738,7 +742,7 @@ help_text (){
 	echo "- 'which trimming to use': Select whether to use bbduk or trimmomatic for trimming the reads or select 'donottrim' to prevent trimming of the reads."
 	echo "- 'trimming settings': Input trimming settings. See the documentation of the selected trimming software which settings can be applied. When 'which trimming to use' is set to 'donottrim', this field will be ignored. Sequences that need to trimmed (e.g. adapter or primer sequences) have to be entered in the adapters file which can be accessed using the 'Open adapters file' button on the bottom of the window. NOTE 1: For bbduk do not input 'interleaved=t' when using interleaved data. For trimmomatic do not input 'SE' or 'PE' to indicate single-end or paired-end data. This will all be automatically set depending on your selection in the 'Data type'-field. NOTE 2: For trimmomatic, when using ILLUMINACLIP, do not specify the path to the adapters file as this is inserted automatically (see example settings below)."
 	echo "EXAMPLE SETTINGS:"
-	echo "	- Trimmmomatic: ILLUMINACLIPPING:1:30:10 TRAILING:20 SLIDINGWINDOW:5:10 MINLEN:15 [http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf]"
+	echo "	- (Deprecated)Trimmmomatic: ILLUMINACLIPPING:1:30:10 TRAILING:20 SLIDINGWINDOW:5:10 MINLEN:15 [http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf]"
 	echo "	- bbduk: ktrim=l k=15 mink=10 hdist=1 qtrim=r trimq=10 minlen=30 [https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbduk-guide/]"
 	echo "- 'alignment settings': Input alignment settings. See the documentation of BWA MEM which settings can be applied. NOTE: Do not set -p for smart pairing (i.e. interleaved paired-end data). This will be automatically set depending on your selection in the 'Data type'-field. [http://bio-bwa.sourceforge.net/bwa.shtml]"
 	echo "- 'Quality checking raw data': Perform a fastqc quality check on the raw reads."
@@ -753,26 +757,9 @@ help_text (){
 	echo "- 'Create flagstat report': Creates a flagstat report based on the .bam file."
 	echo "- 'Open adapters file': Opens the text file where the adapter and primer sequences can be entered that will be trimmed. Enter the sequences in fasta format."
 	echo
-	echo "Questions, recommendations and issues can be noted at https://www.github.com/Gregory94/LaanLab-SATAY-DataAnalysis/issues/33"
-	echo "For more detailed information about this program and a tutorial, see github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/satay_processing/documentation/documentation_satay.md"
-	echo
-	echo
-	echo "Dependencies:"
-	echo "- Zenity"
-	echo "- YAD"
-	echo "- fastqc"
-	echo "- bbmap"
-	echo "- trimmomatic"
-	echo "- bwa"
-	echo "- samtools"
-	echo "- sambamba"
-	echo "- python3"
-	echo "	- transposonmapping_satay.py [https://www.github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/master/Python_TransposonMapping/transposonmapping_satay.py]"
-	echo "	- numpy"
-	echo "	- pysam"
-	echo "	- python_modules [https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/tree/master/Python_TransposonMapping/python_modules]"
-	echo "	- data_files [https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/tree/master/Data_Files]"
-}
+	echo "Questions, recommendations and issues can be noted at https://github.com/SATAY-LL/Transposonmapper/issues/new/choose"
+	echo "For more detailed information about this program see  https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html"
+	}
 
 
 
