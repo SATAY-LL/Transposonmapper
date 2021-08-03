@@ -48,6 +48,16 @@ main () {
 	#PYTHON CODES (path to python code for transposon_mapping).
 	path_python_codes="/opt/satay/"
 
+	# HELP DOCUMENT
+
+	help="/opt/src/help.md"
+
+	# To know the adapterfile for 1st use
+
+	look_for_adapters="/opt/src/unknown-adapters-sequence.md"
+
+
+
 ############################################################
  
 	custom_adapter=/data/adapters.fa
@@ -62,9 +72,7 @@ main () {
 		
 	fi
 
-
-
-
+	
 
 #SET OPTIONS WHEN COMMANDLINE ARGUMENTS ARE SET. THIS IS SKIPPED WHEN NO ARGUMENTS ARE PASSED
 	#set default values for when command line arguments are passed
@@ -173,7 +181,8 @@ main () {
 			--field="Transposon mapping (NOTE: requires sorting and indexing)":CHK \
 			--field="Create flagstat report":CHK \
 			--field="Open adapters file":FBTN \
-			--field="Open documentation website":FBTN \
+			--field="Open documentation":FBTN \
+			--field="How to make the custom adapterfile on the first use":FBTN\
 			$filepath1 \
 			$filepath2 \
 			"Single-end!Paired-end" \
@@ -188,7 +197,8 @@ main () {
 			"TRUE" \
 			"TRUE" \
 			"bash -c 'xdg-open ${adapterfile}'"\
-			"xdg-open https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html"` 
+			"bash -c 'xdg-open ${help}'"\
+			"bash -c 'xdg-open ${look_for_adapters}'"` 
 
 			if [ ! -z "$settings" ] && [ $filepath1 != "none" ] && [ $(echo $settings | awk 'BEGIN {FS="|" } { print $9 }') == TRUE ] && [ $(echo $settings | awk 'BEGIN {FS="|" } { print $7 }') == TRUE ] #Create cachefile only if settings or filepath1 is not empty and Qualitycheck interrupt is set to True and Quality check raw files is set to True.
 			then
@@ -217,7 +227,8 @@ main () {
 			--field="Transposon mapping (NOTE: requires sorting and indexing)":CHK \
 			--field="Create flagstat report":CHK \
 			--field="Open adapters file":FBTN \
-			--field="Open documentation website":FBTN \
+			--field="Open documentation":FBTN \
+			--field="How to make the custom adapterfile on the first use":FBTN\
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $1 }') \
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $2 }') \
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $3 }') \
@@ -232,7 +243,8 @@ main () {
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $12 }') \
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $13 }') \
 			"bash -c 'xdg-open ${adapterfile}'" \
-			"xdg-open https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html" `
+			"bash -c 'xdg-open $help}'" \
+			"bash -c 'xdg-open ${look_for_adapters}'" `
 
 			filepath1=$(echo $settings | awk 'BEGIN {FS="|" } { print $1 }')
 			filepath2=$(echo $settings | awk 'BEGIN {FS="|" } { print $2 }')
@@ -439,8 +451,8 @@ fi
 
 			if [[ ${qualitycheck_interrupt} == TRUE ]]
 			then
-				read -p 'Continue processing? (press "y" if yes, press "n" if no): ' -n 1 -r
-				echo
+			read -p 'Continue processing? (press "y" if yes, press "n" if no): ' -n 1 -r
+			echo
 				if [[ ! $REPLY =~ ^[yY]$ ]]
 				then
 					exit 0
@@ -448,11 +460,16 @@ fi
 					rm ${cachefile}
 				fi
 			fi
+
+	
+			
 		else
 			echo 'Quality report raw data already exists. Skipping fastqc'
 		fi
 	fi
 
+
+	
 
 
 
