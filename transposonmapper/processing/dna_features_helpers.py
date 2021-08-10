@@ -294,8 +294,11 @@ def feature_position(feature_dict, chrom, start_chr, dna_dict, feature_type=None
 
     for feat in position_dict:
         for bp in range(int(position_dict.get(feat)[1])+start_chr, int(position_dict.get(feat)[2])+start_chr):
-            if dna_dict[bp] == ['noncoding', None]:
-                dna_dict[bp] = [feat, feature_type]
+            if bp in dna_dict:
+                if dna_dict[bp] == ['noncoding', None]:
+                    dna_dict[bp] = [feat, feature_type]
+            else: 
+                dna_dict[bp]=[feat, feature_type]
 
 
     return(dna_dict)
@@ -425,9 +428,12 @@ def build_dataframe(dna_dict,start_chr,end_chr,insrt_in_chrom_list,reads_in_chro
 
     reads_loc_list = [0] * len(dna_dict) # CONTAINS ALL READS JUST LIKE READS_IN_CHROM_LIST, BUT THIS LIST HAS THE SAME LENGTH AS THE NUMBER OF BP IN THE CHROMOSOME WHERE THE LOCATIONS WITH NO READS ARE FILLED WITH ZEROS
     i = 0
+    
     for ins in insrt_in_chrom_list:
-        reads_loc_list[ins] = reads_in_chrom_list[i]
-        i += 1
+        if len(reads_loc_list) > ins-1: # there are some insertions outside  the chromosome that gives an error 
+            reads_loc_list[ins-1] = reads_in_chrom_list[i]
+            i += 1
+    
 
     feature_NameAndType_list = []
     f_previous = dna_dict.get(start_chr)[0]

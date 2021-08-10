@@ -21,9 +21,10 @@
 # !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam.wig
 # !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam_clean.wig
 # !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam_clean.bed
-
-
-
+transposonmapper/data_files/WT_merged-DpnII-NlaIII-a_trimmed.sorted.bam_peressential_insertions.txt
+transposonmapper/data_files/WT_merged-DpnII-NlaIII-a_trimmed.sorted.bam_peressential.txt
+transposonmapper/data_files/WT_merged-DpnII-NlaIII-a_trimmed.sorted.bam_pergene_insertions.txt
+transposonmapper/data_files/WT_merged-DpnII-NlaIII-a_trimmed.sorted.bam_pergene.txt
 # Compiled source #
 *.exe
 *.pyc
