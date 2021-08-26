@@ -240,7 +240,7 @@ main () {
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $13 }') \
 			"bash -c 'xdg-open ${adapterfile}'" \
 			"bash -c 'xdg-open $help}'" \
-			"bash -c 'xdg-open ${look_for_adapters}'" `
+			"bash -c 'xdg-open ${look_for_adapters}'"
 
 			filepath1=$(echo $settings | awk 'BEGIN {FS="|" } { print $1 }')
 			filepath2=$(echo $settings | awk 'BEGIN {FS="|" } { print $2 }')
