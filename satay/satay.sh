@@ -49,7 +49,7 @@ main () {
 	path_python_codes="/opt/satay/"
 
 	# HELP DOCUMENT
-	help="/opt/satay/docs/help-GUI.pdf"
+	documentation="/opt/satay/docs/help-GUI.pdf"
 
 	# To know the adapterfile for 1st use
 	look_for_adapters="/opt/src/unknown-adapters-sequence.md"
@@ -168,8 +168,8 @@ main () {
 			--field="Selected file primary reads":RO \
 			--field="Selected file secondary reads":RO \
 			--field="Data type":CB \
-			--field="Which trimming to use":CB \
-			--field="Enter trimming settings for bbduk" \
+			--field="Trimming software":CB \
+			--field="Trimming settings for bbduk" \
 			--field="Enter alignment settings" \
 			--field="Quality checking raw data":CHK \
 			--field="Quality checking trimmed data":CHK \
@@ -179,8 +179,7 @@ main () {
 			--field="Transposon mapping (NOTE: requires sorting and indexing)":CHK \
 			--field="Create flagstat report":CHK \
 			--field="Open adapters file":FBTN \
-			--field="Open documentation":FBTN \
-			--field="How to make the custom adapterfile on the first use":FBTN\
+			--field="Getting started":FBTN \
 			$filepath1 \
 			$filepath2 \
 			"Single-end!Paired-end" \
@@ -195,8 +194,7 @@ main () {
 			"TRUE" \
 			"TRUE" \
 			"bash -c 'xdg-open ${adapterfile}'"\
-			"bash -c 'atril ${help}'"\
-			"bash -c 'xdg-open ${look_for_adapters}'"` 
+			"bash -c 'atril ${documentation}'"\
 
 			if [ ! -z "$settings" ] && [ $filepath1 != "none" ] && [ $(echo $settings | awk 'BEGIN {FS="|" } { print $9 }') == TRUE ] && [ $(echo $settings | awk 'BEGIN {FS="|" } { print $7 }') == TRUE ] #Create cachefile only if settings or filepath1 is not empty and Qualitycheck interrupt is set to True and Quality check raw files is set to True.
 			then

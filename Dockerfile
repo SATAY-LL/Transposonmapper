@@ -17,7 +17,6 @@ RUN conda env update -n base -f opt/environment.yml --quiet \
 # Copy code to container
 COPY ./transposonmapper /opt/src/transposonmapper 
 COPY ./satay /opt/satay
-COPY ./documentation /opt/documentation
 COPY setup.py README.rst /opt/src/
 
 # Install the transposonmapper package inside the container
