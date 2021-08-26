@@ -49,11 +49,9 @@ main () {
 	path_python_codes="/opt/satay/"
 
 	# HELP DOCUMENT
-
-	help="/opt/src/help.md"
+	help="/opt/satay/docs/help-GUI.pdf"
 
 	# To know the adapterfile for 1st use
-
 	look_for_adapters="/opt/src/unknown-adapters-sequence.md"
 
 
@@ -197,7 +195,7 @@ main () {
 			"TRUE" \
 			"TRUE" \
 			"bash -c 'xdg-open ${adapterfile}'"\
-			"bash -c 'xdg-open ${help}'"\
+			"bash -c 'atril ${help}'"\
 			"bash -c 'xdg-open ${look_for_adapters}'"` 
 
 			if [ ! -z "$settings" ] && [ $filepath1 != "none" ] && [ $(echo $settings | awk 'BEGIN {FS="|" } { print $9 }') == TRUE ] && [ $(echo $settings | awk 'BEGIN {FS="|" } { print $7 }') == TRUE ] #Create cachefile only if settings or filepath1 is not empty and Qualitycheck interrupt is set to True and Quality check raw files is set to True.
