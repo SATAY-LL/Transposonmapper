@@ -133,14 +133,13 @@ Prerequisites:
 - Docker 
 - Xserver (for displaying the GUI)
 
-To build the image locally in your computer, from DockerHub : 
+To build the image locally in your computer, from DockerHub: 
 
    - create an account in DockerHub
 
 - Pull the image 
 
 .. code-block:: console
-
 
    docker pull mwakok/satay:latest
 
@@ -149,19 +148,17 @@ To build the image locally in your computer, from DockerHub :
 
 .. code-block:: console
 
-
    docker images
 
 - Move to where you have the Dockerfile and build the image 
 
-.. code-block:: console
 
+.. code-block:: console
 
    docker build . -t mwakok/satay:latest
 
-- Move to the location where you have the data you would like to mount to the container ,
-to use ``$(pwd)`` in the command bellow (simplest option) , otherwise indicate the absolute path from your computer
-you would like to be loaded. 
+- Move to the location where you have the data you would like to mount to the container, to use ``$(pwd)`` in the command bellow (simplest option), otherwise indicate the absolute path from your computer you would like to be loaded. 
+
 
 To run the docker container, use the commands for your Operating System:
 
@@ -181,14 +178,14 @@ To run the docker container, use the commands for your Operating System:
 
 - Troubleshooting 
 
-If an error regarding the connection pops up :
+If an error regarding the connection pops up:
 
 .. code-block:: console
 
 
     Gtk-WARNING **: cannot open display: :0
 
-There is a  solution in Linux is typing the  following command in the terminal : ``xhost +``
+There is a solution in Linux is typing the following command in the terminal : ``xhost +``
       
  
 
