@@ -101,7 +101,7 @@ main () {
 				exit 0
 				;;
 			c )
-				xdg-open ${adapterfile}
+				gedit ${adapterfile}
 				exit 0
 				;;
 			f )
@@ -194,7 +194,7 @@ main () {
 			"TRUE" \
 			"TRUE" \
 			"bash -c 'xdg-open ${adapterfile}'"\
-			"bash -c 'atril ${documentation}'"\
+			"bash -c 'evince ${documentation}'"\
 
 			if [ ! -z "$settings" ] && [ $filepath1 != "none" ] && [ $(echo $settings | awk 'BEGIN {FS="|" } { print $9 }') == TRUE ] && [ $(echo $settings | awk 'BEGIN {FS="|" } { print $7 }') == TRUE ] #Create cachefile only if settings or filepath1 is not empty and Qualitycheck interrupt is set to True and Quality check raw files is set to True.
 			then
@@ -239,8 +239,7 @@ main () {
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $12 }') \
 			$(echo $previoussettings | awk 'BEGIN {FS="|" } { print $13 }') \
 			"bash -c 'xdg-open ${adapterfile}'" \
-			"bash -c 'xdg-open $help}'" \
-			"bash -c 'xdg-open ${look_for_adapters}'"
+			"bash -c 'evince ${documentation}'" \
 
 			filepath1=$(echo $settings | awk 'BEGIN {FS="|" } { print $1 }')
 			filepath2=$(echo $settings | awk 'BEGIN {FS="|" } { print $2 }')

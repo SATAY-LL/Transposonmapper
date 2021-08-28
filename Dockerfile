@@ -4,7 +4,7 @@ FROM continuumio/miniconda3:4.10.3
 SHELL [ "/bin/bash", "--login", "-c" ]
 
 # Install libraries needed for the GUI
-RUN apt-get update -q && apt-get install yad xdg-utils terminator atril -q -y && apt-get clean 
+RUN apt-get update -q && apt-get install yad xdg-utils gedit evince dbus-x11 -q -y && apt-get clean 
 
 # Install conda packages
 COPY ./conda/environment.yml /opt
