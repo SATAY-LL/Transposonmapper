@@ -58,7 +58,7 @@ jobs:
       - name: Check package
         run: |
           python -m twine check dist/*
-      - name: Show pip list
+      - name: Install package
         run: |
           pip install -e .[dev]
       - name: Show pip list again
