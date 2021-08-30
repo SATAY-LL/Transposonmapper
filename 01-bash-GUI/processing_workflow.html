@@ -1,0 +1,950 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code for the bash GUI &#8212; SATAY pipeline at Delft :)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/genetica_modified_neon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python scripts" href="../02-postprocessing-scripts/00-Introduction.html" />
+    <link rel="prev" title="All what you need to know from SATAY" href="../00-Intro/satay_analysis_notes.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/genetica_modified_neon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SATAY pipeline at Delft :)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_satay.html">
+   Documentation for processing SATAY
+   <!-- omit in toc -->
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Status of the project
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00-Intro/data-analysis-workflow.html">
+   Data analysis steps
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00-Intro/flowchart.html">
+     Flowchart of the pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00-Intro/Installation_Guide_SATAY_Analysis_Software.html">
+     Software installation guide for whole genome sequencing and transposon mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00-Intro/satay_analysis_notes.html">
+     All what you need to know from SATAY
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Code for the bash GUI
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02-postprocessing-scripts/00-Introduction.html">
+   Python scripts
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-postprocessing-scripts/01-clean_bedwigfiles.html">
+     Cleaning bed and wig files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-postprocessing-scripts/02-transposonread_profileplot_genome.html">
+     Transposon profile for the whole genome
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-postprocessing-scripts/03-transposonread_profileplot.html">
+     Transposon profile for a chromosome of interest
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-postprocessing-scripts/04-scatterplot_genes.html">
+     Create a scatterplot for all genes and all essential genes.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-postprocessing-scripts/05-volcanoplot.html">
+     Volcano plots to two different libraries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-postprocessing-scripts/06-genomicfeatures_dataframe.html">
+     Searching for genomic features  of transposition events
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-docker-doc/00-Docker-Users.html">
+   Build your own docker container with ours satay pipeline
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/01-bash-GUI/processing_workflow.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/SATAY-LL/SATAY-jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/SATAY-LL/SATAY-jupyter-book/issues/new?title=Issue%20on%20page%20%2F01-bash-GUI/processing_workflow.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="code-for-the-bash-gui">
+<h1>Code for the bash GUI<a class="headerlink" href="#code-for-the-bash-gui" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Author = Gregory van Beek. LaanLab, department of Bionanoscience, Delft University of Technology</p></li>
+<li><p>version = 1.1</p></li>
+</ul>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Click here to see the code!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;-h&quot;</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;--help&quot;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span>
+	<span class="nb">echo</span> <span class="s2">&quot;This is a processing workflow designed for SAturated Transposon Analysis in Yeast (SATAY).&quot;</span>
+	<span class="nb">echo</span>
+	<span class="nb">echo</span> <span class="s2">&quot;The program can be used by running the following command: bash [path]/processing_workflow.sh, where [path] is the path to the processing_workflow.sh file.&quot;</span>
+	<span class="nb">echo</span>
+	<span class="nb">echo</span> <span class="s2">&quot;The program can trim sequencing reads, create quality reports of raw data and of the trimmed data, align the reads to a reference genome (S288C yeast genome, downloaded from the SGD) in .sam- and .bam-format, sort and index the bam file and perform transposon-mapping.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;The following tools are used:&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- quality report: FASTQC&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- trimming: BBDuk or Trimmomatic&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- alignment: BWA MEM&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- create flagstat report after alignment: SAMTools&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- sort and index .bam-files: SAMBamba&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- transposon-mapping: Python3 together with custom python software (https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/dev_Gregory/Python_TransposonMapping/transposonmapping_satay.py)&quot;</span>
+	<span class="nb">echo</span>
+	<span class="nb">echo</span> <span class="s2">&quot;The program does not take inputs from the command line, except for the help text which can be accessed with the arguments --help or -h. It can handle both single-end data, paired-end data and paired-end interleaved data.&quot;</span>
+	<span class="nb">echo</span>
+	<span class="nb">echo</span> <span class="s2">&quot;When the program is started, a window appears where the datafile(s) can be selected. The datafiles should be in fastq format and must have the extension .fastq or .fq. They can be either unpacked or gzipped (i.e. having the extension .gz).&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;Select the right extension in the bottom right corner and navigate to the datafile(s).&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;In case of single-end data or paired-end interleaved data select only one file. In case of paired-end data where the pairs are stored in two seperate files, select two files by holding ctrl-button and clicking the two files.&quot;</span>
+	<span class="nb">echo</span>
+	<span class="nb">echo</span> <span class="s2">&quot;After pressing &#39;ok&#39;, a new window appears where some options and parameters can be selected.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;file primary reads&#39; and &#39;file secondary reads&#39;: Show the selected file(s). If only one file is chosen, the &#39;file secondary reads&#39; will show &#39;none&#39;.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;Data type&#39;: Select whether the reads are paired-end or single-end. If two data files were chosen but this setting is set to &#39;Single-end&#39;, the secondary reads file will be ignored.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;which trimming to use&#39;: Select whether to use bbduk or trimmomatic for trimming the reads or select &#39;Do_not_trim&#39; to prevent trimming of the reads.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;trimming settings&#39;: Input trimming settings. See the documentation of the selected trimming software which settings can be applied. When &#39;which trimming to use&#39; is set to &#39;Do_not_trim&#39;, this field will be ignored. Sequences that need to trimmed (e.g. adapter or primer sequences) have to be entered in the adapters file which can be accessed using the &#39;Open adapters file&#39; button on the bottom of the window. NOTE 1: For bbduk do not input &#39;interleaved=t&#39; when using interleaved data. For trimmomatic do not input &#39;SE&#39; or &#39;PE&#39; to indicate single-end or paired-end data. This will all be automatically set depending on your selection in the &#39;Data type&#39;-field. NOTE 2: For trimmomatic, when using ILLUMINACLIP, do not specify the path to the adapters file as this is inserted automatically (see example settings below).&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;EXAMPLE SETTINGS:&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;	- Trimmmomatic: ILLUMINACLIPPING:1:30:10 TRAILING:20 SLIDINGWINDOW:5:10 MINLEN:15 [http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf]&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;	- bbduk: ktrim=l k=15 mink=10 hdist=1 qtrim=r trimq=10 minlen=30 [https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbduk-guide/]&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;alignment settings&#39;: Input alignment settings. See the documentation of BWA MEM which settings can be applied. NOTE: Do not set -p for smart pairing (i.e. interleaved paired-end data). This will be automatically set depending on your selection in the &#39;Data type&#39;-field. [http://bio-bwa.sourceforge.net/bwa.shtml]&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;Quality checking raw data&#39;: Perform a fastqc quality check on the raw reads.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;Quality checking trimmed data&#39;: Perform a fastqc quality check on the trimmed reads. This setting is ignored if &#39;which trimming to use&#39; it set to &#39;Do_not_trim&#39;.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;Quality check interrupt&#39;: This quits the program after performing the quality report on the raw dataset and creating a temporary file with your settings. This allows you to check the quality report before continuing. To continue the program, restart the program (using bash processing_workflow.sh). It will automatically set the options you have chosen the first time, but these can be changed if this is necessary depending on the outcome of the quality report. This option can be useful if you have no idea how the dataset looks. This requires &#39;Quality checking raw data&#39;.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;Delete sam file&#39;: After alignment the .sam file is converted to its binary equivalent and only this .bam file is used for downstream processing. Since the .sam file typically requires a lot of memory, this is can be deleted. It is recommended to keep the .sam file only for manual checking te alignment results.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;Sort and index bam files.&#39;: This is needed for transposon-mapping and for many other downstream processes. It is recommended to always leave this on.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;Transposon mapping&#39;: This custom python script requires sorting and indexing of the .bam file and creates the following files:&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;	- .bed file: Creates list of all insertion locations with the number of reads in each location in bed-format.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;	- .wig file: Creates list of all insertion locations with the number of reads in each location in wig-format. Small difference with the bed-file is that here reads from insertions at the same location but with different orientation are added up. In the bed-file these are regarded two separate insertions.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;	- 4 .txt-files: List of all genes with the number of insertions and reads in each gene. The files are different in whether they show all genes or all annotated essential genes and whether they also show the distribution of insertions within the genes.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;Create flagstat report&#39;: Creates a flagstat report based on the .bam file.&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- &#39;Open adapters file&#39;: Opens the text file where the adapter and primer sequences can be entered that will be trimmed. Enter the sequences in fasta format.&quot;</span>
+	<span class="nb">echo</span>
+	<span class="nb">echo</span> <span class="s2">&quot;Questions, recommendations and issues can be noted at https://www.github.com/Gregory94/LaanLab-SATAY-DataAnalysis/issues/33&quot;</span>
+	<span class="nb">echo</span>
+	<span class="nb">echo</span>
+	<span class="nb">echo</span> <span class="s2">&quot;Dependencies:&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- Zenity&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- YAD&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- fastqc&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- bbmap&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- trimmomatic&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- bwa&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- samtools&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- sambamba&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;- python3&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;	- transposonmapping_satay.py [https://www.github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/master/Python_TransposonMapping/transposonmapping_satay.py]&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;	- numpy&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;	- pysam&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;	- python_modules [https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/tree/master/Python_TransposonMapping/python_modules]&quot;</span>
+	<span class="nb">echo</span> <span class="s2">&quot;	- data_files [https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/tree/master/Data_Files]&quot;</span>
+	<span class="nb">exit</span> <span class="m">0</span>
+<span class="k">fi</span>
+
+
+<span class="c1">################### Define paths ###########################</span>
+
+<span class="c1">#CACHEFILE (this is a temporary file that is created to store user settings when &#39;Quality check interrupt is set to true).</span>
+<span class="c1">#cachefile=&quot;/home/gregoryvanbeek/Desktop/processing_workflow_cache.txt&quot;</span>
+<span class="nv">cachefile</span><span class="o">=</span><span class="s2">&quot;/home/laanlab/Documents/satay/software/processing_workflow_cache.txt&quot;</span>
+
+<span class="c1">#ADAPTERFILE (this refers to the file with adapter sequences that are used for trimming).</span>
+<span class="c1">#adapterfile=&quot;/home/gregoryvanbeek/Documents/Software/BBMap/bbmap/resources/adapters.fa&quot;</span>
+<span class="nv">adapterfile</span><span class="o">=</span><span class="s2">&quot;/home/laanlab/Documents/satay/software/bbmap/resources/adapters.fa&quot;</span>
+
+<span class="c1">#REFERENCE GENOME (path to the fasta file of the reference genome).</span>
+<span class="c1">#path_refgenome=&#39;/home/gregoryvanbeek/Documents/Reference_Sequences/Reference_Sequence_S288C/S288C_reference_sequence_R64-2-1_20150113.fsa&#39;</span>
+<span class="nv">path_refgenome</span><span class="o">=</span>/home/laanlab/Documents/satay/reference_sequences/Cerevisiae_S288C_reference/S288C_reference_sequence_R64-2-1_20150113.fsa
+
+<span class="c1">#DDBUK SOFTWARE (path to bbduk for trimming).</span>
+<span class="c1">#path_bbduk_software=/home/gregoryvanbeek/Documents/Software/BBMap/bbmap/</span>
+<span class="nv">path_bbduk_software</span><span class="o">=</span>/home/laanlab/Documents/satay/software/bbmap/
+
+<span class="c1">#TRIMMOMATIC (path to trimmomatic for trimming).</span>
+<span class="c1">#path_trimm_software=/home/gregoryvanbeek/Documents/Software/Trimmomatic-0.39/</span>
+<span class="nv">path_trimm_software</span><span class="o">=</span>/home/laanlab/Documents/satay/software/Trimmomatic-0.39/
+
+<span class="c1">#PYTHON CODES (path to python code for transposon_mapping).</span>
+<span class="c1">#path_python_codes=/home/gregoryvanbeek/Documents/Software/python_codes/</span>
+<span class="nv">path_python_codes</span><span class="o">=</span>/home/laanlab/Documents/satay/software/python_codes/
+
+<span class="c1">############################################################</span>
+
+
+
+
+<span class="k">if</span> <span class="o">[</span> ! -f <span class="nv">$cachefile</span> <span class="o">]</span><span class="p">;</span>
+<span class="k">then</span>
+	<span class="nv">fileselections</span><span class="o">=</span><span class="sb">`</span>yad --width<span class="o">=</span><span class="m">1000</span> --height<span class="o">=</span><span class="m">400</span> --title<span class="o">=</span><span class="s2">&quot;Select fastq file&quot;</span> --center --on-top --buttons-layout<span class="o">=</span>spread --multiple --file-selection<span class="o">=</span><span class="s2">&quot;Please select datafile (or two files in case of paired-end noninterleaved fastq files)&quot;</span> --file-filter<span class="o">=</span><span class="s2">&quot;*.fq&quot;</span> --file-filter<span class="o">=</span><span class="s2">&quot;*.fastq&quot;</span> --file-filter<span class="o">=</span><span class="s2">&quot;*.fq.gz&quot;</span> --file-filter<span class="o">=</span><span class="s2">&quot;*.fastq.gz&quot;</span><span class="sb">`</span>
+	<span class="nv">filepath1</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$fileselections</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $1 }&#39;</span><span class="k">)</span>
+	<span class="nv">filepath2</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$fileselections</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $2 }&#39;</span><span class="k">)</span>
+	
+	<span class="c1">#if no file selected, set filepath to none. If no filepath1, exit.</span>
+	<span class="o">[</span> -z <span class="nv">$filepath1</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">filepath1</span><span class="o">=</span><span class="s1">&#39;none&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="m">0</span>
+	<span class="o">[</span> -z <span class="nv">$filepath2</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">filepath2</span><span class="o">=</span><span class="s1">&#39;none&#39;</span>
+
+	<span class="nv">settings</span><span class="o">=</span><span class="sb">`</span>yad --width<span class="o">=</span><span class="m">1000</span> --height<span class="o">=</span><span class="m">500</span> --title<span class="o">=</span><span class="s2">&quot;Processing settings&quot;</span> --text<span class="o">=</span><span class="s2">&quot;Settings&quot;</span> --center --on-top --buttons-layout<span class="o">=</span>spread --form <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Selected file primary reads&quot;</span>:RO <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Selected file secondary reads&quot;</span>:RO <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Data type&quot;</span>:CB <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Which trimming to use&quot;</span>:CB <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Enter trimming settings&quot;</span> <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Enter alignment settings&quot;</span> <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Quality checking raw data&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Quality checking trimmed data&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Quality check interrupt\n (allows for changing trimming and alignment settings after quality report raw data)&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Delete sam file&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Sort and index bam files&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Transposon mapping (NOTE: requires sorting and indexing)&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Create flagstat report&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Open adapters file&quot;</span>:FBTN <span class="se">\</span>
+	<span class="nv">$filepath1</span> <span class="se">\</span>
+	<span class="nv">$filepath2</span> <span class="se">\</span>
+	<span class="s2">&quot;Single-end!Paired-end&quot;</span> <span class="se">\</span>
+	<span class="s2">&quot;bbduk!trimmomatic!Do_not_trim&quot;</span> <span class="se">\</span>
+	<span class="s2">&quot;ktrim=l k=15 mink=10 hdist=1 qtrim=r trimq=10 minlen=30&quot;</span> <span class="se">\</span>
+	<span class="s2">&quot; -v 2&quot;</span> <span class="se">\</span>
+	<span class="s2">&quot;False&quot;</span> <span class="se">\</span>
+	<span class="s2">&quot;TRUE&quot;</span> <span class="se">\</span>
+	<span class="s2">&quot;FALSE&quot;</span> <span class="se">\</span>
+	<span class="s2">&quot;TRUE&quot;</span> <span class="se">\</span>
+	<span class="s2">&quot;TRUE&quot;</span> <span class="se">\</span>
+	<span class="s2">&quot;TRUE&quot;</span> <span class="se">\</span>
+	<span class="s2">&quot;TRUE&quot;</span> <span class="se">\</span>
+	<span class="s2">&quot;bash -c &#39;xdg-open </span><span class="si">${</span><span class="nv">adapterfile</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="sb">`</span>
+
+	<span class="k">if</span> <span class="o">[</span> ! -z <span class="s2">&quot;</span><span class="nv">$settings</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$filepath1</span> !<span class="o">=</span> <span class="s2">&quot;none&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $9 }&#39;</span><span class="k">)</span> <span class="o">==</span> TRUE <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $7 }&#39;</span><span class="k">)</span> <span class="o">==</span> TRUE <span class="o">]</span> <span class="c1">#Create cachefile only if settings or filepath1 is not empty and Qualitycheck interrupt is set to True and Quality check raw files is set to True.</span>
+	<span class="k">then</span>
+		<span class="nb">echo</span> <span class="nv">$settings</span> &gt;&gt; <span class="nv">$cachefile</span>
+		<span class="nb">echo</span> <span class="s1">&#39;Cache file created.&#39;</span>
+	<span class="k">fi</span>
+
+<span class="k">elif</span> <span class="o">[</span> -f <span class="nv">$cachefile</span> <span class="o">]</span><span class="p">;</span>
+<span class="k">then</span>
+
+	<span class="nv">previoussettings</span><span class="o">=</span><span class="sb">`</span>head -n <span class="m">1</span> <span class="nv">$cachefile</span><span class="sb">`</span>
+	<span class="nb">echo</span> <span class="nv">$previoussettings</span>
+
+	<span class="nv">settings</span><span class="o">=</span><span class="sb">`</span>yad --width<span class="o">=</span><span class="m">1100</span> --height<span class="o">=</span><span class="m">500</span> --title<span class="o">=</span><span class="s2">&quot;Processing settings&quot;</span> --text<span class="o">=</span><span class="s2">&quot;Settings&quot;</span> --center --on-top --buttons-layout<span class="o">=</span>spread --form <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Selected file primary reads&quot;</span>:RO <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Selected file secondary reads&quot;</span>:RO <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Data type&quot;</span>:RO <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Which trimming to use&quot;</span>:RO <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Enter trimming settings&quot;</span> <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Enter alignment settings&quot;</span> <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Quality checking raw data&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Quality checking trimmed data&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Quality check interrupt\n (allows for changing trimming and alignment settings after quality report raw data)&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Delete sam file&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Sort and index bam files&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Transposon mapping (NOTE: requires sorting and indexing)&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Create flagstat report&quot;</span>:CHK <span class="se">\</span>
+	--field<span class="o">=</span><span class="s2">&quot;Open adapters file&quot;</span>:FBTN <span class="se">\</span>
+	<span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $1 }&#39;</span><span class="k">)</span> <span class="se">\</span>
+	<span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $2 }&#39;</span><span class="k">)</span> <span class="se">\</span>
+	<span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $3 }&#39;</span><span class="k">)</span> <span class="se">\</span>
+	<span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $4 }&#39;</span><span class="k">)</span> <span class="se">\</span>
+	<span class="s2">&quot;</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $5 }&#39;</span><span class="k">)</span><span class="s2">&quot;</span> <span class="se">\</span>
+	<span class="s2">&quot;</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $6 }&#39;</span><span class="k">)</span><span class="s2">&quot;</span> <span class="se">\</span>
+	<span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $7 }&#39;</span><span class="k">)</span> <span class="se">\</span>
+	<span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $8 }&#39;</span><span class="k">)</span> <span class="se">\</span>
+	<span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $9 }&#39;</span><span class="k">)</span> <span class="se">\</span>
+	<span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $10 }&#39;</span><span class="k">)</span> <span class="se">\</span>
+	<span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $11 }&#39;</span><span class="k">)</span> <span class="se">\</span>
+	<span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $12 }&#39;</span><span class="k">)</span> <span class="se">\</span>
+	<span class="k">$(</span><span class="nb">echo</span> <span class="nv">$previoussettings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $13 }&#39;</span><span class="k">)</span> <span class="se">\</span>
+	<span class="s2">&quot;bash -c &#39;xdg-open </span><span class="si">${</span><span class="nv">adapterfile</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="sb">`</span>
+
+	<span class="nv">filepath1</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $1 }&#39;</span><span class="k">)</span>
+	<span class="nv">filepath2</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $2 }&#39;</span><span class="k">)</span>
+
+	rm <span class="si">${</span><span class="nv">cachefile</span><span class="si">}</span>
+	<span class="k">if</span> <span class="o">[[</span> -z <span class="si">${</span><span class="nv">settings</span><span class="si">}</span> <span class="o">]]</span>
+	<span class="k">then</span>
+		<span class="nb">echo</span> <span class="s1">&#39;Process canceled.&#39;</span>
+		<span class="nb">exit</span> <span class="m">1</span>
+	<span class="k">fi</span>
+<span class="k">fi</span>
+
+
+<span class="c1">############################################################</span>
+
+<span class="c1"># Define whether data is paired-end</span>
+<span class="nv">paired</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $3 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s1">&#39;paired &#39;</span> <span class="nv">$paired</span>
+
+<span class="c1"># Define which trimming tool to use</span>
+<span class="nv">trimming_software</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $4 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s1">&#39;trimming_software &#39;</span> <span class="nv">$trimming_software</span>
+
+<span class="c1">###    bbduk    ###</span>
+<span class="nv">trimming_settings</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $5 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s1">&#39;trimming_settings bbduk &#39;</span> <span class="nv">$trimming_settings</span>
+
+<span class="c1">### trimmomatic ###</span>
+<span class="nv">trimmomatic_initialization</span><span class="o">=</span><span class="s1">&#39;-phred33&#39;</span>
+<span class="nv">trimming_settings</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $5 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s1">&#39;trimming_settings trimmomatic &#39;</span> <span class="nv">$trimming_settings</span>
+
+<span class="c1"># Set options for alignment software (bwa mem)</span>
+<span class="nv">alignment_settings</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $6 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s1">&#39;alignment_settings &#39;</span> <span class="nv">$alignment_settings</span>
+
+<span class="c1"># Create sorted and indexed bam file (&#39;TRUE&#39; or &#39;FALSE&#39;)</span>
+<span class="nv">sort_and_index</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $11 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s1">&#39;sort_and_index &#39;</span> <span class="nv">$sort_and_index</span>
+
+<span class="c1"># Apply transposon mapping (&#39;TRUE&#39; or &#39;FALSE&#39;) (requires sort_and_index=TRUE)</span>
+<span class="nv">mapping</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $12 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s1">&#39;mapping &#39;</span> <span class="nv">$mapping</span>
+
+<span class="c1"># Delete sam file (&#39;TRUE&#39; or &#39;FALSE&#39;)? This file is always converted to its binary equivalent (.bam ) and the sam file is rarely used but takes up relatively a lot of memory.</span>
+<span class="nv">delete_sam</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $10 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s1">&#39;delete_sam &#39;</span> <span class="nv">$delete_sam</span>
+
+<span class="c1"># Create a quality report of the alignment based on the sam file (&#39;TRUE&#39; or &#39;FALSE&#39;)</span>
+<span class="nv">flagstat_report</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $13 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s1">&#39;flagstat_report &#39;</span> <span class="nv">$flagstat_report</span>
+
+<span class="c1"># Create quality report of raw data (before trimming) (&#39;TRUE&#39; or &#39;FALSE&#39;)?</span>
+<span class="nv">quality_check_raw</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $7 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s1">&#39;quality_check_raw &#39;</span> <span class="nv">$quality_check_raw</span>
+
+<span class="c1"># Create quality report of trimmed data (after trimming) (&#39;TRUE&#39; or &#39;FALSE&#39;)?</span>
+<span class="nv">quality_check_trim</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $8 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s1">&#39;quality_check_trim &#39;</span> <span class="nv">$quality_check_trim</span>
+
+<span class="c1"># Determine whether the script should automatically continue after creating the first quality report. Set to True if you might want to make changes depending on the quality report of the raw data (&#39;TRUE&#39; or &#39;FALSE&#39;).</span>
+<span class="nv">qualitycheck_interrupt</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$settings</span> <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;|&quot; } { print $9 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s1">&#39;qualitycheck_interrupt &#39;</span> <span class="nv">$qualitycheck_interrupt</span>
+
+<span class="c1">############################################################</span>
+
+
+
+
+<span class="nb">echo</span> <span class="s1">&#39;Preparing processing for&#39;</span> <span class="k">$(</span>basename <span class="si">${</span><span class="nv">filepath1</span><span class="si">}</span><span class="k">)</span> <span class="s1">&#39;...&#39;</span>
+<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+
+
+<span class="c1"># Check paths selected datafiles.</span>
+<span class="nv">pathdata</span><span class="o">=</span><span class="k">$(</span>dirname <span class="si">${</span><span class="nv">filepath1</span><span class="si">}</span><span class="k">)</span>
+<span class="nv">filename1</span><span class="o">=</span><span class="k">$(</span>basename <span class="si">${</span><span class="nv">filepath1</span><span class="si">}</span><span class="k">)</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath1</span><span class="si">}</span> <span class="o">=</span>~ <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;ERROR: No file selected. Process canceled.&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">elif</span> <span class="o">[</span> ! -f <span class="si">${</span><span class="nv">filepath1</span><span class="si">}</span> <span class="o">]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;ERROR: File&#39;</span> <span class="si">${</span><span class="nv">filepath1</span><span class="si">}</span> <span class="s1">&#39;not found.&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">=</span>~ <span class="s1">&#39;Paired-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">=</span>~ <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="k">if</span> <span class="o">[</span> ! -f <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">]</span>
+	<span class="k">then</span>
+		<span class="nb">echo</span> <span class="s1">&#39;ERROR: File&#39;</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="s1">&#39;not found.&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="m">1</span>
+	<span class="k">else</span>
+		<span class="nv">filename2</span><span class="o">=</span><span class="k">$(</span>basename <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span><span class="k">)</span>
+	<span class="k">fi</span>
+<span class="k">elif</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">=</span>~ <span class="s1">&#39;Single-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">=</span>~ <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;WARNING: A secondary reads file was specified but paired was set to single-end. Therefore the secondary reads file will be ignored.&#39;</span>
+	<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+<span class="k">fi</span>
+
+<span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&quot;</span><span class="si">${</span><span class="nv">settings</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Process canceled.&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+
+
+<span class="c1"># Get extension of the file</span>
+<span class="nv">extension</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$filename1</span> <span class="p">|</span> rev <span class="p">|</span> cut -d. -f1 <span class="p">|</span> rev<span class="k">)</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">extension</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;.gz&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nv">extension</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$filename1</span> <span class="p">|</span> rev <span class="p">|</span> cut -d. -f2 <span class="p">|</span> rev<span class="k">)</span>
+<span class="k">fi</span>
+
+
+<span class="c1"># Define filename for trimming and alignment results</span>
+<span class="k">if</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">trimming_software</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Do_not_trim&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">trimming_settings</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;trimming settings:&#39;</span> <span class="si">${</span><span class="nv">trimming_settings</span><span class="si">}</span>
+	<span class="nb">echo</span> <span class="s1">&#39;WARNING: No trimming setting were specified. Trimming set to Do_not_trim&#39;</span>
+	<span class="nv">trimming_software</span><span class="o">=</span><span class="s1">&#39;Do_not_trim&#39;</span>
+<span class="k">fi</span>
+
+<span class="k">if</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">trimming_software</span><span class="si">}</span> <span class="o">=</span>~ <span class="s1">&#39;Do_not_trim&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nv">filename_trimmed1</span><span class="o">=</span><span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_trimmed.fastq&#39;</span>
+	<span class="k">if</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">=</span>~ <span class="s1">&#39;none&#39;</span> <span class="o">]]</span> <span class="c1">#if not filename2 is none</span>
+	<span class="k">then</span>
+		<span class="nv">filename_trimmed2</span><span class="o">=</span><span class="si">${</span><span class="nv">filename2</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_trimmed.fastq&#39;</span>
+	<span class="k">fi</span>
+	<span class="nv">filename_sam</span><span class="o">=</span><span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_trimmed.sam&#39;</span>
+	<span class="nv">filename_bam</span><span class="o">=</span><span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_trimmed.bam&#39;</span>
+	<span class="nv">filename_sort</span><span class="o">=</span><span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_trimmed.sorted.bam&#39;</span>
+<span class="k">else</span>
+	<span class="nv">filename_trimmed1</span><span class="o">=</span><span class="si">${</span><span class="nv">filename1</span><span class="si">}</span>
+	<span class="k">if</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">=</span>~ <span class="s1">&#39;none&#39;</span> <span class="o">]]</span> <span class="c1">#if not filename2 is none</span>
+	<span class="k">then</span>
+		<span class="nv">filename_trimmed2</span><span class="o">=</span><span class="si">${</span><span class="nv">filename2</span><span class="si">}</span>
+	<span class="k">fi</span>
+	<span class="nv">filename_sam</span><span class="o">=</span><span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_notrimmed.sam&#39;</span>
+	<span class="nv">filename_bam</span><span class="o">=</span><span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_notrimmed.bam&#39;</span>
+	<span class="nv">filename_sort</span><span class="o">=</span><span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_notrimmed.sorted.bam&#39;</span>
+<span class="k">fi</span>
+
+
+
+<span class="c1"># Define path output directory fastqc</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">quality_check_raw</span><span class="si">}</span> <span class="o">=</span>~ TRUE <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">quality_check_trim</span><span class="si">}</span> <span class="o">=</span>~ TRUE <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nv">path_fastqc_out</span><span class="o">=</span><span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/fastqc_out
+	<span class="o">[</span> ! -d <span class="si">${</span><span class="nv">path_fastqc_out</span><span class="si">}</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;Creating fastqc output folder ...&#39;</span> <span class="o">&amp;&amp;</span> mkdir <span class="si">${</span><span class="nv">path_fastqc_out</span><span class="si">}</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s1">&#39;Folder for fastqc output exists with path:&#39;</span> <span class="si">${</span><span class="nv">path_fastqc_out</span><span class="si">}</span>
+<span class="k">fi</span>
+
+
+<span class="c1"># Define path output directory trimming</span>
+<span class="k">if</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">trimming_software</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Do_not_trim&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nv">path_trimm_out</span><span class="o">=</span><span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/trimm_out
+	<span class="o">[</span> ! -d <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;Creating trimming output folder ...&#39;</span> <span class="o">&amp;&amp;</span> mkdir <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s1">&#39;Folder for trimming output exists with name:&#39;</span> <span class="k">$(</span>basename <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span><span class="k">)</span>
+<span class="k">else</span>
+	<span class="nv">path_trimm_out</span><span class="o">=</span><span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>
+<span class="k">fi</span>
+
+<span class="c1"># Define path output directory alignment</span>
+<span class="nv">path_align_out</span><span class="o">=</span><span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/align_out
+<span class="o">[</span> ! -d <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;Creating alignment output folder ...&#39;</span> <span class="o">&amp;&amp;</span> mkdir <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s1">&#39;Folder for alignment output exists with name:&#39;</span> <span class="k">$(</span>basename <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span><span class="k">)</span>
+
+<span class="c1"># Define paths to reference genomes S288C</span>
+<span class="nv">name_refgenome</span><span class="o">=</span><span class="s1">&#39;S288C&#39;</span>
+<span class="k">if</span> <span class="o">[</span> ! -f <span class="si">${</span><span class="nv">path_refgenome</span><span class="si">}</span> <span class="o">]</span> <span class="c1">#if path to reference genome does not exist</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;ERROR: Reference genome not found at location:&#39;</span> <span class="si">${</span><span class="nv">path_refgenome</span><span class="si">}</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">else</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Reference genome:&#39;</span> <span class="si">${</span><span class="nv">name_refgenome</span><span class="si">}</span>
+<span class="k">fi</span>
+
+<span class="c1"># Define path bbduk software</span>
+<span class="o">[</span> ! -d <span class="si">${</span><span class="nv">path_ddbuk_software</span><span class="si">}</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;WARNING: Path to bbduk software does not exists.&#39;</span>
+
+<span class="c1"># Define path trimmomatic software</span>
+<span class="o">[</span> ! -d <span class="si">${</span><span class="nv">path_trimm_software</span><span class="si">}</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;WARNING: Path to trimmomatic software does not exists.&#39;</span>
+
+<span class="c1"># Define path to python script</span>
+<span class="o">[</span> ! -d <span class="si">${</span><span class="nv">path_python_codes</span><span class="si">}</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;WARNING: Path to python codes does not exists.&#39;</span>
+
+
+
+
+<span class="c1">### Start processing workflow</span>
+<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+<span class="nb">echo</span> <span class="s1">&#39;Start processing ...&#39;</span>
+<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+
+
+<span class="c1"># Quality checking raw data</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">quality_check_raw</span><span class="si">}</span> <span class="o">==</span> TRUE <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="k">if</span> <span class="o">[[</span> ! -e <span class="si">${</span><span class="nv">path_fastqc_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_fastqc.html&#39;</span> <span class="o">]]</span>
+	<span class="k">then</span>
+		<span class="nb">echo</span> <span class="s1">&#39;Quality checking raw data ...&#39;</span>
+		fastqc --outdir <span class="si">${</span><span class="nv">path_fastqc_out</span><span class="si">}</span> <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="si">}</span>
+		<span class="nb">echo</span> <span class="s1">&#39;Quality checking raw data completed. Results are stored at&#39;</span> <span class="si">${</span><span class="nv">path_fastqc_out</span><span class="si">}</span>
+		<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+
+		<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">=</span>~ <span class="s1">&#39;Paired-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">=</span>~ <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+		<span class="k">then</span>
+			fastqc --outdir <span class="si">${</span><span class="nv">path_fastqc_out</span><span class="si">}</span> <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename2</span><span class="si">}</span>
+			<span class="nb">echo</span> <span class="s1">&#39;Quality checking raw data paired end reads completed. Results are stored at&#39;</span> <span class="si">${</span><span class="nv">path_fastqc_out</span><span class="si">}</span>
+			<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+		<span class="k">fi</span>
+	<span class="k">else</span>
+		<span class="nb">echo</span> <span class="s1">&#39;Quality report raw data already exists. Skipping fastqc&#39;</span>
+	<span class="k">fi</span>
+
+	<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">qualitycheck_interrupt</span><span class="si">}</span> <span class="o">==</span> TRUE <span class="o">]]</span>
+	<span class="k">then</span>
+		<span class="nb">read</span> -p <span class="s1">&#39;Continue processing? (press &quot;y&quot; if yes, press &quot;n&quot; if no): &#39;</span> -n <span class="m">1</span> -r
+		<span class="nb">echo</span>
+		<span class="k">if</span> <span class="o">[[</span> ! <span class="nv">$REPLY</span> <span class="o">=</span>~ ^<span class="o">[</span>yY<span class="o">]</span>$ <span class="o">]]</span>
+		<span class="k">then</span>
+			<span class="nb">exit</span> <span class="m">0</span>
+		<span class="k">else</span>
+			rm <span class="si">${</span><span class="nv">cachefile</span><span class="si">}</span>
+		<span class="k">fi</span>
+	<span class="k">fi</span>
+<span class="k">fi</span>
+
+
+<span class="c1"># Trimming</span>
+<span class="k">if</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">trimming_software</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Do_not_trim&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">trimming_software</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;bbduk&#39;</span> <span class="o">]]</span>
+	<span class="k">then</span>
+		<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Single-end&#39;</span> <span class="o">]]</span>
+		<span class="k">then</span>
+			<span class="nb">echo</span> <span class="s1">&#39;Data trimming using bbduk single end reads...&#39;</span>
+			<span class="si">${</span><span class="nv">path_bbduk_software</span><span class="si">}</span>bbduk.sh -Xmx2g <span class="k">in</span><span class="o">=</span><span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="si">}</span> <span class="nv">out</span><span class="o">=</span><span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="si">}</span> <span class="nv">ref</span><span class="o">=</span><span class="si">${</span><span class="nv">adapterfile</span><span class="si">}</span> <span class="si">${</span><span class="nv">trimming_settings</span><span class="si">}</span>
+			<span class="nb">echo</span> <span class="s1">&#39;Trimming with bbduk is completed. Results are stored in&#39;</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="si">}</span>
+			<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+		<span class="k">elif</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Paired-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+		<span class="k">then</span>
+			<span class="nb">echo</span> <span class="s1">&#39;Data trimming using bbduk paired end reads...&#39;</span>
+			<span class="si">${</span><span class="nv">path_bbduk_software</span><span class="si">}</span>bbduk.sh -Xmx2g <span class="nv">in1</span><span class="o">=</span><span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="si">}</span> <span class="nv">out1</span><span class="o">=</span><span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="si">}</span> <span class="nv">in2</span><span class="o">=</span><span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename2</span><span class="si">}</span> <span class="nv">out2</span><span class="o">=</span><span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed2</span><span class="si">}</span> <span class="nv">ref</span><span class="o">=</span><span class="si">${</span><span class="nv">adapterfile</span><span class="si">}</span> <span class="si">${</span><span class="nv">trimming_settings</span><span class="si">}</span>
+			<span class="nb">echo</span> <span class="s1">&#39;Trimming with bbduk is completed. Results are stored in&#39;</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="si">}</span> <span class="s1">&#39;and for the paired end reads in&#39;</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed2</span><span class="si">}</span>
+			<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+
+		<span class="k">elif</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Paired-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+		<span class="k">then</span>
+			<span class="nb">echo</span> <span class="s1">&#39;Data trimming using bbduk paired end reads...&#39;</span>
+			<span class="si">${</span><span class="nv">path_bbduk_software</span><span class="si">}</span>bbduk.sh -Xmx2g <span class="nv">interleaved</span><span class="o">=</span>t <span class="k">in</span><span class="o">=</span><span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="si">}</span> <span class="nv">out</span><span class="o">=</span><span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="si">}</span> <span class="nv">ref</span><span class="o">=</span><span class="si">${</span><span class="nv">adapterfile</span><span class="si">}</span> <span class="si">${</span><span class="nv">trimming_settings</span><span class="si">}</span>
+			<span class="nb">echo</span> <span class="s1">&#39;Trimming with bbduk is completed. Results are stored in&#39;</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="si">}</span>
+			<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+		<span class="k">fi</span>
+
+	<span class="k">elif</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">trimming_software</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;trimmomatic&#39;</span> <span class="o">]]</span>
+	<span class="k">then</span>
+		<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">trimming_settings</span><span class="si">}</span> <span class="o">==</span> *<span class="s1">&#39;ILLUMINACLIP&#39;</span>* <span class="o">]]</span>
+		<span class="k">then</span>
+			<span class="nv">clip_startlocation</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="si">${</span><span class="nv">trimming_settings</span><span class="si">}</span> <span class="p">|</span> grep -b -o ILLUMINACLIP <span class="p">|</span> awk <span class="s1">&#39;BEGIN {FS=&quot;:&quot;}{print $1}&#39;</span><span class="k">)</span>
+			<span class="nv">clip_endlocation</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="si">${</span><span class="nv">clip_startlocation</span><span class="si">}</span>+12 <span class="p">|</span> bc<span class="k">)</span>
+			<span class="nv">trimming_settings_trimmomatic</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="si">${</span><span class="nv">trimming_settings</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="si">${</span><span class="nv">clip_startlocation</span><span class="si">}}${</span><span class="nv">trimming_settings</span><span class="p">:</span><span class="si">${</span><span class="nv">clip_startlocation</span><span class="si">}</span><span class="p">:</span><span class="nv">12</span><span class="si">}</span>:<span class="si">${</span><span class="nv">adapterfile</span><span class="si">}${</span><span class="nv">trimming_settings</span><span class="p">:</span><span class="si">${</span><span class="nv">clip_endlocation</span><span class="si">}}</span><span class="k">)</span>
+		<span class="k">else</span>
+			<span class="nv">trimming_settings_trimmomatic</span><span class="o">=</span><span class="si">${</span><span class="nv">trimming_settings</span><span class="si">}</span>
+		<span class="k">fi</span>
+
+		<span class="nb">echo</span> <span class="s1">&#39;Trimming settings trimmomatic: &#39;</span><span class="si">${</span><span class="nv">trimming_settings_trimmomatic</span><span class="si">}</span>
+
+		<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Single-end&#39;</span> <span class="o">]]</span>
+		<span class="k">then</span>
+			<span class="nb">echo</span> <span class="s1">&#39;Data trimming using trimmomatic ...&#39;</span>
+			<span class="nv">currentpath</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+			<span class="nb">cd</span> <span class="si">${</span><span class="nv">path_bbduk_software</span><span class="si">}</span>/resources/
+			java -jar <span class="si">${</span><span class="nv">path_trimm_software</span><span class="si">}</span>trimmomatic-0.39.jar SE <span class="si">${</span><span class="nv">trimmomatic_initialization</span><span class="si">}</span> <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="si">}</span> <span class="si">${</span><span class="nv">trimming_settings_trimmomatic</span><span class="si">}</span>
+			<span class="nb">cd</span> <span class="si">${</span><span class="nv">currentpath</span><span class="si">}</span>
+
+		<span class="k">elif</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Paired-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+		<span class="k">then</span>
+			<span class="nb">echo</span> <span class="s1">&#39;Data trimming using trimmomatic ...&#39;</span>
+			<span class="nv">currentpath</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+			<span class="nb">cd</span> <span class="si">${</span><span class="nv">path_bbduk_software</span><span class="si">}</span>/resources/
+			java -jar <span class="si">${</span><span class="nv">path_trimm_software</span><span class="si">}</span>trimmomatic-0.39.jar PE <span class="si">${</span><span class="nv">trimmomatic_initialization</span><span class="si">}</span> <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="si">}</span> <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename2</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="p">%_trimmed.fastq*</span><span class="si">}</span><span class="s1">&#39;_trimmedorphanedreads.fastq&#39;</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed2</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="p">%_trimmed.fastq*</span><span class="si">}</span><span class="s1">&#39;_trimmedorphanedreads.fastq&#39;</span> <span class="si">${</span><span class="nv">trimming_settings_trimmomatic</span><span class="si">}</span>
+			<span class="nb">cd</span> <span class="si">${</span><span class="nv">currentpath</span><span class="si">}</span>
+
+		<span class="k">elif</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">=</span> <span class="s1">&#39;Paired-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+		<span class="k">then</span>
+			<span class="nb">echo</span> <span class="s1">&#39;Enter two input files for using paired end reads with Trimmomatic.&#39;</span>
+			<span class="nb">exit</span> <span class="m">1</span>
+		<span class="k">fi</span>
+
+	<span class="k">else</span>
+		<span class="nb">echo</span> <span class="s1">&#39;Trimming software not recognized, please check settings&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="m">1</span>
+	<span class="k">fi</span>
+<span class="k">fi</span>
+
+<span class="c1"># Quality report trimmed data</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">quality_check_trim</span><span class="si">}</span> <span class="o">==</span> TRUE <span class="o">]]</span> <span class="o">&amp;&amp;</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">trimming_software</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Do_not_trim&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Quality checking trimmed data ...&#39;</span>
+	fastqc --outdir <span class="si">${</span><span class="nv">path_fastqc_out</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="si">}</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Quality checking trimmed data completed. Results are stored at&#39;</span> <span class="si">${</span><span class="nv">path_fastqc_out</span><span class="si">}</span>
+	<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+	<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Paired-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+	<span class="k">then</span>
+		<span class="nb">echo</span> <span class="s1">&#39;Quality checking trimmed data paired end reads ...&#39;</span>
+		fastqc --outdir <span class="si">${</span><span class="nv">path_fastqc_out</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed2</span><span class="si">}</span>
+		<span class="nb">echo</span> <span class="s1">&#39;Quality checking trimmed data paired end reads completed. Results are stored at&#39;</span> <span class="si">${</span><span class="nv">path_fastqc_out</span><span class="si">}</span>
+		<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+	<span class="k">fi</span>
+<span class="k">fi</span>
+
+
+
+<span class="c1"># Sequence alignment</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Single-end&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Sequence alignment ...&#39;</span>
+	bwa mem <span class="si">${</span><span class="nv">alignment_settings</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_refgenome</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_sam</span><span class="si">}</span>
+<span class="k">elif</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Paired-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Sequence alignment paired end interleaved ...&#39;</span>
+	bwa mem -p <span class="si">${</span><span class="nv">alignment_settings</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_refgenome</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_sam</span><span class="si">}</span>
+<span class="k">elif</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Paired-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Sequence alignment paired end ...&#39;</span>
+	bwa mem <span class="si">${</span><span class="nv">alignment_settings</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_refgenome</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed1</span><span class="si">}</span> <span class="si">${</span><span class="nv">path_trimm_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_trimmed2</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_sam</span><span class="si">}</span>
+<span class="k">fi</span>
+<span class="nb">echo</span> <span class="s1">&#39;Sequence alignment is completed. Results are stored in&#39;</span> <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_sam</span><span class="si">}</span>
+<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+
+
+
+<span class="c1"># Creating alignment quality report</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">flagstat_report</span><span class="si">}</span> <span class="o">==</span> TRUE <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Creating flagstat report sam file ...&#39;</span>
+	samtools flagstat <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_sam</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_trimmed_flagstatreport.txt&#39;</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Flagstat report sam file completed. Results are stored in&#39;</span> <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_trimmed_flagstatreport.txt&#39;</span>
+	<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+<span class="k">fi</span>
+
+
+<span class="c1"># Converting sam file to its binary equivalent</span>
+<span class="nb">echo</span> <span class="s1">&#39;Converting sam to bam ...&#39;</span>
+samtools view -b <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_sam</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_bam</span><span class="si">}</span>
+<span class="nb">echo</span> <span class="s1">&#39;Converting sam to bam completed. Results are stored in&#39;</span> <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_bam</span><span class="si">}</span>
+<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+
+
+<span class="c1"># Quickcheck bam file</span>
+<span class="nb">echo</span> <span class="s1">&#39;Checking bam file ...&#39;</span>
+samtools quickcheck <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_bam</span><span class="si">}</span>
+<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+
+
+<span class="c1"># Indexing and sorting bam file</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">sort_and_index</span><span class="si">}</span> <span class="o">==</span> TRUE <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Indexing bam file ...&#39;</span>
+	sambamba-0.7.1-linux-static sort -m 500MB <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_bam</span><span class="si">}</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Indexing completed. Results are stored in&#39;</span> <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>
+	<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+<span class="k">fi</span>
+
+
+<span class="c1"># Transposon mapping</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">mapping</span><span class="si">}</span> <span class="o">==</span> TRUE <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Transposon mapping ...&#39;</span>
+	<span class="nb">cd</span> <span class="si">${</span><span class="nv">path_python_codes</span><span class="si">}</span>
+	python3 <span class="si">${</span><span class="nv">path_python_codes</span><span class="si">}</span>transposonmapping_satay.py <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_sort</span><span class="si">}</span>
+	<span class="nb">cd</span> ~/
+	<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Transposon mapping complete. Results are stored in&#39;</span> <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>
+	<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+<span class="k">fi</span>
+
+
+
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">delete_sam</span><span class="si">}</span> <span class="o">==</span> TRUE <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Removing .sam file ...&#39;</span>
+	rm <span class="si">${</span><span class="nv">path_align_out</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename_sam</span><span class="si">}</span>
+	<span class="nb">echo</span> <span class="s1">&#39;sam file removed.&#39;</span>
+<span class="k">fi</span>
+
+
+
+
+<span class="c1">### Creating log file</span>
+<span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+<span class="nb">echo</span> <span class="s1">&#39;Creating log file ...&#39;</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">filename1</span><span class="si">}</span>	<span class="k">$(</span>date +%F_%T<span class="k">)</span> &gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Paired-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Paired end reads with paired file:&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+	<span class="nb">echo</span> <span class="si">${</span><span class="nv">filename2</span><span class="si">}</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+<span class="k">elif</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Paired-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Interleaved paired end reads:&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+<span class="k">fi</span>
+
+<span class="k">if</span> ! <span class="o">[[</span> <span class="si">${</span><span class="nv">trimming_software</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Do_not_trim&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="s1">&#39;&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+	<span class="nb">echo</span> <span class="s1">&#39;Trimming options:&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+	<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">trimming_software</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;bbduk&#39;</span> <span class="o">]]</span>
+	<span class="k">then</span>
+		<span class="nb">echo</span> <span class="s1">&#39;BBDuk&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+		<span class="nb">echo</span> <span class="si">${</span><span class="nv">trimming_settings</span><span class="si">}</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+	<span class="k">elif</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">trimming_software</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;trimmomatic&#39;</span> <span class="o">]]</span>
+	<span class="k">then</span>
+		<span class="nb">echo</span> <span class="s1">&#39;Trimmomatic&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+		<span class="nb">echo</span> <span class="si">${</span><span class="nv">trimmomatic_initialization</span><span class="si">}</span> <span class="si">${</span><span class="nv">trimming_settings</span><span class="si">}</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+	<span class="k">fi</span>
+<span class="k">else</span>
+	<span class="nb">echo</span> <span class="s1">&#39;&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+	<span class="nb">echo</span> <span class="s1">&#39;No trimming performed on reads.&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+<span class="k">fi</span>
+
+<span class="nb">echo</span> <span class="s1">&#39;&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+<span class="nb">echo</span> <span class="s1">&#39;Alignment options:&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">paired</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;Paired-end&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> <span class="si">${</span><span class="nv">filepath2</span><span class="si">}</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span> <span class="o">]]</span>
+<span class="k">then</span>
+	<span class="nb">echo</span> <span class="si">${</span><span class="nv">alignment_settings</span><span class="si">}</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+<span class="k">else</span>
+	<span class="nb">echo</span> <span class="si">${</span><span class="nv">alignment_settings</span><span class="si">}</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+<span class="k">fi</span>
+<span class="nb">echo</span> <span class="s1">&#39;&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+<span class="nb">echo</span> <span class="s1">&#39;Reference genome used:&#39;</span> <span class="si">${</span><span class="nv">name_refgenome</span><span class="si">}</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+<span class="nb">echo</span> <span class="s1">&#39;&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+<span class="nb">echo</span> <span class="s1">&#39;Adapter sequences from adapters.fa:&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+cat <span class="si">${</span><span class="nv">adapterfile</span><span class="si">}</span> &gt;&gt; <span class="si">${</span><span class="nv">pathdata</span><span class="si">}</span>/<span class="si">${</span><span class="nv">filename1</span><span class="p">%</span><span class="nv">$extension</span><span class="p">*</span><span class="si">}</span><span class="s1">&#39;_log.txt&#39;</span>
+
+
+
+
+
+<span class="nb">echo</span> <span class="s1">&#39;Processing finished.&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./01-bash-GUI"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../00-Intro/satay_analysis_notes.html" title="previous page">All what you need to know from SATAY</a>
+    <a class='right-next' id="next-link" href="../02-postprocessing-scripts/00-Introduction.html" title="next page">Python scripts</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
+        
+            &copy; Copyright Apache 2.0.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

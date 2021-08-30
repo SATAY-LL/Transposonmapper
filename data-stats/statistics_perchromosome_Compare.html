@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparison of the statistics per chromosome &#8212; SATAY pipeline at Delft :)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/Greg.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Statistics per gene" href="statistics_pergene.html" />
+    <link rel="prev" title="Code for the bash GUI" href="../bash-GUI/processing_workflow.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/Greg.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SATAY pipeline at Delft :)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_satay.html">
+   Documentation for processing SATAY
+   <!-- omit in toc -->
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Status of the project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bash-GUI/processing_workflow.html">
+   Code for the bash GUI
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Comparison of the statistics per chromosome
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="statistics_pergene.html">
+     Statistics per gene
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="transposonmapping_satay.html">
+     Python Translation of the Matlab code from Kornmann Lab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docker-doc/Docker-Users.html">
+   Build your own docker container with ours satay pipeline
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Intro/data-analysis-workflow.html">
+   Data analysis steps
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Intro/flowchart.html">
+     Flowchart of the pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Intro/Installation_Guide_SATAY_Analysis_Software.html">
+     Software installation guide for whole genome sequencing and transposon mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Intro/satay_analysis_notes.html">
+     All what you need to know from SATAY
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../postprocessing-scripts/clean_bedwigfiles.html">
+   Cleaning bed and wig files
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../postprocessing-scripts/genomicfeatures_dataframe.html">
+     Searching for genomic features  of transposition events
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../postprocessing-scripts/Introduction.html">
+     Python scripts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../postprocessing-scripts/scatterplot_genes.html">
+     Create a scatterplot for all genes and all essential genes.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../postprocessing-scripts/transposonread_profileplot.html">
+     Transposon profile for a chromosome of interest
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../postprocessing-scripts/transposonread_profileplot_genome.html">
+     Transposon profile for the whole genome
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../postprocessing-scripts/volcanoplot.html">
+     Volcano plots to two different libraries
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/data-stats/statistics_perchromosome_Compare.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/SATAY-LL/SATAY-jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/SATAY-LL/SATAY-jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdata-stats/statistics_perchromosome_Compare.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-python-script">
+   The python script
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#input">
+     Input
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-chromosome-information">
+     Get chromosome information
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-lists-for-the-variables">
+     Create lists for the variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#determine-statistics">
+     Determine statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-text-file">
+     Creating text file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#printing-result">
+     Printing result
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpretation">
+   Interpretation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliography">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="comparison-of-the-statistics-per-chromosome">
+<h1>Comparison of the statistics per chromosome<a class="headerlink" href="#comparison-of-the-statistics-per-chromosome" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This script gives a numerical overview of the two datasets in the form of a textfile.
+This can be used for comparing statistical values of two datasets.</p>
+</div>
+<div class="section" id="the-python-script">
+<h2>The python script<a class="headerlink" href="#the-python-script" title="Permalink to this headline">¶</a></h2>
+<p>The script inputs two .bed files in a list that were generated using the Matlab code provided by the Kornmann lab and the path and name of a text file where the results will be written.
+Currently 11 different statistical values are determined, but this can be easily extended (see explainatory text between the codes below).</p>
+<ol class="simple">
+<li><p>Number of transposon insertions.</p></li>
+<li><p>Percentage of the chromosome that is covered by transposons</p></li>
+<li><p>Mean distance between transposon insertions.</p></li>
+<li><p>Median distance between transposon insertions.</p></li>
+<li><p>25th percentile of the distance between transposon insertions.</p></li>
+<li><p>75th percentile of the distance between transposon insertions.</p></li>
+<li><p>Largest area devoid of transposons</p></li>
+<li><p>Mean number of reads per transposon</p></li>
+<li><p>Median numbr of reads per transposon</p></li>
+<li><p>25th percentile reads per transposon</p></li>
+<li><p>75th percentile reads per transposon</p></li>
+</ol>
+<div class="section" id="input">
+<h3>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h3>
+<p>The function inputs either a gene name (<code class="docutils literal notranslate"><span class="pre">gene_name</span></code>, type=string) or a region (<code class="docutils literal notranslate"><span class="pre">region</span></code>, type=list) specified as a list with three entries (chromosome number as a roman numeral, start position of the region and the end position respectively).
+The variable <code class="docutils literal notranslate"><span class="pre">gene_name</span></code> can be set to any gene name or <code class="docutils literal notranslate"><span class="pre">holocus</span></code> or <code class="docutils literal notranslate"><span class="pre">ho-locus</span></code>.
+Next it requires the bed-file (<code class="docutils literal notranslate"><span class="pre">bed_file</span></code>, type=string) which is created by the Matlab code provided from <a class="reference external" href="https://sites.google.com/site/satayusers/complete-protocol/bioinformatics-analysis/matlab-script">the Kornman lab</a>.
+Finally, the figure can be automatically saved (at a location specified in the beginning of the function) by setting <code class="docutils literal notranslate"><span class="pre">savefigure</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>The custom build functions (stored in the <a class="reference external" href="https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/tree/master/python_modules">‘python modules’ folder on Github</a>) that are required are:</p>
+<ul class="simple">
+<li><p>chromosome_and_gene_positions.chromosome_position</p></li>
+<li><p>chromosome_and_gene_positions.chromosome_roman_to_arabic</p></li>
+<li><p>chromosome_names_in_fies.chromosome_name_bedfile</p></li>
+</ul>
+</div>
+<div class="section" id="get-chromosome-information">
+<h3>Get chromosome information<a class="headerlink" href="#get-chromosome-information" title="Permalink to this headline">¶</a></h3>
+<p>Determine the lengths and position of the different chromosomes and get a list of the chromosome names in terms of roman numerals.</p>
+</div>
+<div class="section" id="create-lists-for-the-variables">
+<h3>Create lists for the variables<a class="headerlink" href="#create-lists-for-the-variables" title="Permalink to this headline">¶</a></h3>
+<p>All the variables that are determined are put in individual lists.
+When new statistics needs to be determined, add a new list for each new value.</p>
+</div>
+<div class="section" id="determine-statistics">
+<h3>Determine statistics<a class="headerlink" href="#determine-statistics" title="Permalink to this headline">¶</a></h3>
+<p>For each chromosome in each .bed file the statistical values are determined and stored in the respective lists.
+The values are also determined for the entire genome.</p>
+<p>First a for loop is done over all bed files and for each bed file the names of the chromosomes as they are stored in the bed files are determined.
+Next, some statistical values are determined and depending whether it is first file written a text file is generated or the values are appended to the already exsiting text file.
+After all chromosomes the statistics are determined for the entire genome as well.</p>
+</div>
+<div class="section" id="creating-text-file">
+<h3>Creating text file<a class="headerlink" href="#creating-text-file" title="Permalink to this headline">¶</a></h3>
+<p>Write the stored statistical value to the text file.</p>
+</div>
+<div class="section" id="printing-result">
+<h3>Printing result<a class="headerlink" href="#printing-result" title="Permalink to this headline">¶</a></h3>
+<p>Showing part of the text file to give an example of the created text file.
+(This is just for showing the result in this notebook and is not important for the code itself.
+Can be removed).</p>
+</div>
+</div>
+<div class="section" id="interpretation">
+<h2>Interpretation<a class="headerlink" href="#interpretation" title="Permalink to this headline">¶</a></h2>
+<p>The statistical values that are determined here for two datasets give an indication of some of the properties of the datasets.
+Together with the TransposonRead_Profile_Compare.py script, this can be helpful when comparing two datasets with each other to possibly improve the preprocessing steps.
+This script can relatively easy be extended with more statistical values in the future.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Coverage</span> <span class="pre">percentage</span></code> is the number of transposons divided by the number of basepairs of the chromosome.
+The distance between transposon insertions is determined by the taking the absolute difference between all subsequent transposon and for the first and last transposon the distance is determined from the beginning and until the end of the chromosome, respectively.
+The same goes for the median and the percentiles.
+The largest distance between subsequent transposons is displayed as the largest area devoid of transposons.
+The values regarding the number of reads are directly extracted from the bed files.</p>
+</div>
+<div class="section" id="bibliography">
+<h2>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Michel, A. H., Hatakeyama, R., Kimmig, P., Arter, M., Peter, M., Matos, J., … &amp; Kornmann, B. (2017). Functional mapping of yeast genomes by saturated transposition. Elife, 6, e23570.</p></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./data-stats"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../bash-GUI/processing_workflow.html" title="previous page">Code for the bash GUI</a>
+    <a class='right-next' id="next-link" href="statistics_pergene.html" title="next page">Statistics per gene</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
+        
+            &copy; Copyright Apache 2.0.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

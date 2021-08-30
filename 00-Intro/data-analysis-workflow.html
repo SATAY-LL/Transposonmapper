@@ -1,0 +1,1072 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overview of the pipeline functions &#8212; SATAY pipeline at Delft :)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/genetica_modified_neon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Flowchart of the pipeline" href="flowchart.html" />
+    <link rel="prev" title="Status of the project" href="../Introduction.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/genetica_modified_neon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SATAY pipeline at Delft :)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Status of the project
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Overview of the pipeline functions
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="flowchart.html">
+     Flowchart of the pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="satay_analysis_notes.html">
+     What is SATAY
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-bash-GUI/00-guidelines.html">
+   How to use the pipeline in the docker container
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-bash-GUI/01-processing_workflow.html">
+     Code for the bash GUI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02-postprocessing-scripts/00-Introduction.html">
+   Python scripts
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-postprocessing-scripts/01-clean_bedwigfiles.html">
+     Cleaning bed and wig files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-postprocessing-scripts/02-transposonread_profileplot_genome.html">
+     Transposon profile for the whole genome
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-postprocessing-scripts/03-transposonread_profileplot.html">
+     Transposon profile for a chromosome of interest
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-postprocessing-scripts/04-scatterplot_genes.html">
+     Create a scatterplot for all genes and all essential genes.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-postprocessing-scripts/05-volcanoplot.html">
+     Volcano plots to two different libraries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-postprocessing-scripts/06-genomicfeatures_dataframe.html">
+     Searching for genomic features  of transposition events
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-docker-doc/00-Docker-Users.html">
+   Build your own docker container with ours satay pipeline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-Developers/00-contributing-guidelines.html">
+   Contributing guidelines for developers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Code-of-conduct/00-code-of-conduct.html">
+   Code of Conduct
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-Tutorials/00-name.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/01-tutorial.html">
+     Tutorial-1 : How to run the transposonmapper python package in a specific environment.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/02-tutorial.html">
+     Tutorial-2 :  How to clean the wig and bed files.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/03-tutorial.html">
+     Tutorial-3: Visualize the insertions and reads per gene  throughout the genome
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/04-tutorial.html">
+     Tutorial-4: Zoom in into the chromosomes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/05-tutorial.html">
+     Tutorial-5: Volcano plots
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../api.html">
+   API Reference
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/00-Intro/data-analysis-workflow.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/SATAY-LL/SATAY-jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/SATAY-LL/SATAY-jupyter-book/issues/new?title=Issue%20on%20page%20%2F00-Intro/data-analysis-workflow.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-1-data-analysis-from-raw-data-to-essential-protein-overview">
+   Step 1 data analysis; From raw data to essential protein overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workflow">
+   Workflow
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quality-checking-of-the-sequencing-reads-fastqc-0-11-9">
+     Quality checking of the sequencing reads; FASTQC (0.11.9)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trimming-of-the-sequencing-reads">
+     Trimming of the sequencing reads
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#trimming-of-the-sequencing-reads-trimmomatic-0-39">
+       Trimming of the sequencing reads; Trimmomatic (0.39)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-trimming-of-the-sequencing-reads-bbduk-38-84">
+       2b. Trimming of the sequencing reads; BBDuk (38.84)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-alignment-and-reference-sequence-indexing-bwa-0-7-17-linux">
+     3. Sequence alignment and Reference sequence indexing; BWA (0.7.17) (Linux)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-sam-file-to-bam-file-samtools-1-7-and-sambamba-0-7-1-linux">
+     4. Converting SAM file to BAM file; SAMtools (1.7) and sambamba (0.7.1) (Linux)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#determining-transposon-insertions-matlab-code-from-benoit-michel-et-al-2017">
+     5. Determining transposon insertions: Matlab (Code from Benoit [Michel et. al. 2017])
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliography">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="overview-of-the-pipeline-functions">
+<h1>Overview of the pipeline functions<a class="headerlink" href="#overview-of-the-pipeline-functions" title="Permalink to this headline">¶</a></h1>
+<!-- For data analysis, the following steps need to be taken:
+
+1. Process data and represent this in a standardized way that can be easily processed.
+
+2. Put the genes in an overview for comparison with other backgrounds.
+      - Make visual overview of the results (e.g. the number of insertions and reads per gene).
+      - Compare the genes of different genetic backgrounds using a Venn-diagram
+
+3. Obtain the interactions of the different genes to create an interaction map (use thecellmap.org)
+
+4. Look for possible relations between the genes and their interactions.
+
+5. Use these relations to obtain training for machine learning.
+
+First, the main focus will be step 1 of the analysis (see next section). -->
+<div class="section" id="step-1-data-analysis-from-raw-data-to-essential-protein-overview">
+<h2>Step 1 data analysis; From raw data to essential protein overview<a class="headerlink" href="#step-1-data-analysis-from-raw-data-to-essential-protein-overview" title="Permalink to this headline">¶</a></h2>
+<p>SATAY experiments need to be sequenced which results in a FASTQ file.
+The sequence reads from this file needs to be aligned to create a SAM file (and/or the compressed {bash}ary equivalent BAM file).
+Using the BAM file, the number of transposons can be determined for each insertion location.</p>
+<p>Raw data (.FASTQ file) discussed in the paper of Michel <a class="reference external" href="http://et.al">et.al</a>. 2017 can be found at [<a class="reference external" href="https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-4885/samples/">https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-4885/samples/</a>].</p>
+</div>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>The results from the sequencing is typically represented in FASTA or FASTQ format.
+This needs to be aligned according to a reference sequence to create a SAM and BAM file.
+Before alignment, the data needs to be checked for quality and possibly trimmed to remove unwanted and unnecessary sequences.
+When the location of the reads relative to a reference sequence are known, the insertion sites of the transposons can be determined.
+With this, a visualization can be made that shows the number of transposon insertions per gene.</p>
+<p>In the description given in this document, it is chosen to do the quality checking and the trimming in windows and the alignment of the reads with a reference genome in a virtual machine running Linux.
+It is possible to do the quality checking and trimming in Linux as well or to do the whole process in windows.
+To do quality checking and/or trimming in Linux requires more memory of the Linux machine since both the raw sequencing data needs to be stored and the trimming needs to be stored (both which can be relatively large files).
+Since a virtual machine is used, both the computation power and the amount of storage is limited, and therefore it chosen to do the trimming on the main windows computer (this problem would not exists if a computer is used running on Linux, for example a computer with an alternative startup disc running Linux).
+Sequence alignment can be done on Windows machines (e.g. using <a class="reference external" href="https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbmap-guide/">BBmap</a>), but this is not ideal as many software tools are designed for Unix based computer systems (i.e. Mac or Linux).
+Also, many tools related to sequence alignment (e.g. converting .sam files to .bam and sorting and indexing the bam files) are done with tools not designed to be used in windows, hence this is performed in Linux.</p>
+<p>An overview of the different processing steps are shown in the figure below.</p>
+<p><img alt="Processing pipeline. Input is a file containing the raw reads from the sequencing saved in a .fastq file." src="../_images/processing_pipeline.png" /></p>
+<p>A short overview is given for different software tools that can be used for processing and analyzing the data.
+Next, a step-by-step tutorial is given as an example how to process the data.
+Most of this is done using command line based tools.</p>
+<p>An overview of the different steps including some software that can handle this is shown here:</p>
+<ol class="simple">
+<li><p>Checking the raw FASTA or FASTQ data can be done using the
+(<a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/"><strong>FASTQC</strong></a>) software (Windows, Linux, Mac. Requires Java).
+This gives a quality report (see accompanying tutorial) for the sequence reads and can be run non-interactively using the command line.</p></li>
+<li><p>Based on the quality report, the data needs to be trimmed to remove any unwanted sequences.
+This can be done with for example (<a class="reference external" href="http://hannonlab.cshl.edu/fastx_toolkit/index.html"><strong>FASTX</strong></a>) (Linux, Mac) or (<a class="reference external" href="http://www.usadellab.org/cms/?page=trimmomatic"><strong>Trimmomatic</strong></a>) (Windows,requires Java).
+An easy graphical user interface that com{bash}es the FASTQC and Trimmomatic is (<a class="reference external" href="https://sourceforge.net/projects/project-123ngs/"><strong>123FASTQ</strong></a>).
+Also <strong>BBDuk</strong> can be used for trimming (which belongs to BBMap).</p></li>
+<li><p>The trimmed sequence reads need to be aligned using a reference
+sequence, for example the <em>S. Cerevisiae</em> <a class="reference external" href="https://downloads.yeastgenome.org/sequence/S288C_reference/">S288C Ref64-2-1 reference sequence</a> or the <a class="reference external" href="http://sgd-archive.yeastgenome.org/sequence/strains/W303/W303_SGD_2015_JRIU00000000/">W303 reference sequence</a> from SGD.
+Aligning can be done, for example, using (<a class="reference external" href="https://www.snapgene.com/"><strong>SnapGene</strong></a>) (Windows, Linux, Mac. This does not
+import large files and is therefore not suitable for whole genome
+sequencing), (<a class="reference external" href="https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbmap-guide/"><strong>BBMap</strong></a>) (Linux, Mac, Windows (seems to give problems when installing on windows machines), might be possible to integrate it in Python, (<a class="reference external" href="http://bio-bwa.sourceforge.net/"><strong>BWA</strong></a>) (Linux, Mac), (<a class="reference external" href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"><strong>Bowtie2</strong></a>) (Linux, Mac) or (<a class="reference external" href="http://www.clustal.org/omega/"><strong>ClustalOmega</strong></a>) (Windows, Linux, Mac).
+This step might require defining scores for matches, mismatches, gaps and insertions of nucleotides.</p></li>
+<li><p>After aligning, the data needs to be converted to SAM and BAM formats for easier processing hereafter.
+This requires (<a class="reference external" href="http://www.htslib.org/"><strong>SAMtools</strong></a>) (Linux, Mac) or (<a class="reference external" href="https://gatk.broadinstitute.org/hc/en-us"><strong>GATK</strong></a>) (Linux, Mac).
+Conversion from SAM to BAM can also be done in Matlab if preferred using the ‘BioMap’ function.</p></li>
+<li><p>Using the BAM file with the aligned sequence reads, the transposon insertion sites can be determined using the <a class="reference external" href="https://sites.google.com/site/satayusers/"><strong>Matlab</strong> script given by Benoit Kornmann Lab</a> (including the name.mat and yeastGFF.mat files).
+The results from this step are three files (a .txt file, a .bed file and a .wig file) that can be used for visualization.</p></li>
+<li><p>If more processing is required, (<a class="reference external" href="https://broadinstitute.github.io/picard/"><strong>Picard</strong></a>) (Linux, Mac) might be useful, as well as (<a class="reference external" href="https://gatk.broadinstitute.org/hc/en-us"><strong>GATK</strong></a>) (Linux, Mac).
+Visualization of the genomic dataset can be done using (<a class="reference external" href="https://software.broadinstitute.org/software/igv/home"><strong>IGV</strong></a>) (Windows, Linux, Mac) or SAMtools’ tview function.
+Also (<a class="reference external" href="https://lomereiter.github.io/sambamba/"><strong>sambamba</strong></a>) (Linux, Mac) can be used, especially for sorting and indexing the bam files.</p></li>
+<li><p>Creating transposon insertion maps for the genome (see the <a class="reference external" href="https://sites.google.com/site/satayusers/">satay users website</a>) and comparison essential genes between different genetic backgrounds using Venn diagrams, customized software needs to be created.</p></li>
+</ol>
+<div class="section" id="quality-checking-of-the-sequencing-reads-fastqc-0-11-9">
+<h3>Quality checking of the sequencing reads; FASTQC (0.11.9)<a class="headerlink" href="#quality-checking-of-the-sequencing-reads-fastqc-0-11-9" title="Permalink to this headline">¶</a></h3>
+<p>FASTQC creates a report for the quality of sequencing data.
+The input should be a fastq (both zipped and unzipped), sam or bam file (it can handle multiple files at once).
+The program does not need to be installed, but after downloading only requires to be unzipped.
+FASTQC can be ran as an interactive program (i.e. using a GUI) or non-interactively using the command line options.</p>
+<p>If using interactively, open the ‘run_fastqc.bat’ file in the FASTQC folder and load a file to be checked. Alternatively using the 123FASTQ (version 1.1) program, open this and use the ‘Quality Check’ menu on the right.
+The advantage of using 123FASTQ is that it can also do trimming (using Trimmomatic).</p>
+<p>If using the command line for checking a single file use the command:</p>
+<p>(Note that the output directory should already exist, as the program does not create directories).
+In the output directory, a .html file and a (zipped) folder is created, both with the same name as the input file.
+The .html file can be used to quickly see the graphs using a browser.
+Also, a zipped folder is created where the raw data of the quality check is stored.
+For explanation about the different graphs, see the fastqc_manual pdf or [<a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3 Analysis Modules/</a>] (or the paper ‘Preprocessing and Quality Control for Whole-Genome’ from Wright <a class="reference external" href="http://et.al">et.al</a>. or the ‘Assessing Read Quality’ workshop from the Datacarpentry Genomics workshop).</p>
+<p>For more commands, type <code class="docutils literal notranslate"><span class="pre">fastqc</span> <span class="pre">--help</span></code>.
+Some useful commands might be:</p>
+<ul class="simple">
+<li><p>–contaminants Reads a file where sequences are stored of (potential) contaminants.
+The .txt-file should be created before running the software.
+Each contaminant is presented on a different line the text file and should have the form name ‘tab’ sequence.</p></li>
+<li><p>–adapters Similar as the contaminants command, but specifically for adapter sequences.
+Also here a text file should be created before running and this file should have the same layout as the contaminants file.</p></li>
+<li><p>–min_length where a minimal sequence length can be set, so that the statistics can be better compared between different reads of different length (which for example might occur after trimming).</p></li>
+<li><p>–threads Preferably leave this unchanged, especially when an error is shown that there ‘could not reserve enough space for object heap’ after setting this command.</p></li>
+<li><p>–extract Set this command (without following of parameters) to extract the zipped folder from the results.</p></li>
+</ul>
+<p>The output of the FASTQC program is:</p>
+<ul class="simple">
+<li><p><strong>Per base sequence quality</strong>: Box and whisker plot for the quality of a basepair position in all reads.
+The quality should be above approximately 30 for most reads, but the quality typically drops near the end of the sequences.
+If the ends of the reads are really bad, consider trimming those in the next step.</p></li>
+<li><p><strong>Per tile sequence quality</strong>: (Shows only when Illumina Library which retains there sequence identifier).
+Shows a heat map of the quality per tile of the sequence machines.
+Blueish colours indicate that the quality score is about or better than average and reddish colours indicates scores worse than average.</p></li>
+<li><p><strong>Per sequence quality score</strong>: Shows an accumulative distribution to indicate which mean quality score per sequence occurs most often.</p></li>
+<li><p><strong>Per base sequence content</strong>: Shows the percentage of nucleotide appearance in all sequences.
+Assuming a perfectly random distribution for all four nucleotides, each nucleotide should be present about 25% over the entire sequence. In the beginning this might be a bit off due to for example adapters present in the sequences.
+If this is present, it might difficult/impossible to cut these during the trimming part, but it should typically not seriously affect further analysis.</p></li>
+<li><p><strong>Per sequence GC content</strong>: Indicates the distribution of the G-C nucleotides appearances in the genome.
+The ideal distribution that is expected based on the data is shown as a blue curve.
+The red curve should, ideally follow the blue curve.
+If the red curve is more or less a normal distribution, but shifted from the blue curve, is might indicate a systematic bias which might be caused by an inaccurate estimation of the GC content in the blue curve.
+This does not necessarily indicate bad data.
+When the red curve is not normal or show irregularities (peaks or flat parts), this might indicate contaminants in the sample or overrepresented sequences.</p></li>
+<li><p><strong>Per base N content</strong>: Counts the number of N appearances in the data for each basepair position of all reads.
+Every time a nucleotide cannot be accurately determine during sequencing, it is flagged with a N (No hit) in the sequence instead of one of the nucleotides.
+Ideally this should never occur in the data and this graph should be a flat line at zero over the entire length.
+Although at the end of the sequences it might occur few times, but it should not occur more than a few percent.</p></li>
+<li><p><strong>Sequence length distribution</strong>: Shows the length of all sequences.
+Ideally all reads should have the same length, but this might change, for example, after trimming.</p></li>
+<li><p><strong>Sequence duplication level</strong>: Indicates how often some sequences appear the data.
+Ideally, all reads occur only few times and a high peak is expected near 1.
+If peaks are observed at higher numbers, this might indicate enrichment bias during the sequencing preparation (e.g. over amplification during PCR).
+Only the first 100000 sequences are considered and when the length of the reads is over 75bp, the reads are cut down to pieces of 50bp.
+Some duplication might not be bad and therefore a warning or error here does not need to concern.</p></li>
+<li><p><strong>Overrepresented sequences</strong>: List of sequences that appear in more 0.1% of the total (this is only considered for the first 100000 sequences and reads over 75bp are truncated to 50bp pieces).
+The program gives a warning (when sequences are found to be present between 0.1% and 1% of the total amount of sequences) or an error (when there are sequences occurring more 1% of all sequences), but this does not always mean that the data is bad and might be ignored.
+For Illumina sequencing for satay experiments, the sequences often start with either ‘CATG’ or ‘GATC’ which are the recognition sites for NlaIII and DpnII respectively.</p></li>
+<li><p><strong>Adapter content</strong>: Shows an accumulative percentage plot of repeated sequences with a positional bias appearing in the data.
+So if many reads have the same sequence at (or near) the same location, then this might trigger a warning in this section.
+Ideally this is a flat line at zero (meaning that there are no repeated sequences present in the data).
+If this is not a flat line at zero, it might be necessary to cut the reported sequences during the trimming step.
+If this section gives a warning, a list is shown with all the repeated sequences including some statistics.
+It can be useful to delete these sequences in the trimming step.</p></li>
+<li><p><strong>Kmer content</strong>: indicates sequences with a position bias that are ofen repeated.
+If a specific sequence occurs at the same location (i.e. basepair number) in many reads, then this module will show which sequence at which location turns up frequently.
+Note that in later editions (0.11.6 and up) this module is by default turned off.
+If you want to turn this module on again, go to the Configuration folder in the Fastqc folder and edit the limits.txt file in the line where it says ‘kmer  ignore  1’ and change the 1 in a 0.</p></li>
+</ul>
+</div>
+<div class="section" id="trimming-of-the-sequencing-reads">
+<h3>Trimming of the sequencing reads<a class="headerlink" href="#trimming-of-the-sequencing-reads" title="Permalink to this headline">¶</a></h3>
+<p>Next is the trimming of the sequencing reads to cut out, for example, repeated (adapter) sequences and low quality reads.
+There are two software tools adviced, Trimmomatic and BBDuk.
+Trimmomatic is relative simple to use and can be used interactively together with FASTQC.
+However, the options can be limiting if you want more control over the trimming protocol.
+An alternative is BBDuk, which is part of the BBMap software package.
+This allows for more options, but can therefore also be more confusing to use initially.
+Both software packages are explained below, but only one needs to be used.
+Currently, it is advised to use BBDuk (see section 2b).</p>
+<p>For a discussion about trimming, see for example the discussion in <a class="reference external" href="https://www.frontiersin.org/articles/10.3389/fgene.2014.00013/full">MacManes et.al. 2014</a>, <a class="reference external" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0085024">Del Fabbro et.al. 2013</a> or <a class="reference external" href="https://pdfs.semanticscholar.org/daa6/191f2a91a1bd5008f2bda068ae3f99ec85fd.pdf">Delhomme et. al. 2014</a> or at <a class="reference external" href="https://www.basepairtech.com/blog/trimming-for-rna-seq-data/#:~:text=Quality%20trimming%20decreases%20the%20overall,useful%20data%20for%20downstream%20analyses.&amp;text=Too%20aggressive%20quality%20trimming%20can,%2C%20estimation%20of%20gene%20expression">basepairtech.com</a> (although this discussion is on RNA, similar arguments hold for DNA sequence analysis).</p>
+<div class="section" id="trimming-of-the-sequencing-reads-trimmomatic-0-39">
+<h4>Trimming of the sequencing reads; Trimmomatic (0.39)<a class="headerlink" href="#trimming-of-the-sequencing-reads-trimmomatic-0-39" title="Permalink to this headline">¶</a></h4>
+<p>Trimmomatic alters the sequencing result by trimming the reads from unwanted sequences, as is specified by the user.
+The program does not need to be installed, but after downloading only requires to be unzipped.
+Trimmomatic can be ran as an interactive program (for this 123FASTQ needs to be used) or non-interactively using the command line options.</p>
+<p>If using interactively, use 123FASTQ (version 1.1) and run the ‘Runner.bat’ file in the 123FASTQ folder.
+Use the ‘Trimmer’ in the ‘Trim Factory’ menu on the right.</p>
+<p>If using non-interactively in the command line use the command:</p>
+<p>Before running Trimmomatic, a .fasta file needs to be created that allows clipping unwanted sequences in the reads.
+For example, the ‘overrepresented sequences’ as found by Fastqc can be clipped by adding the sequences to the .fasta file.
+Easiest is to copy an existing .fasta file that comes with Trimmomatic and adding extra sequences that needs to be clipped.
+For MiSeq sequencing, it is advised to use the TruSeq3 adapter file that needs to be copied to the data folder (see below for detailed explanation).
+For this use the command:</p>
+<p>Open the .fa file and copy any sequences in the file using a similar style as the sequences that are already present.
+Typically it is useful to clip overrepresented sequences that start with ‘CATG’ or ‘GATC’ which are the recognition sites for NlaIII and DpnII respectively.
+Note that the trimming is performed in the order in which the steps are given as input.
+Typically the adapter clipping is performed as one of the first steps and removing short sequences as one of the final steps.</p>
+<p>A typical command for trimmomatic looks like this:</p>
+<p>Check the quality of the trimmed sequence using the command:</p>
+<p>The following can be set to be set by typing the following fields after the above command (the fields must be in the given order, the optional fields can be ignored if not needed, see also <a class="reference external" href="http://www.usadellab.org/cms/?page=trimmomatic">http://www.usadellab.org/cms/?page=trimmomatic</a>):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SE</span></code> (Single End) or <code class="docutils literal notranslate"><span class="pre">PE</span></code> (Paired End) [required];</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-phred33</span></code> or <code class="docutils literal notranslate"><span class="pre">-phred64</span></code> sets which quality coding is used, if not specified the program tries to determine this itself which might be less accurate.
+usually the phred33 coding is used.
+If not sure, check if the .fastq file contains, for example, an exclamation mark (!), a dollar sign ($), an ampersand (&amp;) or any number (0-9) since these symbols only occur in the phredd33 coding and not in the phred64 coding [optional];</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">filename</span></code>. Both forward and reverse for paired end in case of PE [required];</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Output</span> <span class="pre">filename</span></code>. Both paired and unpaired forward and paired and unpaired reverse for paired end (thus 4 output in total) in case of PE.
+In case of SE, a single output file needs to be specified.
+Needs to have the same extension as the input file (e.g. .fastq) [required];</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ILLUMINACLIP:TruSeq3-SE.fa:2:15</span></code> or <code class="docutils literal notranslate"><span class="pre">ILLUMINACLIP:TruSeq3-PE.fa:2:30:10</span></code> (for Single End reads or Paired End reads respectively). This cuts the adapter and other Illumina specific sequences from the reads.
+The first parameter after <code class="docutils literal notranslate"><span class="pre">:</span></code> indicates a FASTA file (this should be located in the same folder as the sequencing data).
+The second paramter indicates the Seed Mismatches which indicates the maximum mismatch count that still allows for a full match to be performed.
+The third parameter (for SE, fourth parameter for PE) is the Simple Clip Threshold which specifies how accurate the match between the adapter and the read.
+The third parameter for PE sets the Palindrome Clip Threshold specifies how accurate the match between the two ‘adapter
+ligated’ reads must be for PE palindrome read alignment.</p></li>
+</ul>
+<p>A number of adapters are stored in the ‘adapters’ folder at the location where the trimmomatic program is saved.
+In case of MiSeq sequencing, the TruSeq3 adapter file is advised.
+The way the adapter sequences are aligned is by cutting the adapters (in the FASTA file) into 16bp pieces (called seeds) and these seeds are aligned to the reads.
+If there is a match, the entire alignment between the read and the complete adapter sequence is given a score.
+A perfect match gets a score of 0.6.
+Each mismatching base reduces the score by Q/10.
+When the score exceeds a threshold, the adapter is clipped from the read. The first number in the parameter gives the maximal number of mismatches allowed in the seeds (typically 2).
+The second value is the minimal score before the adapter is clipped (typically between 7 (requires <span class="math notranslate nohighlight">\(\frac{7}{0.6}=12\)</span> perfect matches) and 15 (requires <span class="math notranslate nohighlight">\(\frac{15}{0.6}=25\)</span> perfect matches)).
+High values for short reads (so many perfect matches are needed) allows for clipping adapters, but not for adapter contaminations.
+Note a bug in the software is that the FASTA file with the adapters need to be located in your current folder.
+A path to another folder with the adapter files yields an error. [optional] [<a class="reference external" href="https://wiki.bits.vib.be/index.php/Parameters_of_Trimmomatic">https://wiki.bits.vib.be/index.php/Parameters_of_Trimmomatic</a>];</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SLIDINGWINDOW</span></code> Sliding window trimming which cuts out sequences witin the window and all the subsequent basepairs in the read if the average quality score within the window is lower than a certain threshold.
+The window moves from the 5’-end to the 3’-end.
+Note that if the first few reads of a sequence if of low quality, but the remaining of the sequence is of high quality, the entire sequence will be removed just because of the first few bad quality nucleotides.
+If this sitatuation occurs, it might be useful to first apply the HEADCROP option (see below).
+Parameters should be given as <code class="docutils literal notranslate"><span class="pre">SLIDINGWINDOW:L_window:Q_min</span></code> where <code class="docutils literal notranslate"><span class="pre">L_window</span></code> is the window size (in terms of basepairs) and <code class="docutils literal notranslate"><span class="pre">Q_min</span></code> the average threshold quality. [optional];</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LEADING</span></code> Cut the bases at the start (5’ end) of a read if the quality is below a certain threshold. Note that when, for example, the parameter is set to 3, the quality score Q=0 to Q=2 will be removed.
+Parameters should be given as <code class="docutils literal notranslate"><span class="pre">LEADING:Q_min</span></code> where <code class="docutils literal notranslate"><span class="pre">Q_min</span></code> is the threshold quality score.
+All basepairs will be removed until the first basepair that has a quality score above the given threshold. [optional];</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TRAILING</span></code> Cut the bases at the end (3’ end) of a read if the quality is below a certain threshold. Note that when, for example, the parameter is set to 3, the quality score Q=0 to Q=2 will be removed.
+All basepairs will be removed until the first basepair that has a quality score above the given threshold. [optional];</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CROP</span></code> Cuts the read to a specific length by removing a specified amount of nucleotides from the tail of the read (this does not discriminate between quality scores). [optional];</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HEADCROP</span></code> Cut a specified number of bases from the start of the reads (this does not discriminate between quality scores). [optional];</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MINLEN</span></code> Drops a read if it has a length smaller than a specified amount [optional];</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TOPHRED33</span></code> Converts the quality score to phred33 encoding [optional];</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TOPHRED64</span></code> Converts the quality score to phred64 encoding [optional].</p></li>
+</ul>
+<p>Note that the input files can be either uncompressed FASTQ files or gzipped FASTQ (with an extension fastq.gz or fq.gz) and the output fields should ideally have the same extension as the input files (i.e. .fastq or .fq).
+The convention is using field:parameter, where ‘parameter’ is typically a number.
+(To make the (relative long commands) more readable in the command line, use \ and press enter to continue the statement on the next line) (See <a class="reference external" href="https://datacarpentry.org/wrangling-genomics/03-trimming/index.html">https://datacarpentry.org/wrangling-genomics/03-trimming/index.html</a> for examples how to run software). Trimmomatic can only run a single file at the time.If more files need to be trimmed using the same parameters, use:</p>
+<p>Where <code class="docutils literal notranslate"><span class="pre">xxx</span></code> should be replaced with the commands for trimmomatic.</p>
+</div>
+<div class="section" id="b-trimming-of-the-sequencing-reads-bbduk-38-84">
+<h4>2b. Trimming of the sequencing reads; BBDuk (38.84)<a class="headerlink" href="#b-trimming-of-the-sequencing-reads-bbduk-38-84" title="Permalink to this headline">¶</a></h4>
+<p>BBDuk is part of the BBMap package and alters the sequencing result by trimming the reads from unwanted sequences, as is specified by the user.
+The program does not need to be installed, but after downloading only requires to be unzipped.</p>
+<p>Before running BBDuk, a .fasta file can to be created that allows clipping unwanted sequences in the reads.
+For example, the ‘overrepresented sequences’ as found by Fastqc can be clipped by adding the sequences to the .fasta file.
+A .fasta file can be created by simply creating a text file and adding the sequences that need to be clipped, for example, in the form:</p>
+<blockquote>
+<div><p>&gt; Sequence1</p>
+<p>CATG</p>
+<p>&gt; Sequence2</p>
+<p>GATC</p>
+</div></blockquote>
+<p>Or a .fasta can be copied from either Trimmomatic software package or the BBDuk package, both which are provided with some standard adapter sequences.
+In the case of Trimmomatic it is advised to use the TruSeq3 adapter file when using MiSeq sequencing.
+To copy the .fasta file to the data folder (see below for detailed explanation) use the following command:</p>
+<p>When using the adapter file that comes with BBMap, use the command:</p>
+<p>The adapters.fa file from the BBDuk package includes many different adapter sequences, so it might be good to remove everything that is not relevant.
+One option can be to create a custom fasta file where all the sequences are placed that need to be trimmed and save this file in the bbmap/resources folder.
+To do this, See <span class="xref std std-doc">here</span> to know how to do it.</p>
+<ul class="simple">
+<li><p>Note to not put empty lines in the text file, otherwise BBDuk might yield an error about not finding the adapters.fa file.</p></li>
+<li><p>Typically it is useful to clip overrepresented sequences that were found by FASTQC and sequences that start with ‘CATG’ or ‘GATC’ which are the recognition sites for NlaIII and DpnII respectively.
+Note that the trimming is performed in the order in which the steps are given as input.
+Typically the adapter clipping is performed as one of the first steps and removing short sequences as one of the final steps.</p></li>
+</ul>
+<p>BBDuk uses a kmers algorithm, which basically means it divides the reads in pieces of length k.
+(For example, the sequence ‘abcd’ has the following 2mers: ab,bc,cd).
+For each of these pieces the software checks if it contains any sequences that are present in the adapter file.
+The kmers process divides both the reads and the adapters in pieces of length k and it then looks for an exact match.
+If an exact match is found between a read and an adapter, then that read is trimmed.
+If the length k is chosen to be bigger than the length of the smallest adapter, then there will never be an exact match between any of the reads and the adapter sequence and the adapter will therefore never be trimmed.
+However, when the length k is too small the trimming might be too specific and it might trim too many reads.
+Typically, the length k is chosen about the size of the smallest adapter sequence or slighty smaller.
+For more details, see <a class="reference external" href="https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbduk-guide/">this webpage</a>.</p>
+<p>A typical command for BBDuk looks like this:
+<strong><code class="docutils literal notranslate"><span class="pre">${path_bbduk_software}/bbduk.sh</span> <span class="pre">-Xmx1g</span> <span class="pre">in=${pathdata}/${filename}</span> <span class="pre">out=${path_trimm_out}${filename_trimmed}</span> <span class="pre">ref=${path_bbduk_software}</span> <span class="pre">/resources/adapters.fa</span> <span class="pre">ktrim=r</span> <span class="pre">k=23</span> <span class="pre">mink=10</span> <span class="pre">hdist=1</span> <span class="pre">qtrim=r</span> <span class="pre">trimq=14</span> <span class="pre">minlen=30</span></code></strong></p>
+<p>Next an overview is given with some of the most useful options.
+For a full overview use call <code class="docutils literal notranslate"><span class="pre">bbduk.sh</span></code> in the {bash} without any options.</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-Xmx1g</span></code>. This defines the memory usage of the computer, in this case 1Gb (<code class="docutils literal notranslate"><span class="pre">1g</span></code>).
+Setting this too low or too high can result in an error (e.g. ‘Could not reserve enough space for object heap’).
+Depending on the maximum memory of your computer, setting this to <code class="docutils literal notranslate"><span class="pre">1g</span></code> should typically not result in such an error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in</span></code> and <code class="docutils literal notranslate"><span class="pre">out</span></code>. Input and Output files.
+For paired-end sequencing, use also the commands <code class="docutils literal notranslate"><span class="pre">in2</span></code> and <code class="docutils literal notranslate"><span class="pre">out2</span></code>.
+The input accepts zipped files, but make sure the files have the right extension (e.g. file.fastq.gz).
+Use <code class="docutils literal notranslate"><span class="pre">outm</span></code> (and <code class="docutils literal notranslate"><span class="pre">outm2</span></code> when using paired-end reads) to also save all reads that failed to pass the trimming.
+Note that defining an absolute path for the path-out command does not work properly.
+Best is to simply put a filename for the file containing the trimmed reads which is then stored in the same directory as the input file and then move this trimmed reads file to any other location using:
+<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">${pathdata}${filename::-6}_trimmed.fastq</span> <span class="pre">${path_trimm_out}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qin</span></code>. Set the quality format.
+33 for phred 33 or 64 for phred 64 or auto for autodetect (default is auto).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ref</span></code>. This command points to a .fasta file containg the adapters.
+This should be stored in the location where the other files are stored for the BBDuk software (<code class="docutils literal notranslate"><span class="pre">${path_bbduk_software}/resources</span></code>)
+Next are a few commands relating to the kmers algorithm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ktrim</span></code>. This can be set to either don’t trim (<code class="docutils literal notranslate"><span class="pre">f</span></code>, default), right trimming (<code class="docutils literal notranslate"><span class="pre">r</span></code>), left trimming (<code class="docutils literal notranslate"><span class="pre">l</span></code>).
+Basically, this means what needs to be trimmed when an adapter is found, where right trimming is towards the 5’-end and left trimming is towards the 3’-end.
+For example, when setting this option to <code class="docutils literal notranslate"><span class="pre">ktrim=r</span></code>, then when a sequence is found that matches an adapter sequence, all the basepairs on the right of this matched sequence will be deleted including the matched sequence itself.
+When deleting the whole reads, set <code class="docutils literal notranslate"><span class="pre">ktrim=rl</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kmask</span></code>. Instead of trimming a read when a sequence matches an adapter sequence, this sets the matching sequence to another symbol (e.g. <code class="docutils literal notranslate"><span class="pre">kmask=N</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k</span></code>. This defines the number of kmers to be used. This should be not be longer than the smallest adapter sequences and should also not be too short as there might too much trimmed. Typically values around 20 works fine (default=27).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mink</span></code>. When the lenght of a read is not a perfect multiple of the value of <code class="docutils literal notranslate"><span class="pre">k</span></code>, then at the end of the read there is a sequence left that is smaller than length k. Setting <code class="docutils literal notranslate"><span class="pre">mink</span></code> allows the software to use smaller kmers as well near the end of the reads.
+The sequence at the end of a read are matched with adapter sequences using kmers with length between mink and k.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minkmerhits</span></code>. Determines how many kmers in the read must match the adapter sequence.
+Default is 1, but this can be increased when for example using short kmers to decrease the chance that wrong sequences are trimmed that happen to have a single matching kmer with an adapter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minkmerfraction</span></code>. A kmer in this read is considered a match with an adapter when at least a fraction of the read matches the adapter kmer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mincovfraction</span></code>. At least a fraction of the read needs to match adapter kmer sequences in order to be regarded a match.
+Use either <code class="docutils literal notranslate"><span class="pre">minkmerhits</span></code>, <code class="docutils literal notranslate"><span class="pre">minkmerfraction</span></code> or <code class="docutils literal notranslate"><span class="pre">mincovfraction</span></code>, but setting multiple results in that only one of them will be used during the processing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hdist</span></code>. This is the Hamming distance, which is defined as the minimum number of substitutions needed to convert one string in another string.
+Basically this indicates how many errors are allowed between a read and and an adapter sequence to still count as an exact match.
+Typically does not need to be set any higher than 1, unless the reads are of very low quality.
+Note that high values of hdist also requires much more memory in the computer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">restrictleft</span></code> and <code class="docutils literal notranslate"><span class="pre">restrictright</span></code>. Only look for kmers left or right number bases.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tpe</span></code> and <code class="docutils literal notranslate"><span class="pre">tbo</span></code>: This is only relevant for paired-end reads.
+<code class="docutils literal notranslate"><span class="pre">tpe</span></code> cuts both the forward and the reverse read to the same length and <code class="docutils literal notranslate"><span class="pre">tbo</span></code> trims the reads if they match any adapter sequence while considering the overlap between two paired reads.</p></li>
+</ol>
+<p>So far all the options were regarding the adapter trimming (more options are available as well, check out the <a class="reference external" href="https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbduk-guide/">user guide</a>).
+These options go before any other options, for example the following:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">qtrim</span></code>. This an option for quality trimming which indicates whether the reads should be trimmed on the right (<code class="docutils literal notranslate"><span class="pre">r</span></code>), the left (<code class="docutils literal notranslate"><span class="pre">l</span></code>), both (<code class="docutils literal notranslate"><span class="pre">fl</span></code>), neither (<code class="docutils literal notranslate"><span class="pre">f</span></code>) or that a slidingwindow needs to be used (<code class="docutils literal notranslate"><span class="pre">w</span></code>).
+The threshold for the trimming quality is set by <code class="docutils literal notranslate"><span class="pre">trimq</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trimq</span></code>. This sets the minimum quality that is still allowed using phred scores (e.g. Q=14 corresponds with <span class="math notranslate nohighlight">\(P_{error} = 0.04\)</span>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minlength</span></code>. This sets the minimum length that the reads need to have after all previous trimming steps.
+Reads short than the value given here are discarded completely.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mlf</span></code>. Alternatively to the <code class="docutils literal notranslate"><span class="pre">minlen</span></code> option, the Minimum Length Fraction can be used which determines the fraction of the length of the read before and after trimming and if this drops below a certain value (e.g 50%, so <code class="docutils literal notranslate"><span class="pre">mlf=50</span></code>), then this read is trimmed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maq</span></code>. Discard reads that have an average quality below the specified Q-value.
+This can be useful after quality trimming to discard reads where the really poor quality basepairs are trimmed, but the rest of the basepairs are of poor quality as well.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ftl</span></code> and <code class="docutils literal notranslate"><span class="pre">ftr</span></code> (<code class="docutils literal notranslate"><span class="pre">forcetrimleft</span></code> and <code class="docutils literal notranslate"><span class="pre">forcetrimright</span></code>). This cuts a specified amount of basepairs at the beginning (<code class="docutils literal notranslate"><span class="pre">ftl</span></code>) or the last specified amount of basepairs (<code class="docutils literal notranslate"><span class="pre">ftr</span></code>).
+Note that this is zero based, for example <code class="docutils literal notranslate"><span class="pre">ftl=10</span></code> trims basepairs 0-9.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ftm</span></code>. This force Trim Modulo option can sometimes be useful when an extra, unwanted and typically very poor quality, basepair is added at the end of a read.
+So when reads are expected to be all 75bp long, this will discard the last basepair in 76bp reads.
+When such extra basepairs are present, it will be noted in FastQC.</p></li>
+</ol>
+<p>Finally, to check the quality of the trimmed sequence using the command:</p>
+</div>
+</div>
+<div class="section" id="sequence-alignment-and-reference-sequence-indexing-bwa-0-7-17-linux">
+<h3>3. Sequence alignment and Reference sequence indexing; BWA (0.7.17) (Linux)<a class="headerlink" href="#sequence-alignment-and-reference-sequence-indexing-bwa-0-7-17-linux" title="Permalink to this headline">¶</a></h3>
+<p>The alignment can be completed using different algorithms within BWA, but the ‘Maximal Exact Matches’ (MEM) algorithm is the recommended one (which is claimed to be the most accurate and fastest algorithm and is compatible with many downstream analysis tools, see <a class="reference external" href="http://bio-bwa.sourceforge.net/bwa.shtml">documentation</a> for more information).
+BWA uses a FM-index, which uses the Burrows Wheeler Transform (BWT), to exactly align all the reads to the reference genome at the same time.
+Each alignment is given a score, based on the number of matches, mismatches and potential gaps and insertions.
+The highest possible score is 60, meaning that the read aligns perfectly to the reference sequence (this score is saved in the SAM file as MAPQ).
+Besides the required 11 fields in the SAM file, BWA gives some optional fields to indicate various aspects of the mapping, for example the alignment score (for a complete overview and explanation, see the <a class="reference external" href="http://bio-bwa.sourceforge.net/bwa.shtml">documentation</a>).
+The generated SAM file also include headers where the names of all chromosomes are shown (lines starting with SQ).
+These names are used to indicate where each read is mapped to.</p>
+<p>Before use, the reference sequence should be indexed so that the program knows where to find potential alignment sites.
+This only has to be done <em>once</em> for each reference genome.
+Index the reference genome using the command</p>
+<p>This creates 5 more files in the same folder as the reference genome that BWA uses to speed up the process of alignment.</p>
+<p>The alignment command should be given as</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">[options]</span></code> can be different statements as given in the
+documentation. Most importantly are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-A</span></code> Matching scores (default is 1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-B</span></code> Mismatch scores (default is 4)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-O</span></code> Gap open penalty (default is 6)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-E</span></code> Gap extension penalty (default is 1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-U</span></code> Penalty for unpaired reads (default is 9; only of use in case of paired-end sequencing).</p></li>
+</ul>
+<p>Note that this process might take a while.
+After BWA is finished, a new .sam file is created in the same folder as the .fastq file.</p>
+</div>
+<div class="section" id="converting-sam-file-to-bam-file-samtools-1-7-and-sambamba-0-7-1-linux">
+<h3>4. Converting SAM file to BAM file; SAMtools (1.7) and sambamba (0.7.1) (Linux)<a class="headerlink" href="#converting-sam-file-to-bam-file-samtools-1-7-and-sambamba-0-7-1-linux" title="Permalink to this headline">¶</a></h3>
+<p>SAMtools allows for different additional processing of the data. For an overview of all functions, simply type samtools in the command line. Some useful tools are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">view</span></code> This converts files from SAM into BAM format. Enter samtools view to see the help for all commands. The format of the input file is detected automatically. Most notably are:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">–b</span></code> which converts a file to BAM format.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">–f</span></code> int Include only the reads that include all flags given by
+int.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">–F</span></code> int Include only the reads that include none of the flags
+given by int.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">–G</span></code> int Exclude only the reads that include all flags given by
+int.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sort</span></code> This sorts the data in the BAM file. By default the data is
+sorted by leftmost coordinate. Other ways of sorting are:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">–n</span></code> sort by read name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">–t</span></code> tag Sorts by tag value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">–o</span></code> file Writes the output to file.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flagstats</span></code> Print simple statistics of the data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stats</span></code> Generate statistics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tview</span></code> This function creates a text based Pileup file that is used to assess the data with respect to the reference genome.
+The output is represented as characters that indicate the relation between the aligned and the reference sequence.
+The meaning of the characters are:</p>
+<ul>
+<li><p>. :base match on the forward strand</p></li>
+<li><p>, :base match on the reverse strand</p></li>
+<li><p>&lt;/&gt; :reference skip</p></li>
+<li><p>AGTCN :each one of these letters indicates a base that did not match the reference on the forward strand.</p></li>
+<li><p>Agtcn : each one of these letters indicates a base that did not match the reference on the reverse strand.</p></li>
+<li><p>+ [0-9]+[AGTCNagtcn] : Denotes (an) insertion(s) of a number of the indicated bases.</p></li>
+<li><p>-[0-9]+[AGTCNagtcn] : Denotes (an) deletion(s) of a number of the indicated bases.</p></li>
+<li><p>^ : Start of a read segment. A following character indicates the
+mapping quality based on phred33 score.</p></li>
+<li><p>$ : End of a read segment.</p></li>
+<li><p>* : Placeholder for a deleted base in a multiple basepair
+deletion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quickcheck</span></code> Checks if a .bam or .sam file is ok. If there is no output, the file is good. If and only if there are warnings, an output is generated. If an output is wanted anyways, use the command <code class="docutils literal notranslate"><span class="pre">samtools</span> <span class="pre">quickcheck</span> <span class="pre">–v</span> <span class="pre">[input.bam]</span> <span class="pre">&amp;&amp;echo</span> <span class="pre">‘All</span> <span class="pre">ok’</span> <span class="pre">||</span> <span class="pre">echo</span> <span class="pre">‘File</span> <span class="pre">failed</span> <span class="pre">check’</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>Create a .bam file using the command</p>
+<p>Check if everything is ok with the .bam file using</p>
+<ul class="simple">
+<li><p>This checks if the file appears to be intact by checking the header is valid, there are sequences in the beginning of the file and that there is a valid End-Of_File command at the end.</p></li>
+<li><p>It thus check only the beginning and the end of the file and therefore any errors in the middle of the file are not noted.</p></li>
+<li><p>But this makes this command really fast.</p></li>
+<li><p>If no output is generated, the file is good.</p></li>
+</ul>
+<p>If desired, more information can be obtained using :</p>
+<p>Especially the latter can be a bit overwhelming with data, but this gives a thorough description of the quality of the bam file.
+For more information see <a class="reference external" href="http://www.htslib.org/doc/1.6/samtools.html">this documentation</a>.</p>
+<p>For many downstream tools, the .bam file needs to be sorted.
+This can be done using SAMtools, but this might give problems.
+A faster and more reliable method is using the software sambamba using the command</p>
+<p>(where <code class="docutils literal notranslate"><span class="pre">–m</span></code> allows for specifying the memory usage which is 500MB in this example).
+This creates a file with the extension .sorted.bam, which is the sorted version of the original bam file.
+Also an index is created with the extension .bam.bai.
+If this latter file is not created, it can be made using the command</p>
+<p>Now the reads are aligned to the reference genome and sorted and indexed.
+Further analysis is done in windows, meaning that the sorted .bam files needs to be moved to the shared folder.</p>
+<p>Next, the data analysis is performed using custom made codes in Matlab in Windows.</p>
+</div>
+<div class="section" id="determining-transposon-insertions-matlab-code-from-benoit-michel-et-al-2017">
+<h3>5. Determining transposon insertions: Matlab (Code from Benoit [Michel et. al. 2017])<a class="headerlink" href="#determining-transposon-insertions-matlab-code-from-benoit-michel-et-al-2017" title="Permalink to this headline">¶</a></h3>
+<p>Before the data can be used as an input for the Matlab code provided by the Kornmann lab, it needs to be copied from the shared folder to the data folder using the command:</p>
+<p>The Matlab code is provided by Benoit (see the <a class="reference external" href="https://sites.google.com/site/satayusers/complete-protocol/bioinformatics-analysis/matlab-script">website</a>) and is based on the <a class="reference external" href="https://elifesciences.org/articles/23570">paper by Michel et. al.</a>.
+Running the code requires the user to select a .bam  or .sorted.bam file (or .ordered.bam which is similar to the .sorted.bam).
+If the .bam file is chosen or there is no .bam.bai (bam index-)file present in the same folder, the script will automatically generate the .sorted.bam and a .bam.bai file.
+In the same folder as the bam file the Matlab variables ‘yeastGFF.mat’ and ‘names.mat’ should be present (which can be found on the <a class="reference external" href="https://sites.google.com/site/satayusers/complete-protocol/bioinformatics-analysis/matlab-script">website cited above</a>).
+The script will generate a number of files (some of them are explained below):</p>
+<ol class="simple">
+<li><p>.sorted.bam (if not present already)</p></li>
+<li><p>.bam.bai (if not present already)</p></li>
+<li><p>.sorted.bam.linearindex</p></li>
+<li><p>.sorted.bam.mat (used as a backup of the matlab script results)</p></li>
+<li><p>.sorted.bam_pergene.txt (contains information about transposons and reads for individual genes)</p></li>
+<li><p>.sorted.bam.bed (contains information about the location and the number of reads per transposon insertion)</p></li>
+<li><p>.sorted.bam.wig (contains information about the location and the number of reads per transposon insertion)</p></li>
+</ol>
+<p>The line numbers below correspond to the original, unaltered code.</p>
+<p>[line1-13] After loading the .BAM file, the ‘baminfo’ command is used
+to collect the properties for the sequencing data. These include (among
+others) [<a class="reference external" href="https://nl.mathworks.com/help/bioinfo/ref/baminfo.html">https://nl.mathworks.com/help/bioinfo/ref/baminfo.html</a>]:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SequenceDictionary</span></code>: Includes the number of basepairs per
+chromosome.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ScannedDictionary</span></code>: Which chromosomes are read (typically 16 and
+the mitochondrial chromosome).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ScannedDictionaryCount</span></code>: Number of reads aligned to each reference
+sequence.</p></li>
+</ul>
+<p>[line22-79] Then, a for-loop over all the chromosomes starts (17 in
+total, 16 chromosomes and a mitochondrial chromosome). The for-loop
+starts with a BioMap command which gets the columns of the SAM-file. The
+size of the columns corresponds with the number of reads aligned to each
+reference sequence (see also the ‘baminfo’ field <code class="docutils literal notranslate"><span class="pre">ScannedDictionaryCount</span></code>). The collected information is:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SequenceDictionary</span></code>: Chromosome number where the reads are
+collected for (given in roman numerals or ‘Mito’ for mitochondrial).
+(QNAME)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Reference</span></code>: Chromosome number that is used as reference sequence.
+(RNAME)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Signature</span></code>: CIGAR string. (CIGAR)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Start</span></code>: Start position of the first matched basepair given in terms
+of position number of the reference sequence. (POS)?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MappingQuality</span></code>: Value indicating the quality of the mapping. When
+60, the mapping has the smallest chance to be wrong. (MAPQ)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Flag</span></code>: Flag of the read. (FLAG)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MatePosition</span></code>: (PNEXT)?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Quality</span></code>: Quality score given in FASTQ format. Each ASCII symbol
+represents an error probability for a base pair in a read. See
+[<a class="reference external" href="https://drive5.com/usearch/manual/quality_score.html">https://drive5.com/usearch/manual/quality_score.html</a>] for a
+conversion table. (QUAL)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sequence</span></code>: Nucleotide sequence of the read. Length should math the
+length of the corresponding ‘Quality’ score. (SEQ)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Header</span></code>: Associated header for each read sequence.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Nseqs</span></code>: Integer indicating the number of read sequences for the
+current chromosome.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code>: empty</p></li>
+</ul>
+<p>(Note: Similar information can be obtained using the ‘bamread’ command
+(although his is slower than ‘BioMap’), which gives a structure element
+with fields for each piece of information. This can be accessed using:
+<code class="docutils literal notranslate"><span class="pre">bb</span> <span class="pre">=</span> <span class="pre">bamread(file,infobam.SequenceDictionary(kk).SequenceName,\[1</span> <span class="pre">infobam.SequenceDictionary(kk).SequenceLength\]))</span></code>
+<code class="docutils literal notranslate"><span class="pre">bb(x).’FIELD’</span> <span class="pre">%where</span> <span class="pre">x</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">row</span> <span class="pre">(i.e.</span> <span class="pre">a</span> <span class="pre">specific</span> <span class="pre">read)</span> <span class="pre">and</span> <span class="pre">FIELD</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">string</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">field.</span></code>)</p>
+<p>After extracting the information from the SAM-file (using the ‘BioMap’
+command), the starting site is defined for each read. This is depended
+on the orientation of the read sequence. If this is normal orientation
+it has flag=0, if it is in reverse orientation it has flag=16. If the
+read sequence is in reverse orientation, the length of the read sequence
+(‘readlength’ variable) needs to be added to the starting site (‘start’
+variable). The corrected starting sites of all reads are saved in a new
+variable (‘start2’). Note that this changes the order of which the reads
+are stored. To correct this, the variables ‘start2’ and ‘flag2’ are
+sorted in ascending order.</p>
+<p>Now, all the reads in the current chromosome are processed. Data is
+stored in the ‘’tncoordinates’ variable. This consists of three numbers;
+the chromosome number (‘kk’), start position on the chromosome
+(‘start2’) and the flag (‘flag2’). All reads that have the same
+starting position and the same flag (i.e. the same reading orientation)
+are stored as a single row in the ‘tncoordinates’ variable (for this the
+average starting position is taken). This results in an array where each
+row indicates a new starting position and the reading orientation. The
+number of measurements that were averaged for a read is stored in the
+variable ‘readnumb’. This is important later in the program for
+determining the transposons.</p>
+<p>This is repeated for each chromosome due to the initial for-loop. The
+‘tnnumber’ variable stores the number of unique starting positions and
+flags for each chromosome (this does not seem to be used anywhere else
+in the program).</p>
+<p>[line94-120] After getting the needed information from the SAM-file,
+the data needs to be compared with the literature. For this yeastGFF.mat
+is used (provided by Benoit et. al.) that loads the variable ‘gff’. This
+includes all genes (from SGD) and the essential genes (from YeastMine).
+(Note that a similar list can be downloaded from the SGD website as a
+text file). The file is formatted as a matrix with in each row a DNA
+element (e.g. genes) and each column represent a different piece of
+information about that element. The used columns are:</p>
+<ol class="simple">
+<li><p>Chromosome number (represented as roman numerals)</p></li>
+<li><p>Data source (either SGD, YeastMine or landmark. Represented as a
+string)</p></li>
+<li><p>Type of the DNA element, e.g. gene. The first element of a
+chromosome is always the ‘omosome’, which is the entire chromosome
+(Represented as a string)</p></li>
+<li><p>Start coordinates (in terms of base pairs. Represented as an
+integer)</p></li>
+<li><p>End coordinates (in terms of base pairs. Represented as an integer)</p></li>
+<li><p>A score value. Always a ‘.’ Represented as a string indicating a
+dummy value.</p></li>
+<li><p>Reading direction (+ for forward reading (5’-3’), - for reverse
+reading (3’-5’), ‘.’ If reading direction is undetermined.
+Represented as a string)</p></li>
+<li><p>Always a ‘.’ Except when the element is a Coding DNA Sequence (CDS),
+when this column become a ‘0’. A CDS always follows a gene in the
+list and the value indicates how many basepairs should be removed
+from the beginning of this feature in order to reach the first codon
+in the next base (Represented as a string)</p></li>
+<li><p>Other information and notes (Represented as a string)</p></li>
+</ol>
+<p>From the ‘gff’ variable, all the genes are searched and stored in the
+variable ‘features.genes’ (as a struct element). The same thing is done
+for the essential genes by searching for genes from the ‘YeastMine’
+library and these are stored in ‘features.essential’ (as a struct
+element). This results in three variables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">features</span></code>: struct element that includes the fields ‘genes’ and
+‘essential’ that include numbers representing in which rows of the
+‘gff’ variable the (essential) gene can be found (note that the
+essential genes are indicated by ‘ORF’ from ’Yeastmine’ in the ‘gff’
+variable).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">genes</span></code>: struct element storing the start and end coordinates (in
+basepairs) and the chromosome number where the gene is found.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">essential</span></code>: struct element. Same as ‘genes’, but then for essential
+genes as found by the ‘YeastMine’ database.</p></li>
+</ul>
+<p>This can be extended with other features (e.g. rRNA, see commented out
+sections in the code).</p>
+<p>[line124-160] Next all the data is stored as if all the chromosomes
+are put next to each other. In the <code class="docutils literal notranslate"><span class="pre">tncoordinates</span></code> variable, for each
+chromosome the counting of the basepairs starts at 1. The goal of this
+section is to continue counting such that the first basepair number of a
+chromosome continues from the last basepair number of the previous
+chromosome (i.e. the second chromosome is put after the first, the third
+chromosome is put after the second etc., to create one very long
+chromosome spanning the entire DNA). The first chromosome is skipped
+(i.e. the for-loop starts at 2) because these basepairs does not need to
+be added to a previous chromosome. This is repeated for the start and
+end coordinates of the (essential) genes.</p>
+<p>[line162-200] Now the number of transposons is determined which is
+done by looking at the number of reads per gene. First, all the reads
+are found that have a start position between the start and end position
+of the known genes. The indices of those reads are stored in the
+variable ‘xx’. In the first for-loop of the program (see lines 22-79)
+the reads (or measurements) that had the same starting position and flag
+where averaged and represented as a single read. To get the total number
+of reads per gene the number of measurements that were used for
+averaging the reads corresponding to the indices in ‘xx’ are summed (the
+value stored in the variable ‘readnumb’). This is repeated for all genes
+and the essential genes using a for-loop. The maximum value is
+subtracted as a feature to suppress noise or unmeaningful data (see a
+more detailed explanation the discussion by Galih in the forum of Benoit [<a class="reference external" href="https://groups.google.com/forum/#%21category-topic/satayusers/bioinformatics/uaTpKsmgU6Q">https://groups.google.com/forum/#!category-topic/satayusers/bioinformatics/uaTpKsmgU6Q</a>]).</p>
+<p>[line226-227] Next all variables in the Matlab workspace are saved
+using the same name as the .bam file, but now with the .mat extension.
+The program so far does not need to be ran all over again but loading
+the .mat file loads all the variables.</p>
+<p>Next a number of files are generated (.bed, .txt and .wig).</p>
+<p>[line238-256] A .bed file is generated that can be used for
+visualization of the read counts per insertion site. This contains
+the information stored in the ‘tncoordinates’ variable. This includes
+the chromosome number and the start position of the reads. The end
+position of the reads is taken as the start position +1 (The end
+position is chosen like this just to visualize the transposon insertion
+site). The third column is just a dummy variable and can be ignored. As
+the reads were averaged if multiple reads shared the same location on
+the genome, the total number of reads is taken from the ‘readnumb’
+variable and is stored in the fourth column of the file using the
+equation 100+readnumb(i)*20 (e.g. a value of 4 in <code class="docutils literal notranslate"><span class="pre">readnumb</span></code> is stored as 180 in the .bed file).</p>
+<p>In general a .bed file can contain 12 columns, but only the first three
+columns are obligatory. These are the chromosome number, start position
+and end position (in terms of basepairs), respectively. More information
+can be added as is described in the links below. If a column is filled,
+then all the previous columns need to be filled as well. If this
+information is not present or wanted, the columns can be filled with a
+dummy character (typically a dot is used) [<a class="reference external" href="https://bedtools.readthedocs.io/en/latest/content/general-usage.html">https://bedtools.readthedocs.io/en/latest/content/general-usage.html</a>] [<a class="reference external" href="https://learn.gencore.bio.nyu.edu/ngs-file-formats/bed-format/">https://learn.gencore.bio.nyu.edu/ngs-file-formats/bed-format/</a>].</p>
+<p>[line238-256] Next a text file is generated for storing information
+about the transposon counts per gene. This is therefore a summation of
+all the transposons that have an insertion site within the gene. (To
+check a value in this file, look up the location of a gene present in
+this file. Next look how many transposon are located within the range
+spanned by the gene using the .bed file). To create this the names.mat
+file is needed to create a list of gene names present in the first
+column. The transposon count is taken from the <code class="docutils literal notranslate"><span class="pre">tnpergene</span></code> variable and
+is stored in the second column of the file. The third is the number of
+reads per gene which is taken from the <code class="docutils literal notranslate"><span class="pre">readpergene</span></code> variable (which is
+calculated by <code class="docutils literal notranslate"><span class="pre">readnumb-max(readnumb)</span></code> where the <code class="docutils literal notranslate"><span class="pre">readnumb</span></code> variable is
+used for keeping track of the number of reads that were used to average
+the reads).</p>
+<p>[line260-299] Creating a .wig file. This indicates the transposon
+insertion sites (in terms of basepairs, starting counting from 1 for
+each new chromosome). The file consists of two columns. The first column
+represent the insertion site for each transposons and the second column
+is the number of reads in total at that location. The
+information is similar to that found in the .bed file, but here the
+read count is the actual count (and thus not used the equation
+100+transposon_count*20 as is done in the .bed file).</p>
+</div>
+</div>
+<div class="section" id="bibliography">
+<h2>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h2>
+<p>Chen, P., Wang, D., Chen, H., Zhou, Z., &amp; He, X. (2016). The nonessentiality of essential genes in yeast provides therapeutic insights into a human disease. Genome research, 26(10), 1355-1362.</p>
+<p>Del Fabbro, C., Scalabrin, S., Morgante, M., &amp; Giorgi, F. M. (2013). An extensive evaluation of read trimming effects on Illumina NGS data analysis. PloS one, 8(12).</p>
+<p>Delhomme, N., Mähler, N., Schiffthaler, B., Sundell, D., Mannepperuma, C., &amp; Hvidsten, T. R. (2014). Guidelines for RNA-Seq data analysis. Epigenesys protocol, 67, 1-24.</p>
+<p>MacManes, M. D. (2014). On the optimal trimming of high-throughput mRNA sequence data. Frontiers in genetics, 5, 13.</p>
+<p>Michel, A. H., Hatakeyama, R., Kimmig, P., Arter, M., Peter, M., Matos, J., … &amp; Kornmann, B. (2017). Functional mapping of yeast genomes by saturated transposition. Elife, 6, e23570.</p>
+<p>Pfeifer, S. P. (2017). From next-generation resequencing reads to a high-quality variant data set. Heredity, 118(2), 111-124.</p>
+<p>Segal, E. S., Gritsenko, V., Levitan, A., Yadav, B., Dror, N., Steenwyk, J. L., … &amp; Kunze, R. (2018). Gene essentiality analyzed by in vivo transposon mutagenesis and machine learning in a stable haploid isolate of Candida albicans. MBio, 9(5), e02048-18.</p>
+<p>Usaj, M., Tan, Y., Wang, W., VanderSluis, B., Zou, A., Myers, C. L., … &amp; Boone, C. (2017). TheCellMap. org: A web-accessible database for visualizing and mining the global yeast genetic interaction network. G3: Genes, Genomes, Genetics, 7(5), 1539-1549</p>
+<blockquote>
+<div><p><em><strong>“I want to be a healer, and love all things that grow and are not barren”</strong></em></p>
+<ul class="simple">
+<li><p>J.R.R. Tolkien</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./00-Intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../Introduction.html" title="previous page">Status of the project</a>
+    <a class='right-next' id="next-link" href="flowchart.html" title="next page">Flowchart of the pipeline</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
+        
+            &copy; Copyright Apache 2.0.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
