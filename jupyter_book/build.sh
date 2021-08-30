@@ -17,5 +17,5 @@ fi
 # Build html
 jupyter-book build ${REPO}
 
-# Copy slides inside _build/html
-#cp -R ../slides ./_build/html
+#Copy slides inside _build/html
+# cp -R html/transposonmapper ./_build/html

@@ -60,6 +60,13 @@ sphinx:
       .Rmd:
         - jupytext.reads
         - fmt: Rmd
+sphinx:
+  extra_extensions:
+  - 'sphinx.ext.autodoc'
+  - 'sphinx.ext.napoleon'
+  - 'sphinx.ext.viewcode'
+  config:
+    add_module_names: True
 
 
     # TODO: #917 this path will be the default in sphinx v4
