@@ -1,0 +1,1023 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Searching for genomic features of transposition events &#8212; SATAY pipeline at Delft :)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/Greg.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python scripts" href="Introduction.html" />
+    <link rel="prev" title="Cleaning bed and wig files" href="clean_bedwigfiles.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/Greg.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SATAY pipeline at Delft :)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation_satay.html">
+   Documentation for processing SATAY
+   <!-- omit in toc -->
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Status of the project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bash-GUI/processing_workflow.html">
+   Code for the bash GUI
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../data-stats/statistics_perchromosome_Compare.html">
+   Comparison of the statistics per chromosome
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-stats/statistics_pergene.html">
+     Statistics per gene
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-stats/transposonmapping_satay.html">
+     Python Translation of the Matlab code from Kornmann Lab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docker-doc/Docker-Users.html">
+   Build your own docker container with ours satay pipeline
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Intro/data-analysis-workflow.html">
+   Data analysis steps
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Intro/flowchart.html">
+     Flowchart of the pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Intro/Installation_Guide_SATAY_Analysis_Software.html">
+     Software installation guide for whole genome sequencing and transposon mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Intro/satay_analysis_notes.html">
+     All what you need to know from SATAY
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="clean_bedwigfiles.html">
+   Cleaning bed and wig files
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Searching for genomic features  of transposition events
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction.html">
+     Python scripts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="scatterplot_genes.html">
+     Create a scatterplot for all genes and all essential genes.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="transposonread_profileplot.html">
+     Transposon profile for a chromosome of interest
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="transposonread_profileplot_genome.html">
+     Transposon profile for the whole genome
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="volcanoplot.html">
+     Volcano plots to two different libraries
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/postprocessing-scripts/genomicfeatures_dataframe.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/SATAY-LL/SATAY-jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/SATAY-LL/SATAY-jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpostprocessing-scripts/genomicfeatures_dataframe.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-the-code-in-the-same-script">
+   How to use the code in the same script
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="searching-for-genomic-features-of-transposition-events">
+<h1>Searching for genomic features  of transposition events<a class="headerlink" href="#searching-for-genomic-features-of-transposition-events" title="Permalink to this headline">¶</a></h1>
+<p>This scripts takes a user defined genomic region (i.e. chromosome number, region or gene) and creates a dataframe including information about all genomic features in the chromosome (i.e. genes, nc-DNA etc.).
+This can be used to determine the number of reads outside the genes to use this for normalization of the number of reads in the genes.
+To run this script, the following files are required and should be placed in the same directory as this file:
+- chromosome_and_gene_positions.py
+- chromosome_names_in_files.py
+- gene_names.py
+- read_sgdfeatures.py
+- normalize_reads.py</p>
+<p>For the ipython Notebook version of this script with more extensive explanation, see <a class="reference external" href="https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/dev_Gregory/Python_scripts/python_modules/genomicfeatures_dataframe_with_normalization.ipynb">here</a></p>
+<p>This script consists of two functions, <code class="docutils literal notranslate"><span class="pre">dna_features</span></code> and <code class="docutils literal notranslate"><span class="pre">feature_position</span></code>.
+The function <code class="docutils literal notranslate"><span class="pre">dna_features</span></code> is the main function that takes user inputs and this function calls the function <code class="docutils literal notranslate"><span class="pre">feature_position</span></code> which is not intended to be used directly.
+The function <code class="docutils literal notranslate"><span class="pre">dna_features</span></code> takes the following arguments:</p>
+<p><code class="docutils literal notranslate"><span class="pre">region=[int]||[string]||[list]</span></code> (required)<br />
+<code class="docutils literal notranslate"><span class="pre">wig_file=[path]</span></code> (required)<br />
+<code class="docutils literal notranslate"><span class="pre">pergene_insertions_file=[path]</span></code> (required)<br />
+<code class="docutils literal notranslate"><span class="pre">variable=&quot;reads&quot;||&quot;insertions&quot;</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">plotting=True||False</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">savefigure=True||False</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">verbose=True||False</span></code></p>
+<p>The script takes a wig file and a pergene_insertions_file and a genomic region.
+This genomic region can be:</p>
+<ul class="simple">
+<li><p>chromosome number (either roman numeral or integer between 1 and 16)</p></li>
+<li><p>a list with three arguments: first a number defining the chromosome (again either roman numeral or integer between 1 and 16) second an integer defining the start basepair and third an integer defining an end basepair (e.g. [“I”, 10000, 20000] to get the region between basepair 10000 and 20000 on chromosome 1)</p></li>
+<li><p>a gene name (e.g. “CDC42”) which will automatically get the corresponding chromosome and basepair position</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">plotting</span></code> argument (True or False) defines whether to create a barplot.
+The <code class="docutils literal notranslate"><span class="pre">variable</span></code> argument determines what to plot, either reads or insertions and the <code class="docutils literal notranslate"><span class="pre">savefigure</span></code> whether to automatically save the figure at the same location as where this script is stored.
+Finally the <code class="docutils literal notranslate"><span class="pre">verbose</span></code> determines if any printing output should be given (this is mostly useful for when calling this script from other python scripts).</p>
+<p>This scripts does not only look at genes, but also at other genomic regions like telomere, centromeres, rna genes etc.
+All these features are stored in one dataframe called <code class="docutils literal notranslate"><span class="pre">dna_df2</span></code> that includes naming and positional information about the features and the insertion and read counts (see output).
+The dataframe will always be created for one entire chromosome (regardless if a basepair region or gene name was entered in the <code class="docutils literal notranslate"><span class="pre">region</span></code> argument).
+When the plotting is set to the True, it will also create a barplot for the same chromosome within the region that is defined in the <code class="docutils literal notranslate"><span class="pre">region</span></code> variable.
+The plot distinguishes between nonessential genes, essential genes, other genomic features (e.g. telomeres, centromeres etc.) and noncoding dna.
+The width of the bars is determined by the length of the genomic feature and the height represents either the number of reads or insertions (depending what is defined in <code class="docutils literal notranslate"><span class="pre">variable</span></code>).</p>
+<p>This function can be useful for other python functions as well when information is required about the positions, insertions and read counts of various genomic features.
+The full list of genomic features that is regarded in the dataframe is mentioned in <a class="reference external" href="#read_sgdfeaturespy">read_sgdfeatures.py</a>.</p>
+<ul class="simple">
+<li><p><strong>Output</strong></p></li>
+</ul>
+<p>The main output is the <code class="docutils literal notranslate"><span class="pre">dna_df2</span></code> dataframe in which each row represents a genomic feature and has the following columns:</p>
+<ul class="simple">
+<li><p>Feature name</p></li>
+<li><p>Feature standard name</p></li>
+<li><p>Feature aliases (different names for the same feature, mainly for genes)</p></li>
+<li><p>Essentialilty (only for genes)</p></li>
+<li><p>Chromosome where feature is located</p></li>
+<li><p>Position in terms in basepairs</p></li>
+<li><p>Length of feature in terms of basepairs</p></li>
+<li><p>Number of insertions in feature</p></li>
+<li><p>Number of insertions in truncated feature (only for genes, the insertions in the first and last 100bp are ignored, see below)</p></li>
+<li><p>Sum of reads in feature</p></li>
+<li><p>Sum of reads in truncated feature (only for genes, where the reads in the first and last 100bp are ignored)</p></li>
+<li><p>Number of reads per insertion</p></li>
+<li><p>Number of reads per insertion (only for genes, where the insertions and reads in the first and last 100bp are ignored)</p></li>
+</ul>
+<p>The truncated feature columns ignores basepairs at the beginning and end of a gene.
+This can be useful as it is mentioned that insertions located at the beginning or end of a gene results in a protein that is still functional (although truncated) (e.g. see Michel <a class="reference external" href="http://et.al">et.al</a>. 2017) (see Notes for a further discussion about how this is defined).</p>
+<p><img alt="" src="../_images/genomicfeatures_dataframe_dnadf2.png" /></p>
+<p>When plotting is set to True, a barplot is created where the width of the bars correspond to the width of the feature the bar is representing.
+This can be automatically saved at the location where the python script is stored.
+The plot is created for an entire chromosome, or it can be created for a specific region, for example when a list is provided in the <code class="docutils literal notranslate"><span class="pre">region</span></code> argument or when a gene name is given.</p>
+<p><img alt="" src="../_images/genomicfeatures_dataframe_barplot.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The definition for a truncated gene is currently that the first and last 100bp are ignored. This is not completely fair as this is much more stringent for short genes compared to long genes. Alternatively this can be changed to a percentage, for example ignoring the first and last 5 percent of a gene, but this can create large regions in long genes. There is no option to set this directly in the script, but if this needs to be changed, search the script for the following line: <code class="docutils literal notranslate"><span class="pre">#TRUNCATED</span> <span class="pre">GENE</span> <span class="pre">DEFINITION</span></code>. This should give the <code class="docutils literal notranslate"><span class="pre">N10percent</span></code> variable that controls the definition of a truncated gene.</p></li>
+<li><p>The barplot currently only takes reads or insertions, but it might be useful to include  reads per insertions as well.</p></li>
+<li><p>Sometimes it can happen that two genomic regions can overlap. When this happens, the dataframe shows a feature, in the next row another feature and then the next row from that it continues with the first feature (e.g. row1; geneA, row2; overlapping feature, row3; geneA). This issue is not automatically solved yet, but best is to, whenever you find a feature, to search if that feature also exists a couple of rows further on. If yes, sum all rows between the first and last occurance of your gene (e.g. in the example above for geneA, sum the values from row1, row2 and row3).</p></li>
+</ul>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Click here to see the code!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+
+
+<span class="n">file_dirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;__file__&#39;</span><span class="p">))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dirname</span><span class="p">,</span><span class="s1">&#39;python_modules&#39;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">chromosome_and_gene_positions</span> <span class="kn">import</span> <span class="n">chromosome_position</span><span class="p">,</span> <span class="n">chromosomename_roman_to_arabic</span><span class="p">,</span> <span class="n">gene_position</span>
+<span class="kn">from</span> <span class="nn">chromosome_names_in_files</span> <span class="kn">import</span> <span class="n">chromosome_name_wigfile</span>
+<span class="kn">from</span> <span class="nn">gene_names</span> <span class="kn">import</span> <span class="n">list_gene_names</span><span class="p">,</span> <span class="n">gene_aliases</span>
+<span class="kn">from</span> <span class="nn">read_sgdfeatures</span> <span class="kn">import</span> <span class="n">sgd_features</span>
+
+
+
+
+
+<span class="c1">#%%</span>
+<span class="k">def</span> <span class="nf">dna_features</span><span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="n">wig_file</span><span class="p">,</span> <span class="n">pergene_insertions_file</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="s2">&quot;reads&quot;</span><span class="p">,</span> <span class="n">plotting</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">savefigure</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;This function inputs a wig file and pergene_insertions file created using transposonmapping_satay.py.</span>
+<span class="sd">    Optional is to define with data is displayed, which can be either &quot;insertions&quot; or &quot;reads&quot;.</span>
+<span class="sd">    Output is a dataframe including major information about all genomic features and optionally a barplot indicating the number of transposons per genomic region.</span>
+<span class="sd">    A genomic region is here defined as a gene (separated as annotated essential and not essential), telomere, centromere, ars etc.</span>
+<span class="sd">    This can be used for identifying neutral regions (i.e. genomic regions that, if inhibited, do not influence the fitness of the cells).</span>
+<span class="sd">    This function can be used for normalizing the transposon insertions per gene using the neutral regions.</span>
+<span class="sd">    </span>
+<span class="sd">    Input:</span>
+<span class="sd">        - Region: e.g. chromosome number (either a normal number between 1 and 16 or in roman numerals between I and XVI), a list like [&#39;V&#39;, 0, 14790] which creates a barplot between basepair 0 and 14790) or a genename.</span>
+<span class="sd">        - wig_file: wiggle file from the output of transposonmapping.py that is used in the processing workflow.</span>
+<span class="sd">        - pergene_insertions_file: text file from the output of transposonsmapping.py</span>
+<span class="sd">        - variable: (only for plotting) either &#39;insertions&#39; or &#39;reads&#39;, which determines what is being plotted.</span>
+<span class="sd">        - normalize: (only for plotting) either True or False. Normalization only works for when variable is &#39;reads&#39;. The normalized reads are plotted and adds a column to the dataframe.</span>
+<span class="sd">        - normalization_window_size: Integer. Normalization relies on windows that corrects for inter chromosomal differences. This determine the size of those windows in terms of basepairs (default=10000)</span>
+<span class="sd">        - plotting: Either True or False. Determines whether the barplot has to be created.</span>
+<span class="sd">        - savefigure: (only for plotting) Whether to save the figure at the same location of this script.</span>
+<span class="sd">        - Verbose: Either True of False. Determines how much textual feedback is given. When set to False, only warnings will be shown.</span>
+
+<span class="sd">    Output:</span>
+<span class="sd">        - dna_df2: Dataframe containing information about the selected chromosome. This includes the following columns:</span>
+<span class="sd">            - Feature name</span>
+<span class="sd">            - Standard name of the feature</span>
+<span class="sd">            - Aliases of feature name (if any)</span>
+<span class="sd">            - Feature type (e.g. gene, telomere, centromere, etc. If None, this region is not defined)</span>
+<span class="sd">            - Chromosome</span>
+<span class="sd">            - Position of feature type in terms of bp relative to chromosome.</span>
+<span class="sd">            - Length of region in terms of basepairs</span>
+<span class="sd">            - Number of insertions in region</span>
+<span class="sd">            - Number of insertions in truncated region where truncated region is the region without the first and last 100bp.</span>
+<span class="sd">            - Number of reads in region</span>
+<span class="sd">            - Number of reads in truncated region.</span>
+<span class="sd">            - Number of reads per insertion (defined by Nreads/Ninsertions)</span>
+<span class="sd">            - Number of reads per insertion in truncated region (defined by Nreads_truncatedgene/Ninsertions_truncatedgene)</span>
+<span class="sd">            NOTE: truncated regions are only determined for genes. For the other regions the truncated region values are the same as the non-truncated region values.</span>
+<span class="sd">    </span>
+<span class="sd">    Required files (see next section):</span>
+<span class="sd">        - essentials_file: https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/master/Data_Files/Cerevisiae_AllEssentialGenes_List.txt</span>
+<span class="sd">        - gene_information_file: https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/master/Data_Files/Yeast_Protein_Names.txt</span>
+<span class="sd">        - gff-file: https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/master/Data_Files/Saccharomyces_cerevisiae.R64-1-1.99.gff3</span>
+<span class="sd">        - sgd_features_file: https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/master/Data_Files/SGD_features.tab</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+<span class="c1">#%% FILES</span>
+    <span class="n">essentials_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dirname</span><span class="p">,</span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="s1">&#39;data_files&#39;</span><span class="p">,</span><span class="s2">&quot;Cerevisiae_AllEssentialGenes_List.txt&quot;</span><span class="p">)</span>
+
+    <span class="n">gene_information_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dirname</span><span class="p">,</span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="s1">&#39;data_files&#39;</span><span class="p">,</span><span class="s1">&#39;Yeast_Protein_Names.txt&#39;</span><span class="p">)</span>
+
+    <span class="n">gff_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dirname</span><span class="p">,</span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="s1">&#39;data_files&#39;</span><span class="p">,</span><span class="s1">&#39;Saccharomyces_cerevisiae.R64-1-1.99.gff3&#39;</span><span class="p">)</span>
+
+    <span class="n">sgd_features_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dirname</span><span class="p">,</span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="s1">&#39;data_files&#39;</span><span class="p">,</span><span class="s1">&#39;SGD_features.tab&#39;</span><span class="p">)</span>
+
+    <span class="n">variable</span> <span class="o">=</span> <span class="n">variable</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">plotting</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">create_plottitle</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="c1">#%% DETERMINE INPUTTED REGION</span>
+
+    <span class="n">warningmessage</span> <span class="o">=</span> <span class="s2">&quot;WARNING: Specified chromosome or gene name not found. Enter chromosome as a number (or roman numeral) between 1 and 16 (I and XVI), a list in the form [&#39;chromosome number, start_position, end_position&#39;] or a valid gene name.&quot;</span>
+
+    <span class="k">if</span> <span class="n">verbose</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Selected region: &#39;</span><span class="p">,</span> <span class="n">region</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">region</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">region</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">chromosomename_roman_to_arabic</span><span class="p">()[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">chrom</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+            <span class="n">roi_start</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">roi_end</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">region_type</span> <span class="o">=</span> <span class="s1">&#39;Chromosome&#39;</span>
+
+        <span class="k">elif</span> <span class="n">region</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">list_gene_names</span><span class="p">(</span><span class="n">gene_information_file</span><span class="p">):</span>
+            <span class="n">gene_pos_dict</span> <span class="o">=</span> <span class="n">gene_position</span><span class="p">(</span><span class="n">gff_file</span><span class="p">)</span>
+            <span class="n">region</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">gene_pos_dict</span><span class="p">:</span>
+                <span class="n">region_pos</span> <span class="o">=</span> <span class="n">gene_pos_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+                <span class="n">chrom</span> <span class="o">=</span> <span class="n">region_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">roi_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">roi_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">gene_alias_dict</span> <span class="o">=</span> <span class="n">gene_aliases</span><span class="p">(</span><span class="n">gene_information_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">region_alias</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">val</span><span class="p">]</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">region_alias</span> <span class="o">==</span> <span class="p">[]</span> <span class="ow">and</span> <span class="n">region_alias</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">gene_pos_dict</span><span class="p">:</span>
+                    <span class="n">region_pos</span> <span class="o">=</span> <span class="n">gene_pos_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">region_alias</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">chrom</span> <span class="o">=</span> <span class="n">region_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">roi_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="mi">100</span>
+                    <span class="n">roi_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">+</span><span class="mi">100</span>
+                    <span class="k">del</span> <span class="p">(</span><span class="n">region_alias</span><span class="p">,</span> <span class="n">gene_alias_dict</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">warningmessage</span><span class="p">)</span>
+                    <span class="k">return</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">plotting</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">create_plottitle</span> <span class="o">=</span> <span class="n">region</span>
+            <span class="n">region_type</span> <span class="o">=</span> <span class="s1">&#39;Gene&#39;</span>
+            <span class="k">del</span> <span class="p">(</span><span class="n">region_pos</span><span class="p">,</span> <span class="n">gene_pos_dict</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">warningmessage</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">()</span>
+
+
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">region</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">chrom</span> <span class="o">=</span> <span class="n">region</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">region</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">chromosomename_roman_to_arabic</span><span class="p">()[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">chrom</span> <span class="o">=</span> <span class="n">chromosomename_roman_to_arabic</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">warningmessage</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">()</span>
+        <span class="n">roi_start</span> <span class="o">=</span> <span class="n">region</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">roi_end</span> <span class="o">=</span> <span class="n">region</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">region_type</span> <span class="o">=</span> <span class="s1">&#39;Chromosome&#39;</span>
+
+
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">region</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">chromosomename_roman_to_arabic</span><span class="p">()[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">chrom</span> <span class="o">=</span> <span class="n">chromosomename_roman_to_arabic</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+            <span class="n">roi_start</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">roi_end</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">warningmessage</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">()</span>
+        <span class="n">region_type</span> <span class="o">=</span> <span class="s1">&#39;Chromosome&#39;</span>
+
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">warningmessage</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">()</span>
+
+
+    <span class="k">del</span> <span class="p">(</span><span class="n">warningmessage</span><span class="p">)</span>
+
+<span class="c1">#%% READ WIG FILE FOR GETTING LOCATIONS OF ALL TN INSERTIONS</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">wig_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+    <span class="n">chrom_start_line_dict</span><span class="p">,</span> <span class="n">chrom_end_line_dict</span> <span class="o">=</span> <span class="n">chromosome_name_wigfile</span><span class="p">(</span><span class="n">lines</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="n">insrt_in_chrom_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">reads_in_chrom_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="n">chrom_start_line_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">):</span><span class="n">chrom_end_line_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)]:</span>
+        <span class="n">insrt_in_chrom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">reads_in_chrom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="k">del</span> <span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">chrom_start_line_dict</span><span class="p">,</span> <span class="n">chrom_end_line_dict</span><span class="p">)</span>
+
+<span class="c1">#%% READ PERGENE_INSERTIONS FILE FOR LOCATION OF ALL INSERTIONS PER EACH GENE.</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pergene_insertions_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+
+    <span class="n">gene_position_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">line_split</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+        <span class="k">if</span> <span class="n">line_split</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">chrom</span><span class="p">:</span>
+            <span class="n">genename</span> <span class="o">=</span> <span class="n">line_split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">gene_chrom</span> <span class="o">=</span> <span class="n">line_split</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">gene_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line_split</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="n">gene_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line_split</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+            <span class="n">gene_position_dict</span><span class="p">[</span><span class="n">genename</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">gene_chrom</span><span class="p">,</span> <span class="n">gene_start</span><span class="p">,</span> <span class="n">gene_end</span><span class="p">]</span> <span class="c1">#DICT CONTAINING ALL GENES WITHIN THE DEFINED CHROMOSOME INCLUDING ITS START AND END POSITION</span>
+
+
+            <span class="n">geneinserts_str</span> <span class="o">=</span> <span class="n">line_split</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;[]&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">geneinserts_str</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="n">geneinserts_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">ins</span><span class="p">)</span> <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">geneinserts_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">geneinserts_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+            <span class="n">genereads_str</span> <span class="o">=</span> <span class="n">line_split</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;[]&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">genereads_str</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="n">genereads_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">)</span> <span class="k">for</span> <span class="n">read</span> <span class="ow">in</span> <span class="n">genereads_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">genereads_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">geneinserts_list</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">genereads_list</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: </span><span class="si">%s</span><span class="s1"> has different number of reads compared with the number of inserts&#39;</span> <span class="o">%</span> <span class="n">genename</span> <span class="p">)</span>
+
+
+    <span class="k">del</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">line_split</span><span class="p">,</span> <span class="n">genename</span><span class="p">,</span> <span class="n">gene_chrom</span><span class="p">,</span> <span class="n">gene_start</span><span class="p">,</span> <span class="n">gene_end</span><span class="p">,</span> <span class="n">geneinserts_list</span><span class="p">,</span> <span class="n">geneinserts_str</span><span class="p">,</span> <span class="n">genereads_str</span><span class="p">,</span> <span class="n">genereads_list</span><span class="p">)</span>
+
+<span class="c1">#%% DETERMINE THE LOCATION GENOMIC FEATURES IN THE CURRENT CHROMOSOME AND STORE THIS IN A DICTIONARY</span>
+
+    <span class="n">len_chr</span> <span class="o">=</span> <span class="n">chromosome_position</span><span class="p">(</span><span class="n">gff_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)</span>
+    <span class="n">start_chr</span> <span class="o">=</span> <span class="n">chromosome_position</span><span class="p">(</span><span class="n">gff_file</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)</span>
+    <span class="n">end_chr</span> <span class="o">=</span> <span class="n">chromosome_position</span><span class="p">(</span><span class="n">gff_file</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Chromosome length = &#39;</span><span class="p">,</span> <span class="n">len_chr</span><span class="p">)</span>
+
+    <span class="n">dna_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">#for each bp in chromosome, determine whether it belongs to a noncoding or coding region</span>
+    <span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start_chr</span><span class="p">,</span> <span class="n">end_chr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span> <span class="c1">#initialize dna_dict with all basepair positions as [&#39;noncoding&#39;, None]</span>
+        <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;noncoding&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="c1">#form is: [&#39;element_name&#39;, &#39;type&#39;]</span>
+
+
+    <span class="n">feature_orf_dict</span> <span class="o">=</span> <span class="n">sgd_features</span><span class="p">(</span><span class="n">sgd_features_file</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">gene_alias_dict</span> <span class="o">=</span> <span class="n">gene_aliases</span><span class="p">(</span><span class="n">gene_information_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+
+    <span class="k">for</span> <span class="n">gene</span> <span class="ow">in</span> <span class="n">gene_position_dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">gene</span> <span class="ow">in</span> <span class="n">feature_orf_dict</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">gene</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;-A&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Verified&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">gene</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;-B&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Verified&#39;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">gene_position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">start_chr</span><span class="p">,</span> <span class="n">gene_position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">start_chr</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">gene</span><span class="p">,</span> <span class="s2">&quot;Gene; &quot;</span><span class="o">+</span><span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">gene_alias</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">gene</span> <span class="ow">in</span> <span class="n">val</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">gene_position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">start_chr</span><span class="p">,</span> <span class="n">gene_position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">start_chr</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">gene_alias</span><span class="p">,</span> <span class="s2">&quot;Gene; &quot;</span><span class="o">+</span><span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene_alias</span><span class="p">)[</span><span class="mi">1</span><span class="p">]]</span>
+
+
+    <span class="k">del</span> <span class="p">(</span><span class="n">gff_file</span><span class="p">,</span> <span class="n">gene</span><span class="p">,</span> <span class="n">bp</span><span class="p">,</span> <span class="n">gene_alias</span><span class="p">)</span>
+
+<span class="c1">#%% GET FEATURES FROM INTERGENIC REGIONS (-&gt; SEE SGD_features.tab IN DATA_FILES IN GITHUB FOLDER)</span>
+
+    <span class="n">genomicregions_list</span> <span class="o">=</span> <span class="n">sgd_features</span><span class="p">(</span><span class="n">sgd_features_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">genomicregion</span> <span class="ow">in</span> <span class="n">genomicregions_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">dna_dict</span> <span class="o">=</span> <span class="n">feature_position</span><span class="p">(</span><span class="n">sgd_features</span><span class="p">(</span><span class="n">sgd_features_file</span><span class="p">)[</span><span class="n">i</span><span class="p">],</span> <span class="n">chrom</span><span class="p">,</span> <span class="n">start_chr</span><span class="p">,</span> <span class="n">dna_dict</span><span class="p">,</span> <span class="n">genomicregion</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+    <span class="c1">### TEST IF ELEMENTS IN FEATURE_ORF_DICT FOR SELECTED CHROMOSOME ARE THE SAME AS THE GENES IN GENE_POSITION_DICT BY CREATING THE DICTIONARY FEATURE_POSITION_DICT CONTAINING ALL THE GENES IN FEATURE_ORF_DICT WITH THEIR CORRESPONDING POSITION IN THE CHROMOSOME</span>
+    <span class="n">gene_alias_dict</span> <span class="o">=</span> <span class="n">gene_aliases</span><span class="p">(</span><span class="n">gene_information_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">orf_position_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">feature_orf_dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">)[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="n">chrom</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">gene_position_dict</span><span class="p">:</span>
+                <span class="n">orf_position_dict</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">)[</span><span class="mi">6</span><span class="p">],</span> <span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">)[</span><span class="mi">7</span><span class="p">]]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">feature_alias</span> <span class="ow">in</span> <span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">feature_alias</span> <span class="ow">in</span> <span class="n">gene_position_dict</span><span class="p">:</span>
+                        <span class="n">orf_position_dict</span><span class="p">[</span><span class="n">feature_alias</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">)[</span><span class="mi">6</span><span class="p">],</span> <span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">)[</span><span class="mi">7</span><span class="p">]]</span>
+
+
+
+    <span class="k">if</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">orf_position_dict</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">gene_position_dict</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">verbose</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+<span class="c1">#            print(&#39;Everything alright, just ignore me!&#39;)</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: Genes in feature_list are not the same as the genes in the gene_position_dict. Please check!&#39;</span><span class="p">)</span>
+
+
+    <span class="k">del</span> <span class="p">(</span><span class="n">sgd_features_file</span><span class="p">,</span> <span class="n">feature_orf_dict</span><span class="p">,</span> <span class="n">orf_position_dict</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">feature_alias</span><span class="p">,</span> <span class="n">gene_position_dict</span><span class="p">)</span>
+
+<span class="c1">#%% DETERMINE THE NUMBER OF TRANSPOSONS PER BP FOR EACH FEATURE</span>
+
+    <span class="n">reads_loc_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">dna_dict</span><span class="p">)</span> <span class="c1"># CONTAINS ALL READS JUST LIKE READS_IN_CHROM_LIST, BUT THIS LIST HAS THE SAME LENGTH AS THE NUMBER OF BP IN THE CHROMOSOME WHERE THE LOCATIONS WITH NO READS ARE FILLED WITH ZEROS</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">insrt_in_chrom_list</span><span class="p">:</span>
+        <span class="n">reads_loc_list</span><span class="p">[</span><span class="n">ins</span><span class="p">]</span> <span class="o">=</span> <span class="n">reads_in_chrom_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+    <span class="k">del</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="n">insrt_in_chrom_list</span><span class="p">,</span> <span class="n">reads_in_chrom_list</span><span class="p">)</span><span class="c1">#, dna_df)</span>
+
+<span class="c1">#%% CREATE DATAFRAME FOR EACH FEATURE (E.G. NONCODING DNA, GENE, ETC.) IN THE CHROMOSOME AND DETERMINE THE NUMBER OF INSERTIONS AND READS PER FEATURE.</span>
+
+    <span class="n">feature_NameAndType_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">f_previous</span> <span class="o">=</span> <span class="n">dna_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">start_chr</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">f_type</span> <span class="o">=</span> <span class="n">dna_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">start_chr</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">N_reads</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_reads_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_reads_truncatedgene_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_insrt_truncatedgene_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_insrt_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_bp</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">N_bp_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">f_start</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">f_end</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">f_pos_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="n">dna_dict</span><span class="p">:</span>
+        <span class="n">f_current</span> <span class="o">=</span> <span class="n">dna_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">bp</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">f_current</span> <span class="o">==</span> <span class="n">f_previous</span><span class="p">:</span>
+            <span class="n">f_type</span> <span class="o">=</span> <span class="n">dna_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">bp</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">f_end</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">N_bp</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">N_reads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reads_loc_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">f_current</span> <span class="o">!=</span> <span class="n">f_previous</span> <span class="ow">or</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">start_chr</span><span class="p">)</span> <span class="o">==</span> <span class="n">end_chr</span><span class="p">):</span><span class="c1"># and not f_current.endswith(&#39;-A&#39;):</span>
+            <span class="n">feature_NameAndType_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">f_previous</span><span class="p">,</span> <span class="n">f_type</span><span class="p">])</span>
+            <span class="n">N_reads_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">N_reads</span><span class="p">))</span>
+            <span class="n">N_insrt_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">([</span><span class="n">ins</span> <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">N_reads</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ins</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">f_type</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">f_type</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Gene&#39;</span><span class="p">):</span>
+                <span class="n">N10percent</span> <span class="o">=</span> <span class="mi">100</span><span class="c1">#int(len(N_reads) * 0.1) #TRUNCATED GENE DEFINITION</span>
+                <span class="n">N_reads_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">N_reads</span><span class="p">[</span><span class="n">N10percent</span><span class="p">:</span><span class="o">-</span><span class="n">N10percent</span><span class="p">]))</span>
+                <span class="n">N_insrt_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">([</span><span class="n">ins</span> <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">N_reads</span><span class="p">[</span><span class="n">N10percent</span><span class="p">:</span><span class="o">-</span><span class="n">N10percent</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ins</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">N_reads_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">N_reads</span><span class="p">))</span>
+                <span class="n">N_insrt_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">([</span><span class="n">ins</span> <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">N_reads</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ins</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]))</span>
+
+            <span class="n">N_bp_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N_bp</span><span class="p">)</span>
+            <span class="n">N_reads</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">N_bp</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">f_pos_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">f_start</span><span class="p">,</span> <span class="n">f_end</span><span class="o">+</span><span class="n">f_start</span><span class="p">])</span>
+            <span class="n">f_start</span> <span class="o">=</span> <span class="n">f_start</span> <span class="o">+</span> <span class="n">f_end</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">f_end</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">f_previous</span> <span class="o">=</span> <span class="n">f_current</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">N_reads_per_ins_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_reads_per_ins_truncatedgene_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">N_reads_list</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">N_insrt_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">N_reads_per_ins_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">N_reads_per_ins_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">N_insrt_truncatedgene_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">N_reads_per_ins_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N_reads_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">N_insrt_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">N_reads_per_ins_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">N_reads_per_ins_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N_reads_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">N_insrt_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">N_reads_per_ins_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N_reads_truncatedgene_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">N_insrt_truncatedgene_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+
+    <span class="c1">#############get all essential genes together with their aliases##############</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">essentials_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">essentials_temp_list</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">essentials_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">essential</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">essential</span> <span class="ow">in</span> <span class="n">essentials_temp_list</span><span class="p">]</span>
+    <span class="k">del</span> <span class="n">essentials_temp_list</span>
+
+    <span class="n">gene_alias_dict</span> <span class="o">=</span> <span class="n">gene_aliases</span><span class="p">(</span><span class="n">gene_information_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">essentials_list</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">val</span><span class="p">:</span>
+                <span class="n">essentials_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alias</span><span class="p">)</span>
+
+    <span class="c1">#ADD</span>
+    <span class="n">essentiality_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">feature_NameAndType_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">feature</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;noncoding&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">feature</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">genomicregions_list</span><span class="p">:</span>
+                <span class="n">essentiality_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">feature</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">essentials_list</span><span class="p">:</span>
+                <span class="n">essentiality_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">essentiality_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">essentiality_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">del</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">alias</span><span class="p">,</span> <span class="n">essentials_list</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">gene_information_file</span><span class="p">)</span><span class="c1">#, gene_alias_dict)#, reads_loc_list)</span>
+    <span class="c1">##############################################################################</span>
+
+    <span class="n">feature_name_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">feature_type_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">feature_alias_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">feature_standardname_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">feature_name</span> <span class="ow">in</span> <span class="n">feature_NameAndType_list</span><span class="p">:</span>
+        <span class="n">feature_name_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">feature_type_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">feature_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">feature_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Gene&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">gene_alias_dict</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">feature_standardname_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">feature_alias_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">feature_standardname_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">feature_alias_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">1</span><span class="p">:])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">feature_standardname_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">feature_alias_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">feature_standardname_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">feature_alias_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+
+    <span class="n">all_features</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Feature_name&#39;</span><span class="p">:</span> <span class="n">feature_name_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Standard_name&#39;</span><span class="p">:</span> <span class="n">feature_standardname_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Feature_alias&#39;</span><span class="p">:</span><span class="n">feature_alias_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Feature_type&#39;</span><span class="p">:</span> <span class="n">feature_type_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Essentiality&#39;</span><span class="p">:</span> <span class="n">essentiality_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Chromosome&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">chrom</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_name_list</span><span class="p">),</span>
+                    <span class="s1">&#39;Position&#39;</span><span class="p">:</span> <span class="n">f_pos_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Nbasepairs&#39;</span><span class="p">:</span><span class="n">N_bp_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Ninsertions&#39;</span><span class="p">:</span><span class="n">N_insrt_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Ninsertions_truncatedgene&#39;</span><span class="p">:</span><span class="n">N_insrt_truncatedgene_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Nreads&#39;</span><span class="p">:</span><span class="n">N_reads_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Nreads_truncatedgene&#39;</span><span class="p">:</span><span class="n">N_reads_truncatedgene_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Nreadsperinsrt&#39;</span><span class="p">:</span><span class="n">N_reads_per_ins_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Nreadsperinsrt_truncatedgene&#39;</span><span class="p">:</span><span class="n">N_reads_per_ins_truncatedgene_list</span><span class="p">}</span>
+
+
+    <span class="n">dna_df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">all_features</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_name</span> <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">all_features</span><span class="p">])</span> <span class="c1">#search for feature using: dna_df2.loc[dna_df2[&#39;Feature&#39;] == &#39;CDC42&#39;]</span>
+    <span class="c1">#CREATE NEW COLUMN WITH ALL DOMAINS OF THE GENE (IF PRESENT) AND ANOTHER COLUMN THAT INCLUDES LISTS OF THE BP POSITIONS OF THESE DOMAINS</span>
+
+
+    <span class="c1">#PRINT INFORMATION FOR THE SELECTED GENE</span>
+    <span class="k">if</span> <span class="n">region_type</span> <span class="o">==</span> <span class="s1">&#39;Gene&#39;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">region_info</span> <span class="ow">in</span> <span class="n">dna_df2</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">region_info</span><span class="o">.</span><span class="n">Feature_name</span> <span class="o">==</span> <span class="n">region</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">or</span> <span class="n">region_info</span><span class="o">.</span><span class="n">Standard_name</span> <span class="o">==</span> <span class="n">region</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">region_info</span><span class="p">)</span>
+
+
+    <span class="k">del</span> <span class="p">(</span><span class="n">dna_dict</span><span class="p">,</span> <span class="n">feature_NameAndType_list</span><span class="p">,</span> <span class="n">feature_name_list</span><span class="p">,</span> <span class="n">feature_type_list</span><span class="p">,</span> <span class="n">feature_name</span><span class="p">,</span> <span class="n">f_type</span><span class="p">,</span> <span class="n">f_previous</span><span class="p">,</span> <span class="n">f_start</span><span class="p">,</span> <span class="n">f_end</span><span class="p">,</span> <span class="n">f_pos_list</span><span class="p">,</span> <span class="n">f_current</span><span class="p">,</span> <span class="n">N_reads</span><span class="p">,</span> <span class="n">N_reads_list</span><span class="p">,</span> <span class="n">N_insrt_list</span><span class="p">,</span> <span class="n">N_reads_truncatedgene_list</span><span class="p">,</span> <span class="n">N_insrt_truncatedgene_list</span><span class="p">,</span> <span class="n">N10percent</span><span class="p">,</span> <span class="n">N_bp</span><span class="p">,</span> <span class="n">N_bp_list</span><span class="p">,</span> <span class="n">bp</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">start_chr</span><span class="p">,</span> <span class="n">end_chr</span><span class="p">,</span> <span class="n">all_features</span><span class="p">,</span> <span class="n">essentiality_list</span><span class="p">,</span> <span class="n">essentials_file</span><span class="p">,</span> <span class="n">genomicregions_list</span><span class="p">)</span>
+
+
+<span class="c1">#%% CREATE BAR PLOT</span>
+    <span class="k">if</span> <span class="n">plotting</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">noncoding_color</span> <span class="o">=</span> <span class="s2">&quot;#002538&quot;</span>
+        <span class="n">essential_color</span> <span class="o">=</span> <span class="s2">&quot;#10e372&quot;</span>
+        <span class="n">nonessential_color</span> <span class="o">=</span> <span class="s2">&quot;#d9252e&quot;</span>
+        <span class="n">codingdna_color</span> <span class="o">=</span> <span class="s1">&#39;#29a7e6&#39;</span>
+        <span class="n">textcolor</span> <span class="o">=</span> <span class="s2">&quot;#000000&quot;</span>
+        <span class="n">textsize</span> <span class="o">=</span> <span class="mi">14</span>
+
+
+        <span class="n">feature_middle_pos_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">sum_bp</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dna_df2</span><span class="p">[</span><span class="s1">&#39;Nbasepairs&#39;</span><span class="p">]:</span>
+            <span class="n">feature_middle_pos_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sum_bp</span><span class="p">)</span>
+            <span class="n">sum_bp</span> <span class="o">+=</span> <span class="n">x</span>
+        <span class="k">del</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sum_bp</span><span class="p">)</span>
+
+        <span class="n">feature_width_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dna_df2</span><span class="p">[</span><span class="s1">&#39;Nbasepairs&#39;</span><span class="p">])</span>
+
+
+        <span class="n">barcolor_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">dna_df2</span><span class="p">[</span><span class="s1">&#39;Feature_name&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">feature</span> <span class="o">==</span> <span class="s1">&#39;noncoding&#39;</span><span class="p">:</span>
+                <span class="n">barcolor_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">noncoding_color</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">dna_df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dna_df2</span><span class="p">[</span><span class="s1">&#39;Feature_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">feature</span><span class="p">][</span><span class="s1">&#39;Essentiality&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="n">barcolor_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nonessential_color</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">dna_df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dna_df2</span><span class="p">[</span><span class="s1">&#39;Feature_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">feature</span><span class="p">][</span><span class="s1">&#39;Essentiality&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">barcolor_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">essential_color</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">dna_df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dna_df2</span><span class="p">[</span><span class="s1">&#39;Feature_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">feature</span><span class="p">][</span><span class="s1">&#39;Essentiality&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">barcolor_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">codingdna_color</span><span class="p">)</span>
+        <span class="k">del</span> <span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+
+
+
+
+        <span class="c1">###PLOTTING</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+
+
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">19</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">variable</span> <span class="o">==</span> <span class="s2">&quot;insertions&quot;</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">feature_middle_pos_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">dna_df2</span><span class="p">[</span><span class="s1">&#39;Ninsertions&#39;</span><span class="p">]),</span> <span class="n">feature_width_list</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">barcolor_list</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Transposons per region&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">textsize</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">textcolor</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">variable</span> <span class="o">==</span> <span class="s2">&quot;reads&quot;</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">feature_middle_pos_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">dna_df2</span><span class="p">[</span><span class="s1">&#39;Nreads&#39;</span><span class="p">]),</span> <span class="n">feature_width_list</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">barcolor_list</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Reads per region&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">textsize</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">textcolor</span><span class="p">)</span>
+
+
+        <span class="k">if</span> <span class="n">roi_start</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">roi_end</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">roi_start</span> <span class="o">&lt;</span> <span class="n">len_chr</span> <span class="ow">and</span> <span class="n">roi_end</span> <span class="o">&lt;</span> <span class="n">len_chr</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">roi_start</span><span class="p">,</span> <span class="n">roi_end</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">len_chr</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="n">textsize</span><span class="p">)</span>
+    <span class="c1">#    ax.set_xticklabels([])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;sci&#39;</span><span class="p">,</span> <span class="n">scilimits</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_offset_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="n">textsize</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Basepair position on chromosome &quot;</span><span class="o">+</span><span class="n">chrom</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">textsize</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">textcolor</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">create_plottitle</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">textsize</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">textcolor</span><span class="p">)</span>
+        <span class="n">legend_noncoding</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">noncoding_color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Noncoding DNA&quot;</span><span class="p">)</span>
+        <span class="n">legend_essential</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">essential_color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Annotated essential genes&quot;</span><span class="p">)</span>
+        <span class="n">legend_nonessential</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">nonessential_color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Nonessential genes&quot;</span><span class="p">)</span>
+        <span class="n">legend_coding</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">codingdna_color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Other genomic regions&quot;</span><span class="p">)</span>
+        <span class="n">leg</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">legend_noncoding</span><span class="p">,</span> <span class="n">legend_essential</span><span class="p">,</span> <span class="n">legend_nonessential</span><span class="p">,</span> <span class="n">legend_coding</span><span class="p">])</span> <span class="c1">#ADD</span>
+        <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">leg</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span>
+            <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">textcolor</span><span class="p">)</span>
+        <span class="k">del</span> <span class="n">text</span>
+
+        <span class="n">axc</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">19</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">width</span> <span class="ow">in</span> <span class="n">feature_width_list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">dna_df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">counter</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">axc</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">l</span><span class="o">+</span><span class="n">width</span><span class="p">,</span><span class="n">facecolor</span><span class="o">=</span><span class="n">essential_color</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">dna_df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">counter</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">dna_df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">counter</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;noncoding&#39;</span><span class="p">:</span>
+                <span class="n">axc</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">l</span><span class="o">+</span><span class="n">width</span><span class="p">,</span><span class="n">facecolor</span><span class="o">=</span><span class="n">nonessential_color</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">dna_df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">counter</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">dna_df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">counter</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;noncoding&#39;</span><span class="p">:</span>
+                <span class="n">axc</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">l</span><span class="o">+</span><span class="n">width</span><span class="p">,</span><span class="n">facecolor</span><span class="o">=</span><span class="n">codingdna_color</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">l</span> <span class="o">+=</span> <span class="n">width</span>
+            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">roi_start</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">roi_end</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">roi_start</span> <span class="o">&lt;</span> <span class="n">len_chr</span> <span class="ow">and</span> <span class="n">roi_end</span> <span class="o">&lt;</span> <span class="n">len_chr</span><span class="p">:</span>
+            <span class="n">axc</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">roi_start</span><span class="p">,</span> <span class="n">roi_end</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">axc</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">len_chr</span><span class="p">)</span>
+        <span class="n">axc</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="n">textsize</span><span class="p">)</span>
+        <span class="n">axc</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
+        <span class="n">axc</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span>
+            <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>          <span class="c1"># changes apply to the x-axis</span>
+            <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span>      <span class="c1"># both major and minor ticks are affected</span>
+            <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>      <span class="c1"># ticks along the bottom edge are off</span>
+            <span class="n">top</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>         <span class="c1"># ticks along the top edge are off</span>
+            <span class="n">labelbottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># labels along the bottom edge are off</span>
+
+        <span class="n">axc</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span>
+            <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>          <span class="c1"># changes apply to the y-axis</span>
+            <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span>      <span class="c1"># both major and minor ticks are affected</span>
+            <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>        <span class="c1"># ticks along the bottom edge are off</span>
+            <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>       <span class="c1"># ticks along the top edge are off</span>
+            <span class="n">labelleft</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># labels along the bottom edge are off</span>
+
+
+        <span class="k">if</span> <span class="n">savefigure</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">variable</span> <span class="o">==</span> <span class="s1">&#39;reads&#39;</span><span class="p">:</span>
+                <span class="n">saving_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dirname</span><span class="p">,</span><span class="s1">&#39;GenomicFeaturesReads_Barplot_Chrom&#39;</span><span class="o">+</span><span class="n">chrom</span><span class="o">+</span><span class="s1">&#39;_NonNormalized&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">saving_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dirname</span><span class="p">,</span><span class="s1">&#39;GenomicFeaturesInsertions_Barplot_Chrom&#39;</span><span class="o">+</span><span class="n">chrom</span><span class="o">+</span><span class="s1">&#39;_NonNormalized&#39;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">saving_name</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;landscape&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="k">del</span> <span class="p">(</span><span class="n">barcolor_list</span><span class="p">,</span> <span class="n">codingdna_color</span><span class="p">,</span> <span class="n">essential_color</span><span class="p">,</span> <span class="n">feature_middle_pos_list</span><span class="p">,</span> <span class="n">feature_width_list</span><span class="p">,</span> <span class="n">noncoding_color</span><span class="p">,</span> <span class="n">nonessential_color</span><span class="p">,</span> <span class="n">textcolor</span><span class="p">,</span> <span class="n">textsize</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+
+
+<span class="c1">#%% RETURN STATEMENT</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">dna_df2</span><span class="p">)</span>
+
+
+
+
+<span class="k">def</span> <span class="nf">feature_position</span><span class="p">(</span><span class="n">feature_dict</span><span class="p">,</span> <span class="n">chrom</span><span class="p">,</span> <span class="n">start_chr</span><span class="p">,</span> <span class="n">dna_dict</span><span class="p">,</span> <span class="n">feature_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    
+    <span class="n">position_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">feature_dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="n">chrom</span><span class="p">:</span>
+<span class="c1">#            if feat.startswith(&quot;TEL&quot;) and feat.endswith(&#39;L&#39;): #correct for the fact that telomeres at the end of a chromosome are stored in the reverse order.</span>
+            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">6</span><span class="p">])</span> <span class="o">&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">7</span><span class="p">]):</span>
+                <span class="n">position_dict</span><span class="p">[</span><span class="n">feat</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">5</span><span class="p">],</span> <span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">7</span><span class="p">],</span> <span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">6</span><span class="p">]]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">position_dict</span><span class="p">[</span><span class="n">feat</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">5</span><span class="p">],</span> <span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">6</span><span class="p">],</span> <span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">7</span><span class="p">]]</span>
+
+
+    <span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">position_dict</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="n">start_chr</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span><span class="o">+</span><span class="n">start_chr</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;noncoding&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+                <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">feat</span><span class="p">,</span> <span class="n">feature_type</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+<span class="c1">#                print(&#39;Bp %i is already occupied by %s&#39; % (bp, str(dna_dict.get(bp))))</span>
+                <span class="k">pass</span>
+
+
+    <span class="k">return</span><span class="p">(</span><span class="n">dna_dict</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-use-the-code-in-the-same-script">
+<h2>How to use the code in the same script<a class="headerlink" href="#how-to-use-the-code-in-the-same-script" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">region</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#e.g. 1, &quot;I&quot;, [&quot;I&quot;, 0, 10000&quot;], gene name (e.g. &quot;CDC42&quot;)</span>
+<span class="n">wig_file</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="n">pergene_insertions_file</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="n">plotting</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">variable</span><span class="o">=</span><span class="s2">&quot;reads&quot;</span> <span class="c1">#&quot;reads&quot; or &quot;insertions&quot;</span>
+<span class="n">savefigure</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">dna_df2</span> <span class="o">=</span> <span class="n">dna_features</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span>
+                 <span class="n">wig_file</span><span class="o">=</span><span class="n">wig_file</span><span class="p">,</span>
+                 <span class="n">pergene_insertions_file</span><span class="o">=</span><span class="n">pergene_insertions_file</span><span class="p">,</span>
+                 <span class="n">variable</span><span class="o">=</span><span class="n">variable</span><span class="p">,</span>
+                 <span class="n">plotting</span><span class="o">=</span><span class="n">plotting</span><span class="p">,</span>
+                 <span class="n">savefigure</span><span class="o">=</span><span class="n">savefigure</span><span class="p">,</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./postprocessing-scripts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="clean_bedwigfiles.html" title="previous page">Cleaning bed and wig files</a>
+    <a class='right-next' id="next-link" href="Introduction.html" title="next page">Python scripts</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
+        
+            &copy; Copyright Apache 2.0.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

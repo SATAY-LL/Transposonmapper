@@ -1,0 +1,28 @@
+root: Introduction
+entries:
+- file: 00-Intro/data-analysis-workflow
+  entries:
+  - file: 00-Intro/flowchart
+  - file: 00-Intro/satay_analysis_notes
+- file: 01-bash-GUI/00-guidelines
+  entries:
+  - file: 01-bash-GUI/01-processing_workflow
+- file: 02-postprocessing-scripts/00-Introduction
+  entries:
+  - file: 02-postprocessing-scripts/01-clean_bedwigfiles
+  - file: 02-postprocessing-scripts/02-transposonread_profileplot_genome
+  - file: 02-postprocessing-scripts/03-transposonread_profileplot
+  - file: 02-postprocessing-scripts/04-scatterplot_genes
+  - file: 02-postprocessing-scripts/05-volcanoplot
+  - file: 02-postprocessing-scripts/06-genomicfeatures_dataframe
+- file: 03-docker-doc/00-Docker-Users
+- file: 04-Developers/00-contributing-guidelines
+- file: 05-Code-of-conduct/00-code-of-conduct
+- file: 06-Tutorials/00-name
+  entries:
+  - file: 06-Tutorials/01-tutorial
+  - file: 06-Tutorials/02-tutorial
+  - file: 06-Tutorials/03-tutorial
+  - file: 06-Tutorials/04-tutorial
+  - file: 06-Tutorials/05-tutorial
+

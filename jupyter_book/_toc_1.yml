@@ -1,0 +1,27 @@
+format: jb-book
+root: Introduction
+parts:
+- caption: Get started
+  numbered: true
+  chapters:
+  - file: Intro/flowchart
+  - file: Intro/satay_analysis_notes
+  - file: Intro/Installation_Guide_SATAY_Analysis_Software
+- caption: Bash GUI - Data Preprocessing
+  numbered: true
+  chapters:
+  - file: bash-GUI/processing_workflow
+- caption: Postprocessing python scripts
+  numbered: true
+  chapters:
+  - file: postprocessing-scripts/Introduction
+  - file: postprocessing-scripts/clean_bedwigfiles
+  - file: postprocessing-scripts/transposonread_profileplot_genome
+  - file: postprocessing-scripts/transposonread_profileplot
+  - file: postprocessing-scripts/genomicfeatures_dataframe
+  - file: postprocessing-scripts/scatterplot_genes
+  - file: postprocessing-scripts/volcanoplot
+- caption: Docker Image 
+  numbered: true
+  chapters:
+  - file: docker-doc/Docker-Users

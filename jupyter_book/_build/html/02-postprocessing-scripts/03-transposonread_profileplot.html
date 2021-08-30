@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transposon profile for a chromosome of interest &#8212; SATAY pipeline at Delft :)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/genetica_modified_neon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Create a scatterplot for all genes and all essential genes." href="04-scatterplot_genes.html" />
+    <link rel="prev" title="Transposon profile for the whole genome" href="02-transposonread_profileplot_genome.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/genetica_modified_neon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SATAY pipeline at Delft :)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Status of the project
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00-Intro/data-analysis-workflow.html">
+   Overview of the pipeline functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00-Intro/flowchart.html">
+     Flowchart of the pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00-Intro/satay_analysis_notes.html">
+     What is SATAY
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-bash-GUI/00-guidelines.html">
+   How to use the pipeline in the docker container
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-bash-GUI/01-processing_workflow.html">
+     Code for the bash GUI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-Introduction.html">
+   Python scripts
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-clean_bedwigfiles.html">
+     Cleaning bed and wig files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-transposonread_profileplot_genome.html">
+     Transposon profile for the whole genome
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Transposon profile for a chromosome of interest
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-scatterplot_genes.html">
+     Create a scatterplot for all genes and all essential genes.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-volcanoplot.html">
+     Volcano plots to two different libraries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-genomicfeatures_dataframe.html">
+     Searching for genomic features  of transposition events
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-docker-doc/00-Docker-Users.html">
+   Build your own docker container with ours satay pipeline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-Developers/00-contributing-guidelines.html">
+   Contributing guidelines for developers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Code-of-conduct/00-code-of-conduct.html">
+   Code of Conduct
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-Tutorials/00-name.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/01-tutorial.html">
+     Tutorial-1 : How to run the transposonmapper python package in a specific environment.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/02-tutorial.html">
+     Tutorial-2 :  How to clean the wig and bed files.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/03-tutorial.html">
+     Tutorial-3: Visualize the insertions and reads per gene  throughout the genome
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/04-tutorial.html">
+     Tutorial-4: Zoom in into the chromosomes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/05-tutorial.html">
+     Tutorial-5: Volcano plots
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/02-postprocessing-scripts/03-transposonread_profileplot.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/SATAY-LL/SATAY-jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/SATAY-LL/SATAY-jupyter-book/issues/new?title=Issue%20on%20page%20%2F02-postprocessing-scripts/03-transposonread_profileplot.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-the-code-in-the-same-script">
+   How to use the code in the same script
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="transposon-profile-for-a-chromosome-of-interest">
+<h1>Transposon profile for a chromosome of interest<a class="headerlink" href="#transposon-profile-for-a-chromosome-of-interest" title="Permalink to this headline">¶</a></h1>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Click here to see the code!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">file_dirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;__file__&#39;</span><span class="p">))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dirname</span><span class="p">,</span><span class="s1">&#39;python_modules&#39;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">chromosome_and_gene_positions</span> <span class="kn">import</span> <span class="n">chromosome_position</span><span class="p">,</span> <span class="n">gene_position</span>
+<span class="kn">from</span> <span class="nn">essential_genes_names</span> <span class="kn">import</span> <span class="n">list_known_essentials</span>
+<span class="kn">from</span> <span class="nn">chromosome_names_in_files</span> <span class="kn">import</span> <span class="n">chromosome_name_bedfile</span>
+
+
+
+<span class="c1">#%% INPUT</span>
+
+<span class="n">bed_file</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="n">variable</span><span class="o">=</span><span class="s2">&quot;transposons&quot;</span> <span class="c1">#&quot;reads&quot; &quot;transposons&quot;</span>
+<span class="n">chrom</span><span class="o">=</span><span class="s2">&quot;I&quot;</span>
+<span class="n">bar_width</span><span class="o">=</span><span class="kc">None</span>
+<span class="n">savefig</span><span class="o">=</span><span class="kc">False</span>
+
+<span class="c1">#%%</span>
+<span class="k">def</span> <span class="nf">profile_plot</span><span class="p">(</span><span class="n">bed_file</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="s2">&quot;transposons&quot;</span><span class="p">,</span> <span class="n">chrom</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">bar_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;This function creates a bar plot along a specified chromosome for the number of transposons or reads.</span>
+<span class="sd">    The height of each bar represents the number of transposons or reads at the genomic position indicated on the x-axis.</span>
+<span class="sd">    The input is as follows: </span>
+<span class="sd">        - bed_file: input absolute path to bed file</span>
+<span class="sd">        - variable: either transposons or reads</span>
+<span class="sd">        - chrom: roman numeral indicated the chromosome that needs to be plotted</span>
+<span class="sd">        - bar_width: integer. By default, the bar_width is set to length_chromosome/800</span>
+<span class="sd">        - savefig: whether to save the figure at the location of the bed file (True or False)</span>
+<span class="sd">        </span>
+<span class="sd">    The bar_width determines how many basepairs are put in one bin. Little basepairs per bin may be slow. Too many basepairs in one bin and possible low transposon areas might be obscured.</span>
+<span class="sd">    The bottom part of the graph is color coded to indicate areas that code for genes.</span>
+<span class="sd">    For this a list for essential genes is needed (used in &#39;list_known_essentials&#39; function) and a .gff file is required (for the functions in &#39;chromosome_and_gene_positions.py&#39;) and a list for gene aliases (used in the function &#39;gene_aliases&#39;)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+<span class="c1">#%% USED FILES</span>
+    <span class="n">gff_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dirname</span><span class="p">,</span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="s1">&#39;data_files&#39;</span><span class="p">,</span><span class="s1">&#39;Saccharomyces_cerevisiae.R64-1-1.99.gff3&#39;</span><span class="p">)</span>
+    <span class="n">essential_genes_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dirname</span><span class="p">,</span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="s1">&#39;data_files&#39;</span><span class="p">,</span><span class="s1">&#39;Cerevisiae_EssentialGenes_List_1.txt&#39;</span><span class="p">),</span>
+                            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_dirname</span><span class="p">,</span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="s1">&#39;data_files&#39;</span><span class="p">,</span><span class="s1">&#39;Cerevisiae_EssentialGenes_List_2.txt&#39;</span><span class="p">)]</span>
+
+<span class="c1">#%% GET CHROMOSOME LENGTHS AND POSITIONS</span>
+    <span class="n">chr_length_dict</span><span class="p">,</span> <span class="n">chr_start_pos_dict</span><span class="p">,</span> <span class="n">chr_end_pos_dict</span> <span class="o">=</span> <span class="n">chromosome_position</span><span class="p">(</span><span class="n">gff_file</span><span class="p">)</span>
+    
+<span class="c1">#%% CREATE LIST OF ALL CHROMOSOMES IN ROMAN NUMERALS</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Chromosome length: &#39;</span><span class="p">,</span><span class="n">chr_length_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">bar_width</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">bar_width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">chr_length_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)</span><span class="o">/</span><span class="mi">800</span><span class="p">)</span>
+    
+    
+<span class="c1">#%% GET ALL GENES IN CURRENT CHROMOSOME</span>
+    <span class="n">gene_pos_dict</span> <span class="o">=</span> <span class="n">gene_position</span><span class="p">(</span><span class="n">gff_file</span><span class="p">)</span>
+    <span class="n">genes_currentchrom_pos_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">gene_pos_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">chrom</span> <span class="ow">in</span> <span class="n">v</span><span class="p">]</span>
+    <span class="n">genes_essential_list</span> <span class="o">=</span> <span class="n">list_known_essentials</span><span class="p">(</span><span class="n">essential_genes_files</span><span class="p">)</span>
+
+    
+<span class="c1">#%% READ BED FILE</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">bed_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    
+<span class="c1">#%% GET NAMES FOR THE CHROMOSOMES IN THE BED FILE</span>
+    <span class="n">chrom_start_index_dict</span><span class="p">,</span> <span class="n">chrom_end_index_dict</span><span class="o">=</span> <span class="n">chromosome_name_bedfile</span><span class="p">(</span><span class="n">lines</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1">#%% GET ALL TRANSPOSON COUNTS</span>
+    <span class="n">allcounts_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">chr_length_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">variable</span> <span class="o">==</span> <span class="s2">&quot;transposons&quot;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="n">chrom_start_index_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">):</span><span class="n">chrom_end_index_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">allcounts_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">elif</span> <span class="n">variable</span> <span class="o">==</span> <span class="s2">&quot;reads&quot;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="n">chrom_start_index_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">):</span><span class="n">chrom_end_index_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">allcounts_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="o">-</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">20</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: No valid variable argument given. Use transposons or reads&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                
+
+
+<span class="c1">#%% BINNING OF THE READS</span>
+    <span class="c1">#THE LIST WITH ALL THE TRANPOSONS FOR THE CURRENT CHROMOSOME IS TYPICALLY REALLY LARGE.</span>
+    <span class="c1">#TO COMPRESS THIS LIST, THE BASEPAIR POSITIONS ARE GROUPED IN GROUPS WITH SIZE DEFINED BY &#39;BAR_WIDTH&#39;</span>
+    <span class="c1">#IN EACH GROUP THE NUMBER OF readS ARE SUMMED UP.</span>
+    <span class="c1">#THIS IS DONE TO SPEED UP THE SCRIPT AS PLOTTING ALL VALUES IS SLOW</span>
+    <span class="n">allcounts_binnedlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">val_counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">sum_values</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">bar_width</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">allcounts_binnedlist</span> <span class="o">=</span> <span class="n">allcounts_list</span>
+        <span class="n">allinsertionsites_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">chr_length_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">chr_length_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">bar_width</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">allcounts_list</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">val_counter</span> <span class="o">%</span> <span class="n">bar_width</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">sum_values</span> <span class="o">+=</span> <span class="n">allcounts_list</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">val_counter</span> <span class="o">%</span> <span class="n">bar_width</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">allcounts_binnedlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sum_values</span><span class="p">)</span>
+                <span class="n">sum_values</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">val_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+            
+        <span class="n">allinsertionsites_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">chr_length_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">chr_length_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)</span><span class="o">/</span><span class="n">bar_width</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    
+    
+<span class="c1">#%% PLOTTING</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Plotting chromosome &#39;</span><span class="p">,</span> <span class="n">chrom</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;bar width for plotting is &#39;</span><span class="p">,</span><span class="n">bar_width</span><span class="p">)</span>
+    
+    <span class="n">textsize</span> <span class="o">=</span> <span class="mi">18</span>
+    <span class="n">textcolor</span> <span class="o">=</span> <span class="s2">&quot;#000000&quot;</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span><span class="c1">#(17,6))</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+    
+    <span class="n">binsize</span> <span class="o">=</span> <span class="n">bar_width</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">19</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">allinsertionsites_list</span><span class="p">,</span><span class="n">allcounts_binnedlist</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="n">binsize</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#000000&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">textsize</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">chr_length_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">))</span>
+<span class="c1">#    ax.set_ylim(0, 200)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;sci&#39;</span><span class="p">,</span> <span class="n">scilimits</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_offset_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="n">textsize</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Basepair position on chromosome &quot;</span><span class="o">+</span><span class="n">chrom</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">textsize</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">textcolor</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">variable</span> <span class="o">==</span> <span class="s2">&quot;transposons&quot;</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Transposon count&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">textsize</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">textcolor</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">variable</span> <span class="o">==</span> <span class="s2">&quot;reads&quot;</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Read count&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">textsize</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">textcolor</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="c1">#    ax.set_title(&#39;Transposon profile for chromosome &#39;+chrom)</span>
+
+
+    <span class="n">axc</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">19</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">gene</span> <span class="ow">in</span> <span class="n">genes_currentchrom_pos_list</span><span class="p">:</span>
+        <span class="n">gene_start_pos</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gene_pos_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">gene_end_pos</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gene_pos_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">gene</span> <span class="ow">in</span> <span class="n">genes_essential_list</span><span class="p">:</span>
+            <span class="n">axc</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">gene_start_pos</span><span class="p">,</span><span class="n">gene_end_pos</span><span class="p">,</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;#00F28E&quot;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="c1">#            ax.text(gene_start_pos,max(alltransposoncounts_binnedlist),gene_alias_list.get(gene)[0], rotation=90, fontsize=18)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">axc</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">gene_start_pos</span><span class="p">,</span><span class="n">gene_end_pos</span><span class="p">,</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;#F20064&quot;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>    
+    <span class="n">axc</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">chr_length_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">))</span>
+    <span class="n">axc</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span>
+        <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>          <span class="c1"># changes apply to the x-axis</span>
+        <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span>      <span class="c1"># both major and minor ticks are affected</span>
+        <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>      <span class="c1"># ticks along the bottom edge are off</span>
+        <span class="n">top</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>         <span class="c1"># ticks along the top edge are off</span>
+        <span class="n">labelbottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># labels along the bottom edge are off</span>
+
+    <span class="n">axc</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span>
+        <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>          <span class="c1"># changes apply to the y-axis</span>
+        <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span>      <span class="c1"># both major and minor ticks are affected</span>
+        <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>        <span class="c1"># ticks along the bottom edge are off</span>
+        <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>       <span class="c1"># ticks along the top edge are off</span>
+        <span class="n">labelleft</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># labels along the bottom edge are off</span>
+
+    <span class="k">if</span> <span class="n">savefig</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">variable</span> <span class="o">==</span> <span class="s2">&quot;transposons&quot;</span><span class="p">:</span>
+        <span class="n">savepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">bed_file</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;saving figure at </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">savepath</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_transposonplot_chrom&#39;</span><span class="o">+</span><span class="n">chrom</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">savepath</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_transposonplot_chrom&#39;</span><span class="o">+</span><span class="n">chrom</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">savefig</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">variable</span> <span class="o">==</span> <span class="s2">&quot;reads&quot;</span><span class="p">:</span>
+        <span class="n">savepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">bed_file</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;saving figure at </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">savepath</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_readplot_chrom&#39;</span><span class="o">+</span><span class="n">chrom</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">savepath</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_readplot_chrom&#39;</span><span class="o">+</span><span class="n">chrom</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-use-the-code-in-the-same-script">
+<h2>How to use the code in the same script<a class="headerlink" href="#how-to-use-the-code-in-the-same-script" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">profile_plot</span><span class="p">(</span><span class="n">bed_file</span><span class="o">=</span><span class="n">bed_file</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="n">variable</span><span class="p">,</span> <span class="n">chrom</span><span class="o">=</span><span class="n">chrom</span><span class="p">,</span> <span class="n">bar_width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="n">savefig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./02-postprocessing-scripts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="02-transposonread_profileplot_genome.html" title="previous page">Transposon profile for the whole genome</a>
+    <a class='right-next' id="next-link" href="04-scatterplot_genes.html" title="next page">Create a scatterplot for all genes and all essential genes.</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
+        
+            &copy; Copyright Apache 2.0.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
