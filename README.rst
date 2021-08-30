@@ -168,7 +168,7 @@ To run the docker container, use the commands for your Operating System:
 .. code-block:: console
 
     # For Windows (and WSL):
-    docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):data/ mwakok/satay:latest
+    docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):/data mwakok/satay:latest
 
     # For macOS
     docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data mwakok/satay
