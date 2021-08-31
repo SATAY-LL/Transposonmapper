@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transposonmapper.transposonmapper &#8212; SATAY pipeline at Delft :)</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/genetica_modified_neon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/genetica_modified_neon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SATAY pipeline at Delft :)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduction.html">
+   Status of the project
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../03-docker-doc/00-Docker-Intro.html">
+   SATAY pipeline
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03-docker-doc/01-Docker-Setup.html">
+     Setting up docker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03-docker-doc/02-Docker-adapters.html">
+     Creating a custom
+     <em>
+      adapters.fa
+     </em>
+     file
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03-docker-doc/03-Docker-Developers.html">
+     Building the Docker image
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/00-getting-started.html">
+   Installing transposonmapper
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../06-Tutorials/00-name.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06-Tutorials/tutorial.html">
+     Transposonmapper output data postprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About SATAY
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../00-Intro/data-analysis-workflow.html">
+   Overview of the pipeline functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../00-Intro/satay_analysis_notes.html">
+   What is SATAY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../00-Intro/flowchart.html">
+   Flowchart of the pipeline
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Community
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../04-Developers/00-contributing-guidelines.html">
+   Contributing guidelines for developers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../05-Code-of-conduct/00-code-of-conduct.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../api/api.html">
+   Transposonmapper
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../api/api_exporting.html">
+     transposonmapper.exporting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../api/api_importing.html">
+     transposonmapper.importing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../api/api_mapping.html">
+     transposonmapper.mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../api/api_plotting.html">
+     transposonmapper.plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../api/api_processing.html">
+     transposonmapper.processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../api/api_properties.html">
+     transposonmapper.properties
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../api/api_statistics.html">
+     transposonmapper.statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/SATAY-LL/Transposonmapper"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/SATAY-LL/Transposonmapper/issues/new?title=Issue%20on%20page%20%2F_modules/transposonmapper/transposonmapper.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <h1>Source code for transposonmapper.transposonmapper</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This is a tool developed for analysing transposon insertions for experiments using SAturated Transposon Analysis in Yeast (SATAY).</span>
+<span class="sd">This python code contains one function called transposonmapper().</span>
+<span class="sd">For more information about this code and the project, see https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html</span>
+
+<span class="sd">This code is based on the Matlab code created by the Kornmann lab which is available at: sites.google.com/site/satayusers/</span>
+
+<span class="sd">__Author__ = Gregory van Beek. LaanLab, department of Bionanoscience, Delft University of Technology</span>
+<span class="sd">__version__ = 1.5</span>
+<span class="sd">__Date last update__ = 2021-01-11</span>
+
+<span class="sd">Version history:</span>
+<span class="sd">    1.1; Added code for creating two text files for storing insertion locations per gene and per essential gene [2020-07-27]</span>
+<span class="sd">    1.2; Improved searching algorithm for essential genes [2020-08-06]</span>
+<span class="sd">    1.3; Load file containing all essential genes so that a search for essential genes in multiple file is not needed anymore. This file is created using Create_EssentialGenes_list.py located in the same directory as this code [2020-08-07]</span>
+<span class="sd">    1.4; Fixed bug where the gene position and transposon insertion location did not start at zero for each chromosome, causing confusing values to be stored in the _pergene_insertions.txt and _peressential_insertions.txt files [2020-08-09]</span>
+<span class="sd">    1.5; Added functionality to handle all possible sam flags in the alignment file (bam-file) instead of only flag=0 or flag=16. This is needed for the function to handle paired-end sequencing data [2021-01-11]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">pysam</span>
+
+<span class="c1"># Local imports</span>
+<span class="kn">from</span> <span class="nn">transposonmapper.properties</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_chromosome_names</span><span class="p">,</span>
+    <span class="n">get_sequence_length</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">transposonmapper.mapping</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_reads</span><span class="p">,</span>
+    <span class="n">add_chromosome_length</span><span class="p">,</span>
+    <span class="n">add_chromosome_length_inserts</span><span class="p">,</span>
+    <span class="n">get_insertions_and_reads</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">transposonmapper.utils</span> <span class="kn">import</span> <span class="n">chromosomename_roman_to_arabic</span>
+
+<span class="kn">from</span> <span class="nn">transposonmapper.importing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">load_default_files</span><span class="p">,</span>
+    <span class="n">read_genes</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">transposonmapper.exporting</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">save_as_bed</span><span class="p">,</span>
+    <span class="n">save_per_gene</span><span class="p">,</span>
+    <span class="n">save_per_gene_insertions</span><span class="p">,</span>
+    <span class="n">save_per_essential_insertions</span><span class="p">,</span>
+    <span class="n">save_as_wig</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="transposonmapper"><a class="viewcode-back" href="../../api/api.html#transposonmapper.transposonmapper">[docs]</a><span class="k">def</span> <span class="nf">transposonmapper</span><span class="p">(</span><span class="n">bamfile</span><span class="p">,</span> <span class="n">gff_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">essential_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gene_name_file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is created for analysis of SATAY data using the species Saccharomyces Cerevisiae.</span>
+<span class="sd">    It outputs the following files that store information regarding the location of all insertions:</span>
+<span class="sd">        - .bed-file: Includes all individual basepair locations of the whole genome where at least one transposon has been mapped and the number of insertions for each locations (the number of reads) according to the Browser Extensible Data (bed) format.</span>
+<span class="sd">                    A distinction is made between reads that had a different reading orientation during sequencing. The number of reads are stored using the equation #reads*20+100 (e.g. 2 reads is stored as 140).</span>
+<span class="sd">        - .wig-file: Includes all individual basepair locations of the whole genome where at least one transposon has been mapped and the number of insertions for each locations (the number of reads) according to the Wiggle (wig) format.</span>
+<span class="sd">                    In this file no distinction is made between reads that had a different reading orientation during sequencing. The number of reads are stored as the absolute count.</span>
+<span class="sd">        - _pergene.txt-file: Includes all genes (currently 6600) with the total number of insertions and number of reads within the genomic region of the gene.</span>
+<span class="sd">        - _peressential.txt-file: Includes all annotated essential genes (currently 1186) with the total number of insertions and number of reads within the genomic region of the gene.</span>
+<span class="sd">        - _pergene_insertions.txt-file: Includes all genes with their genomic location (i.e. chromosome number, start and end position) and the locations of all insertions within the gene location. It also include the number number of reads per insertions.</span>
+<span class="sd">        - _peressential_insertions.txt-file: Includes all essential genes with their genomic location (i.e. chromosome number, start and end position) and the locations of all insertions within the gene location. It also include the number number of reads per insertions.</span>
+<span class="sd">          (note that in the latter two files, the genomic locations are continous, for example chromosome II does not start at 0, but at &#39;length chromosome I + 1&#39; etc.).</span>
+<span class="sd">    The output files are saved at the location of the input file using the same name as the input file, but with the corresponding extension.</span>
+<span class="sd">    </span>
+<span class="sd">    The function assumes that the reads are already aligned to a reference genome.</span>
+<span class="sd">    The input data should be a .bam-file and the location where the .bam-file is stored should also contain an index file (.bam.bai-file, which for example can be created using sambamba).</span>
+<span class="sd">    This function takes the following inputs:</span>
+<span class="sd">        - bamfile [required]: Path to the bamfile. This location should also contain the .bam.bai index file (does not need to be input in this function).</span>
+<span class="sd">        - gfffile [optional]: Path to a .gff-file including all gene information (e.g. downloaded from SGD). Default file is &#39;Saccharomyces_cerevisiae.R64-1-1.99.gff3&#39;.</span>
+<span class="sd">        - essentialfiles [optional]: Path to a .txt file containing a list all essential genes. Every line should consist of a single essential gene and the file should have one header line. Ideally this file is created using &#39;Create_EssentialGenes_list.py&#39;. Default file is &#39;Cerevisiae_AllEssentialGenes_List.txt&#39;.</span>
+<span class="sd">        - genenamesfile [optional]: Path to text file that includes aliases for all genes. Default file is &#39;Yeast_Protein_Names.txt&#39;.</span>
+<span class="sd">    When the arguments for the optional files are not given, the files are used that are stored at the following location:</span>
+<span class="sd">        &quot;path_current_pythonscript/../data_files&quot;</span>
+<span class="sd">    The function uses the pysam package for handling bam files (see pysam.readthedocs.io/en/latest/index.html) and therefore this function only runs on Linux systems with SAMTools installed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># If necessary, load default files</span>
+    <span class="n">gff_file</span><span class="p">,</span> <span class="n">essential_file</span><span class="p">,</span> <span class="n">gene_name_file</span> <span class="o">=</span> <span class="n">load_default_files</span><span class="p">(</span>
+        <span class="n">gff_file</span><span class="p">,</span> <span class="n">essential_file</span><span class="p">,</span> <span class="n">gene_name_file</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Verify presence of files</span>
+    <span class="n">data_files</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;bam&quot;</span><span class="p">:</span> <span class="n">bamfile</span><span class="p">,</span>
+        <span class="s2">&quot;gff3&quot;</span><span class="p">:</span> <span class="n">gff_file</span><span class="p">,</span>
+        <span class="s2">&quot;essentials&quot;</span><span class="p">:</span> <span class="n">essential_file</span><span class="p">,</span>
+        <span class="s2">&quot;gene_names&quot;</span><span class="p">:</span> <span class="n">gene_name_file</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">filetype</span><span class="p">,</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">data_files</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">assert</span> <span class="n">file_path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filetype</span><span class="si">}</span><span class="s2"> not found at </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="c1"># Read files for all genes and all essential genes</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Getting coordinates of all genes ...&quot;</span><span class="p">)</span>
+    <span class="n">gene_coordinates</span><span class="p">,</span> <span class="n">essential_coordinates</span><span class="p">,</span> <span class="n">aliases_designation</span> <span class="o">=</span> <span class="n">read_genes</span><span class="p">(</span>
+        <span class="n">gff_file</span><span class="p">,</span> <span class="n">essential_file</span><span class="p">,</span> <span class="n">gene_name_file</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Read bam file</span>
+    <span class="n">bam</span> <span class="o">=</span> <span class="n">pysam</span><span class="o">.</span><span class="n">AlignmentFile</span><span class="p">(</span><span class="n">bamfile</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Get names of all chromosomes as stored in the bam file</span>
+    <span class="n">ref_tid</span> <span class="o">=</span> <span class="n">get_chromosome_names</span><span class="p">(</span><span class="n">bam</span><span class="p">)</span>
+    <span class="n">ref_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ref_tid</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="c1"># Convert chromosome names in data file to roman numerals</span>
+    <span class="n">ref_romannums</span> <span class="o">=</span> <span class="n">chromosomename_roman_to_arabic</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ref_tid_roman</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ref_romannums</span><span class="p">,</span> <span class="n">ref_tid</span><span class="p">)}</span>
+
+    <span class="c1"># Get sequence lengths of all chromosomes</span>
+    <span class="n">chr_lengths</span><span class="p">,</span> <span class="n">chr_lengths_cumsum</span> <span class="o">=</span> <span class="n">get_sequence_length</span><span class="p">(</span><span class="n">bam</span><span class="p">)</span>
+
+    <span class="c1"># Get all reads within a specified genomic region</span>
+    <span class="n">readnumb_array</span><span class="p">,</span> <span class="n">tncoordinates_array</span><span class="p">,</span> <span class="n">tncoordinatescopy_array</span> <span class="o">=</span> <span class="n">get_reads</span><span class="p">(</span><span class="n">bam</span><span class="p">)</span>
+
+    <span class="c1">#%% CONCATENATE ALL CHROMOSOMES</span>
+
+    <span class="c1"># For each insertion location, add the length of all previous chromosomes</span>
+    <span class="n">tncoordinatescopy_array</span> <span class="o">=</span> <span class="n">add_chromosome_length_inserts</span><span class="p">(</span>
+        <span class="n">tncoordinatescopy_array</span><span class="p">,</span> <span class="n">ref_names</span><span class="p">,</span> <span class="n">chr_lengths</span>
+    <span class="p">)</span>
+
+    <span class="c1"># For each gene location, add the length of all previous chromosomes</span>
+    <span class="n">gene_coordinates</span> <span class="o">=</span> <span class="n">add_chromosome_length</span><span class="p">(</span>
+        <span class="n">gene_coordinates</span><span class="p">,</span> <span class="n">chr_lengths_cumsum</span><span class="p">,</span> <span class="n">ref_tid_roman</span>
+    <span class="p">)</span>
+
+    <span class="c1"># For each essential gene location, add the length of all previous chromosomes</span>
+    <span class="n">essential_coordinates</span> <span class="o">=</span> <span class="n">add_chromosome_length</span><span class="p">(</span>
+        <span class="n">essential_coordinates</span><span class="p">,</span> <span class="n">chr_lengths_cumsum</span><span class="p">,</span> <span class="n">ref_tid_roman</span>
+    <span class="p">)</span>
+
+    <span class="c1"># GET NUMBER OF TRANSPOSONS AND READS PER GENE</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Get number of insertions and reads per gene ...&quot;</span><span class="p">)</span>
+
+    <span class="c1"># All genes</span>
+    <span class="n">tn_per_gene</span><span class="p">,</span> <span class="n">reads_per_gene</span><span class="p">,</span> <span class="n">tn_coordinates_per_gene</span> <span class="o">=</span> <span class="n">get_insertions_and_reads</span><span class="p">(</span>
+        <span class="n">gene_coordinates</span><span class="p">,</span> <span class="n">tncoordinatescopy_array</span><span class="p">,</span> <span class="n">readnumb_array</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Only essential genes</span>
+    <span class="p">(</span>
+        <span class="n">tn_per_essential</span><span class="p">,</span>
+        <span class="n">reads_per_essential</span><span class="p">,</span>
+        <span class="n">tn_coordinates_per_essential</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">=</span> <span class="n">get_insertions_and_reads</span><span class="p">(</span>
+        <span class="n">essential_coordinates</span><span class="p">,</span> <span class="n">tncoordinatescopy_array</span><span class="p">,</span> <span class="n">readnumb_array</span>
+    <span class="p">)</span>
+
+    <span class="c1"># CREATE BED FILE</span>
+    <span class="n">bedfile</span> <span class="o">=</span> <span class="n">bamfile</span> <span class="o">+</span> <span class="s2">&quot;.bed&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Writing bed file at: &quot;</span><span class="p">,</span> <span class="n">bedfile</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">save_as_bed</span><span class="p">(</span><span class="n">bedfile</span><span class="p">,</span> <span class="n">tncoordinates_array</span><span class="p">,</span> <span class="n">ref_tid</span><span class="p">,</span> <span class="n">readnumb_array</span><span class="p">)</span>
+
+    <span class="c1"># CREATE TEXT FILE WITH TRANSPOSONS AND READS PER GENE</span>
+    <span class="c1"># NOTE THAT THE TRANSPOSON WITH THE HIGHEST READ COUNT IS IGNORED.</span>
+    <span class="c1"># E.G. IF THIS FILE IS COMPARED WITH THE _PERGENE_INSERTIONS.TXT FILE THE READS DON&#39;T ADD UP (SEE https://groups.google.com/forum/#!category-topic/satayusers/bioinformatics/uaTpKsmgU6Q)</span>
+    <span class="c1"># TOO REMOVE THIS HACK, CHANGE THE INITIALIZATION OF THE VARIABLE readpergene</span>
+    <span class="n">per_gene_file</span> <span class="o">=</span> <span class="n">bamfile</span> <span class="o">+</span> <span class="s2">&quot;_pergene.txt&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Writing pergene.txt file at: &quot;</span><span class="p">,</span> <span class="n">per_gene_file</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="n">save_per_gene</span><span class="p">(</span><span class="n">per_gene_file</span><span class="p">,</span> <span class="n">tn_per_gene</span><span class="p">,</span> <span class="n">reads_per_gene</span><span class="p">,</span> <span class="n">aliases_designation</span><span class="p">)</span>
+
+    <span class="c1"># CREATE TEXT FILE TRANSPOSONS AND READS PER ESSENTIAL GENE</span>
+    <span class="n">per_essential_file</span> <span class="o">=</span> <span class="n">bamfile</span> <span class="o">+</span> <span class="s2">&quot;_peressential.txt&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Writing peressential.txt file at: &quot;</span><span class="p">,</span> <span class="n">per_essential_file</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">save_per_gene</span><span class="p">(</span>
+        <span class="n">per_essential_file</span><span class="p">,</span> <span class="n">tn_per_essential</span><span class="p">,</span> <span class="n">reads_per_essential</span><span class="p">,</span> <span class="n">aliases_designation</span>
+    <span class="p">)</span>
+
+    <span class="c1"># CREATE TEXT FILE WITH LOCATION OF INSERTIONS AND READS PER GENE</span>
+    <span class="n">per_gene_insertions_file</span> <span class="o">=</span> <span class="n">bamfile</span> <span class="o">+</span> <span class="s2">&quot;_pergene_insertions.txt&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Witing pergene_insertions.txt file at: &quot;</span><span class="p">,</span> <span class="n">per_gene_insertions_file</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="n">save_per_gene_insertions</span><span class="p">(</span>
+        <span class="n">per_gene_insertions_file</span><span class="p">,</span>
+        <span class="n">tn_coordinates_per_gene</span><span class="p">,</span>
+        <span class="n">gene_coordinates</span><span class="p">,</span>
+        <span class="n">chr_lengths_cumsum</span><span class="p">,</span>
+        <span class="n">ref_tid_roman</span><span class="p">,</span>
+        <span class="n">aliases_designation</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># CREATE TEXT FILE WITH LOCATION OF INSERTIONS AND READS PER ESSENTIAL GENE</span>
+    <span class="n">per_essential_insertions_file</span> <span class="o">=</span> <span class="n">bamfile</span> <span class="o">+</span> <span class="s2">&quot;_peressential_insertions.txt&quot;</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Writing peressential_insertions.txt file at: &quot;</span><span class="p">,</span> <span class="n">per_essential_insertions_file</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="n">save_per_essential_insertions</span><span class="p">(</span>
+        <span class="n">per_essential_insertions_file</span><span class="p">,</span>
+        <span class="n">tn_coordinates_per_essential</span><span class="p">,</span>
+        <span class="n">gene_coordinates</span><span class="p">,</span>
+        <span class="n">chr_lengths_cumsum</span><span class="p">,</span>
+        <span class="n">ref_tid_roman</span><span class="p">,</span>
+        <span class="n">aliases_designation</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># ADD INSERTIONS AT SAME LOCATION BUT WITH DIFFERENT ORIENTATIONS TOGETHER (FOR STORING IN WIG-FILE)</span>
+    <span class="n">wigfile</span> <span class="o">=</span> <span class="n">bamfile</span> <span class="o">+</span> <span class="s2">&quot;.wig&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Writing wig file at: &quot;</span><span class="p">,</span> <span class="n">wigfile</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="n">save_as_wig</span><span class="p">(</span><span class="n">wigfile</span><span class="p">,</span> <span class="n">tncoordinates_array</span><span class="p">,</span> <span class="n">ref_tid</span><span class="p">,</span> <span class="n">readnumb_array</span><span class="p">)</span></div>
+
+
+<span class="c1">#%%</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">bamfile</span> <span class="o">=</span> <span class="s2">&quot;transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam&quot;</span>
+    <span class="n">transposonmapper</span><span class="p">(</span><span class="n">bamfile</span><span class="o">=</span><span class="n">bamfile</span><span class="p">)</span>
+
+</pre></div>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
+        
+            &copy; Copyright Apache 2.0.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

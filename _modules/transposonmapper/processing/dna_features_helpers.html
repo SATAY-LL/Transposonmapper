@@ -1,0 +1,912 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transposonmapper.processing.dna_features_helpers &#8212; SATAY pipeline at Delft :)</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/genetica_modified_neon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/genetica_modified_neon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SATAY pipeline at Delft :)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduction.html">
+   Status of the project
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../03-docker-doc/00-Docker-Intro.html">
+   SATAY pipeline
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../03-docker-doc/01-Docker-Setup.html">
+     Setting up docker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../03-docker-doc/02-Docker-adapters.html">
+     Creating a custom
+     <em>
+      adapters.fa
+     </em>
+     file
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../03-docker-doc/03-Docker-Developers.html">
+     Building the Docker image
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../getting-started/00-getting-started.html">
+   Installing transposonmapper
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../06-Tutorials/00-name.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../06-Tutorials/tutorial.html">
+     Transposonmapper output data postprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About SATAY
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../00-Intro/data-analysis-workflow.html">
+   Overview of the pipeline functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../00-Intro/satay_analysis_notes.html">
+   What is SATAY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../00-Intro/flowchart.html">
+   Flowchart of the pipeline
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Community
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../04-Developers/00-contributing-guidelines.html">
+   Contributing guidelines for developers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../05-Code-of-conduct/00-code-of-conduct.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../api/api.html">
+   Transposonmapper
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/api_exporting.html">
+     transposonmapper.exporting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/api_importing.html">
+     transposonmapper.importing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/api_mapping.html">
+     transposonmapper.mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/api_plotting.html">
+     transposonmapper.plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/api_processing.html">
+     transposonmapper.processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/api_properties.html">
+     transposonmapper.properties
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../api/api_statistics.html">
+     transposonmapper.statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/SATAY-LL/Transposonmapper"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/SATAY-LL/Transposonmapper/issues/new?title=Issue%20on%20page%20%2F_modules/transposonmapper/processing/dna_features_helpers.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <h1>Source code for transposonmapper.processing.dna_features_helpers</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pkg_resources</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<span class="kn">from</span> <span class="nn">transposonmapper.utils</span> <span class="kn">import</span> <span class="n">chromosomename_roman_to_arabic</span>
+<span class="kn">from</span> <span class="nn">transposonmapper.importing</span> <span class="kn">import</span> <span class="n">load_default_files</span><span class="p">,</span><span class="n">load_sgd_tab</span>
+<span class="kn">from</span> <span class="nn">transposonmapper.properties</span> <span class="kn">import</span> <span class="n">list_gene_names</span> <span class="p">,</span> <span class="n">gene_position</span><span class="p">,</span> <span class="n">gene_aliases</span><span class="p">,</span><span class="n">chromosome_position</span>
+<span class="kn">from</span> <span class="nn">transposonmapper.processing</span> <span class="kn">import</span> <span class="n">chromosome_name_wigfile</span>
+<span class="kn">from</span> <span class="nn">transposonmapper.processing.read_sgdfeatures</span> <span class="kn">import</span> <span class="n">sgd_features</span>   
+
+
+<div class="viewcode-block" id="input_region"><a class="viewcode-back" href="../../../api/api_processing.html#transposonmapper.processing.input_region">[docs]</a><span class="k">def</span> <span class="nf">input_region</span><span class="p">(</span><span class="n">region</span><span class="p">,</span><span class="n">verbose</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Defines the region of interest for further processing </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    region : str, int or list</span>
+<span class="sd">        Enter chromosome as a number (or roman numeral) between 1 and 16 (I and XVI), </span>
+<span class="sd">        a list in the form [&#39;chromosome number, start_position, end_position&#39;] or a valid gene name.</span>
+<span class="sd">    verbose : bool</span>
+<span class="sd">        To allow warning messages. </span>
+<span class="sd">    </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    roi_start : NoneType, int </span>
+<span class="sd">        Describe the start of the genomic location if region=gene name , otherwise is a NoneType</span>
+<span class="sd">    roi_end : NoneType, int </span>
+<span class="sd">        Describe the  end of the genomic location if region=gene name , otherwise is a NoneType</span>
+
+<span class="sd">    region_type: str</span>
+<span class="sd">        It is either &quot;Gene&quot; or &quot;Chromosome&quot; depending on the region provided</span>
+<span class="sd">    chrom: str</span>
+<span class="sd">        It is the name of the chromosome of the gene of interest if a gene name is provided as the region, otherwise</span>
+<span class="sd">        is the roman description of the chromosome of interest. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">gff_file</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">gene_information_file</span><span class="o">=</span><span class="n">load_default_files</span><span class="p">()</span>
+
+    <span class="n">warningmessage</span> <span class="o">=</span> <span class="s2">&quot;WARNING: Specified chromosome or gene name not found. Enter chromosome as a number (or roman numeral) between 1 and 16 (I and XVI), a list in the form [&#39;chromosome number, start_position, end_position&#39;] or a valid gene name.&quot;</span>
+
+    
+    <span class="k">if</span> <span class="n">verbose</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Selected region: &#39;</span><span class="p">,</span> <span class="n">region</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">region</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">region</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">chromosomename_roman_to_arabic</span><span class="p">()[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">chrom</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+            <span class="n">roi_start</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">roi_end</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">region_type</span> <span class="o">=</span> <span class="s1">&#39;Chromosome&#39;</span>
+
+        <span class="k">elif</span> <span class="n">region</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">list_gene_names</span><span class="p">(</span><span class="n">gene_information_file</span><span class="p">):</span>
+            <span class="n">gene_pos_dict</span> <span class="o">=</span> <span class="n">gene_position</span><span class="p">(</span><span class="n">gff_file</span><span class="p">)</span>
+            <span class="n">region</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+            <span class="n">region_type</span><span class="o">=</span><span class="s1">&#39;Gene&#39;</span>
+            <span class="k">if</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">gene_pos_dict</span><span class="p">:</span>
+                <span class="n">region_pos</span> <span class="o">=</span> <span class="n">gene_pos_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+                <span class="n">chrom</span> <span class="o">=</span> <span class="n">region_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">roi_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">roi_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">gene_alias_dict</span> <span class="o">=</span> <span class="n">gene_aliases</span><span class="p">(</span><span class="n">gene_information_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">region_alias</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">val</span><span class="p">]</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">region_alias</span> <span class="o">==</span> <span class="p">[]</span> <span class="ow">and</span> <span class="n">region_alias</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">gene_pos_dict</span><span class="p">:</span>
+                    <span class="n">region_pos</span> <span class="o">=</span> <span class="n">gene_pos_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">region_alias</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">chrom</span> <span class="o">=</span> <span class="n">region_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">roi_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="mi">100</span>
+                    <span class="n">roi_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">+</span><span class="mi">100</span>
+                    
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">warningmessage</span><span class="p">)</span>
+                    <span class="k">return</span><span class="p">()</span>
+            
+            
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">warningmessage</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">()</span>
+
+
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">region</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">chrom</span> <span class="o">=</span> <span class="n">region</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">region</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">chromosomename_roman_to_arabic</span><span class="p">()[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">chrom</span> <span class="o">=</span> <span class="n">chromosomename_roman_to_arabic</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">warningmessage</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">()</span>
+        <span class="n">roi_start</span> <span class="o">=</span> <span class="n">region</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">roi_end</span> <span class="o">=</span> <span class="n">region</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">region_type</span> <span class="o">=</span> <span class="s1">&#39;Chromosome&#39;</span>
+
+
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">region</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">chromosomename_roman_to_arabic</span><span class="p">()[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">chrom</span> <span class="o">=</span> <span class="n">chromosomename_roman_to_arabic</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+            <span class="n">roi_start</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">roi_end</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">warningmessage</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">()</span>
+        <span class="n">region_type</span> <span class="o">=</span> <span class="s1">&#39;Chromosome&#39;</span>
+
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">warningmessage</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">roi_start</span><span class="p">,</span><span class="n">roi_end</span><span class="p">,</span><span class="n">region_type</span><span class="p">,</span><span class="n">chrom</span></div>
+
+
+
+
+<div class="viewcode-block" id="read_wig_file"><a class="viewcode-back" href="../../../api/api_processing.html#transposonmapper.processing.read_wig_file">[docs]</a><span class="k">def</span> <span class="nf">read_wig_file</span><span class="p">(</span><span class="n">wig_file</span><span class="p">,</span><span class="n">chrom</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Extract the information in the wigfile related to the chromosome of interested</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    wig_file : str</span>
+<span class="sd">        absolute path of the wigfile location</span>
+<span class="sd">    chrom : str</span>
+<span class="sd">        Name of the chromosome in roman where to extract the informatiion from the wigfile</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    insrt_in_chrom_list : list </span>
+<span class="sd">        Genomic locations of transposon insertions in the given chromosome.</span>
+<span class="sd">    reads_in_chrom_list: list</span>
+<span class="sd">        How many reads are in each of the genomic locations of the insertions. </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">wig_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+    <span class="n">chrom_start_line_dict</span><span class="p">,</span> <span class="n">chrom_end_line_dict</span> <span class="o">=</span> <span class="n">chromosome_name_wigfile</span><span class="p">(</span><span class="n">lines</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="n">insrt_in_chrom_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">reads_in_chrom_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="n">chrom_start_line_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">):</span><span class="n">chrom_end_line_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)]:</span>
+        <span class="n">insrt_in_chrom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">reads_in_chrom_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+        
+    <span class="k">return</span> <span class="n">insrt_in_chrom_list</span><span class="p">,</span><span class="n">reads_in_chrom_list</span></div>
+
+
+<div class="viewcode-block" id="read_pergene_file"><a class="viewcode-back" href="../../../api/api_processing.html#transposonmapper.processing.read_pergene_file">[docs]</a><span class="k">def</span> <span class="nf">read_pergene_file</span><span class="p">(</span><span class="n">pergene_insertions_file</span><span class="p">,</span><span class="n">chrom</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Reading the pergene file , the information per gene , related to where it starts and ends in the genome. </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pergene_insertions_file : str</span>
+<span class="sd">        absolute path of the per gene file location</span>
+<span class="sd">    chrom : str</span>
+<span class="sd">        Name of the chromosome in roman where to extract the informatiion from the wigfile</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    gene_position_dict : dict </span>
+<span class="sd">        A dictionary describing the chromosome, start, and end location of every gene in the chromosome of interest. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pergene_insertions_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+
+    <span class="n">gene_position_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">line_split</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+        <span class="k">if</span> <span class="n">line_split</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">chrom</span><span class="p">:</span>
+            <span class="n">genename</span> <span class="o">=</span> <span class="n">line_split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">gene_chrom</span> <span class="o">=</span> <span class="n">line_split</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">gene_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line_split</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="n">gene_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line_split</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+            <span class="n">gene_position_dict</span><span class="p">[</span><span class="n">genename</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">gene_chrom</span><span class="p">,</span> <span class="n">gene_start</span><span class="p">,</span> <span class="n">gene_end</span><span class="p">]</span> <span class="c1">#DICT CONTAINING ALL GENES WITHIN THE DEFINED CHROMOSOME INCLUDING ITS START AND END POSITION</span>
+
+
+            <span class="n">geneinserts_str</span> <span class="o">=</span> <span class="n">line_split</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;[]&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">geneinserts_str</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="n">geneinserts_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">ins</span><span class="p">)</span> <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">geneinserts_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">geneinserts_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+            <span class="n">genereads_str</span> <span class="o">=</span> <span class="n">line_split</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;[]&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">genereads_str</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="n">genereads_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">)</span> <span class="k">for</span> <span class="n">read</span> <span class="ow">in</span> <span class="n">genereads_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">genereads_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">geneinserts_list</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">genereads_list</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: </span><span class="si">%s</span><span class="s1"> has different number of reads compared with the number of inserts&#39;</span> <span class="o">%</span> <span class="n">genename</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">gene_position_dict</span></div>
+
+
+<div class="viewcode-block" id="gene_location"><a class="viewcode-back" href="../../../api/api_processing.html#transposonmapper.processing.gene_location">[docs]</a><span class="k">def</span> <span class="nf">gene_location</span><span class="p">(</span><span class="n">chrom</span><span class="p">,</span><span class="n">gene_position_dict</span><span class="p">,</span><span class="n">verbose</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;It gives structured information from the genes inside the chromosome of interest</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    chrom : str</span>
+<span class="sd">        Name of the chromosome in roman where to extract the information.</span>
+<span class="sd">    gene_position_dict : dict</span>
+<span class="sd">        Dictionary with info of the genes inside the chromosome . It is the output of the function</span>
+<span class="sd">        read_pergene_file</span>
+
+<span class="sd">    verbose : bool </span>
+<span class="sd">        Same as main function dna_features. If True allows for warning messages. </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dna_dict: dict</span>
+<span class="sd">        Dictionary with info about genes encoded in the sgd features file </span>
+<span class="sd">    start_ch : int</span>
+<span class="sd">        Integer indicating the genomic location of where the chromosome of interest starts</span>
+<span class="sd">    end_chr: int </span>
+<span class="sd">        Integer indicating the genomic location of where the chromosome of interest ends</span>
+<span class="sd">    len_chr: int</span>
+<span class="sd">        Length of the chromosome of interest</span>
+<span class="sd">    feature_orf_dict: dict</span>
+<span class="sd">        Dictionary with info about genes in the chromosome of interest </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">gff_file</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">gene_information_file</span><span class="o">=</span><span class="n">load_default_files</span><span class="p">()</span>
+    <span class="n">sgd_features_file</span><span class="o">=</span><span class="n">load_sgd_tab</span><span class="p">()</span>
+    
+
+    <span class="n">len_chr</span> <span class="o">=</span> <span class="n">chromosome_position</span><span class="p">(</span><span class="n">gff_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)</span>
+    <span class="n">start_chr</span> <span class="o">=</span> <span class="n">chromosome_position</span><span class="p">(</span><span class="n">gff_file</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)</span>
+    <span class="n">end_chr</span> <span class="o">=</span> <span class="n">chromosome_position</span><span class="p">(</span><span class="n">gff_file</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chrom</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Chromosome length = &#39;</span><span class="p">,</span> <span class="n">len_chr</span><span class="p">)</span>
+
+    <span class="n">dna_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">#for each bp in chromosome, determine whether it belongs to a noncoding or coding region</span>
+    <span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start_chr</span><span class="p">,</span> <span class="n">end_chr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span> <span class="c1">#initialize dna_dict with all basepair positions as [&#39;noncoding&#39;, None]</span>
+        <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;noncoding&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="c1">#form is: [&#39;element_name&#39;, &#39;type&#39;]</span>
+
+
+    <span class="n">feature_orf_dict</span> <span class="o">=</span> <span class="n">sgd_features</span><span class="p">(</span><span class="n">sgd_features_file</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">gene_alias_dict</span> <span class="o">=</span> <span class="n">gene_aliases</span><span class="p">(</span><span class="n">gene_information_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+
+    <span class="k">for</span> <span class="n">gene</span> <span class="ow">in</span> <span class="n">gene_position_dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">gene</span> <span class="ow">in</span> <span class="n">feature_orf_dict</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">gene</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;-A&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Verified&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">gene</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;-B&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Verified&#39;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">gene_position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">start_chr</span><span class="p">,</span> <span class="n">gene_position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">start_chr</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">gene</span><span class="p">,</span> <span class="s2">&quot;Gene; &quot;</span><span class="o">+</span><span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">gene_alias</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">gene</span> <span class="ow">in</span> <span class="n">val</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">gene_position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">start_chr</span><span class="p">,</span> <span class="n">gene_position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">start_chr</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">gene_alias</span><span class="p">,</span> <span class="s2">&quot;Gene; &quot;</span><span class="o">+</span><span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gene_alias</span><span class="p">)[</span><span class="mi">1</span><span class="p">]]</span>
+
+    <span class="k">return</span> <span class="n">dna_dict</span><span class="p">,</span><span class="n">start_chr</span><span class="p">,</span><span class="n">end_chr</span><span class="p">,</span><span class="n">len_chr</span><span class="p">,</span><span class="n">feature_orf_dict</span></div>
+
+
+<div class="viewcode-block" id="feature_position"><a class="viewcode-back" href="../../../api/api_processing.html#transposonmapper.processing.feature_position">[docs]</a><span class="k">def</span> <span class="nf">feature_position</span><span class="p">(</span><span class="n">feature_dict</span><span class="p">,</span> <span class="n">chrom</span><span class="p">,</span> <span class="n">start_chr</span><span class="p">,</span> <span class="n">dna_dict</span><span class="p">,</span> <span class="n">feature_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Get features for every gene in the chromosome of interest </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    feature_dict : dict</span>
+<span class="sd">        output of sgd_features(sgd_features_file)[i]</span>
+<span class="sd">    chrom : str</span>
+<span class="sd">        Name of the chromosome in roman where to extract the information.</span>
+<span class="sd">    start_chr : int</span>
+<span class="sd">        [description]</span>
+<span class="sd">    dna_dict : dict </span>
+<span class="sd">        first output of the gene_location function </span>
+<span class="sd">    feature_type : [type], optional</span>
+<span class="sd">        [description], by default None</span>
+
+<span class="sd">    Output</span>
+<span class="sd">    ---------</span>
+<span class="sd">    dna_dict: dict </span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">position_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">feature_dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="n">chrom</span><span class="p">:</span>
+<span class="c1">#            if feat.startswith(&quot;TEL&quot;) and feat.endswith(&#39;L&#39;): #correct for the fact that telomeres at the end of a chromosome are stored in the reverse order.</span>
+            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">6</span><span class="p">])</span> <span class="o">&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">7</span><span class="p">]):</span>
+                <span class="n">position_dict</span><span class="p">[</span><span class="n">feat</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">5</span><span class="p">],</span> <span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">7</span><span class="p">],</span> <span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">6</span><span class="p">]]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">position_dict</span><span class="p">[</span><span class="n">feat</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">5</span><span class="p">],</span> <span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">6</span><span class="p">],</span> <span class="n">feature_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">7</span><span class="p">]]</span>
+
+
+    <span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">position_dict</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="n">start_chr</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span><span class="o">+</span><span class="n">start_chr</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;noncoding&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+                <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">feat</span><span class="p">,</span> <span class="n">feature_type</span><span class="p">]</span>
+
+
+    <span class="k">return</span><span class="p">(</span><span class="n">dna_dict</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="intergenic_regions"><a class="viewcode-back" href="../../../api/api_processing.html#transposonmapper.processing.intergenic_regions">[docs]</a><span class="k">def</span> <span class="nf">intergenic_regions</span><span class="p">(</span><span class="n">chrom</span><span class="p">,</span><span class="n">start_chr</span><span class="p">,</span><span class="n">dna_dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Getting intergenic regions from chromosome of interest </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    chrom : str</span>
+<span class="sd">        Name of the chromosome in roman where to extract the information.</span>
+<span class="sd">    start_chr : int</span>
+<span class="sd">       2nd output of the gene_location function </span>
+<span class="sd">    dna_dict : dict </span>
+<span class="sd">        1st output of the gene_location function </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dna_dict_new : dict</span>
+<span class="sd">        </span>
+<span class="sd">    genomicregions_list: list</span>
+
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="n">sgd_features_file</span><span class="o">=</span><span class="n">load_sgd_tab</span><span class="p">()</span>
+    <span class="c1">## GET FEATURES FROM INTERGENIC REGIONS </span>
+
+    <span class="n">genomicregions_list</span> <span class="o">=</span> <span class="n">sgd_features</span><span class="p">(</span><span class="n">sgd_features_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">genomicregion</span> <span class="ow">in</span> <span class="n">genomicregions_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">dna_dict_new</span> <span class="o">=</span> <span class="n">feature_position</span><span class="p">(</span><span class="n">sgd_features</span><span class="p">(</span><span class="n">sgd_features_file</span><span class="p">)[</span><span class="n">i</span><span class="p">],</span> <span class="n">chrom</span><span class="p">,</span> <span class="n">start_chr</span><span class="p">,</span> <span class="n">dna_dict</span><span class="p">,</span> <span class="n">genomicregion</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="k">return</span> <span class="n">dna_dict_new</span><span class="p">,</span><span class="n">genomicregions_list</span></div>
+
+
+<div class="viewcode-block" id="checking_features"><a class="viewcode-back" href="../../../api/api_processing.html#transposonmapper.processing.checking_features">[docs]</a><span class="k">def</span> <span class="nf">checking_features</span><span class="p">(</span><span class="n">feature_orf_dict</span><span class="p">,</span><span class="n">chrom</span><span class="p">,</span><span class="n">gene_position_dict</span><span class="p">,</span><span class="n">verbose</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Checking input values </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    feature_orf_dict : dict </span>
+<span class="sd">        last output of the gene_location function </span>
+<span class="sd">    chrom : str</span>
+<span class="sd">        Name of the chromosome in roman where to extract the information.</span>
+<span class="sd">    gene_position_dict : dict</span>
+<span class="sd">        output of the read_pergene_file function </span>
+<span class="sd">    verbose : bool </span>
+<span class="sd">        If True it allows for warning messages </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1">### TEST IF ELEMENTS IN FEATURE_ORF_DICT FOR SELECTED CHROMOSOME ARE THE SAME AS THE GENES IN GENE_POSITION_DICT BY CREATING THE DICTIONARY FEATURE_POSITION_DICT CONTAINING ALL THE GENES IN FEATURE_ORF_DICT WITH THEIR CORRESPONDING POSITION IN THE CHROMOSOME</span>
+    <span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">gene_information_file</span><span class="o">=</span><span class="n">load_default_files</span><span class="p">()</span>
+
+    <span class="n">gene_alias_dict</span> <span class="o">=</span> <span class="n">gene_aliases</span><span class="p">(</span><span class="n">gene_information_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">orf_position_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">feature_orf_dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">)[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="n">chrom</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">gene_position_dict</span><span class="p">:</span>
+                <span class="n">orf_position_dict</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">)[</span><span class="mi">6</span><span class="p">],</span> <span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">)[</span><span class="mi">7</span><span class="p">]]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">feature_alias</span> <span class="ow">in</span> <span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">feature_alias</span> <span class="ow">in</span> <span class="n">gene_position_dict</span><span class="p">:</span>
+                        <span class="n">orf_position_dict</span><span class="p">[</span><span class="n">feature_alias</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">)[</span><span class="mi">6</span><span class="p">],</span> <span class="n">feature_orf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">)[</span><span class="mi">7</span><span class="p">]]</span>
+
+
+
+    <span class="k">if</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">orf_position_dict</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">gene_position_dict</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">verbose</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Everything alright, just ignore me!&#39;</span><span class="p">)</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: Genes in feature_list are not the same as the genes in the gene_position_dict. Please check!&#39;</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="build_dataframe"><a class="viewcode-back" href="../../../api/api_processing.html#transposonmapper.processing.build_dataframe">[docs]</a><span class="k">def</span> <span class="nf">build_dataframe</span><span class="p">(</span><span class="n">dna_dict</span><span class="p">,</span><span class="n">start_chr</span><span class="p">,</span><span class="n">end_chr</span><span class="p">,</span><span class="n">insrt_in_chrom_list</span><span class="p">,</span><span class="n">reads_in_chrom_list</span><span class="p">,</span><span class="n">genomicregions_list</span><span class="p">,</span><span class="n">chrom</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Main function that build the big dataframe with all genes characteristics </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dna_dict : dict</span>
+<span class="sd">        1st output of the function intergenic_regions</span>
+<span class="sd">    start_chr : int</span>
+<span class="sd">        2nd output of the function gene_location</span>
+<span class="sd">    end_chr : int</span>
+<span class="sd">        3rd output of the function gene_location</span>
+<span class="sd">    insrt_in_chrom_list : list</span>
+<span class="sd">        1st output of the function read_wig_file</span>
+<span class="sd">    reads_in_chrom_list : list</span>
+<span class="sd">        2nd output of the function read_wig_file</span>
+<span class="sd">    genomicregions_list : list</span>
+<span class="sd">        All the annotated genomic regions, 2nd output of the intergenic_regions function</span>
+<span class="sd">    chrom : str</span>
+<span class="sd">        Name of the chromosome in roman where to extract the information.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataframe</span>
+<span class="sd">    - dna_df2: Dataframe containing information about the selected chromosome. This includes the following columns:</span>
+<span class="sd">        - Feature name</span>
+<span class="sd">        - Standard name of the feature</span>
+<span class="sd">        - Aliases of feature name (if any)</span>
+<span class="sd">        - Feature type (e.g. gene, telomere, centromere, etc. If None, this region is not defined)</span>
+<span class="sd">        - Chromosome</span>
+<span class="sd">        - Position of feature type in terms of bp relative to chromosome.</span>
+<span class="sd">        - Length of region in terms of basepairs</span>
+<span class="sd">        - Number of insertions in region</span>
+<span class="sd">        - Number of insertions in truncated region where truncated region is the region without the first and last 100bp.</span>
+<span class="sd">        - Number of reads in region</span>
+<span class="sd">        - Number of reads in truncated region.</span>
+<span class="sd">        - Number of reads per insertion (defined by Nreads/Ninsertions)</span>
+<span class="sd">        - Number of reads per insertion in truncated region (defined by Nreads_truncatedgene/Ninsertions_truncatedgene)</span>
+<span class="sd">        NOTE: truncated regions are only determined for genes. For the other regions the truncated region values are the same as the non-truncated region values.</span>
+
+
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_</span><span class="p">,</span><span class="n">essentials_file</span><span class="p">,</span><span class="n">gene_information_file</span><span class="o">=</span><span class="n">load_default_files</span><span class="p">()</span>
+    
+
+    <span class="c1">## DETERMINE THE NUMBER OF TRANSPOSONS PER BP FOR EACH FEATURE</span>
+
+    <span class="n">reads_loc_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">dna_dict</span><span class="p">)</span> <span class="c1"># CONTAINS ALL READS JUST LIKE READS_IN_CHROM_LIST, BUT THIS LIST HAS THE SAME LENGTH AS THE NUMBER OF BP IN THE CHROMOSOME WHERE THE LOCATIONS WITH NO READS ARE FILLED WITH ZEROS</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">insrt_in_chrom_list</span><span class="p">:</span>
+        <span class="n">reads_loc_list</span><span class="p">[</span><span class="n">ins</span><span class="p">]</span> <span class="o">=</span> <span class="n">reads_in_chrom_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">feature_NameAndType_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">f_previous</span> <span class="o">=</span> <span class="n">dna_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">start_chr</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">f_type</span> <span class="o">=</span> <span class="n">dna_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">start_chr</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">N_reads</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_reads_list_true</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">N_reads_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_reads_truncatedgene_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_insrt_truncatedgene_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_insrt_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_bp</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">N_bp_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">f_start</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">f_end</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">f_pos_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="n">dna_dict</span><span class="p">:</span>
+        <span class="n">f_current</span> <span class="o">=</span> <span class="n">dna_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">bp</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">f_current</span> <span class="o">==</span> <span class="n">f_previous</span><span class="p">:</span>
+            <span class="n">f_type</span> <span class="o">=</span> <span class="n">dna_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">bp</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">f_end</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">N_bp</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">N_reads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reads_loc_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">f_current</span> <span class="o">!=</span> <span class="n">f_previous</span> <span class="ow">or</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">start_chr</span><span class="p">)</span> <span class="o">==</span> <span class="n">end_chr</span><span class="p">):</span><span class="c1"># and not f_current.endswith(&#39;-A&#39;):</span>
+            <span class="n">feature_NameAndType_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">f_previous</span><span class="p">,</span> <span class="n">f_type</span><span class="p">])</span>
+            <span class="n">N_reads_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">N_reads</span><span class="p">))</span>
+            <span class="n">N_reads_list_true</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">N_reads</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+            <span class="n">N_insrt_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">([</span><span class="n">ins</span> <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">N_reads</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ins</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">f_type</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">f_type</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Gene&#39;</span><span class="p">):</span>
+                <span class="n">N10percent</span> <span class="o">=</span> <span class="mi">100</span><span class="c1">#int(len(N_reads) * 0.1) #TRUNCATED GENE DEFINITION</span>
+                <span class="n">N_reads_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">N_reads</span><span class="p">[</span><span class="n">N10percent</span><span class="p">:</span><span class="o">-</span><span class="n">N10percent</span><span class="p">]))</span>
+                <span class="n">N_insrt_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">([</span><span class="n">ins</span> <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">N_reads</span><span class="p">[</span><span class="n">N10percent</span><span class="p">:</span><span class="o">-</span><span class="n">N10percent</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ins</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">N_reads_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">N_reads</span><span class="p">))</span>
+                <span class="n">N_insrt_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">([</span><span class="n">ins</span> <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">N_reads</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ins</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]))</span>
+
+            <span class="n">N_bp_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N_bp</span><span class="p">)</span>
+            <span class="n">N_reads</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">N_bp</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">f_pos_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">f_start</span><span class="p">,</span> <span class="n">f_end</span><span class="o">+</span><span class="n">f_start</span><span class="p">])</span>
+            <span class="n">f_start</span> <span class="o">=</span> <span class="n">f_start</span> <span class="o">+</span> <span class="n">f_end</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">f_end</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">f_previous</span> <span class="o">=</span> <span class="n">f_current</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">N_reads_per_ins_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_reads_per_ins_truncatedgene_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">N_reads_list</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">N_insrt_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span> <span class="c1"># upper bound of low number of transposons </span>
+            <span class="n">N_reads_per_ins_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">N_reads_per_ins_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">N_insrt_truncatedgene_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">N_reads_per_ins_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N_reads_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">N_insrt_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">N_reads_per_ins_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">N_reads_per_ins_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N_reads_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">N_insrt_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">N_reads_per_ins_truncatedgene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N_reads_truncatedgene_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">N_insrt_truncatedgene_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+
+    <span class="c1">#############get all essential genes together with their aliases##############</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">essentials_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">essentials_temp_list</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">essentials_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">essential</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">essential</span> <span class="ow">in</span> <span class="n">essentials_temp_list</span><span class="p">]</span>
+    <span class="k">del</span> <span class="n">essentials_temp_list</span>
+
+    <span class="n">gene_alias_dict</span> <span class="o">=</span> <span class="n">gene_aliases</span><span class="p">(</span><span class="n">gene_information_file</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">essentials_list</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">val</span><span class="p">:</span>
+                <span class="n">essentials_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alias</span><span class="p">)</span>
+
+    <span class="c1">#ADD</span>
+    <span class="n">essentiality_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">feature_NameAndType_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">feature</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;noncoding&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">feature</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">genomicregions_list</span><span class="p">:</span>
+                <span class="n">essentiality_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">feature</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">essentials_list</span><span class="p">:</span>
+                <span class="n">essentiality_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">essentiality_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">essentiality_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+    
+
+    <span class="n">feature_name_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">feature_type_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">feature_alias_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">feature_standardname_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">feature_name</span> <span class="ow">in</span> <span class="n">feature_NameAndType_list</span><span class="p">:</span>
+        <span class="n">feature_name_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">feature_type_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">feature_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">feature_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Gene&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">gene_alias_dict</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">feature_standardname_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">feature_alias_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">feature_standardname_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">feature_alias_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">1</span><span class="p">:])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">feature_standardname_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gene_alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">feature_alias_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">feature_standardname_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">feature_alias_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+
+    <span class="n">all_features</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Feature_name&#39;</span><span class="p">:</span> <span class="n">feature_name_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Standard_name&#39;</span><span class="p">:</span> <span class="n">feature_standardname_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Feature_alias&#39;</span><span class="p">:</span><span class="n">feature_alias_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Feature_type&#39;</span><span class="p">:</span> <span class="n">feature_type_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Essentiality&#39;</span><span class="p">:</span> <span class="n">essentiality_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Chromosome&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">chrom</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_name_list</span><span class="p">),</span>
+                    <span class="s1">&#39;Position&#39;</span><span class="p">:</span> <span class="n">f_pos_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Nbasepairs&#39;</span><span class="p">:</span><span class="n">N_bp_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Ninsertions&#39;</span><span class="p">:</span><span class="n">N_insrt_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Ninsertions_truncatedgene&#39;</span><span class="p">:</span><span class="n">N_insrt_truncatedgene_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Nreads&#39;</span><span class="p">:</span><span class="n">N_reads_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Nreads_list&#39;</span><span class="p">:</span>  <span class="n">N_reads_list_true</span><span class="p">,</span>
+                    <span class="s1">&#39;Nreads_truncatedgene&#39;</span><span class="p">:</span><span class="n">N_reads_truncatedgene_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Nreadsperinsrt&#39;</span><span class="p">:</span><span class="n">N_reads_per_ins_list</span><span class="p">,</span>
+                    <span class="s1">&#39;Nreadsperinsrt_truncatedgene&#39;</span><span class="p">:</span><span class="n">N_reads_per_ins_truncatedgene_list</span><span class="p">}</span>
+
+
+    <span class="n">dna_df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">all_features</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_name</span> <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">all_features</span><span class="p">])</span> <span class="c1">#search for feature using: dna_df2.loc[dna_df2[&#39;Feature&#39;] == &#39;CDC42&#39;]</span>
+    <span class="c1">#CREATE NEW COLUMN WITH ALL DOMAINS OF THE GENE (IF PRESENT) AND ANOTHER COLUMN THAT INCLUDES LISTS OF THE BP POSITIONS OF THESE DOMAINS</span>
+    <span class="k">return</span> <span class="n">dna_df2</span></div>
+</pre></div>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
+        
+            &copy; Copyright Apache 2.0.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -41,6 +42,7 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
     <script src="_static/tabs.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
@@ -92,27 +94,70 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Getting started with transposonmapper
+  Getting started
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="03-docker-doc/00-Docker-Intro.html">
+   SATAY pipeline
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-docker-doc/01-Docker-Setup.html">
+     Setting up docker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-docker-doc/02-Docker-adapters.html">
+     Creating a custom
+     <em>
+      adapters.fa
+     </em>
+     file
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-docker-doc/03-Docker-Developers.html">
+     Building the Docker image
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="getting-started/00-getting-started.html">
-   Installation
+   Installing transposonmapper
   </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="06-Tutorials/00-name.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-Tutorials/tutorial.html">
+     Transposonmapper output data postprocessing
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  What transposonmapper does?
+  About SATAY
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00-Intro/flowchart.html">
-   Flowchart of the pipeline
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="00-Intro/data-analysis-workflow.html">
    Overview of the pipeline functions
@@ -123,39 +168,15 @@
    What is SATAY
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Processing workflow
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="01-bash-GUI/00-guidelines.html">
-   How to use the pipeline in the docker container
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01-bash-GUI/01-processing_workflow.html">
-   Code for the bash GUI
+  <a class="reference internal" href="00-Intro/flowchart.html">
+   Flowchart of the pipeline
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Docker
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="03-docker-doc/00-Docker-Users.html">
-   Build your own docker container with ours satay pipeline
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Contributing guidelines
+  Community
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -164,28 +185,9 @@
    Contributing guidelines for developers
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Code of conduct
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="05-Code-of-conduct/00-code-of-conduct.html">
    Code of Conduct
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Tutorials
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="06-Tutorials/tutorial.html">
-   Transposonmapper output data postprocessing
   </a>
  </li>
 </ul>
@@ -195,10 +197,52 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="api.html">
-   API Reference
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="api/api.html">
+   Transposonmapper
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_exporting.html">
+     transposonmapper.exporting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_importing.html">
+     transposonmapper.importing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_mapping.html">
+     transposonmapper.mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_plotting.html">
+     transposonmapper.plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_processing.html">
+     transposonmapper.processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_properties.html">
+     transposonmapper.properties
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_statistics.html">
+     transposonmapper.statistics
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -240,11 +284,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/SATAY-LL/SATAY-jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/SATAY-LL/Transposonmapper"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/SATAY-LL/SATAY-jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/SATAY-LL/Transposonmapper/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -277,8 +321,290 @@
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#V"><strong>V</strong></a>
  
 </div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_mapping.html#transposonmapper.mapping.add_chromosome_length">add_chromosome_length() (in module transposonmapper.mapping)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_mapping.html#transposonmapper.mapping.add_chromosome_length_inserts">add_chromosome_length_inserts() (in module transposonmapper.mapping)</a>
+</li>
+      <li><a href="api/api_statistics.html#transposonmapper.statistics.apply_stats">apply_stats() (in module transposonmapper.statistics)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_processing.html#transposonmapper.processing.binned_list">binned_list() (in module transposonmapper.processing)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_processing.html#transposonmapper.processing.build_dataframe">build_dataframe() (in module transposonmapper.processing)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_processing.html#transposonmapper.processing.checking_features">checking_features() (in module transposonmapper.processing)</a>
+</li>
+      <li><a href="api/api_processing.html#transposonmapper.processing.chromosome_name_bedfile">chromosome_name_bedfile() (in module transposonmapper.processing)</a>
+</li>
+      <li><a href="api/api_properties.html#transposonmapper.properties.chromosome_position">chromosome_position() (in module transposonmapper.properties)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_processing.html#transposonmapper.processing.cleanfiles">cleanfiles() (in module transposonmapper.processing)</a>
+</li>
+      <li><a href="api/api_mapping.html#transposonmapper.mapping.correct_read_position">correct_read_position() (in module transposonmapper.mapping)</a>
+</li>
+      <li><a href="api/api_processing.html#transposonmapper.processing.counts_genome">counts_genome() (in module transposonmapper.processing)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_statistics.html#transposonmapper.statistics.dataframe_from_pergenefile">dataframe_from_pergenefile() (in module transposonmapper.statistics)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_processing.html#transposonmapper.processing.dna_features">dna_features() (in module transposonmapper.processing)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_processing.html#transposonmapper.processing.feature_position">feature_position() (in module transposonmapper.processing)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_mapping.html#transposonmapper.mapping.find_chromosome_reads">find_chromosome_reads() (in module transposonmapper.mapping)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_properties.html#transposonmapper.properties.gene_aliases">gene_aliases() (in module transposonmapper.properties)</a>
+</li>
+      <li><a href="api/api_processing.html#transposonmapper.processing.gene_location">gene_location() (in module transposonmapper.processing)</a>
+</li>
+      <li><a href="api/api_properties.html#transposonmapper.properties.gene_position">gene_position() (in module transposonmapper.properties)</a>
+</li>
+      <li><a href="api/api_properties.html#transposonmapper.properties.get_chromosome_names">get_chromosome_names() (in module transposonmapper.properties)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_properties.html#transposonmapper.properties.get_chromosome_reads">get_chromosome_reads() (in module transposonmapper.properties)</a>
+</li>
+      <li><a href="api/api_properties.html#transposonmapper.properties.get_coordinates_genes">get_coordinates_genes() (in module transposonmapper.properties)</a>
+</li>
+      <li><a href="api/api_mapping.html#transposonmapper.mapping.get_insertions_and_reads">get_insertions_and_reads() (in module transposonmapper.mapping)</a>
+</li>
+      <li><a href="api/api_mapping.html#transposonmapper.mapping.get_reads">get_reads() (in module transposonmapper.mapping)</a>
+</li>
+      <li><a href="api/api_properties.html#transposonmapper.properties.get_sequence_length">get_sequence_length() (in module transposonmapper.properties)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_statistics.html#transposonmapper.statistics.info_from_datasets">info_from_datasets() (in module transposonmapper.statistics)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_processing.html#transposonmapper.processing.input_region">input_region() (in module transposonmapper.processing)</a>
+</li>
+      <li><a href="api/api_processing.html#transposonmapper.processing.intergenic_regions">intergenic_regions() (in module transposonmapper.processing)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_processing.html#transposonmapper.processing.length_genome">length_genome() (in module transposonmapper.processing)</a>
+</li>
+      <li><a href="api/api_properties.html#transposonmapper.properties.list_gene_names">list_gene_names() (in module transposonmapper.properties)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_processing.html#transposonmapper.processing.list_known_essentials">list_known_essentials() (in module transposonmapper.processing)</a>
+</li>
+      <li><a href="api/api_importing.html#transposonmapper.importing.load_default_files">load_default_files() (in module transposonmapper.importing)</a>
+</li>
+      <li><a href="api/api_importing.html#transposonmapper.importing.load_sgd_tab">load_sgd_tab() (in module transposonmapper.importing)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_statistics.html#transposonmapper.statistics.make_datafile">make_datafile() (in module transposonmapper.statistics)</a>
+</li>
+      <li><a href="api/api_processing.html#transposonmapper.processing.middle_chrom_pos">middle_chrom_pos() (in module transposonmapper.processing)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="api/api_exporting.html#module-transposonmapper.exporting">transposonmapper.exporting</a>
+</li>
+        <li><a href="api/api_importing.html#module-transposonmapper.importing">transposonmapper.importing</a>
+</li>
+        <li><a href="api/api_mapping.html#module-transposonmapper.mapping">transposonmapper.mapping</a>
+</li>
+        <li><a href="api/api_plotting.html#module-transposonmapper.plotting">transposonmapper.plotting</a>
+</li>
+        <li><a href="api/api_processing.html#module-transposonmapper.processing">transposonmapper.processing</a>
+</li>
+        <li><a href="api/api_properties.html#module-transposonmapper.properties">transposonmapper.properties</a>
+</li>
+        <li><a href="api/api_statistics.html#module-transposonmapper.statistics">transposonmapper.statistics</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_processing.html#transposonmapper.processing.profile_genome">profile_genome() (in module transposonmapper.processing)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_importing.html#transposonmapper.importing.read_genes">read_genes() (in module transposonmapper.importing)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_processing.html#transposonmapper.processing.read_pergene_file">read_pergene_file() (in module transposonmapper.processing)</a>
+</li>
+      <li><a href="api/api_processing.html#transposonmapper.processing.read_wig_file">read_wig_file() (in module transposonmapper.processing)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_exporting.html#transposonmapper.exporting.save_as_bed">save_as_bed() (in module transposonmapper.exporting)</a>
+</li>
+      <li><a href="api/api_exporting.html#transposonmapper.exporting.save_as_wig">save_as_wig() (in module transposonmapper.exporting)</a>
+</li>
+      <li><a href="api/api_exporting.html#transposonmapper.exporting.save_per_essential_insertions">save_per_essential_insertions() (in module transposonmapper.exporting)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_exporting.html#transposonmapper.exporting.save_per_gene">save_per_gene() (in module transposonmapper.exporting)</a>
+</li>
+      <li><a href="api/api_exporting.html#transposonmapper.exporting.save_per_gene_insertions">save_per_gene_insertions() (in module transposonmapper.exporting)</a>
+</li>
+      <li><a href="api/api_processing.html#transposonmapper.processing.sgd_features">sgd_features() (in module transposonmapper.processing)</a>
+</li>
+      <li><a href="api/api_processing.html#transposonmapper.processing.summed_chr">summed_chr() (in module transposonmapper.processing)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api.html#transposonmapper.transposonmapper">transposonmapper() (in module transposonmapper)</a>
+</li>
+      <li>
+    transposonmapper.exporting
+
+      <ul>
+        <li><a href="api/api_exporting.html#module-transposonmapper.exporting">module</a>
+</li>
+      </ul></li>
+      <li>
+    transposonmapper.importing
+
+      <ul>
+        <li><a href="api/api_importing.html#module-transposonmapper.importing">module</a>
+</li>
+      </ul></li>
+      <li>
+    transposonmapper.mapping
+
+      <ul>
+        <li><a href="api/api_mapping.html#module-transposonmapper.mapping">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    transposonmapper.plotting
+
+      <ul>
+        <li><a href="api/api_plotting.html#module-transposonmapper.plotting">module</a>
+</li>
+      </ul></li>
+      <li>
+    transposonmapper.processing
+
+      <ul>
+        <li><a href="api/api_processing.html#module-transposonmapper.processing">module</a>
+</li>
+      </ul></li>
+      <li>
+    transposonmapper.properties
+
+      <ul>
+        <li><a href="api/api_properties.html#module-transposonmapper.properties">module</a>
+</li>
+      </ul></li>
+      <li>
+    transposonmapper.statistics
+
+      <ul>
+        <li><a href="api/api_statistics.html#module-transposonmapper.statistics">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/api_statistics.html#transposonmapper.statistics.volcano">volcano() (in module transposonmapper.statistics)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 
 
               </div>

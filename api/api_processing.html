@@ -1,0 +1,832 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transposonmapper.processing &#8212; SATAY pipeline at Delft :)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/genetica_modified_neon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="transposonmapper.properties" href="api_properties.html" />
+    <link rel="prev" title="transposonmapper.plotting" href="api_plotting.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/genetica_modified_neon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SATAY pipeline at Delft :)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Status of the project
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-docker-doc/00-Docker-Intro.html">
+   SATAY pipeline
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/01-Docker-Setup.html">
+     Setting up docker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/02-Docker-adapters.html">
+     Creating a custom
+     <em>
+      adapters.fa
+     </em>
+     file
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/03-Docker-Developers.html">
+     Building the Docker image
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting-started/00-getting-started.html">
+   Installing transposonmapper
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-Tutorials/00-name.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/tutorial.html">
+     Transposonmapper output data postprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About SATAY
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-Intro/data-analysis-workflow.html">
+   Overview of the pipeline functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-Intro/satay_analysis_notes.html">
+   What is SATAY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-Intro/flowchart.html">
+   Flowchart of the pipeline
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Community
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-Developers/00-contributing-guidelines.html">
+   Contributing guidelines for developers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Code-of-conduct/00-code-of-conduct.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API reference
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="api.html">
+   Transposonmapper
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_exporting.html">
+     transposonmapper.exporting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_importing.html">
+     transposonmapper.importing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_mapping.html">
+     transposonmapper.mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_plotting.html">
+     transposonmapper.plotting
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     transposonmapper.processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_properties.html">
+     transposonmapper.properties
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_statistics.html">
+     transposonmapper.statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/api/api_processing.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/SATAY-LL/Transposonmapper"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/SATAY-LL/Transposonmapper/issues/new?title=Issue%20on%20page%20%2Fapi/api_processing.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="module-transposonmapper.processing">
+<span id="transposonmapper-processing"></span><h1>transposonmapper.processing<a class="headerlink" href="#module-transposonmapper.processing" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="transposonmapper.processing.binned_list">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">binned_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allcounts_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#binned_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.binned_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>A binned list for a histogram of the counts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>allcounts_list</strong> (<em>numpy.ndarray</em>) – Output of the counts_genome function</p></li>
+<li><p><strong>bar_width</strong> (<em>float</em>) – It could be a function of the length of the genome e.g. bar_width=l_genome/1000</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Binned list</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.build_dataframe">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">build_dataframe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dna_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insrt_in_chrom_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reads_in_chrom_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genomicregions_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#build_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.build_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main function that build the big dataframe with all genes characteristics</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dna_dict</strong> (<em>dict</em>) – 1st output of the function intergenic_regions</p></li>
+<li><p><strong>start_chr</strong> (<em>int</em>) – 2nd output of the function gene_location</p></li>
+<li><p><strong>end_chr</strong> (<em>int</em>) – 3rd output of the function gene_location</p></li>
+<li><p><strong>insrt_in_chrom_list</strong> (<em>list</em>) – 1st output of the function read_wig_file</p></li>
+<li><p><strong>reads_in_chrom_list</strong> (<em>list</em>) – 2nd output of the function read_wig_file</p></li>
+<li><p><strong>genomicregions_list</strong> (<em>list</em>) – All the annotated genomic regions, 2nd output of the intergenic_regions function</p></li>
+<li><p><strong>chrom</strong> (<em>str</em>) – Name of the chromosome in roman where to extract the information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul>
+<li><p><em>dataframe</em></p></li>
+<li><p><strong>- dna_df2</strong> (<em>Dataframe containing information about the selected chromosome. This includes the following columns:</em>) –</p>
+<ul class="simple">
+<li><p>Feature name</p></li>
+<li><p>Standard name of the feature</p></li>
+<li><p>Aliases of feature name (if any)</p></li>
+<li><p>Feature type (e.g. gene, telomere, centromere, etc. If None, this region is not defined)</p></li>
+<li><p>Chromosome</p></li>
+<li><p>Position of feature type in terms of bp relative to chromosome.</p></li>
+<li><p>Length of region in terms of basepairs</p></li>
+<li><p>Number of insertions in region</p></li>
+<li><p>Number of insertions in truncated region where truncated region is the region without the first and last 100bp.</p></li>
+<li><p>Number of reads in region</p></li>
+<li><p>Number of reads in truncated region.</p></li>
+<li><p>Number of reads per insertion (defined by Nreads/Ninsertions)</p></li>
+<li><p>Number of reads per insertion in truncated region (defined by Nreads_truncatedgene/Ninsertions_truncatedgene)</p></li>
+</ul>
+<p>NOTE: truncated regions are only determined for genes. For the other regions the truncated region values are the same as the non-truncated region values.</p>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.checking_features">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">checking_features</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_orf_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_position_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#checking_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.checking_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checking input values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>feature_orf_dict</strong> (<em>dict</em>) – last output of the gene_location function</p></li>
+<li><p><strong>chrom</strong> (<em>str</em>) – Name of the chromosome in roman where to extract the information.</p></li>
+<li><p><strong>gene_position_dict</strong> (<em>dict</em>) – output of the read_pergene_file function</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – If True it allows for warning messages</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.chromosome_name_bedfile">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">chromosome_name_bedfile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bed_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/chromosome_names_in_files.html#chromosome_name_bedfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.chromosome_name_bedfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns some properties of the chromosomes in a bed file.
+Input can be either of two options:</p>
+<blockquote>
+<div><p>The full path to a bed file after which the program opens the bed file, or
+a list of the lines in the bed file. The latter requires to read the bed file before calling this function and input all lines in the bed file as a list. The function than does not open the bed file again.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns three dictionaries (in this order):</dt><dd><p>The first indicates the names of the chromosomes as used in the bed file (keys are roman numerals 1 to 16 and the values are the names used in the bed file).
+The second is the start line in the bed file of each chromosome (keys are the roman numerals of the chromosome names and the values are the start lines in the bed file of the chromosome).
+The third is the end line in the bed file of each chromosome (keys are the roman numerals of the chromosome names and the values are the start lines in the bed file of the chromosome)</p>
+</dd>
+</dl>
+<p>CHANGE LINE 60 AND 71 TO AUTOMATICALLY RECOGNIZE THE MITOCHONDRIAL DNA NAME</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.cleanfiles">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">cleanfiles</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_chromosomes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/clean_bedwigfiles.html#cleanfiles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.cleanfiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>This script removes transposon insertions in .bed and .wig files that were mapped outside the chromosomes, creates consistent naming for chromosomes and change the header of files with custom headers.
+This code reads a .bed or .wig file and remove any insertions that were mapped outside a chromosome.
+Mapping of a read outside a chromosome can happen during the alignment and transposon mapping steps and means that the position of an insertions site of a read is larger than the length of the chromosome it is mapped to.
+This function creates a new file with the same name as the inputfile with the extension _clean.bed or _clean.wig.
+This is saved at the same location as the input file.
+In this _clean file the redundant insertions that were mapped outside the chromosome are removed.
+The lengths of the chromosomes are determined the python function ‘chromosome_position’ which is part of the python module ‘chromosome_and_gene_positions.py’.
+This module gets the lengths of the chromosomes from a .gff file downloaded from SGD (<a class="reference external" href="https://www.yeastgenome.org/">https://www.yeastgenome.org/</a>).
+Besides removing the reads outside the chromosomes, it also changes the names of the chromosomes to roman numerals and a custom header can be inputted (optional).
+Finally, the bed and wig files can be split up in separate files for each chromosome. These are placed in _chromosomesplit folder located at the location of the bed or wig file.
+&#64;author: gregoryvanbeek
+Created on Fri Mar  5 15:39:53 2021</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>str</em>) – File path of the wig or bed file to analyze</p></li>
+<li><p><strong>custom_header</strong> (<em>str</em>) – String header to be included in the output file</p></li>
+<li><p><strong>split_chromosomes</strong> (<em>Bool</em><em> (</em><em>True/False</em><em>)</em>) – If true then there will be a folder created for each chromosome , otherwise
+there will be a file containing all the info for all chromosomes.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>A file with the same basename as the filepath, and in the same location, with the extension</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>_clean.wig/_clean.bed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.counts_genome">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">counts_genome</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bed_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gff_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#counts_genome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.counts_genome" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts of reads or the transposons per chromosomes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variable</strong> (<em>str</em>) – “transposons” or “reads”</p></li>
+<li><p><strong>bed_file</strong> (<em>str</em>) – absolute path of the location of the bedfile</p></li>
+<li><p><strong>gff_file</strong> (<em>str</em>) – absolute path of the location of the gff file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of the length of the genome with the counts of each variable per location in the genome.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.dna_features">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">dna_features</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wig_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pergene_insertions_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'reads'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savefigure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/genomicfeatures_dataframe.html#dna_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.dna_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>This scripts takes a user defined genomic region (i.e. chromosome number, region or gene) and creates a dataframe including information about all genomic features in the chromosome (i.e. genes, nc-DNA etc.).
+This can be used to determine the number of reads outside the genes to use this for normalization of the number of reads in the genes.
+Output is a dataframe including major information about all genomic features and optionally a barplot indicating the number of transposons per genomic region.
+A genomic region is here defined as a gene (separated as annotated essential and not essential), telomere, centromere, ars etc.
+This can be used for identifying neutral regions (i.e. genomic regions that, if inhibited, do not influence the fitness of the cells).
+This function can be used for normalizing the transposon insertions per gene using the neutral regions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<em>str</em>) – <ul>
+<li><p>Region: e.g. chromosome number (either a normal number between 1 and 16 or in roman numerals between I and XVI), a list like [‘V’, 0, 14790] which creates a barplot between basepair 0 and 14790) or a genename.</p></li>
+</ul>
+</p></li>
+<li><p><strong>wig_file</strong> (<em>str</em>) – absolute path for the wig file location</p></li>
+<li><p><strong>pergene_insertions_file</strong> (<em>str</em>) – asbsoulte path for the _pergene_insertions.txt file location</p></li>
+<li><p><strong>variable</strong> (<em>str</em><em>, </em><em>optional</em>) – By default “reads”. It could be “transposons”or “reads”. This would be used for the plotting if True</p></li>
+<li><p><strong>plotting</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not producing a bar plot with the reads/insertions per genomic location in the region, by default True</p></li>
+<li><p><strong>savefigure</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not saving the plot in the same folder as the datafiles, by default False</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Determines how much textual feedback is given. When set to False, only warnings will be shown. By default True</p></li>
+<li><p><strong>Outputs</strong> – </p></li>
+<li><p><strong>-------------------</strong> – </p></li>
+<li><p><strong>dna_df2</strong> (<em>-</em>) – Notes</p></li>
+<li><p><strong>------------------</strong> – </p></li>
+<li><p><strong>__Date__</strong> (<em>14-10-2020</em>) – </p></li>
+<li><p><strong>__Author__</strong> (<em>Gregory van Beek</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.feature_position">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">feature_position</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dna_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#feature_position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.feature_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get features for every gene in the chromosome of interest</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>feature_dict</strong> (<em>dict</em>) – output of sgd_features(sgd_features_file)[i]</p></li>
+<li><p><strong>chrom</strong> (<em>str</em>) – Name of the chromosome in roman where to extract the information.</p></li>
+<li><p><strong>start_chr</strong> (<em>int</em>) – [description]</p></li>
+<li><p><strong>dna_dict</strong> (<em>dict</em>) – first output of the gene_location function</p></li>
+<li><p><strong>feature_type</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – [description], by default None</p></li>
+<li><p><strong>Output</strong> – </p></li>
+<li><p><strong>---------</strong> – </p></li>
+<li><p><strong>dna_dict</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.gene_location">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">gene_location</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_position_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#gene_location"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.gene_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>It gives structured information from the genes inside the chromosome of interest</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chrom</strong> (<em>str</em>) – Name of the chromosome in roman where to extract the information.</p></li>
+<li><p><strong>gene_position_dict</strong> (<em>dict</em>) – Dictionary with info of the genes inside the chromosome . It is the output of the function
+read_pergene_file</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – Same as main function dna_features. If True allows for warning messages.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>dna_dict</strong> (<em>dict</em>) – Dictionary with info about genes encoded in the sgd features file</p></li>
+<li><p><strong>start_ch</strong> (<em>int</em>) – Integer indicating the genomic location of where the chromosome of interest starts</p></li>
+<li><p><strong>end_chr</strong> (<em>int</em>) – Integer indicating the genomic location of where the chromosome of interest ends</p></li>
+<li><p><strong>len_chr</strong> (<em>int</em>) – Length of the chromosome of interest</p></li>
+<li><p><strong>feature_orf_dict</strong> (<em>dict</em>) – Dictionary with info about genes in the chromosome of interest</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.input_region">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">input_region</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#input_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.input_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the region of interest for further processing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<em>str</em><em>, </em><em>int</em><em> or </em><em>list</em>) – Enter chromosome as a number (or roman numeral) between 1 and 16 (I and XVI),
+a list in the form [‘chromosome number, start_position, end_position’] or a valid gene name.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – To allow warning messages.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>roi_start</strong> (<em>NoneType, int</em>) – Describe the start of the genomic location if region=gene name , otherwise is a NoneType</p></li>
+<li><p><strong>roi_end</strong> (<em>NoneType, int</em>) – Describe the  end of the genomic location if region=gene name , otherwise is a NoneType</p></li>
+<li><p><strong>region_type</strong> (<em>str</em>) – It is either “Gene” or “Chromosome” depending on the region provided</p></li>
+<li><p><strong>chrom</strong> (<em>str</em>) – It is the name of the chromosome of the gene of interest if a gene name is provided as the region, otherwise
+is the roman description of the chromosome of interest.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.intergenic_regions">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">intergenic_regions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dna_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#intergenic_regions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.intergenic_regions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting intergenic regions from chromosome of interest</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chrom</strong> (<em>str</em>) – Name of the chromosome in roman where to extract the information.</p></li>
+<li><p><strong>start_chr</strong> (<em>int</em>) – 2nd output of the gene_location function</p></li>
+<li><p><strong>dna_dict</strong> (<em>dict</em>) – 1st output of the gene_location function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>dna_dict_new</strong> (<em>dict</em>)</p></li>
+<li><p><strong>genomicregions_list</strong> (<em>list</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.length_genome">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">length_genome</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr_length_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#length_genome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.length_genome" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output the length of the genome in bp</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>chr_length_dict</strong> (<em>dict</em>) – A dictionary describing the length of each chromosome.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The length of the genome</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.list_known_essentials">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">list_known_essentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headerlines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/essential_genes_names.html#list_known_essentials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.list_known_essentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all known essential genes from two different files and combine them in one list.
+Input is a list of of paths where files can be found with the known essential genes.
+A default list is implemented using two files present in the same folder as this file.
+It is expected that the files contain genes in a single column and nothing else.
+An option can be set for the number of headerlines, which by default is set to 3.
+The output is a list containing all the genes present in all files given in the input.</p>
+<p>Note when using the default files: The length of the output list exceed the number of known essential genes as the list sometimes contains both the standard name and the systematic name of a gene.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.middle_chrom_pos">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">middle_chrom_pos</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr_length_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#middle_chrom_pos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.middle_chrom_pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the middle poit of each chromosome</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>chr_length_dict</strong> (<em>dict</em>) – A dictionary describing the length of each chromosome.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list describing for each chromosome the middle point.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.profile_genome">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">profile_genome</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bed_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'transposons'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savefig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/transposonread_profileplot_genome.html#profile_genome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.profile_genome" title="Permalink to this definition">¶</a></dt>
+<dd><p>Created on Thu Mar 18 13:05:39 2021</p>
+<p>&#64;author: gregoryvanbeek
+This function creates a bar plot along the entire genome.
+The height of each bar represents the number of transposons or reads at the genomic position indicated on the x-axis.
+The input is as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>bed file</p></li>
+<li><p>variable (‘transposons’ or ‘reads’)</p></li>
+<li><p>bar_width</p></li>
+<li><p>savefig</p></li>
+</ul>
+</div></blockquote>
+<p>The bar_width determines how many basepairs are put in one bin. Little basepairs per bin may be slow. Too many basepairs in one bin and possible low transposon areas might be obscured.
+For this a list for essential genes is needed (used in ‘list_known_essentials’ function) and a .gff file is required (for the functions in ‘chromosome_and_gene_positions.py’) and a list for gene aliases (used in the function ‘gene_aliases’)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.read_pergene_file">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">read_pergene_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pergene_insertions_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#read_pergene_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.read_pergene_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reading the pergene file , the information per gene , related to where it starts and ends in the genome.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pergene_insertions_file</strong> (<em>str</em>) – absolute path of the per gene file location</p></li>
+<li><p><strong>chrom</strong> (<em>str</em>) – Name of the chromosome in roman where to extract the informatiion from the wigfile</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>gene_position_dict</strong> – A dictionary describing the chromosome, start, and end location of every gene in the chromosome of interest.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.read_wig_file">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">read_wig_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wig_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#read_wig_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.read_wig_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the information in the wigfile related to the chromosome of interested</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wig_file</strong> (<em>str</em>) – absolute path of the wigfile location</p></li>
+<li><p><strong>chrom</strong> (<em>str</em>) – Name of the chromosome in roman where to extract the informatiion from the wigfile</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>insrt_in_chrom_list</strong> (<em>list</em>) – Genomic locations of transposon insertions in the given chromosome.</p></li>
+<li><p><strong>reads_in_chrom_list</strong> (<em>list</em>) – How many reads are in each of the genomic locations of the insertions.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.sgd_features">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">sgd_features</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/read_sgdfeatures.html#sgd_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.sgd_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function read the file SGD_features.tab and create a dictionary with useful info for processing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>str</em><em>, </em><em>optional</em>) – filepath of the sgd.tab file , by default None</p></li>
+<li><p><strong>Output</strong> – </p></li>
+<li><p><strong>----------</strong> – </p></li>
+<li><p><strong>different dictionaries with info from the file. The most</strong> (<em>Output</em>) – </p></li>
+<li><p><strong>is the 2nd output which contain the following information in this order</strong> (<em>useful</em>) – <dl>
+<dt>key:</dt><dd><ol class="arabic simple" start="0">
+<li><p>Feature name</p></li>
+</ol>
+</dd>
+<dt>value:</dt><dd><ol class="arabic simple" start="0">
+<li><p>feature type (l[1])</p></li>
+<li><p>feature qualifier (Verified or Dubious) (l[2])</p></li>
+<li><p>Standard name (l[4])</p></li>
+<li><p>Aliases (separated by ‘|’) (l[5])</p></li>
+<li><p>Parent feature name (typically ‘chromosome …’) (l[6])</p></li>
+<li><p>Chromosome (l[8])</p></li>
+<li><p>start coordinate (starting at 0 for each chromosome) (l[9])</p></li>
+<li><p>end coordinate (starting at 0 for each chromosome) (l[10])</p></li>
+</ol>
+<p>Created on Mon Sep  7 11:32:52 2020</p>
+<p>&#64;author: gregoryvanbeek</p>
+<p>This file reads the SGD_features.txt file found at <a class="reference external" href="http://sgd-archive.yeastgenome.org/curation/chromosomal_feature/">http://sgd-archive.yeastgenome.org/curation/chromosomal_feature/</a></p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.processing.summed_chr">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">summed_chr</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr_length_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#summed_chr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.summed_chr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a dictionary where each value is the cumulative sum of all bp in each chromosomes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>chr_length_dict</strong> (<em>dict</em>) – A dictionary describing the length of each chromosome.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary where each value corresponds to the cumulative sum of the previous chromosomes lengths.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./api"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="api_plotting.html" title="previous page">transposonmapper.plotting</a>
+    <a class='right-next' id="next-link" href="api_properties.html" title="next page">transposonmapper.properties</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
+        
+            &copy; Copyright Apache 2.0.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

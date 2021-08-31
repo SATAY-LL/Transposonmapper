@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transposonmapper.exporting &#8212; SATAY pipeline at Delft :)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/genetica_modified_neon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="transposonmapper.importing" href="api_importing.html" />
+    <link rel="prev" title="Transposonmapper" href="api.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/genetica_modified_neon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SATAY pipeline at Delft :)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Status of the project
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-docker-doc/00-Docker-Intro.html">
+   SATAY pipeline
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/01-Docker-Setup.html">
+     Setting up docker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/02-Docker-adapters.html">
+     Creating a custom
+     <em>
+      adapters.fa
+     </em>
+     file
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/03-Docker-Developers.html">
+     Building the Docker image
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting-started/00-getting-started.html">
+   Installing transposonmapper
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-Tutorials/00-name.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/tutorial.html">
+     Transposonmapper output data postprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About SATAY
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-Intro/data-analysis-workflow.html">
+   Overview of the pipeline functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-Intro/satay_analysis_notes.html">
+   What is SATAY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-Intro/flowchart.html">
+   Flowchart of the pipeline
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Community
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-Developers/00-contributing-guidelines.html">
+   Contributing guidelines for developers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Code-of-conduct/00-code-of-conduct.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API reference
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="api.html">
+   Transposonmapper
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     transposonmapper.exporting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_importing.html">
+     transposonmapper.importing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_mapping.html">
+     transposonmapper.mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_plotting.html">
+     transposonmapper.plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_processing.html">
+     transposonmapper.processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_properties.html">
+     transposonmapper.properties
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_statistics.html">
+     transposonmapper.statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/api/api_exporting.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/SATAY-LL/Transposonmapper"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/SATAY-LL/Transposonmapper/issues/new?title=Issue%20on%20page%20%2Fapi/api_exporting.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="module-transposonmapper.exporting">
+<span id="transposonmapper-exporting"></span><h1>transposonmapper.exporting<a class="headerlink" href="#module-transposonmapper.exporting" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="transposonmapper.exporting.save_as_bed">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></code><code class="sig-name descname"><span class="pre">save_as_bed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tncoordinates_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readnumb_array</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_as_bed.html#save_as_bed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_as_bed" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function writes in a .bed file located in the same folder as the bamfile, the information abot how many transposons
+were found in each genomic location.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<em>str</em>) – Path with the filename extension included(e.g “data_file/bedfile_name.bed”) describing where do you want to store the results.
+By default it will be stored in the same location as the bamfile, with the same basename.
+Example, if the bamfile path is data_file/data_1.bam then the bed file will be data_file/data_1.bam.bed</p></li>
+<li><p><strong>tncoordinates_array</strong> (<em>numpy array</em>) – Second Output from the get_reads.py function : _,tncoordinates_array,_=get_reads(bam)</p></li>
+<li><p><strong>ref_tid</strong> (<em>dict</em>) – Output from the get_chromosome_names function : ref_tid = get_chromosome_names(bam)</p></li>
+<li><p><strong>readnumb_array</strong> (<em>numpy array</em>) – 1st Output from the get_reads.py function : readnumb_array,_,_=get_reads(bam)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.exporting.save_as_wig">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></code><code class="sig-name descname"><span class="pre">save_as_wig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wigfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tncoordinates_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readnumb_array</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_as_wig.html#save_as_wig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_as_wig" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function writes in a .wig file located in the same folder as the bamfile, the information abot how many transposons
+were found in each genomic location.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wigfile</strong> (<em>str</em>) – Path with the filename extension included(e.g “data_file/wigfile_name.wig”) describing where do you want to store the results.
+By default it will be stored in the same location as the bamfile, with the same basename.
+Example, if the bamfile path is data_file/data_1.bam then the wig file will be data_file/data_1.bam.wig</p></li>
+<li><p><strong>tncoordinates_array</strong> (<em>numpy array</em>) – Second Output from the get_reads.py function : _,tncoordinates_array,_=get_reads(bam)</p></li>
+<li><p><strong>ref_tid</strong> (<em>dict</em>) – Output from the get_chromosome_names function : ref_tid = get_chromosome_names(bam)</p></li>
+<li><p><strong>readnumb_array</strong> (<em>numpy array</em>) – 1st Output from the get_reads.py function : readnumb_array,_,_=get_reads(bam)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.exporting.save_per_essential_insertions">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></code><code class="sig-name descname"><span class="pre">save_per_essential_insertions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chr_lengths_cumsum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid_roman</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases_designation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_per_gene_insertions.html#save_per_essential_insertions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_per_essential_insertions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.exporting.save_per_gene">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></code><code class="sig-name descname"><span class="pre">save_per_gene</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn_per_gene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reads_per_gene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases_designation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_per_gene.html#save_per_gene"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_per_gene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create text file with transposons and reads per gene</p>
+<p>NOTE THAT THE TRANSPOSON WITH THE HIGHEST READ COUNT IS IGNORED.
+E.G. IF THIS FILE IS COMPARED WITH THE _PERGENE_INSERTIONS.TXT FILE THE
+READS DON’T ADD UP (SEE <a class="reference external" href="https://groups.google.com/forum/#!category-topic/satayusers/bioinformatics/uaTpKsmgU6Q">https://groups.google.com/forum/#!category-topic/satayusers/bioinformatics/uaTpKsmgU6Q</a>)
+TOO REMOVE THIS HACK, CHANGE THE INITIALIZATION OF THE VARIABLE readpergene</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.exporting.save_per_gene_insertions">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></code><code class="sig-name descname"><span class="pre">save_per_gene_insertions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chr_lengths_cumsum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid_roman</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases_designation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_per_gene_insertions.html#save_per_gene_insertions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_per_gene_insertions" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function write in txt file 5 columns of information about transposon insertions separated by tabs.
+The tabs are: Gene name,Chromosome,Start location,End location,Insertion locations,Reads per insertion location</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – Path with the filename extension included(e.g “data_file/file.txt”) describing where do you want to store the results.
+By default it will be stored in the same location as the bamfile, with the same basename.
+Example, if the bamfile path is data_file/data_1.bam then the per_gene file will be data_file/data_1.bam_pergene_insertions.txt</p></li>
+<li><p><strong>tn_coordinates</strong> (<em>dict</em>) – Last output of the function get_insertions _,_, tn_coordinates_per_gene = get_insertions_and_reads(
+gene_coordinates, tncoordinatescopy_array, readnumb_array)</p></li>
+<li><p><strong>gene_coordinates</strong> (<em>dict</em>) – Output of the function add_chromosome_length:  gene_coordinates = add_chromosome_length(
+gene_coordinates, chr_lengths_cumsum, ref_tid_roman)</p></li>
+<li><p><strong>chr_lengths_cumsum</strong> (<em>dict</em>) – last output of the function get_sequence_length : _, chr_lengths_cumsum = get_sequence_length(bam)</p></li>
+<li><p><strong>ref_tid_roman</strong> (<em>dict</em>) – Dictionary describing roman names as keys ,
+ref_romannums = chromosomename_roman_to_arabic()[1]
+ref_tid_roman = {key: value for key, value in zip(ref_romannums, ref_tid)}</p></li>
+<li><p><strong>aliases_designation</strong> (<em>dict</em>) – Last output of the function read_genes  _, _, aliases_designation = read_genes(
+gff_file, essential_file, gene_name_file)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./api"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="api.html" title="previous page">Transposonmapper</a>
+    <a class='right-next' id="next-link" href="api_importing.html" title="next page">transposonmapper.importing</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
+        
+            &copy; Copyright Apache 2.0.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
