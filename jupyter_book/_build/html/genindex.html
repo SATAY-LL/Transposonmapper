@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -41,6 +42,7 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
     <script src="_static/tabs.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
@@ -92,27 +94,70 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Getting started with transposonmapper
+  Getting started
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="03-docker-doc/00-Docker-Intro.html">
+   SATAY pipeline
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-docker-doc/01-Docker-Setup.html">
+     Setting up docker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-docker-doc/02-Docker-adapters.html">
+     Creating a custom
+     <em>
+      adapters.fa
+     </em>
+     file
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-docker-doc/03-Docker-Developers.html">
+     Building the Docker image
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="getting-started/00-getting-started.html">
-   Installation
+   Installing transposonmapper
   </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="06-Tutorials/00-name.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-Tutorials/tutorial.html">
+     Transposonmapper output data postprocessing
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  What transposonmapper does?
+  About SATAY
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00-Intro/flowchart.html">
-   Flowchart of the pipeline
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="00-Intro/data-analysis-workflow.html">
    Overview of the pipeline functions
@@ -123,39 +168,15 @@
    What is SATAY
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Processing workflow
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="01-bash-GUI/00-guidelines.html">
-   How to use the pipeline in the docker container
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01-bash-GUI/01-processing_workflow.html">
-   Code for the bash GUI
+  <a class="reference internal" href="00-Intro/flowchart.html">
+   Flowchart of the pipeline
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Docker
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="03-docker-doc/00-Docker-Users.html">
-   Build your own docker container with ours satay pipeline
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Contributing guidelines
+  Community
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -164,28 +185,9 @@
    Contributing guidelines for developers
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Code of conduct
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="05-Code-of-conduct/00-code-of-conduct.html">
    Code of Conduct
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Tutorials
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="06-Tutorials/tutorial.html">
-   Transposonmapper output data postprocessing
   </a>
  </li>
 </ul>
@@ -195,10 +197,52 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="api_reference/importing/index.html">
-   Parameters
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="api/api.html">
+   Transposonmapper
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_exporting.html">
+     transposonmapper.exporting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_importing.html">
+     transposonmapper.importing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_mapping.html">
+     transposonmapper.mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_plotting.html">
+     transposonmapper.plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_processing.html">
+     transposonmapper.processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_properties.html">
+     transposonmapper.properties
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/api_statistics.html">
+     transposonmapper.statistics
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -240,11 +284,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/SATAY-LL/SATAY-jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/SATAY-LL/Transposonmapper"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/SATAY-LL/SATAY-jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/SATAY-LL/Transposonmapper/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
