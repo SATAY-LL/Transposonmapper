@@ -1,6 +1,5 @@
-API Reference
-=============
-
+transposonmapper.importing
+==========================
 
 .. automodule:: transposonmapper.importing
     :members:
