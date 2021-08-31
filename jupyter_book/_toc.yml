@@ -15,16 +15,6 @@ parts:
   - file: 01-bash-GUI/00-guidelines
   - file: 01-bash-GUI/01-processing_workflow
 
-# - caption: Processing python scripts 
-#   chapters:
-#   - file: 02-postprocessing-scripts/00-Introduction
-#   - file: 02-postprocessing-scripts/01-clean_bedwigfiles
-#   - file: 02-postprocessing-scripts/02-transposonread_profileplot_genome
-#   - file: 02-postprocessing-scripts/03-transposonread_profileplot
-#   - file: 02-postprocessing-scripts/04-scatterplot_genes
-#   - file: 02-postprocessing-scripts/05-volcanoplot
-#   - file: 02-postprocessing-scripts/06-genomicfeatures_dataframe
-
 - caption: Docker 
   chapters:
   - file: 03-docker-doc/00-Docker-Users
@@ -39,5 +29,6 @@ parts:
   - file: 06-Tutorials/tutorial
 - caption: API reference
   chapters:
-  - file: api
+  - file: api_reference/importing/index
+  - file: api_reference/importing/verify_data_files
 

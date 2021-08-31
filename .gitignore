@@ -23,6 +23,8 @@
 # !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam_clean.wig
 # !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam_clean.bed
 
+# jupyter Book build
+jupyter_book/_build/
 
 
 # Compiled source #
