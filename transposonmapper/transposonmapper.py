@@ -56,22 +56,6 @@ def transposonmapper(bamfile, gff_file=None, essential_file=None, gene_name_file
     The input data should be a .bam-file and the location where the .bam-file is stored should also contain an index file (.bam.bai-file, which for example can be created using sambamba).
     The function uses the pysam package for handling bam files (see pysam.readthedocs.io/en/latest/index.html) and therefore this function only runs on Linux systems with SAMTools installed.
 
-    Parameters
-    ----------
-    bamfile : str, required
-        Path to the bamfile. This location should also contain the .bam.bai index file (does not need to be input in this function).
-    gff_file : str, optional
-        Path to a .gff-file including all gene information (e.g. downloaded from SGD). 
-        Default file is 'Saccharomyces_cerevisiae.R64-1-1.99.gff3'., by default None
-    essential_file : str, optional
-        Path to a .txt file containing a list all essential genes. Every line should consist of a single essential gene and the file should have one header line. 
-        Ideally this file is created using 'Create_EssentialGenes_list.py'. Default file is 'Cerevisiae_AllEssentialGenes_List.txt'., by default None
-    gene_name_file : str, optional
-        Path to text file that includes aliases for all genes.
-         Default file is 'Yeast_Protein_Names.txt', by default None
-
-    Returns
-    -------
     It outputs the following files that store information regarding the location of all insertions:
         - .bed-file: Includes all individual basepair locations of the whole genome where at least one transposon has been mapped and the number of insertions for each locations (the number of reads) according to the Browser Extensible Data (bed) format.
                     A distinction is made between reads that had a different reading orientation during sequencing. The number of reads are stored using the equation #reads*20+100 (e.g. 2 reads is stored as 140).
@@ -83,6 +67,22 @@ def transposonmapper(bamfile, gff_file=None, essential_file=None, gene_name_file
         - _peressential_insertions.txt-file: Includes all essential genes with their genomic location (i.e. chromosome number, start and end position) and the locations of all insertions within the gene location. It also include the number number of reads per insertions.
           (note that in the latter two files, the genomic locations are continous, for example chromosome II does not start at 0, but at 'length chromosome I + 1' etc.).
     The output files are saved at the location of the input file using the same name as the input file, but with the corresponding extension.
+    
+    
+    Parameters
+    ----------
+    bamfile : str, required
+        Path to the bamfile. This location should also contain the .bam.bai index file (does not need to be input in this function).
+    gff_file : str, optional
+        Path to a .gff-file including all gene information (e.g. downloaded from SGD). 
+        Default file is 'Saccharomyces_cerevisiae.R64-1-1.99.gff3'., by default None
+    essential_file : str, optional
+        Path to a .txt file containing a list all essential genes. Every line should consist of a single essential gene and the file should have one header line. 
+        Ideally this file is created using 'Create_EssentialGenes_list.py'. Default file is 'Cerevisiae_AllEssentialGenes_List.txt'., by default None
+    gene_name_file : str, optional
+        Path to text file that includes aliases for all genes. Default file is 'Yeast_Protein_Names.txt', by default None
+
+   
     
     """
 

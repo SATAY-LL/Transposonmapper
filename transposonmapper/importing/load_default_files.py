@@ -61,12 +61,12 @@ def load_sgd_tab(sgd_features_file=None):
 
     Parameters
     ----------
-    sgd_features_file : .gff3, optional
+    sgd_features_file : str, optional
         The latest version of the SGD_features.tab file is based on Genome Version R64-2-1., by default None
 
     Returns
     -------
-    .gff3
+    str: 
         The path corresponding to this file in the package 
     """
     default_path = pkg_resources.resource_filename("transposonmapper", "data_files/")
