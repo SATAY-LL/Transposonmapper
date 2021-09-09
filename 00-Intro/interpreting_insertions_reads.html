@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interpreting Transposon Counts &amp; Reads &#8212; SATAY pipeline at Delft :)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/genetica_modified_neon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing guidelines for developers" href="../04-Developers/00-contributing-guidelines.html" />
+    <link rel="prev" title="Detailed description of output files from the Transposonmapper bash workflow" href="satay.sh-detailed-description-file-types.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/genetica_modified_neon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SATAY pipeline at Delft :)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Status of the project
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-docker-doc/00-Docker-Intro.html">
+   SATAY pipeline
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/01-Docker-Setup.html">
+     Setting up docker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/02-Docker-adapters.html">
+     Creating a custom
+     <em>
+      adapters.fa
+     </em>
+     file
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/03-Docker-Developers.html">
+     Building the Docker image
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting-started/00-getting-started.html">
+   Installing transposonmapper
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-Tutorials/00-name.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/tutorial.html">
+     Transposonmapper output data postprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About SATAY
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="what_is_satay.html">
+   What is SATAY
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="experimental_setup.html">
+     SATAY Experimental Process
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gene_essentiality.html">
+     Gene Essentiality in budding yeast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="research-context-behind-satay.html">
+     Research questions behind the use of SATAY
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About Transposonmapper
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="flowchart.html">
+   Flowchart of Transposonmapper
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="software-detailed-description-satay.sh.html">
+     Overview of the software required for satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="satay.sh-detailed-description-file-types.html">
+     Detailed description of output files from the Transposonmapper bash workflow
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Interpreting Transposon Counts &amp; Reads
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Community
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-Developers/00-contributing-guidelines.html">
+   Contributing guidelines for developers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Code-of-conduct/00-code-of-conduct.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../api/api.html">
+   Transposonmapper
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_exporting.html">
+     transposonmapper.exporting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_importing.html">
+     transposonmapper.importing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_mapping.html">
+     transposonmapper.mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_plotting.html">
+     transposonmapper.plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_processing.html">
+     transposonmapper.processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_properties.html">
+     transposonmapper.properties
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_statistics.html">
+     transposonmapper.statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/00-Intro/interpreting_insertions_reads.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/SATAY-LL/Transposonmapper"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/SATAY-LL/Transposonmapper/issues/new?title=Issue%20on%20page%20%2F00-Intro/interpreting_insertions_reads.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="interpreting-transposon-counts-reads">
+<h1>Interpreting Transposon Counts &amp; Reads<a class="headerlink" href="#interpreting-transposon-counts-reads" title="Permalink to this headline">¶</a></h1>
+<p>Once cells have a transposon inserted somewhere in the DNA, the cells are let to grow so they can potentially generate a few new generations.</p>
+<p>A cell with a transposon inserted in an essential part of its DNA grows very slowly or might not grow at all (due to its decreased fitness).
+Since the sequencing starts only at the location of a transposon insertion (see experimental methods section), it can be concluded that roughly each read from the sequencing corresponds with a transposon insertion (roughly mainly because transposon inserted in essential genes can generate no reads).</p>
+<p>Cells with a transposon inserted in an essential genomic region, will not have divided and therefore will not have a contribution to the sequencing reads.
+When the reads are aligned to a reference sequence and the number of reads are mapped against the genome, empty regions indicate possible essential genes.
+Negative selection can thus be found by looking for empty regions in the reads mapping.</p>
+<p>When a transposon is inserted in a non-essential genomic region, these cells can still divide and give rise to offspring and after sequencing the non-essential regions will be represented by relatively many reads.</p>
+<p>During processing the genes can be analysed using the number of transposon insertions per gene (or region) or the number of reads per gene.
+Reads per gene, instead of transposons per gene, might be a good measure for positive selection since it is more sensitive (bigger difference in number of reads between essential and non-essential genes), but also tends to be nosier.</p>
+<p>Transposons per gene is less noisy, but is also less sensitive since the number of transposons inserted in a gene does not change in subsequent generations of a particular cell.
+Therefore it is hard to tell the fitness of cells when a transposon is inserted a non-essential region solely based on the number of transposon insertions.</p>
+<p>Ideally only the transposons inserted in non-essential genomic regions will have reads (since only these cells can create a colony before sequencing), creating a clear difference between the essential and non-essential genes.</p>
+<p>However, sometimes non-essential genes also have few or no transposon insertion sites.
+According to <a class="reference external" href="https://elifesciences.org/articles/23570">Michel et.al.</a> this can have 3 main reasons.</p>
+<ol class="simple">
+<li><p>During alignment of the reads, the reads that represent repeated DNA sequences are discarded, since there is no unique way of fitting them in the completed sequence.
+(Although the DNA sequence is repeated, the number of transposon counts can differ between the repeated regions)
+Transposons within such repeated sequences are therefore discarded and the corresponding reads not count.
+If this happens at a non-essential gene, it appears that it has no transposons, but this is thus merely an alignment related error in the analysis process.</p></li>
+<li><p>Long stretches of DNA that are without stop codons, called Open Reading Frames (ORF), typically code for proteins.
+Some dubious ORF might overlap with essential proteins, so although these ORF themselves are not essential, the overlapping part is and therefore they do not show any transposons.</p></li>
+<li><p>Some genes are essential only in specific conditions.
+For example, genes that are involved in galactose metabolism are typically not essential, as inhibition of these genes block the cell’s ability to digest galactose, but it can still survive on other nutrition’s.
+In lab conditions however, the cells are typically grown in galactose rich media, and inhibiting the genes for galactose metabolism cause starvation of the cells.</p></li>
+<li><p>A gene might not be essential, but its deletion might cripple the cell so that the growth rate decreases significantly.
+When the cells are grown, the more healthy cells grow much faster and, after some time, occur more frequently in the population than these crippled cells and therefore these cells might not generate many reads or no reads at all.
+In the processing, it might therefore look as if these genes are essential, but in fact they are not.
+The cells just grow very slowly.</p></li>
+</ol>
+<p>The other way around might also occur, where essential genes are partly tolerant to transposons.
+This is shown by Michel <a class="reference external" href="http://et.al">et.al</a>. to be caused that some regions (that code for specific subdomains of the proteins) of the essential genes are dispensable.</p>
+<p>The transposons in these essential genes are clearly located at a specific region in the gene, the one that codes for a non-essential subdomain.
+However, this is not always possible, as in some cases deletion of non-essential subdomains of essential genes create unstable, unexpressed or toxin proteins.</p>
+<p>The difference in essentiality between subdomains in a single protein only happens in essential genes, not in non-essential genes.
+Michel <a class="reference external" href="http://et.al">et.al</a>. devised an algorithm to estimate the likelihood <span class="math notranslate nohighlight">\(L\)</span> of a gene having an essential subdomain:</p>
+<div class="math notranslate nohighlight">
+\[L = \frac{\text{d }N_{\text{cds}}}{l_{\text{cds}}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(d\)</span> is the longest interval (in terms of base pairs) between 5 neighbouring transposons in a Coding DNA Sequence (cds) (<span class="math notranslate nohighlight">\(\geq 300\)</span> bp), <span class="math notranslate nohighlight">\(N_{cds}\)</span> is the total number transposons mapping in the cds (<span class="math notranslate nohighlight">\(\geq 20\)</span>) transposons) and <span class="math notranslate nohighlight">\(l_{cds}\)</span> is the total length of the CDS.
+Additionally, it must hold that <span class="math notranslate nohighlight">\(0.1 l_{cds} \leq d \leq 0.9 l_{cds}\)</span>.</p>
+<p>It is expected that only essential genes carry essential subdomains, and indeed what was found by Michel <a class="reference external" href="http://et.al">et.al</a>. that the genes with the highest likelihood were mostly also genes previously annotated as essential by other studies.</p>
+<p>Because of the reasons mentioned before, not a simple binary conclusion can be made solely based on the amount of transposon insertions or the number of reads.
+Instead, a gene with little reads <em>might</em> be essential, but to be sure the results from other experiments need to be implemented as well, for example where the cells were grown in a different growth conditions.
+Therefore, SATAY analysis only says something about the relative fitness of cells where a specific gene is inhibited in the current growth conditions.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./00-Intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="satay.sh-detailed-description-file-types.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Detailed description of output files from the Transposonmapper bash workflow</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../04-Developers/00-contributing-guidelines.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Contributing guidelines for developers</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
+        
+            &copy; Copyright Apache 2.0.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

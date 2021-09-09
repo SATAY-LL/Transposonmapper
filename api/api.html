@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -45,7 +45,7 @@
     <script src="../_static/tabs.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -84,7 +84,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -159,20 +159,66 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../00-Intro/data-analysis-workflow.html">
-   Overview of the pipeline functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../00-Intro/satay_analysis_notes.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00-Intro/what_is_satay.html">
    What is SATAY
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00-Intro/experimental_setup.html">
+     SATAY Experimental Process
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00-Intro/gene_essentiality.html">
+     Gene Essentiality in budding yeast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00-Intro/research-context-behind-satay.html">
+     Research questions behind the use of SATAY
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About Transposonmapper
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../00-Intro/flowchart.html">
-   Flowchart of the pipeline
+   Flowchart of Transposonmapper
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00-Intro/software-detailed-description-satay.sh.html">
+     Overview of the software required for satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00-Intro/satay.sh-detailed-description-file-types.html">
+     Detailed description of output files from the Transposonmapper bash workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00-Intro/interpreting_insertions_reads.html">
+     Interpreting Transposon Counts &amp; Reads
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -202,8 +248,8 @@
   <a class="current reference internal" href="#">
    Transposonmapper
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -330,7 +376,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#transposonmapper-py">
@@ -423,12 +469,32 @@ This function takes the following inputs:</p>
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../05-Code-of-conduct/00-code-of-conduct.html" title="previous page">Code of Conduct</a>
-    <a class='right-next' id="next-link" href="api_exporting.html" title="next page">transposonmapper.exporting</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../05-Code-of-conduct/00-code-of-conduct.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Code of Conduct</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="api_exporting.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">transposonmapper.exporting</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>

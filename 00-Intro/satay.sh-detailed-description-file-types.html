@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detailed description of the output files from satay.sh &#8212; SATAY pipeline at Delft :)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/genetica_modified_neon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interpreting Transposon Counts &amp; Reads" href="interpreting_insertions_reads.html" />
+    <link rel="prev" title="Overview of the software required for satay.sh" href="software-detailed-description-satay.sh.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/genetica_modified_neon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SATAY pipeline at Delft :)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Status of the project
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-docker-doc/00-Docker-Intro.html">
+   SATAY pipeline
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/01-Docker-Setup.html">
+     Setting up docker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/02-Docker-adapters.html">
+     Creating a custom
+     <em>
+      adapters.fa
+     </em>
+     file
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/03-Docker-Developers.html">
+     Building the Docker image
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting-started/00-getting-started.html">
+   Installing transposonmapper
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-Tutorials/00-name.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-Tutorials/tutorial.html">
+     Transposonmapper output data postprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About SATAY
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="what_is_satay.html">
+   What is SATAY
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="experimental_setup.html">
+     SATAY Experimental Process
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gene_essentiality.html">
+     Gene Essentiality in budding yeast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="research-context-behind-satay.html">
+     Research questions behind the use of SATAY
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About Transposonmapper
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="flowchart.html">
+   What is Transposonmapper
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="software-detailed-description-satay.sh.html">
+     Overview of the software required for satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Detailed description of the output files from satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="interpreting_insertions_reads.html">
+     Interpreting Transposon Counts &amp; Reads
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Community
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-Developers/00-contributing-guidelines.html">
+   Contributing guidelines for developers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Code-of-conduct/00-code-of-conduct.html">
+   Code of Conduct
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  API reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../api/api.html">
+   Transposonmapper
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_exporting.html">
+     transposonmapper.exporting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_importing.html">
+     transposonmapper.importing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_mapping.html">
+     transposonmapper.mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_plotting.html">
+     transposonmapper.plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_processing.html">
+     transposonmapper.processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_properties.html">
+     transposonmapper.properties
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api/api_statistics.html">
+     transposonmapper.statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/00-Intro/satay.sh-detailed-description-file-types.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/SATAY-LL/Transposonmapper"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/SATAY-LL/Transposonmapper/issues/new?title=Issue%20on%20page%20%2F00-Intro/satay.sh-detailed-description-file-types.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap-on-how-the-sequencing-works">
+   Recap on how the sequencing works
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sequencing-data-processing-satay-sh">
+   Sequencing data processing : satay.sh
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#file-types">
+   File Types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fastq">
+     fastq
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sam-bam">
+     sam, bam
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bed">
+     bed
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wig">
+     wig
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pergene-txt-peressential-txt">
+     pergene.txt, peressential.txt
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pergene-insertions-txt-peressential-insertions-txt">
+     pergene_insertions.txt, peressential_insertions.txt
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="detailed-description-of-the-output-files-from-satay-sh">
+<h1>Detailed description of the output files from <a class="reference external" href="http://satay.sh">satay.sh</a><a class="headerlink" href="#detailed-description-of-the-output-files-from-satay-sh" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="recap-on-how-the-sequencing-works">
+<h2>Recap on how the sequencing works<a class="headerlink" href="#recap-on-how-the-sequencing-works" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>To get the order of nucleotides in a genome, shotgun sequencing is used where the genome is cut is small pieces called reads (typically tens to a few hundred basepairs long).</p></li>
+<li><p>The reads have overlapping regions that can be used to identify their location with respect to a reference genome and other reads (i.e. mapping of the reads).</p></li>
+<li><p>Mapping of the reads result in contigs, which are multiple mapped reads that form continuous assembled parts of the genome (contigs can be the entire target genome itself).</p></li>
+<li><p>All contigs should be assembled to form (a large part of) the target genome.</p></li>
+<li><p>The sequence assembly problem can be described as: <em>Given a set of sequences, find the minimal length string containing all members of the set as substrings</em>.</p></li>
+</ul>
+<p>The reads from the sequencing can be single-end or paired-end, which indicates how the sequencing is performed.</p>
+<p>In paired-end sequencing, the reads are sequenced from both directions, making the assembly easier and more reliable, but results in twice as many reads as single-end reads.</p>
+<p>The reason of the more reliable results has to do with ambiguous reads that might occur in the single-end sequencing.
+Here, a read can be assigned to two different locations on the reference genome (and have the same alignment score).
+In these cases, it cannot be determined where the read should actually be aligned (hence its position is ambiguous).</p>
+<p>In paired-end sequencing, each DNA fragment has primers on both ends, meaning that the sequencing can start in both the 5’-3’ direction and in the 3’-5’ direction.
+Each DNA fragment therefore has two reads both which have a specified length that is shorter than the entire DNA fragment.</p>
+<p>This results that a DNA fragment is read on both ends, but the central part will still be unknown (as it is not covered by these two particular reads, but it will be covered by other reads).
+Since you know that the two reads belong close together, the alignment of one read can be checked by the alignment of the second read (or paired mate) somewhere in close vicinity on the reference sequence.
+This is usually enough for the reads to become unambiguous.</p>
+</div>
+<div class="section" id="sequencing-data-processing-satay-sh">
+<h2>Sequencing data processing : <a class="reference external" href="http://satay.sh">satay.sh</a><a class="headerlink" href="#sequencing-data-processing-satay-sh" title="Permalink to this headline">¶</a></h2>
+<p>The resulting data from the sequencing is stored in a FASTQ file where all individual reads are stored including a quality score of the sequencing.
+The reads are in random order and therefore the first step in the processing is aligning of the reads in the FASTQ files with a reference genome.</p>
+<p>Note that the quality of the reads typically decreases near the 3’-end of the reads due to the chemistry processes required for sequencing (this depends on the kind of method used).
+For Illumina sequencing, the main reasons are signal decay and dephasing, both causing a relative increase in the background noise.
+Dephasing occurs when a DNA fragment is not de-blocked properly.
+A DNA fragment is copied many times and all copies incorporate a fluorescent nucleotide that can be imaged to identify the nucleotide.
+If there are 1000 copies of the DNA fragment, there are 1000 fluorescent nucleotides that, ideally, are all the same to create a high quality signal.
+After imaging, the DNA fragment is de-blocked to allow a new fluorescent nucleotide to bind.
+This deblocking might not work for all copies of the DNA fragment.</p>
+<p>For example, 100 copies might not be deblocked properly, so for the next nucleotide only 900 copies agree for the next incorporated nucleotide.
+For the third round, the 100 copies that were not deblocked properly in the second round, might now be deblocked as well, but now they are lagging behind one nucleotide, meaning that in the coming rounds they have consistently the wrong nucleotide.</p>
+<p>As the reads increases in length, more rounds are needed and therefore the chances of dephasing increases causing a decrease in the quality of the reads.
+This gives noise in the signal of the new nucleotide and therefore the quality of the signal decreases.
+For example, take the next 6bp sequence that is copied 5 times:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GATGTC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GATGTC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span> <span class="pre">ATGT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GAT</span> <span class="pre">GT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span> <span class="pre">AT</span> <span class="pre">G</span></code></p></li>
+</ol>
+<p>The first two reads are deblocked properly and they give all the right nucleotides.
+But the third and fourth have one round that is not deblocked properly (indicated by the empty region between the nucleotides), hence the nucleotide is always lagging one bp after the failed deblocking.
+The fifth copy has two failed deblocking situations, hence is lagging two bp.</p>
+<p>The first nucleotide is a G for all 5 copies, therefore the quality of this nucleotide is perfect.
+But, by the end of the read, only two out of five copies have the correct bp (i.e. a C), therefore the quality is poor for this nucleotide.
+(It can either be a C or a T with equal likelyhood or potentially a G, so determining which nucleotide is correct is ambiguous without knowing which reads are lagging, which you don’t know).</p>
+<p>(See for example <a class="reference external" href="http://seqanswers.com/forums/showthread.php?t=61198">this question on seqanswers</a> or the paper by [Pfeifer, 2016])</p>
+</div>
+<div class="section" id="file-types">
+<h2>File Types<a class="headerlink" href="#file-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fastq">
+<h3>fastq<a class="headerlink" href="#fastq" title="Permalink to this headline">¶</a></h3>
+<p>This is the standard output format for sequencing data.
+It contains all (raw) sequencing reads in random order including a quality string per basepair.
+Each read has four lines:</p>
+<ol class="simple">
+<li><p>Header: Contains some basic information from the sequencing machine and a unique identifier number.</p></li>
+<li><p>Sequence: The actual nucleotide sequence.</p></li>
+<li><p>Dummy: Typically a ‘+’ and is there to separate the sequence line from the quality line.</p></li>
+<li><p>Quality score: Indicates the quality of each basepair in the sequence line (each symbol in this line belongs to the nucleotide at the same position in the sequence line). The sequence and this quality line should always have the same length.</p></li>
+</ol>
+<p>The quality line is given as a phred score.
+There are two versions, base33 and base64, but the base64 is outdated and hardly used anymore.
+In both versions the quality score is determined by Q = -10*log10§ where P is the error probability determined during sequencing (0 &lt; P &lt; 1).
+A Q-score of 0 (i.e. an error probability of P=1) is defined by ascii symbol 33 (‘!’) for base33 and by ascii symbol 64 (‘&#64;’) for base64.
+A Q-score of 1 (p=0.79) is then given by ascii 34 (’ ” ‘) (for base33) etcetera.
+For a full table of ascii symbols and probability scores, see the appendices of this document <a class="reference external" href="#phred-table-base33">PHRED table (base33)</a> and <a class="reference external" href="#phred-table-base64">PHRED table (base64)</a>.
+Basically all fastq files that are being created on modern sequencing machines use the base33 system.</p>
+<p>The nucleotide sequence typically only contains the four nucleotide letters (A, T, C and G), but when a nucleotide was not accurately determined (i.e. having a error probability higher than a certain threshold), the nucleotide is sometimes converted to the letter N, indicating that this nucleotide was not successfully sequenced.</p>
+<p>Fastq files tend to be large in size (depending on how many reads are sequenced, but &gt;10Gb is normal).
+Therefore these files are typically compressed in gzip format (.fastq.gz).
+The pipeline can handle gzipped files by itself, so there is no need to convert it manually.</p>
+<p>Example fastq file:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">&#64;NB501605:544:HLHLMBGXF:1:11101:9938:1050</span> <span class="pre">1:N:0:TGCAGCTA</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">TGTCAACGGTTTAGTGTTTTCTTACCCAATTGTAGAGACTATCCACAAGGACAATATTTGTGACTTATGTTATGCG</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">+</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">AAAAAEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">&#64;NB501605:544:HLHLMBGXF:1:11101:2258:1051</span> <span class="pre">1:N:0:TACAGCTA</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">TGAGGCACCTATCTCAGCGATCGTATCGGTTTTCGATTACCGTATTTATCCCGTTCGTTTTCGTTGCCGCTATTT</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">+</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">AAAAAEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE6EEEEEEEE&lt;EEEAEEEEEEE/E/E/EA///</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">&#64;NB501605:544:HLHLMBGXF:1:11101:26723:1052</span> <span class="pre">1:N:0:TGCAGCTA</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">TGTCAACGGTTTAGTGTTTTCTTACCCAATTGTAGAGACTATCCACAAGGACAATATTTGTGACTTATGTTATGCG</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">+</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">AAAAAEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="sam-bam">
+<h3>sam, bam<a class="headerlink" href="#sam-bam" title="Permalink to this headline">¶</a></h3>
+<p>When the reads are aligned to a reference genome, the resulting file is a Sequence Alignment Mapping (sam) file.
+Every read is one line in the file and consists of at least 11 tab delimited fields that are always in the same order:</p>
+<ol class="simple">
+<li><p>Name of the read. This is unique for each read, but can occur multiple times in the file when a read is split up over multiple alignments at different locations.</p></li>
+<li><p>Flag. Indicating properties of the read about how it was mapped (see below for more information).</p></li>
+<li><p>Chromosome name to which the read was mapped.</p></li>
+<li><p>Leftmost position in the chromosome to which the read was mapped.</p></li>
+<li><p>Mapping quality in terms of Q-score as explained in the <a class="reference external" href="#fastq">fastq</a> section.</p></li>
+<li><p>CIGAR string. Describing which nucleotides were mapped, where insertions and deletions are and where mismatches occurs. For example, <code class="docutils literal notranslate"><span class="pre">43M1I10M3D18M</span></code> means that the first 43 nucleotides match with the reference genome, the next 1 nucleotide exists in the read but not in the reference genome (insertion), then 10 matches, then 3 nucleotides that do not exist in the read but do exist in the reference genome (deletions) and finally 18 matches. For more information see <a class="reference external" href="https://www.drive5.com/usearch/manual/cigar.html">this website</a>.</p></li>
+<li><p>Reference name of the mate read (when using paired end datafiles). If no mate was mapped (e.g. in case of single end data or if it was not possible to map the mate read) this is typically set to <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p></li>
+<li><p>Position of the mate read. If no mate was mapped this is typically set to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p>Template length. Length of a group (i.e. mate reads or reads that are split up over multiple alignments) from the left most base position to the right most base position.</p></li>
+<li><p>Nucleotide sequence.</p></li>
+<li><p>Phred score of the sequence (see <a class="reference external" href="#fastq">fastq</a> section).</p></li>
+</ol>
+<p>Depending on the software, the sam file typically starts with a few header lines containing information regarding the alignment.
+For example for BWA MEM (which is used in the pipeline), the sam file start with <code class="docutils literal notranslate"><span class="pre">&#64;SQ</span></code> lines that shows information about the names and lengths for the different chromosome and <code class="docutils literal notranslate"><span class="pre">&#64;PG</span></code> shows the user options that were set regarding the alignment software.
+Note that these lines might be different when using a different alignment software.
+Also, there is a whole list of optional fields that can be added to each read after the first 11 required fields.
+For more information, see <a class="reference external" href="https://en.wikipedia.org/wiki/SAM_(file_format)">wikipedia</a>.</p>
+<p>The flag in the sam files is a way of representing a list of properties for a read as a single integer.
+There is a defined list of properties in a fixed order:</p>
+<ol class="simple">
+<li><p>read paired</p></li>
+<li><p>read mapped in proper pair</p></li>
+<li><p>read unmapped</p></li>
+<li><p>mate unmapped</p></li>
+<li><p>read reverse strand</p></li>
+<li><p>mate reverse strand</p></li>
+<li><p>first in pair</p></li>
+<li><p>second in pair</p></li>
+<li><p>not primary alignment</p></li>
+<li><p>read fails platform/vendor quality checks</p></li>
+<li><p>read is PCR or optical duplicate</p></li>
+<li><p>supplementary alignment</p></li>
+</ol>
+<p>To determine the flag integer, a 12-bit binary number is created with zeros for the properties that are not true for a read and ones for those properties that are true for that read.
+This 12-bit binary number is then converted to a decimal integer.
+Note that the binary number should be read from right to left.
+For example, FLAG=81 corresponds to the 12-bit binary 000001010001 which indicates the properties: ‘read paired’, ‘read reverse strand’ and ‘first in pair’.
+Decoding of sam flags can be done using <a class="reference external" href="http://broadinstitute.github.io/picard/explain-flags.html">this website</a> or using <a class="reference external" href="https://github.com/Gregory94/LaanLab-SATAY-DataAnalysis/blob/master/python_modules/samflag.py">samflag.py</a>.</p>
+<p>Example sam file (note that the last read was not mapped):</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">NB501605:544:HLHLMBGXF:1:11101:25386:1198</span>&#160;&#160;&#160;&#160; <span class="pre">2064</span>&#160;&#160;&#160; <span class="pre">ref|NC_001136|</span>&#160; <span class="pre">362539</span>&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">42H34M</span>&#160; <span class="pre">*</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">GATCACTTCTTACGCTGGGTATATGAGTCGTAAT</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">EEEAEEEEEEAEEEAEEAEEEEEEEEEEEAAAAA</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">NM:i:0</span>&#160; <span class="pre">MD:Z:34</span> <span class="pre">AS:i:34</span> <span class="pre">XS:i:0</span>&#160; <span class="pre">SA:Z:ref|NC_001144|,461555,+,30S46M,0,0;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">NB501605:544:HLHLMBGXF:1:11101:20462:1198</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">16</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">ref|NC_001137|</span>&#160; <span class="pre">576415</span>&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">75M</span>&#160;&#160;&#160;&#160; <span class="pre">*</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">CTGTACATGCTGATGGTAGCGGTTCACAAAGAGCTGGATAGTGATGATGTTCCAGACGGTAGATTTGATATATTA</span>&#160;&#160;&#160;&#160; <span class="pre">EEEAEEEEEEEEEEEEEAEEAE/EEEEEEEEEEEAEEEEEE/EEEEEAEAEEEEEEEEEEEEEEEEEEEEAAAAA</span>&#160;&#160;&#160;&#160; <span class="pre">NM:i:1</span>&#160; <span class="pre">MD:Z:41C33</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">AS:i:41</span> <span class="pre">XS:i:41</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">NB501605:544:HLHLMBGXF:1:11101:15826:1199</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">*</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">*</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">*</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">ACAATATTTGTGACTTATGTTATGCG</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">EEEEEEEEEEE6EEEEEEEEEEEEEE</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">AS:i:0</span>&#160; <span class="pre">XS:i:0</span></code></p>
+</div></blockquote>
+<p>Sam files tend to be large in size (tens of Gb is normal).
+Therefore the sam files are typically stored as compressed binary files called bam files.
+Almost all downstream analysis tools (at least all tools discussed in this document) that need the alignment information accept bam files as input.
+Therefore the sam files are mostly deleted after the bam file is created.
+When a sam file is needed, it can always be recreated from the bam file, for example using <code class="docutils literal notranslate"><span class="pre">SAMTools</span></code> using the command <code class="docutils literal notranslate"><span class="pre">samtools</span> <span class="pre">view</span> <span class="pre">-h</span> <span class="pre">-o</span> <span class="pre">out.sam</span> <span class="pre">in.bam</span></code>.
+The bam file can be sorted (creating a .sorted.bam file) where the reads are typically ordered depending on their position in the genome.
+This usually also comes with an index file (a .sorted.bam.bai file) which stores some information where for example the different chromosomes start within the bam file and where specific often occuring sequences are.
+Many downstream analysis tools require this file to be able to efficiently search through the bam file.</p>
+</div>
+<div class="section" id="bed">
+<h3>bed<a class="headerlink" href="#bed" title="Permalink to this headline">¶</a></h3>
+<p>A bed file is one of the outputs from the transposon mapping pipeline.
+It is a standard format for storing read insertion locations and the corresponding read counts.
+The file consists of a single header, typically something similar to <code class="docutils literal notranslate"><span class="pre">track</span> <span class="pre">name=[file_name]</span> <span class="pre">userscore=1</span></code>.
+Every row corresponds to one insertion and has (in case of the satay analysis) the following space delimited columns:</p>
+<ol class="simple">
+<li><p>chromosome (e.g. <code class="docutils literal notranslate"><span class="pre">chrI</span></code> or <code class="docutils literal notranslate"><span class="pre">chrref|NC_001133|</span></code>)</p></li>
+<li><p>start position of insertion</p></li>
+<li><p>end position of insertion (in case of satay-analysis, this is always start position + 1)</p></li>
+<li><p>dummy column (this information is not present for satay analysis, but must be there to satisfy the bed format)</p></li>
+<li><p>number of reads at that insertion location</p></li>
+</ol>
+<p>In case of processing with <code class="docutils literal notranslate"><span class="pre">transposonmapping.py</span></code> (final step in processing pipeline) or <a class="reference external" href="https://sites.google.com/site/satayusers/complete-protocol/bioinformatics-analysis/matlab-script">the matlab code from the kornmann-lab</a>, the number of reads are given according to <code class="docutils literal notranslate"><span class="pre">(reads*20)+100</span></code>, for example 2 reads are stored as 140.</p>
+<p>The bed file can be used for many downstream analysis tools, for example <a class="reference external" href="http://genome-euro.ucsc.edu/index.html">genome_browser</a>.</p>
+<p>Sometimes it might occur that insertions are stored outside the chromosome (i.e. the insertion position is bigger than the length of that chromosome).
+Also, reference genomes sometimes do not have the different chromosomes stored as roman numerals (for example <code class="docutils literal notranslate"><span class="pre">chrI</span></code>, <code class="docutils literal notranslate"><span class="pre">chrII</span></code>, etc.) but rather use different names (this originates from the chromosome names used in the reference genome).
+These things can confuse some analysis tools, for example the <a class="reference external" href="http://genome-euro.ucsc.edu/index.html">genome_browser</a>.
+To solve this, the python function <a class="reference external" href="#clean_bedwigfilespy">clean_bedwigfiles.py</a> is created.
+This creates a _clean.bed file where the insertions outside the chromosome are removed and all the chromosome names are stored with their roman numerals.
+See <a class="reference external" href="#clean_bedwigfilespy">clean_bedwigfiles.py</a> for more information.</p>
+<p>Example bed file:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">track</span> <span class="pre">name=leila_wt_techrep_ab</span> <span class="pre">useScore=1</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">chrI</span> <span class="pre">86</span> <span class="pre">87</span> <span class="pre">.</span> <span class="pre">140</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">chrI</span> <span class="pre">89</span> <span class="pre">90</span> <span class="pre">.</span> <span class="pre">140</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">chrI</span> <span class="pre">100</span> <span class="pre">101</span> <span class="pre">.</span> <span class="pre">3820</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">chrI</span> <span class="pre">111</span> <span class="pre">112</span> <span class="pre">.</span> <span class="pre">9480</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="wig">
+<h3>wig<a class="headerlink" href="#wig" title="Permalink to this headline">¶</a></h3>
+<p>A wiggle (wig) file is another output from the transposon mapping pipeline.
+It stores similar information as the bed file, but in a different format.
+This file has a header typically in the form of <code class="docutils literal notranslate"><span class="pre">track</span> <span class="pre">type=wiggle_0</span> <span class="pre">maxheightPixels=60</span> <span class="pre">name=[file_name]</span></code>.
+Each chromosome starts with the line <code class="docutils literal notranslate"><span class="pre">variablestep</span> <span class="pre">chrom=chr[chromosome]</span></code> where <code class="docutils literal notranslate"><span class="pre">[chromosome]</span></code> is replaced by a chromosome name, e.g. <code class="docutils literal notranslate"><span class="pre">I</span></code> or <code class="docutils literal notranslate"><span class="pre">ref|NC_001133|</span></code>.
+After a variablestep line, every row corresponds with an insertion in two space delimited columns:</p>
+<ol class="simple">
+<li><p>insertion position</p></li>
+<li><p>number of reads</p></li>
+</ol>
+<p>In the wig file, the read count represent the actual count (unlike the bed file where an equation is used to transform the numbers).</p>
+<p>There is one difference between the bed and the wig file.
+In the bed file the insertions at the same position but with a different orientation are stored as individual insertions.
+In the wig file these insertions are represented as a single insertion and the corresponding read counts are added up.</p>
+<p>Similar to the bed file, also in the wig insertions might occur that have an insertion position that is bigger then the length of the chromosome.
+This can be solved with the <a class="reference external" href="#clean_bedwigfilespy">same python script</a> as the bed file.
+The insertions that have a position outside the chromosome are removed and the chromosome names are represented as a roman numeral.</p>
+<p>Example wig file:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">track</span> <span class="pre">type=wiggle_0</span> <span class="pre">maxheightPixels=60</span> <span class="pre">name=WT_merged-techrep-a_techrep-b_trimmed.sorted.bam</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">variablestep</span> <span class="pre">chrom=chrI</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">86</span> <span class="pre">2</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">89</span> <span class="pre">2</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">186</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">111</span> <span class="pre">469</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="pergene-txt-peressential-txt">
+<h3>pergene.txt, peressential.txt<a class="headerlink" href="#pergene-txt-peressential-txt" title="Permalink to this headline">¶</a></h3>
+<p>A pergene.txt and peressential.txt file are yet another outputs from the transposon mapping pipeline.
+Where bed and wig files store <em>all</em> insertions throughout the genome, these files only store the insertions in each gene or each essential gene, respectively.
+Essential genes are the annotated essential genes as stated by SGD for wild type cells.
+The genes are taken from the <a class="reference external" href="https://github.com/SATAY-LL/Transposonmapper/blob/main/transposonmapper/data_files/Yeast_Protein_Names.txt">Yeast_Protein_Names.txt</a> file, which is downloaded from <a class="reference external" href="https://www.uniprot.org/docs/yeast">uniprot</a>.
+The positions of each gene are determined by a <a class="reference external" href="https://github.com/SATAY-LL/Transposonmapper/blob/main/transposonmapper/data_files/Saccharomyces_cerevisiae.R64-1-1.99.gff3">gff3 file</a> downloaded from SGD.
+Essential genes are defined in <a class="reference external" href="https://github.com/SATAY-LL/Transposonmapper/blob/main/transposonmapper/data_files/Cerevisiae_AllEssentialGenes_List.txt">Cerevisiae_AllEssentialGenes.txt</a>.</p>
+<p>The pergene.txt and the peressential.txt have the same format.
+This consists of a header and then each row contains three tab delimited columns:</p>
+<ol class="simple">
+<li><p>gene name</p></li>
+<li><p>total number of insertions within the gene</p></li>
+<li><p>sum of all reads of those insertions</p></li>
+</ol>
+<p>The reads are the actual read counts.
+To suppress noise, the insertion with the highest read count in a gene is removed from that gene.
+Therefore, it might occur that a gene has 1 insertion, but 0 reads.</p>
+<p>Note that when comparing files that include gene names there might be differences in the gene naming.
+Genes have multiple names, e.g. systematic names like ‘YBR200W’ or standard names like ‘BEM1’ which can have aliases such as ‘SRO1’.
+The above three names all refer to the same gene.
+The <a class="reference external" href="https://github.com/SATAY-LL/Transposonmapper/blob/main/transposonmapper/data_files/Yeast_Protein_Names.txt">Yeast_Protein_Names.txt</a> file can be used to search for aliases when comparing gene names in different files.</p>
+<p>Example of pergene.txt file:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Gene</span> <span class="pre">name</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">transposons</span> <span class="pre">per</span> <span class="pre">gene</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">reads</span> <span class="pre">per</span> <span class="pre">gene</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">YAL069W</span> <span class="pre">34</span> <span class="pre">1819</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">YAL068W-A</span> <span class="pre">10</span> <span class="pre">599</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">PAU8</span> <span class="pre">26</span> <span class="pre">1133</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">YAL067W-A</span> <span class="pre">12</span> <span class="pre">319</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="pergene-insertions-txt-peressential-insertions-txt">
+<h3>pergene_insertions.txt, peressential_insertions.txt<a class="headerlink" href="#pergene-insertions-txt-peressential-insertions-txt" title="Permalink to this headline">¶</a></h3>
+<p>The final two files that are created by the transposon mapping pipeline are the pergene_insertions.txt and the peressential_insertions.txt.
+The files have a similar format as the pergene.txt file, but are more extensive in terms of the information per gene.
+The information is taken from <a class="reference external" href="https://github.com/SATAY-LL/Transposonmapper/blob/main/transposonmapper/data_files/Yeast_Protein_Names.txt">Yeast_Protein_Names.txt</a>, the <a class="reference external" href="https://github.com/SATAY-LL/Transposonmapper/blob/main/transposonmapper/data_files/Saccharomyces_cerevisiae.R64-1-1.99.gff3">gff3 file</a> and <a class="reference external" href="https://github.com/SATAY-LL/Transposonmapper/blob/main/transposonmapper/data_files/Cerevisiae_AllEssentialGenes_List.txt">Cerevisiae_AllEssentialGenes.txt</a>, similar as the pergene.txt files.</p>
+<p>Both the pergene_insertions.txt and the peressential_insertions.txt files have a header and then each row contains six tab delimited columns:</p>
+<ol class="simple">
+<li><p>gene name</p></li>
+<li><p>chromosome where the gene is located</p></li>
+<li><p>start position of the gene</p></li>
+<li><p>end position of the gene</p></li>
+<li><p>list of all insertions within the gene</p></li>
+<li><p>list of all read counts in the same order as the insertion list</p></li>
+</ol>
+<p>This file can be useful when not only the number of insertions is important, but also the distribution of the insertions within the genes.
+Similarily as the pergene.txt and peresential.txt file, to suppress noise the insertion with the highest read count in a gene is removed from that gene.</p>
+<ul class="simple">
+<li><p>This file is uniquely created in the processing workflow described below.</p></li>
+<li><p>If the index file .bam.bai is not present, create this before running the python script.
+The index file can be created using the command <code class="docutils literal notranslate"><span class="pre">sambamba-0.7.1.-linux-static</span> <span class="pre">sort</span> <span class="pre">-m</span> <span class="pre">1GB</span> <span class="pre">[path]/[filename.bam]</span></code>.
+This creates a sorted.bam file and a sorted.bam.bai index file.</p></li>
+</ul>
+<p>Example of peressential_insertions.txt file:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">EFB1</span> <span class="pre">I</span> <span class="pre">142174</span> <span class="pre">143160</span> <span class="pre">[142325,</span> <span class="pre">142886]</span> <span class="pre">[1,</span> <span class="pre">1]</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">PRE7</span> <span class="pre">II</span> <span class="pre">141247</span> <span class="pre">141972</span> <span class="pre">[141262,</span> <span class="pre">141736,</span> <span class="pre">141742,</span> <span class="pre">141895]</span> <span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">RPL32</span> <span class="pre">II</span> <span class="pre">45978</span> <span class="pre">46370</span> <span class="pre">[46011,</span> <span class="pre">46142,</span> <span class="pre">46240]</span> <span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">1]</span></code></p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./00-Intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="software-detailed-description-satay.sh.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Overview of the software required for satay.sh</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="interpreting_insertions_reads.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Interpreting Transposon Counts &amp; Reads</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
+        
+            &copy; Copyright Apache 2.0.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
