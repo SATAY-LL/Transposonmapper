@@ -195,7 +195,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../00-Intro/flowchart.html">
-   Flowchart of Transposonmapper
+   What is Transposonmapper
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
@@ -210,7 +210,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../00-Intro/satay.sh-detailed-description-file-types.html">
-     Detailed description of output files from the Transposonmapper bash workflow
+     Detailed description of the output files from satay.sh
     </a>
    </li>
    <li class="toctree-l2">
@@ -386,41 +386,27 @@
 <dl class="py function">
 <dt id="transposonmapper.importing.load_default_files">
 <code class="sig-prename descclassname"><span class="pre">transposonmapper.importing.</span></code><code class="sig-name descname"><span class="pre">load_default_files</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gff_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">essentials_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_names_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/importing/load_default_files.html#load_default_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.importing.load_default_files" title="Permalink to this definition">¶</a></dt>
-<dd><dl>
-<dt>This function loads some files that have a recurrent use throughout the pipeline.</dt><dd><p>It will look inside the satay/data_files folder for the files if the input is None.
+<dd><p>This function loads some files that have a recurrent use throughout the pipeline.
+It will look inside the satay/data_files folder for the files if the input is None.
 Otherwise it will return the same input file.</p>
-<dl class="simple">
-<dt>file1, file2, file3=load_default_files(gff_file=file1,</dt><dd><p>essentials_file=file2,
-gene_names_file=file3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gff_file</strong> (<em>gff3</em><em>, </em><em>optional</em>) – Annotated genome from Saccharomyces cerevisiae (baker’s yeast)
+(<a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz">https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz</a>), by default None</p></li>
+<li><p><strong>essentials_file</strong> (<em>txt</em><em>, </em><em>optional</em>) – Essentials genes annotated from yeast , written using the systematic name standard ,
+all in one column, by default None</p></li>
+<li><p><strong>gene_names_file</strong> (<em>txt</em><em>, </em><em>optional</em>) – This documents lists all the Saccharomyces cerevisiae S288c entries present in
+this release of UniProtKB/Swiss-Prot. Yeast (Saccharomyces cerevisiae): entries,
+gene names and cross-references to SGD.
+Release:     2021_01 of 10-Feb-2021, by default None</p></li>
+</ul>
 </dd>
-</dl>
-<p>if you dont provide a specific file as an input , then it will look into the default folder
-satay/data_files/ and it will give the standard file provided in the package.</p>
-<dl class="simple">
-<dt>file1, file2, file3=load_default_files(gff_file=None,</dt><dd><p>essentials_file=None,
-gene_names_file=None)</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>gff_file<span class="classifier">[.gff3] –&gt; Annotated genome from Saccharomyces cerevisiae (baker’s yeast)</span></dt><dd><p>(<a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz">https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz</a>)</p>
-</dd>
-<dt>essentials_file<span class="classifier">[.txt] –&gt;  Essentials genes annotated from yeast , written using the systematic name standard ,</span></dt><dd><p>all in one column</p>
-</dd>
-</dl>
-<p>gene_names_file : [.txt] –&gt; This documents lists all the Saccharomyces cerevisiae S288c entries present in</p>
-</dd>
-<dt>this release of UniProtKB/Swiss-Prot. Yeast (Saccharomyces cerevisiae): entries, gene names and cross-references to SGD.</dt><dd><blockquote>
-<div><p>Release:     2021_01 of 10-Feb-2021</p>
-</div></blockquote>
-<dl class="simple">
-<dt>gff_file<span class="classifier">[.gff3]–&gt; Annotated genome from Saccharomyces cerevisiae (baker’s yeast)</span></dt><dd><p>(<a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz">https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz</a>)</p>
-</dd>
-<dt>essentials_file<span class="classifier">[.txt]–&gt;  Essentials genes annotated from yeast , written using the systematic name standard ,</span></dt><dd><p>all in one column</p>
-</dd>
-</dl>
-<p>gene_names_file : [.txt]–&gt; This documents lists all the Saccharomyces cerevisiae S288c entries present in</p>
-</dd>
-<dt>this release of UniProtKB/Swiss-Prot. Yeast (Saccharomyces cerevisiae): entries, gene names and cross-references to SGD.</dt><dd><p>Release:     2021_01 of 10-Feb-2021</p>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>The correct path of all the input required files for the further analysis.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -450,43 +436,31 @@ satay/data_files/ and it will give the standard file provided in the package.</p
 <dl class="py function">
 <dt id="transposonmapper.importing.read_genes">
 <code class="sig-prename descclassname"><span class="pre">transposonmapper.importing.</span></code><code class="sig-name descname"><span class="pre">read_genes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gff_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">essentials_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_names_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/importing/read_genes.html#read_genes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.importing.read_genes" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>This function reads the useful information inside the gff_file, essentials_file and
+<dd><p>This function reads the useful information inside the gff_file, essentials_file and
 gene_names_file.
 For the gff_file and essentials_file extracts the gene coordinates , specifying the chromosome, start ,end
 and direction.
 For the gene_names_files it translates the systematic name into the standard name.</p>
-<p>Usage:</p>
-<blockquote>
-<div><dl class="simple">
-<dt>[gene_coordinates, essential_coordinates, aliases_designation] =</dt><dd><p>read_genes(gff_file, essentials_file, gene_names_file)</p>
-</dd>
-</dl>
-</div></blockquote>
-<dl class="simple">
-<dt>Inputs:</dt><dd><ul class="simple">
-<li><p>gff_file : Annotated genome from Saccharomyces cerevisiae (baker’s yeast) (<a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz">https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz</a>)</p></li>
-<li><p>essentials_file:  Essentials genes annotated from yeast , written using the systematic name standard , all in one column</p></li>
-<li><p>gene_names_file:  This documents lists all the Saccharomyces cerevisiae S288c entries present in</p></li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gff_file</strong> (<em>gff3</em>) – Annotated genome from Saccharomyces cerevisiae (baker’s yeast) (<a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz">https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz</a>)</p></li>
+<li><p><strong>essentials_file</strong> (<em>txt</em>) – Essentials genes annotated from yeast , written using the systematic name standard , all in one column</p></li>
+<li><p><strong>gene_names_file</strong> (<em>txt</em>) – This documents lists all the Saccharomyces cerevisiae S288c entries present in
+this release of UniProtKB/Swiss-Prot. Yeast (Saccharomyces cerevisiae): entries,
+gene names and cross-references to SGD.
+Release:     2021_01 of 10-Feb-2021</p></li>
 </ul>
 </dd>
-</dl>
-</div></blockquote>
-<dl>
-<dt>this release of UniProtKB/Swiss-Prot.</dt><dd><blockquote>
-<div><dl class="simple">
-<dt>Yeast (Saccharomyces cerevisiae): entries, gene names and cross-references to SGD.</dt><dd><p>Release:     2021_01 of 10-Feb-2021</p>
-</dd>
-</dl>
-</div></blockquote>
-<dl class="simple">
-<dt>Outputs:</dt><dd><p>gene_coordinates : a dict specifying for each gene the chromosome number the gene
-belongs to, the start gene coordinate, the end gene coordinate and the strand direction (‘+’ or ‘-‘).
-essential_coordinates: a dict specifying for each annotated essential gene the chromosome number the gene
-belongs to, the start gene coordinate, the end gene coordinate and the strand direction (‘+’ or ‘-‘).
-aliases_designation: a dict that for each systematic gene name specify the standard gene name.</p>
-</dd>
-</dl>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>dict</em> – gene_coordinates : a dict specifying for each gene the chromosome number the gene
+belongs to, the start gene coordinate, the end gene coordinate and the strand direction (‘+’ or ‘-‘).</p></li>
+<li><p><em>dict</em> – essential_coordinates: a dict specifying for each annotated essential gene the chromosome number the gene
+belongs to, the start gene coordinate, the end gene coordinate and the strand direction (‘+’ or ‘-‘).</p></li>
+<li><p><em>dict</em> – aliases_designation: a dict that for each systematic gene name specify the standard gene name.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
