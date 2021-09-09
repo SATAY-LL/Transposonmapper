@@ -24,7 +24,15 @@ def load_default_files(gff_file=None, essentials_file=None, gene_names_file=None
 
     Returns
     -------
-     The correct path of all the input required files for the further analysis. 
+    str: 
+
+        The correct path of the .gff3 input required file for the further analysis. 
+    str: 
+
+        The correct path of the essential file input required file for the further analysis. 
+    str: 
+
+        The correct path of the gene_name_file required file for the further analysis.
     """
 
     default_path = pkg_resources.resource_filename("transposonmapper", "data_files/")
@@ -48,19 +56,18 @@ def load_sgd_tab(sgd_features_file=None):
     The latest version of the SGD_features.tab file is based on Genome Version R64-2-1.
     If a specific file is provided it will output that file , otherwise , if it is set to None then 
     it will give the standard file provided in the package. 
-    Usage:
-    file1=load_sgd_tab(sgd_features_file=file1)
-    if you dont provide a specific file as an input , then it will look into the default folder
-    satay/data_files/ and it will give the standard file provided in the package.
-
-    file1=load_sgd_tab(sgd_features_file=None)
-    
+        
    
-    Arguments:
-        sgd_features_file {.gff3} -- The latest version of the SGD_features.tab file is based on Genome Version R64-2-1.
 
-    Returns:
-        sgd_features_file {.gff3} -- The latest version of the SGD_features.tab file is based on Genome Version R64-2-1.
+    Parameters
+    ----------
+    sgd_features_file : .gff3, optional
+        The latest version of the SGD_features.tab file is based on Genome Version R64-2-1., by default None
+
+    Returns
+    -------
+    .gff3
+        The path corresponding to this file in the package 
     """
     default_path = pkg_resources.resource_filename("transposonmapper", "data_files/")
     if sgd_features_file is None: 
