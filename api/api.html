@@ -405,25 +405,8 @@
 The function assumes that the reads are already aligned to a reference genome.
 The input data should be a .bam-file and the location where the .bam-file is stored should also contain an index file (.bam.bai-file, which for example can be created using sambamba).
 The function uses the pysam package for handling bam files (see pysam.readthedocs.io/en/latest/index.html) and therefore this function only runs on Linux systems with SAMTools installed.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>bamfile</strong> (<em>str</em><em>, </em><em>required</em>) – Path to the bamfile. This location should also contain the .bam.bai index file (does not need to be input in this function).</p></li>
-<li><p><strong>gff_file</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to a .gff-file including all gene information (e.g. downloaded from SGD).
-Default file is ‘Saccharomyces_cerevisiae.R64-1-1.99.gff3’., by default None</p></li>
-<li><p><strong>essential_file</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to a .txt file containing a list all essential genes. Every line should consist of a single essential gene and the file should have one header line.
-Ideally this file is created using ‘Create_EssentialGenes_list.py’. Default file is ‘Cerevisiae_AllEssentialGenes_List.txt’., by default None</p></li>
-<li><p><strong>gene_name_file</strong> (<em>str</em><em>, </em><em>optional</em>) – <dl class="simple">
-<dt>Path to text file that includes aliases for all genes.</dt><dd><p>Default file is ‘Yeast_Protein_Names.txt’, by default None</p>
-</dd>
-</dl>
-</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><em>It outputs the following files that store information regarding the location of all insertions</em> –</p>
-<ul>
+<dl class="simple">
+<dt>It outputs the following files that store information regarding the location of all insertions:</dt><dd><ul class="simple">
 <li><dl class="simple">
 <dt>.bed-file: Includes all individual basepair locations of the whole genome where at least one transposon has been mapped and the number of insertions for each locations (the number of reads) according to the Browser Extensible Data (bed) format.</dt><dd><p>A distinction is made between reads that had a different reading orientation during sequencing. The number of reads are stored using the equation #reads*20+100 (e.g. 2 reads is stored as 140).</p>
 </dd>
@@ -440,10 +423,19 @@ Ideally this file is created using ‘Create_EssentialGenes_list.py’. Default 
 <li><p>_peressential_insertions.txt-file: Includes all essential genes with their genomic location (i.e. chromosome number, start and end position) and the locations of all insertions within the gene location. It also include the number number of reads per insertions.
 (note that in the latter two files, the genomic locations are continous, for example chromosome II does not start at 0, but at ‘length chromosome I + 1’ etc.).</p></li>
 </ul>
-</li>
-<li><p><em>The output files are saved at the location of the input file using the same name as the input file, but with the corresponding extension.</em></p></li>
+</dd>
+</dl>
+<p>The output files are saved at the location of the input file using the same name as the input file, but with the corresponding extension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bamfile</strong> (<em>str</em><em>, </em><em>required</em>) – Path to the bamfile. This location should also contain the .bam.bai index file (does not need to be input in this function).</p></li>
+<li><p><strong>gff_file</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to a .gff-file including all gene information (e.g. downloaded from SGD).
+Default file is ‘Saccharomyces_cerevisiae.R64-1-1.99.gff3’., by default None</p></li>
+<li><p><strong>essential_file</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to a .txt file containing a list all essential genes. Every line should consist of a single essential gene and the file should have one header line.
+Ideally this file is created using ‘Create_EssentialGenes_list.py’. Default file is ‘Cerevisiae_AllEssentialGenes_List.txt’., by default None</p></li>
+<li><p><strong>gene_name_file</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to text file that includes aliases for all genes. Default file is ‘Yeast_Protein_Names.txt’, by default None</p></li>
 </ul>
-</p>
 </dd>
 </dl>
 </dd></dl>
