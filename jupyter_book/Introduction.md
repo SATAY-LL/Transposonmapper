@@ -2,6 +2,8 @@
 
 Hello there 😄 Welcome to this Jupyter Book instance to document our data processing pipeline to analyze data from the technique : **Sa**turated **T**ransposition **A**nalysis in **Y**east. 
 
+[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://satay-ll.github.io/Transposonmapper/Introduction.html)
+
 ## Status of the project
 
 - [Beta release on Zenodo](https://doi.org/10.5281/zenodo.4636310) 
