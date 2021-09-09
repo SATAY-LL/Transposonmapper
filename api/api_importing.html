@@ -419,18 +419,16 @@ Release:     2021_01 of 10-Feb-2021, by default None</p></li>
 <dd><p>This function loads the file SGD_features.tab
 The latest version of the SGD_features.tab file is based on Genome Version R64-2-1.
 If a specific file is provided it will output that file , otherwise , if it is set to None then
-it will give the standard file provided in the package.
-Usage:
-file1=load_sgd_tab(sgd_features_file=file1)
-if you dont provide a specific file as an input , then it will look into the default folder
-satay/data_files/ and it will give the standard file provided in the package.</p>
-<p>file1=load_sgd_tab(sgd_features_file=None)</p>
+it will give the standard file provided in the package.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>{.gff3} -- The latest version of the SGD_features.tab file is based on Genome Version R64-2-1.</strong> (<em>sgd_features_file</em>) – </p>
+<dd class="field-odd"><p><strong>sgd_features_file</strong> (<em>gff3</em><em>, </em><em>optional</em>) – The latest version of the SGD_features.tab file is based on Genome Version R64-2-1., by default None</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>sgd_features_file {.gff3} – The latest version of the SGD_features.tab file is based on Genome Version R64-2-1.</p>
+<dd class="field-even"><p>The path corresponding to this file in the package</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>gff3</p>
 </dd>
 </dl>
 </dd></dl>

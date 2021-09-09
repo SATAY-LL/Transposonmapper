@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -46,13 +46,6 @@
     <script src="../../_static/tabs.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../../_static/genetica_modified_neon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -83,7 +76,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -158,20 +151,66 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../00-Intro/data-analysis-workflow.html">
-   Overview of the pipeline functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../00-Intro/satay_analysis_notes.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../00-Intro/what_is_satay.html">
    What is SATAY
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../00-Intro/experimental_setup.html">
+     SATAY Experimental Process
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../00-Intro/gene_essentiality.html">
+     Gene Essentiality in budding yeast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../00-Intro/research-context-behind-satay.html">
+     Research questions behind the use of SATAY
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About Transposonmapper
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../00-Intro/flowchart.html">
-   Flowchart of the pipeline
+   What is Transposonmapper
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../00-Intro/software-detailed-description-satay.sh.html">
+     Overview of the software required for satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../00-Intro/satay.sh-detailed-description-file-types.html">
+     Detailed description of the output files from satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../00-Intro/interpreting_insertions_reads.html">
+     Interpreting Transposon Counts &amp; Reads
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -201,8 +240,8 @@
   <a class="reference internal" href="../../api/api.html">
    Transposonmapper
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -371,8 +410,27 @@
 
 
 <div class="viewcode-block" id="transposonmapper"><a class="viewcode-back" href="../../api/api.html#transposonmapper.transposonmapper">[docs]</a><span class="k">def</span> <span class="nf">transposonmapper</span><span class="p">(</span><span class="n">bamfile</span><span class="p">,</span> <span class="n">gff_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">essential_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gene_name_file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This function is created for analysis of SATAY data using the species Saccharomyces Cerevisiae.</span>
+    <span class="sd">&quot;&quot;&quot;This function is created for analysis of SATAY data using the species Saccharomyces Cerevisiae.</span>
+<span class="sd">    The function assumes that the reads are already aligned to a reference genome.</span>
+<span class="sd">    The input data should be a .bam-file and the location where the .bam-file is stored should also contain an index file (.bam.bai-file, which for example can be created using sambamba).</span>
+<span class="sd">    The function uses the pysam package for handling bam files (see pysam.readthedocs.io/en/latest/index.html) and therefore this function only runs on Linux systems with SAMTools installed.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bamfile : str, required</span>
+<span class="sd">        Path to the bamfile. This location should also contain the .bam.bai index file (does not need to be input in this function).</span>
+<span class="sd">    gff_file : str, optional</span>
+<span class="sd">        Path to a .gff-file including all gene information (e.g. downloaded from SGD). </span>
+<span class="sd">        Default file is &#39;Saccharomyces_cerevisiae.R64-1-1.99.gff3&#39;., by default None</span>
+<span class="sd">    essential_file : str, optional</span>
+<span class="sd">        Path to a .txt file containing a list all essential genes. Every line should consist of a single essential gene and the file should have one header line. </span>
+<span class="sd">        Ideally this file is created using &#39;Create_EssentialGenes_list.py&#39;. Default file is &#39;Cerevisiae_AllEssentialGenes_List.txt&#39;., by default None</span>
+<span class="sd">    gene_name_file : str, optional</span>
+<span class="sd">        Path to text file that includes aliases for all genes.</span>
+<span class="sd">         Default file is &#39;Yeast_Protein_Names.txt&#39;, by default None</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
 <span class="sd">    It outputs the following files that store information regarding the location of all insertions:</span>
 <span class="sd">        - .bed-file: Includes all individual basepair locations of the whole genome where at least one transposon has been mapped and the number of insertions for each locations (the number of reads) according to the Browser Extensible Data (bed) format.</span>
 <span class="sd">                    A distinction is made between reads that had a different reading orientation during sequencing. The number of reads are stored using the equation #reads*20+100 (e.g. 2 reads is stored as 140).</span>
@@ -385,16 +443,6 @@
 <span class="sd">          (note that in the latter two files, the genomic locations are continous, for example chromosome II does not start at 0, but at &#39;length chromosome I + 1&#39; etc.).</span>
 <span class="sd">    The output files are saved at the location of the input file using the same name as the input file, but with the corresponding extension.</span>
 <span class="sd">    </span>
-<span class="sd">    The function assumes that the reads are already aligned to a reference genome.</span>
-<span class="sd">    The input data should be a .bam-file and the location where the .bam-file is stored should also contain an index file (.bam.bai-file, which for example can be created using sambamba).</span>
-<span class="sd">    This function takes the following inputs:</span>
-<span class="sd">        - bamfile [required]: Path to the bamfile. This location should also contain the .bam.bai index file (does not need to be input in this function).</span>
-<span class="sd">        - gfffile [optional]: Path to a .gff-file including all gene information (e.g. downloaded from SGD). Default file is &#39;Saccharomyces_cerevisiae.R64-1-1.99.gff3&#39;.</span>
-<span class="sd">        - essentialfiles [optional]: Path to a .txt file containing a list all essential genes. Every line should consist of a single essential gene and the file should have one header line. Ideally this file is created using &#39;Create_EssentialGenes_list.py&#39;. Default file is &#39;Cerevisiae_AllEssentialGenes_List.txt&#39;.</span>
-<span class="sd">        - genenamesfile [optional]: Path to text file that includes aliases for all genes. Default file is &#39;Yeast_Protein_Names.txt&#39;.</span>
-<span class="sd">    When the arguments for the optional files are not given, the files are used that are stored at the following location:</span>
-<span class="sd">        &quot;path_current_pythonscript/../data_files&quot;</span>
-<span class="sd">    The function uses the pysam package for handling bam files (see pysam.readthedocs.io/en/latest/index.html) and therefore this function only runs on Linux systems with SAMTools installed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># If necessary, load default files</span>
@@ -542,10 +590,14 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
         
         </div>
     </div>
