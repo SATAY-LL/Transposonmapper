@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -46,13 +46,6 @@
     <script src="../../../_static/tabs.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../../../_static/genetica_modified_neon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -83,7 +76,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -158,20 +151,66 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../00-Intro/data-analysis-workflow.html">
-   Overview of the pipeline functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../00-Intro/satay_analysis_notes.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../00-Intro/what_is_satay.html">
    What is SATAY
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/experimental_setup.html">
+     SATAY Experimental Process
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/gene_essentiality.html">
+     Gene Essentiality in budding yeast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/research-context-behind-satay.html">
+     Research questions behind the use of SATAY
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About Transposonmapper
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../../00-Intro/flowchart.html">
-   Flowchart of the pipeline
+   What is Transposonmapper
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/software-detailed-description-satay.sh.html">
+     Overview of the software required for satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/satay.sh-detailed-description-file-types.html">
+     Detailed description of the output files from satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/interpreting_insertions_reads.html">
+     Interpreting Transposon Counts &amp; Reads
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -201,8 +240,8 @@
   <a class="reference internal" href="../../../api/api.html">
    Transposonmapper
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -394,9 +433,32 @@
     <span class="n">ref_tid_roman</span><span class="p">,</span>
     <span class="n">aliases_designation</span><span class="p">,</span>
 <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;This function generates a .txt file with the insertions in the annotated </span>
+<span class="sd">    essential genes in WT. </span>
 
-<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        Path with the filename extension included(e.g &quot;data_file/file.txt&quot;) </span>
+<span class="sd">        describing where do you want to store the results.</span>
+<span class="sd">        By default it will be stored in the same location as the bamfile, </span>
+<span class="sd">        with the same basename. </span>
+<span class="sd">        Example, if the bamfile path is data_file/data_1.bam then the  file will be data_file/data_1.bam_peressential_insertions.txt</span>
+<span class="sd">    tn_coordinates : dict</span>
+<span class="sd">         Last output of the function get_insertions _,_, tn_coordinates_per_gene = get_insertions_and_reads(</span>
+<span class="sd">        gene_coordinates, tncoordinatescopy_array, readnumb_array)</span>
+<span class="sd">    gene_coordinates : dict </span>
+<span class="sd">        Output of the function add_chromosome_length:  gene_coordinates = add_chromosome_length(</span>
+<span class="sd">        gene_coordinates, chr_lengths_cumsum, ref_tid_roman)</span>
+<span class="sd">    chr_lengths_cumsum : dict</span>
+<span class="sd">        last output of the function get_sequence_length : _, chr_lengths_cumsum = get_sequence_length(bam)</span>
+<span class="sd">    ref_tid_roman : dict </span>
+<span class="sd">        Dictionary describing roman names as keys , </span>
+<span class="sd">        ref_romannums = chromosomename_roman_to_arabic()[1]</span>
+<span class="sd">        ref_tid_roman = {key: value for key, value in zip(ref_romannums, ref_tid)}</span>
+<span class="sd">    aliases_designation : dict</span>
+<span class="sd">        Last output of the function read_genes  _, _, aliases_designation = read_genes(</span>
+<span class="sd">        gff_file, essential_file, gene_name_file)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -436,10 +498,14 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
         
         </div>
     </div>

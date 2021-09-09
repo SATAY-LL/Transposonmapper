@@ -195,7 +195,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../00-Intro/flowchart.html">
-   Flowchart of Transposonmapper
+   What is Transposonmapper
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
@@ -210,7 +210,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../00-Intro/satay.sh-detailed-description-file-types.html">
-     Detailed description of output files from the Transposonmapper bash workflow
+     Detailed description of the output files from satay.sh
     </a>
    </li>
    <li class="toctree-l2">
@@ -424,7 +424,30 @@ Example, if the bamfile path is data_file/data_1.bam then the wig file will be d
 <dl class="py function">
 <dt id="transposonmapper.exporting.save_per_essential_insertions">
 <code class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></code><code class="sig-name descname"><span class="pre">save_per_essential_insertions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chr_lengths_cumsum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid_roman</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases_designation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_per_gene_insertions.html#save_per_essential_insertions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_per_essential_insertions" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>This function generates a .txt file with the insertions in the annotated
+essential genes in WT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – Path with the filename extension included(e.g “data_file/file.txt”)
+describing where do you want to store the results.
+By default it will be stored in the same location as the bamfile,
+with the same basename.
+Example, if the bamfile path is data_file/data_1.bam then the  file will be data_file/data_1.bam_peressential_insertions.txt</p></li>
+<li><p><strong>tn_coordinates</strong> (<em>dict</em>) – Last output of the function get_insertions _,_, tn_coordinates_per_gene = get_insertions_and_reads(
+gene_coordinates, tncoordinatescopy_array, readnumb_array)</p></li>
+<li><p><strong>gene_coordinates</strong> (<em>dict</em>) – Output of the function add_chromosome_length:  gene_coordinates = add_chromosome_length(
+gene_coordinates, chr_lengths_cumsum, ref_tid_roman)</p></li>
+<li><p><strong>chr_lengths_cumsum</strong> (<em>dict</em>) – last output of the function get_sequence_length : _, chr_lengths_cumsum = get_sequence_length(bam)</p></li>
+<li><p><strong>ref_tid_roman</strong> (<em>dict</em>) – Dictionary describing roman names as keys ,
+ref_romannums = chromosomename_roman_to_arabic()[1]
+ref_tid_roman = {key: value for key, value in zip(ref_romannums, ref_tid)}</p></li>
+<li><p><strong>aliases_designation</strong> (<em>dict</em>) – Last output of the function read_genes  _, _, aliases_designation = read_genes(
+gff_file, essential_file, gene_name_file)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="transposonmapper.exporting.save_per_gene">
@@ -434,6 +457,21 @@ Example, if the bamfile path is data_file/data_1.bam then the wig file will be d
 E.G. IF THIS FILE IS COMPARED WITH THE _PERGENE_INSERTIONS.TXT FILE THE
 READS DON’T ADD UP (SEE <a class="reference external" href="https://groups.google.com/forum/#!category-topic/satayusers/bioinformatics/uaTpKsmgU6Q">https://groups.google.com/forum/#!category-topic/satayusers/bioinformatics/uaTpKsmgU6Q</a>)
 TOO REMOVE THIS HACK, CHANGE THE INITIALIZATION OF THE VARIABLE readpergene</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – Path with the filename extension included(e.g “data_file/file.txt”)
+describing where do you want to store the results.
+By default it will be stored in the same location as the bamfile,
+with the same basename.
+Example, if the bamfile path is data_file/data_1.bam then the  file will be data_file/data_1.bam_pergene.txt</p></li>
+<li><p><strong>tn_per_gene</strong> (<em>int</em>) – The number of transposons found per gene</p></li>
+<li><p><strong>reads_per_gene</strong> (<em>int</em>) – The number of reads found per gene</p></li>
+<li><p><strong>aliases_designation</strong> (<em>dict</em>) – Last output of the function read_genes  _, _, aliases_designation = read_genes(
+gff_file, essential_file, gene_name_file)</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
