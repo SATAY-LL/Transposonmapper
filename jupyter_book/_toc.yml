@@ -14,9 +14,18 @@ parts:
           - file: 06-Tutorials/tutorial
   - caption: About SATAY
     chapters:
-      - file: 00-Intro/data-analysis-workflow
-      - file: 00-Intro/satay_analysis_notes
+      - file: 00-Intro/what_is_satay
+        sections:
+          - file: 00-Intro/experimental_setup
+          - file: 00-Intro/gene_essentiality
+          - file: 00-Intro/research-context-behind-satay
+  - caption: About Transposonmapper 
+    chapters: 
       - file: 00-Intro/flowchart
+        sections:
+          - file: 00-Intro/software-detailed-description-satay.sh
+          - file: 00-Intro/satay.sh-detailed-description-file-types
+          - file: 00-Intro/interpreting_insertions_reads
   - caption: Community
     chapters:
       - file: 04-Developers/00-contributing-guidelines

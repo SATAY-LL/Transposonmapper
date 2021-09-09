@@ -1,4 +1,4 @@
-# Overview of the pipeline functions
+# Overview of the software required for satay.sh 
 
 <!-- For data analysis, the following steps need to be taken:
 
@@ -16,16 +16,7 @@
 
 First, the main focus will be step 1 of the analysis (see next section). -->
 
-## Step 1 data analysis; From raw data to essential protein overview
 
-SATAY experiments need to be sequenced which results in a FASTQ file.
-The sequence reads from this file needs to be aligned to create a SAM file (and/or the compressed {bash}ary equivalent BAM file).
-Using the BAM file, the number of transposons can be determined for each insertion location.
-
-
-Raw data (.FASTQ file) discussed in the paper of Michel et.al. 2017 can be found at [<https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-4885/samples/>].
-
-## Workflow
 
 The results from the sequencing is typically represented in FASTA or FASTQ format.
 This needs to be aligned according to a reference sequence to create a SAM and BAM file.
@@ -107,18 +98,18 @@ For explanation about the different graphs, see the fastqc\_manual pdf or [https
 For more commands, type `fastqc --help`.
 Some useful commands might be:
 
-- --contaminants Reads a file where sequences are stored of (potential) contaminants.
+- `--contaminants` Reads a file where sequences are stored of (potential) contaminants.
     The .txt-file should be created before running the software.
     Each contaminant is presented on a different line the text file and should have the form name 'tab' sequence.
 
-- --adapters Similar as the contaminants command, but specifically for adapter sequences.
+- `--adapters` Similar as the contaminants command, but specifically for adapter sequences.
     Also here a text file should be created before running and this file should have the same layout as the contaminants file.
 
-- --min_length where a minimal sequence length can be set, so that the statistics can be better compared between different reads of different length (which for example might occur after trimming).
+- `--min`_length where a minimal sequence length can be set, so that the statistics can be better compared between different reads of different length (which for example might occur after trimming).
 
-- --threads Preferably leave this unchanged, especially when an error is shown that there ‘could not reserve enough space for object heap’ after setting this command.
+- `--threads` Preferably leave this unchanged, especially when an error is shown that there ‘could not reserve enough space for object heap’ after setting this command.
 
-- --extract Set this command (without following of parameters) to extract the zipped folder from the results.
+- `--extract` Set this command (without following of parameters) to extract the zipped folder from the results.
 
 The output of the FASTQC program is:
 

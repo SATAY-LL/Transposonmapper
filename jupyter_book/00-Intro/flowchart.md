@@ -1,3 +1,3 @@
-# Flowchart of the pipeline
+# What is Transposonmapper
 
-![](../images/satay_processing_pipeline.png)
+![](../media/satay_processing_pipeline-general_pipeline-workflow.drawio.png)
