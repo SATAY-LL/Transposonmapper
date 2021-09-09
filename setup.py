@@ -46,7 +46,8 @@ setup(
             "sphinx-click",
             "sphinx-tabs",
             "sphinxext-rediraffe",
-            "sphinx_inline_tabs"
+            "sphinx_inline_tabs",
+            "ghp-import"
         ]
     },
 )
