@@ -42,7 +42,7 @@ The following tools are used in the processing pipeline:
 
 ## Processing pipeline
 
-![Processing pipeline](satay_processing_pipeline.png)
+![Processing pipeline](../../jupyter_book/media/satay_processing_pipeline-general_pipeline-workflow.drawio.png)
 
 
 ## First time use
@@ -51,7 +51,8 @@ In order to trim the dataset, you need to provide the adapters sequence.
 
 ### Find adapters sequence   
 
-A way to obtain the adapters sequence, is to run the pipeline with the following optins checked
+A way to obtain the adapters sequence, is to run the pipeline with the following optins checked:
+
 - [x] Quality checking raw data   
 - [x] Quality check interrupt
 
