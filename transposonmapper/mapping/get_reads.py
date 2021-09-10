@@ -12,22 +12,24 @@ from transposonmapper.properties import (
 
 
 def get_reads(bam):
-    """
- This function retrieves  all reads within a specified genomic region. 
-     
-    Usage
-    ----------
-    file1,file2,file3=get_reads(bam)
 
+    """This function retrieves  all reads within a specified genomic region. 
+     
+    
     Parameters
     ----------
     bam :  The output for the function pysam.AlignmentFile(bamfile, "rb")
 
+
     Returns
     -------
-    readnumb_array: reads per genomic region
-    tncoordinates_array: Array of three columns where the 2nd one indicated the start position where there was a transposon
-    tncoordinatescopy_array: A copy from tncoordinates_array
+    numpy.array
+        reads per genomic region
+    numpy.array
+        Array of three columns where the 2nd one indicated the start position where there was a transposon
+    numpy.array
+         A copy from the 2nd output 
+
     """
 
     # Get chromosome properties

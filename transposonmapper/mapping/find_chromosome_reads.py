@@ -3,11 +3,19 @@ import numpy as np
 from .samflag import samflags
 
 def find_chromosome_reads(chromosome, N_reads: int):
-    """
-    
-    Syntax: [flags, start_position, readlength] = get_chromosome_reads(chromosome, N_reads)
+    """Find the reads inside each chromosome 
 
+    Parameters
+    ----------
+    chromosome : int , or , str 
+        The name of the chromosome , either in arabic numbers 1, 2 , or roman  "I", "II"
+    N_reads : int
+        
 
+    Returns
+    -------
+    flags, start_position, readlength
+        
     """
     # Initialize arrays
     start_position = np.empty(shape=(N_reads), dtype=int)
