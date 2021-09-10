@@ -34,6 +34,7 @@ def add_chromosome_length(coordinates, chr_lengths_cumsum, ref_tid_roman):
     """This function returns a dictionary that for every gene , there is the chromosome number
     information of where the gene belongs to , the coordinates for the start position, the end position
     and the direction of the gene. 
+    
     Parameters
     ----------
     coordinates : dict 
