@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -46,6 +46,13 @@
     <script src="_static/tabs.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="_static/genetica_modified_neon.png"/>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,7 +83,7 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -409,13 +416,11 @@
 </li>
       <li><a href="api/api_processing.html#transposonmapper.processing.chromosome_name_bedfile">chromosome_name_bedfile() (in module transposonmapper.processing)</a>
 </li>
-      <li><a href="api/api_properties.html#transposonmapper.properties.chromosome_position">chromosome_position() (in module transposonmapper.properties)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/api_processing.html#transposonmapper.processing.cleanfiles">cleanfiles() (in module transposonmapper.processing)</a>
+      <li><a href="api/api_properties.html#transposonmapper.properties.chromosome_position">chromosome_position() (in module transposonmapper.properties)</a>
 </li>
-      <li><a href="api/api_mapping.html#transposonmapper.mapping.correct_read_position">correct_read_position() (in module transposonmapper.mapping)</a>
+      <li><a href="api/api_processing.html#transposonmapper.processing.cleanfiles">cleanfiles() (in module transposonmapper.processing)</a>
 </li>
       <li><a href="api/api_processing.html#transposonmapper.processing.counts_genome">counts_genome() (in module transposonmapper.processing)</a>
 </li>
@@ -438,10 +443,6 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/api_processing.html#transposonmapper.processing.feature_position">feature_position() (in module transposonmapper.processing)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/api_mapping.html#transposonmapper.mapping.find_chromosome_reads">find_chromosome_reads() (in module transposonmapper.mapping)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -649,14 +650,10 @@
               </div>
               
         
+        <div class='prev-next-bottom'>
             
 
-
-
-<div class='prev-next-bottom'>
-    
-
-</div>
+        </div>
         
         </div>
     </div>

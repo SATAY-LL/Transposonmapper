@@ -158,20 +158,66 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../00-Intro/data-analysis-workflow.html">
-   Overview of the pipeline functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../00-Intro/satay_analysis_notes.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../00-Intro/what_is_satay.html">
    What is SATAY
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/experimental_setup.html">
+     SATAY Experimental Process
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/gene_essentiality.html">
+     Gene Essentiality in budding yeast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/research-context-behind-satay.html">
+     Research questions behind the use of SATAY
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About Transposonmapper
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../../00-Intro/flowchart.html">
-   Flowchart of the pipeline
+   What is Transposonmapper
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/software-detailed-description-satay.sh.html">
+     Overview of the software required for satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/satay.sh-detailed-description-file-types.html">
+     Detailed description of the output files from satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/interpreting_insertions_reads.html">
+     Interpreting Transposon Counts &amp; Reads
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -201,8 +247,8 @@
   <a class="reference internal" href="../../../api/api.html">
    Transposonmapper
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -325,18 +371,22 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    coordinates : numpy.array</span>
-<span class="sd">        readnumb_array, tncoordinates_array, coordinates = get_reads(bam)</span>
-<span class="sd">    ref_names : list</span>
+<span class="sd">    numpy.array</span>
+<span class="sd">        Third output from get_reads(bam)</span>
+<span class="sd">    list</span>
+<span class="sd">    Output from the following : </span>
 <span class="sd">        ref_tid = get_chromosome_names(bam)</span>
+
 <span class="sd">        ref_names = list(ref_tid.keys())</span>
-<span class="sd">    chr_lengths : dict</span>
-<span class="sd">        chr_lengths, _ = get_sequence_length(bam)</span>
+
+<span class="sd">    dict</span>
+<span class="sd">        First output from get_sequence_length(bam)</span>
 <span class="sd">   </span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    coordinates: numpy.array</span>
+<span class="sd">    numpy.array</span>
+<span class="sd">      For each insertion location, add the length of all previous chromosomes </span>
 <span class="sd">        </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
@@ -354,6 +404,7 @@
     <span class="sd">&quot;&quot;&quot;This function returns a dictionary that for every gene , there is the chromosome number</span>
 <span class="sd">    information of where the gene belongs to , the coordinates for the start position, the end position</span>
 <span class="sd">    and the direction of the gene. </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    coordinates : dict </span>
@@ -369,9 +420,8 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    coordinates: dict</span>
-<span class="sd">        A dictionary that for every gene , there is the chromosome number</span>
-<span class="sd">    information of where the gene belongs to , the coordinates for the start position, the end position</span>
+<span class="sd">     dict</span>
+<span class="sd">        A dictionary that for every gene , there is the chromosome number information of where the gene belongs to , the coordinates for the start position, the end position</span>
 <span class="sd">    and the direction of the gene. </span>
 <span class="sd">    &quot;&quot;&quot;</span>  
 

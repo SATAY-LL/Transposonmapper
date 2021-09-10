@@ -158,20 +158,66 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../00-Intro/data-analysis-workflow.html">
-   Overview of the pipeline functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../00-Intro/satay_analysis_notes.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../00-Intro/what_is_satay.html">
    What is SATAY
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/experimental_setup.html">
+     SATAY Experimental Process
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/gene_essentiality.html">
+     Gene Essentiality in budding yeast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/research-context-behind-satay.html">
+     Research questions behind the use of SATAY
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About Transposonmapper
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../../00-Intro/flowchart.html">
-   Flowchart of the pipeline
+   What is Transposonmapper
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/software-detailed-description-satay.sh.html">
+     Overview of the software required for satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/satay.sh-detailed-description-file-types.html">
+     Detailed description of the output files from satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/interpreting_insertions_reads.html">
+     Interpreting Transposon Counts &amp; Reads
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -201,8 +247,8 @@
   <a class="reference internal" href="../../../api/api.html">
    Transposonmapper
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -332,22 +378,24 @@
 
 
 <div class="viewcode-block" id="get_reads"><a class="viewcode-back" href="../../../api/api_mapping.html#transposonmapper.mapping.get_reads">[docs]</a><span class="k">def</span> <span class="nf">get_reads</span><span class="p">(</span><span class="n">bam</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd"> This function retrieves  all reads within a specified genomic region. </span>
-<span class="sd">     </span>
-<span class="sd">    Usage</span>
-<span class="sd">    ----------</span>
-<span class="sd">    file1,file2,file3=get_reads(bam)</span>
 
+    <span class="sd">&quot;&quot;&quot;This function retrieves  all reads within a specified genomic region. </span>
+<span class="sd">     </span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    bam :  The output for the function pysam.AlignmentFile(bamfile, &quot;rb&quot;)</span>
 
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    readnumb_array: reads per genomic region</span>
-<span class="sd">    tncoordinates_array: Array of three columns where the 2nd one indicated the start position where there was a transposon</span>
-<span class="sd">    tncoordinatescopy_array: A copy from tncoordinates_array</span>
+<span class="sd">    numpy.array</span>
+<span class="sd">        reads per genomic region</span>
+<span class="sd">    numpy.array</span>
+<span class="sd">        Array of three columns where the 2nd one indicated the start position where there was a transposon</span>
+<span class="sd">    numpy.array</span>
+<span class="sd">         A copy from the 2nd output </span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Get chromosome properties</span>

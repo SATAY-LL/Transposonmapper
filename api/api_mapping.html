@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -45,7 +45,7 @@
     <script src="../_static/tabs.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -84,7 +84,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -195,7 +195,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../00-Intro/flowchart.html">
-   Flowchart of Transposonmapper
+   What is Transposonmapper
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
@@ -210,7 +210,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../00-Intro/satay.sh-detailed-description-file-types.html">
-     Detailed description of output files from the Transposonmapper bash workflow
+     Detailed description of the output files from satay.sh
     </a>
    </li>
    <li class="toctree-l2">
@@ -388,27 +388,26 @@
 <code class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></code><code class="sig-name descname"><span class="pre">add_chromosome_length</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chr_lengths_cumsum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid_roman</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/concatenate_chromosomes.html#add_chromosome_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.add_chromosome_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function returns a dictionary that for every gene , there is the chromosome number
 information of where the gene belongs to , the coordinates for the start position, the end position
-and the direction of the gene.
-:param coordinates: This dictionary is the 1st output from the function read_genes(gff_file, essentials_file, gene_names_file)
-:type coordinates: dict
-:param chr_lengths_cumsum: This dictionary is the 2nd output from the function get_sequence_length(bam)
-:type chr_lengths_cumsum: dict
-:param ref_tid_roman: This dictionary is the output from</p>
-<blockquote>
-<div><p>ref_tid_roman = {key: value for key, value in zip(ref_romannums, ref_tid)}, where
-ref_romannums = chromosomename_roman_to_arabic()[1] and
-ref_tid = get_chromosome_names(bam)</p>
-</div></blockquote>
+and the direction of the gene.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><ul class="simple">
-<li><p><strong>coordinates</strong> (<em>dict</em>) – A dictionary that for every gene , there is the chromosome number</p></li>
-<li><p><em>information of where the gene belongs to , the coordinates for the start position, the end position</em></p></li>
-<li><p><em>and the direction of the gene.</em></p></li>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coordinates</strong> (<em>dict</em>) – This dictionary is the 1st output from the function read_genes(gff_file, essentials_file, gene_names_file)</p></li>
+<li><p><strong>chr_lengths_cumsum</strong> (<em>dict</em>) – This dictionary is the 2nd output from the function get_sequence_length(bam)</p></li>
+<li><p><strong>ref_tid_roman</strong> (<em>dict</em>) – This dictionary is the output from
+ref_tid_roman = {key: value for key, value in zip(ref_romannums, ref_tid)}, where
+ref_romannums = chromosomename_roman_to_arabic()[1] and
+ref_tid = get_chromosome_names(bam)</p></li>
 </ul>
-</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary that for every gene , there is the chromosome number information of where the gene belongs to , the coordinates for the start position, the end position</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
+<p>and the direction of the gene.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -418,31 +417,21 @@ ref_tid = get_chromosome_names(bam)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>coordinates</strong> (<em>numpy.array</em>) – readnumb_array, tncoordinates_array, coordinates = get_reads(bam)</p></li>
-<li><p><strong>ref_names</strong> (<em>list</em>) – ref_tid = get_chromosome_names(bam)
-ref_names = list(ref_tid.keys())</p></li>
-<li><p><strong>chr_lengths</strong> (<em>dict</em>) – chr_lengths, _ = get_sequence_length(bam)</p></li>
+<li><p><strong>numpy.array</strong> – Third output from get_reads(bam)</p></li>
+<li><p><strong>list</strong> – </p></li>
+<li><p><strong>from the following</strong> (<em>Output</em>) – <p>ref_tid = get_chromosome_names(bam)</p>
+<p>ref_names = list(ref_tid.keys())</p>
+</p></li>
+<li><p><strong>dict</strong> – First output from get_sequence_length(bam)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>coordinates</strong></p>
+<dd class="field-even"><p>For each insertion location, add the length of all previous chromosomes</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>numpy.array</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="transposonmapper.mapping.correct_read_position">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></code><code class="sig-name descname"><span class="pre">correct_read_position</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readlength</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/correct_read_position.html#correct_read_position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.correct_read_position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Correct starting position for reads with reversed orientation</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="transposonmapper.mapping.find_chromosome_reads">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></code><code class="sig-name descname"><span class="pre">find_chromosome_reads</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chromosome</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N_reads</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/find_chromosome_reads.html#find_chromosome_reads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.find_chromosome_reads" title="Permalink to this definition">¶</a></dt>
-<dd><p>Syntax: [flags, start_position, readlength] = get_chromosome_reads(chromosome, N_reads)</p>
 </dd></dl>
 
 <dl class="py function">
@@ -460,9 +449,9 @@ the distribution  of transposons along the gene.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul>
-<li><p><strong>tn_per_gene</strong> (<em>dict</em>) – A dict which every key corresponds with each gene and each value with the total number of transposons found in that gene</p></li>
-<li><p><strong>reads_per_gene</strong> (<em>dict</em>) – A dict which every key corresponds with each gene and each value with the total number of reads for all the transposons found in that gene</p></li>
-<li><p><strong>tn_coordinates_per_gene</strong> (<em>dict</em>) –</p>
+<li><p><em>dict</em> – A dict which every key corresponds with each gene and each value with the total number of transposons found in that gene</p></li>
+<li><p><em>dict</em> – A dict which every key corresponds with each gene and each value with the total number of reads for all the transposons found in that gene</p></li>
+<li><p><em>dict</em> –</p>
 <dl class="simple">
 <dt>A dict which every key corresponds with each gene and each value with a  list of 4 elements:</dt><dd><ul class="simple">
 <li><p>the chromosome number</p></li>
@@ -483,13 +472,19 @@ the distribution  of transposons along the gene.</p>
 <dt id="transposonmapper.mapping.get_reads">
 <code class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></code><code class="sig-name descname"><span class="pre">get_reads</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bam</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/get_reads.html#get_reads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.get_reads" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function retrieves  all reads within a specified genomic region.</p>
-<blockquote>
-<div><p>file1,file2,file3=get_reads(bam)</p>
-<p>bam :  The output for the function pysam.AlignmentFile(bamfile, “rb”)</p>
-<p>readnumb_array: reads per genomic region
-tncoordinates_array: Array of three columns where the 2nd one indicated the start position where there was a transposon
-tncoordinatescopy_array: A copy from tncoordinates_array</p>
-</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>bam</strong> (<em>The output for the function pysam.AlignmentFile</em><em>(</em><em>bamfile</em><em>, </em><em>&quot;rb&quot;</em><em>)</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>numpy.array</em> – reads per genomic region</p></li>
+<li><p><em>numpy.array</em> – Array of three columns where the 2nd one indicated the start position where there was a transposon</p></li>
+<li><p><em>numpy.array</em> – A copy from the 2nd output</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -517,32 +512,12 @@ tncoordinatescopy_array: A copy from tncoordinates_array</p>
               </div>
               
         
+        <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="api_importing.html" title="previous page">transposonmapper.importing</a>
+    <a class='right-next' id="next-link" href="api_plotting.html" title="next page">transposonmapper.plotting</a>
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="api_importing.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">transposonmapper.importing</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="api_plotting.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">transposonmapper.plotting</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
+        </div>
         
         </div>
     </div>
