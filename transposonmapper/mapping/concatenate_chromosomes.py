@@ -5,18 +5,22 @@ def add_chromosome_length_inserts(coordinates, ref_names, chr_lengths):
 
     Parameters
     ----------
-    coordinates : numpy.array
-        readnumb_array, tncoordinates_array, coordinates = get_reads(bam)
-    ref_names : list
+    numpy.array
+        Third output from get_reads(bam)
+    list
+    Output from the following : 
         ref_tid = get_chromosome_names(bam)
+
         ref_names = list(ref_tid.keys())
-    chr_lengths : dict
-        chr_lengths, _ = get_sequence_length(bam)
+
+    dict
+        First output from get_sequence_length(bam)
    
 
     Returns
     -------
-    coordinates: numpy.array
+    numpy.array
+      For each insertion location, add the length of all previous chromosomes 
         
     """
     
@@ -34,7 +38,7 @@ def add_chromosome_length(coordinates, chr_lengths_cumsum, ref_tid_roman):
     """This function returns a dictionary that for every gene , there is the chromosome number
     information of where the gene belongs to , the coordinates for the start position, the end position
     and the direction of the gene. 
-    
+
     Parameters
     ----------
     coordinates : dict 
@@ -50,9 +54,8 @@ def add_chromosome_length(coordinates, chr_lengths_cumsum, ref_tid_roman):
 
     Returns
     -------
-    coordinates: dict
-        A dictionary that for every gene , there is the chromosome number
-    information of where the gene belongs to , the coordinates for the start position, the end position
+     dict
+        A dictionary that for every gene , there is the chromosome number information of where the gene belongs to , the coordinates for the start position, the end position
     and the direction of the gene. 
     """  
 

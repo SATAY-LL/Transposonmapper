@@ -12,12 +12,18 @@ verbose=True
 #%%
 
 def samflags(flag=0, verbose=True):
-    '''
-    This script converts a decimal flag to binary and get the corresponding properties according to the sam-flag standard.
+    """This script converts a decimal flag to binary and get the corresponding properties according to the sam-flag standard.
     The code is based on the explanation given here https://davetang.org/muse/2014/03/06/understanding-bam-flags/
     For manual checking sam flags, check https://broadinstitute.github.io/picard/explain-flags.html
     The input is a decimal number.
-    '''
+
+    Parameters
+    ----------
+    flag : int, optional
+         by default 0
+    verbose : bool, optional
+         by default True
+    """
 
     flag_binary = format(flag, '012b') # '#012b' to start the string with '0b'. 12 indicated that the string has length 12.
 
