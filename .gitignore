@@ -26,6 +26,8 @@
 # jupyter Book build
 jupyter_book/_build/
 
+# Ignore unused python function
+transposonmapper/mapping/correct_read_position.py
 
 
 
