@@ -158,20 +158,66 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../00-Intro/data-analysis-workflow.html">
-   Overview of the pipeline functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../00-Intro/satay_analysis_notes.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../00-Intro/what_is_satay.html">
    What is SATAY
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/experimental_setup.html">
+     SATAY Experimental Process
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/gene_essentiality.html">
+     Gene Essentiality in budding yeast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/research-context-behind-satay.html">
+     Research questions behind the use of SATAY
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About Transposonmapper
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../../00-Intro/flowchart.html">
-   Flowchart of the pipeline
+   What is Transposonmapper
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/software-detailed-description-satay.sh.html">
+     Overview of the software required for satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/satay.sh-detailed-description-file-types.html">
+     Detailed description of the output files from satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/interpreting_insertions_reads.html">
+     Interpreting Transposon Counts &amp; Reads
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -201,8 +247,8 @@
   <a class="reference internal" href="../../../api/api.html">
    Transposonmapper
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -338,21 +384,36 @@
 
 
 <div class="viewcode-block" id="profile_genome"><a class="viewcode-back" href="../../../api/api_processing.html#transposonmapper.processing.profile_genome">[docs]</a><span class="k">def</span> <span class="nf">profile_genome</span><span class="p">(</span><span class="n">bed_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="s2">&quot;transposons&quot;</span><span class="p">,</span> <span class="n">bar_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">showfig</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Created on Thu Mar 18 13:05:39 2021</span>
+    <span class="sd">&quot;&quot;&quot;Created on Thu Mar 18 13:05:39 2021</span>
 
 <span class="sd">    @author: gregoryvanbeek</span>
 <span class="sd">    This function creates a bar plot along the entire genome.</span>
 <span class="sd">    The height of each bar represents the number of transposons or reads at the genomic position indicated on the x-axis.</span>
-<span class="sd">    The input is as follows:</span>
-<span class="sd">        - bed file</span>
-<span class="sd">        - variable (&#39;transposons&#39; or &#39;reads&#39;)</span>
-<span class="sd">        - bar_width</span>
-<span class="sd">        - savefig</span>
+<span class="sd">   </span>
+<span class="sd">    The bar_width determines how many basepairs are put in one bin. Little basepairs per bin may be slow. </span>
+<span class="sd">    Too many basepairs in one bin and possible low transposon areas might be obscured.</span>
+<span class="sd">    </span>
 
-<span class="sd">    The bar_width determines how many basepairs are put in one bin. Little basepairs per bin may be slow. Too many basepairs in one bin and possible low transposon areas might be obscured.</span>
-<span class="sd">    For this a list for essential genes is needed (used in &#39;list_known_essentials&#39; function) and a .gff file is required (for the functions in &#39;chromosome_and_gene_positions.py&#39;) and a list for gene aliases (used in the function &#39;gene_aliases&#39;)</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bed_file : str, optional</span>
+<span class="sd">        The file path to the location of the bed file in your filesystem, by default None</span>
+<span class="sd">    variable : str, optional</span>
+<span class="sd">        The variable for plotting throughput the genome, by default &quot;transposons&quot;</span>
+<span class="sd">    bar_width : int, optional</span>
+<span class="sd">        The width for the histogram of the plot, by default None , which means internally the length of the genome over 1000 </span>
+<span class="sd">    savefig : bool, optional</span>
+<span class="sd">        Save the figure if True, by default False</span>
+<span class="sd">    showfig : bool, optional</span>
+<span class="sd">        Show the figure if True, by default False</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        All insertion sites</span>
+<span class="sd">    list</span>
+<span class="sd">        Binned insertion sites according the width </span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
 
 

@@ -385,20 +385,20 @@
 <dl class="py function">
 <dt id="transposonmapper.statistics.apply_stats">
 <code class="sig-prename descclassname"><span class="pre">transposonmapper.statistics.</span></code><code class="sig-name descname"><span class="pre">apply_stats</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable_a_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_b_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">significance_threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volcano_df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/statistics/volcano_helpers.html#apply_stats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.statistics.apply_stats" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>This function computes the statistics measure for the volcano plot</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>variable_a_array</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
-<li><p><strong>variable_b_array</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
-<li><p><strong>significance_threshold</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>variable_a_array</strong> (<em>array</em>) – The values (# of insertions or reads) of the replicates of one library</p></li>
+<li><p><strong>variable_b_array</strong> (<em>array</em>) – The values (# of insertions or reads) of the  replicates of the other library</p></li>
+<li><p><strong>significance_threshold</strong> (<em>float</em>) – It will use the default value in the volcano function which is 0.01</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>[description]</p>
+<dd class="field-even"><p>A dataframe containing all the info for the volcano plot.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>[type]</p>
+<dd class="field-odd"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -415,17 +415,43 @@ The number of reads per insertion (Nreadsperinsrt) is determined by dividing the
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pergenefile</strong> (<em>str</em>) – absolute path to the pergene.txt file , one of the outputs of the transposonmapper module</p></li>
 <li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – [description], by default True</p></li>
-<li><p><strong>Outputs</strong> – </p></li>
-<li><p><strong>-----------</strong> – </p></li>
-<li><p><strong>is a dataframe where each row is a single gene and with the following columns</strong> (<em>Output</em>) – <ul>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Output is a dataframe where each row is a single gene and with the following columns:</dt><dd><ul class="simple">
 <li><p>gene_names</p></li>
 <li><p>gene_essentiality</p></li>
 <li><p>tn_per_gene</p></li>
 <li><p>read_per_gene</p></li>
 <li><p>Nreadsperinsrt</p></li>
 </ul>
-</p></li>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.statistics.essential_genes">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.statistics.</span></code><code class="sig-name descname"><span class="pre">essential_genes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">genenames_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/statistics/dataframe_from_pergene_helpers.html#essential_genes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.statistics.essential_genes" title="Permalink to this definition">¶</a></dt>
+<dd><p>It provides a list of essential genes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>genenames_list</strong> (<em>list</em>) – A list will al genes names that were mapped to the reference genome</p></li>
+<li><p><strong>lines</strong> (<em>int</em>) – Number of genes in total</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of essential genes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -487,6 +513,48 @@ a minimum of two files.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt id="transposonmapper.statistics.read_pergene_file">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.statistics.</span></code><code class="sig-name descname"><span class="pre">read_pergene_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pergenefile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/statistics/dataframe_from_pergene_helpers.html#read_pergene_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.statistics.read_pergene_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>It reads the content of the pergene file , one of the outputs of Transposonmapper</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pergenefile</strong> (<em>str</em>) – absolute path to the pergene.txt file , one of the outputs of the transposonmapper module</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>list</em> – Gene names list</p></li>
+<li><p><em>list</em> – Insertion list</p></li>
+<li><p><em>list</em> – Reads list</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.statistics.reads_per_insertion">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.statistics.</span></code><code class="sig-name descname"><span class="pre">reads_per_insertion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tnpergene_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readpergene_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/statistics/dataframe_from_pergene_helpers.html#reads_per_insertion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.statistics.reads_per_insertion" title="Permalink to this definition">¶</a></dt>
+<dd><p>It computes the reads per insertion following the formula:
+reads/(insertions-1) if the number of insertions is higher than 5,
+if not then the reads per insertion will be 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tnpergene_list</strong> (<em>list</em>) – A list with all insertions</p></li>
+<li><p><strong>readpergene_list</strong> (<em>list</em>) – A list of the reads</p></li>
+<li><p><strong>lines</strong> (<em>int</em>) – Number of genes mapped to in the reference genome</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list containing all the reads per insertions per gene.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="transposonmapper.statistics.volcano">
 <code class="sig-prename descclassname"><span class="pre">transposonmapper.statistics.</span></code><code class="sig-name descname"><span class="pre">volcano</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filelist_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filelist_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'read_per_gene'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">significance_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trackgene_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/statistics/volcanoplot.html#volcano"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.statistics.volcano" title="Permalink to this definition">¶</a></dt>
 <dd><p>This script creates a volcanoplot to show the significance of fold change between two datasets.
@@ -533,23 +601,29 @@ These values are determined in dicussion with the Kornmann lab.</p>
 , by default True</p></li>
 <li><p><strong>trackgene_list</strong> (<em>list</em><em>, </em><em>optional</em>) – Enter a list of gene name(s) which will be highlighted in the plot (e.g. [‘cdc42’, ‘nrp1’]), by default []</p></li>
 <li><p><strong>figure_title</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of the figure if not empty, by default “”</p></li>
-<li><p><strong>Ouputs</strong> – </p></li>
-<li><p><strong>---------</strong> – <ul>
-<li><dl class="simple">
-<dt>volcano_df: pandas dataframe containing:</dt><dd><ul>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul>
+<li><p><em>dataframe</em> –</p>
+<p>A dataframe containing:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>gene_names</p></li>
 <li><p>fold change</p></li>
 <li><p>t statistic</p></li>
 <li><p>p value</p></li>
 <li><p>whether p value is above threshold</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
+<li><p><em>figure</em> –</p>
+<ul class="simple">
 <li><p>volcanoplot with the log2 fold change between the two libraries and the -log10 p-value.</p></li>
 </ul>
-</p></li>
+</li>
 </ul>
+</p>
 </dd>
 </dl>
 </dd></dl>

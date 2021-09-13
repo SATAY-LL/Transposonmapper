@@ -556,13 +556,13 @@ This function can be used for normalizing the transposon insertions per gene usi
 <li><p><strong>plotting</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not producing a bar plot with the reads/insertions per genomic location in the region, by default True</p></li>
 <li><p><strong>savefigure</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not saving the plot in the same folder as the datafiles, by default False</p></li>
 <li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Determines how much textual feedback is given. When set to False, only warnings will be shown. By default True</p></li>
-<li><p><strong>Outputs</strong> – </p></li>
-<li><p><strong>-------------------</strong> – </p></li>
-<li><p><strong>dna_df2</strong> (<em>-</em>) – Notes</p></li>
-<li><p><strong>------------------</strong> – </p></li>
-<li><p><strong>__Date__</strong> (<em>14-10-2020</em>) – </p></li>
-<li><p><strong>__Author__</strong> (<em>Gregory van Beek</em>) – </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dataframe containing information about the selected chromosome.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -579,10 +579,13 @@ This function can be used for normalizing the transposon insertions per gene usi
 <li><p><strong>start_chr</strong> (<em>int</em>) – [description]</p></li>
 <li><p><strong>dna_dict</strong> (<em>dict</em>) – first output of the gene_location function</p></li>
 <li><p><strong>feature_type</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – [description], by default None</p></li>
-<li><p><strong>Output</strong> – </p></li>
-<li><p><strong>---------</strong> – </p></li>
-<li><p><strong>dna_dict</strong> – </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -680,13 +683,24 @@ is the roman description of the chromosome of interest.</p></li>
 <dl class="py function">
 <dt id="transposonmapper.processing.list_known_essentials">
 <code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">list_known_essentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headerlines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/essential_genes_names.html#list_known_essentials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.list_known_essentials" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get all known essential genes from two different files and combine them in one list.
-Input is a list of of paths where files can be found with the known essential genes.
+<dd><dl>
+<dt>Get all known essential genes from two different files and combine them in one list.</dt><dd><p>Input is a list of of paths where files can be found with the known essential genes.
 A default list is implemented using two files present in the same folder as this file.
 It is expected that the files contain genes in a single column and nothing else.
 An option can be set for the number of headerlines, which by default is set to 3.
 The output is a list containing all the genes present in all files given in the input.</p>
 <p>Note when using the default files: The length of the output list exceed the number of known essential genes as the list sometimes contains both the standard name and the systematic name of a gene.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_files</strong> (<em>str</em><em>, </em><em>optional</em>) – File path for the essential file in your file system, by default None</p></li>
+<li><p><strong>headerlines</strong> (<em>int</em><em>, </em><em>optional</em>) – by default 3</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – To show explanations if True, by default True</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -712,18 +726,27 @@ The output is a list containing all the genes present in all files given in the 
 <dd><p>Created on Thu Mar 18 13:05:39 2021</p>
 <p>&#64;author: gregoryvanbeek
 This function creates a bar plot along the entire genome.
-The height of each bar represents the number of transposons or reads at the genomic position indicated on the x-axis.
-The input is as follows:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>bed file</p></li>
-<li><p>variable (‘transposons’ or ‘reads’)</p></li>
-<li><p>bar_width</p></li>
-<li><p>savefig</p></li>
+The height of each bar represents the number of transposons or reads at the genomic position indicated on the x-axis.</p>
+<p>The bar_width determines how many basepairs are put in one bin. Little basepairs per bin may be slow.
+Too many basepairs in one bin and possible low transposon areas might be obscured.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bed_file</strong> (<em>str</em><em>, </em><em>optional</em>) – The file path to the location of the bed file in your filesystem, by default None</p></li>
+<li><p><strong>variable</strong> (<em>str</em><em>, </em><em>optional</em>) – The variable for plotting throughput the genome, by default “transposons”</p></li>
+<li><p><strong>bar_width</strong> (<em>int</em><em>, </em><em>optional</em>) – The width for the histogram of the plot, by default None , which means internally the length of the genome over 1000</p></li>
+<li><p><strong>savefig</strong> (<em>bool</em><em>, </em><em>optional</em>) – Save the figure if True, by default False</p></li>
+<li><p><strong>showfig</strong> (<em>bool</em><em>, </em><em>optional</em>) – Show the figure if True, by default False</p></li>
 </ul>
-</div></blockquote>
-<p>The bar_width determines how many basepairs are put in one bin. Little basepairs per bin may be slow. Too many basepairs in one bin and possible low transposon areas might be obscured.
-For this a list for essential genes is needed (used in ‘list_known_essentials’ function) and a .gff file is required (for the functions in ‘chromosome_and_gene_positions.py’) and a list for gene aliases (used in the function ‘gene_aliases’)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>list</em> – All insertion sites</p></li>
+<li><p><em>list</em> – Binned insertion sites according the width</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -773,16 +796,17 @@ For this a list for essential genes is needed (used in ‘list_known_essentials�
 <dd><p>This function read the file SGD_features.tab and create a dictionary with useful info for processing</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>filepath</strong> (<em>str</em><em>, </em><em>optional</em>) – filepath of the sgd.tab file , by default None</p></li>
-<li><p><strong>Output</strong> – </p></li>
-<li><p><strong>----------</strong> – </p></li>
-<li><p><strong>different dictionaries with info from the file. The most</strong> (<em>Output</em>) – </p></li>
-<li><p><strong>is the 2nd output which contain the following information in this order</strong> (<em>useful</em>) – <dl>
-<dt>key:</dt><dd><ol class="arabic simple" start="0">
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em><em>, </em><em>optional</em>) – filepath of the sgd.tab file , by default None</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>A dictionary with the following info:
+key:</p>
+<blockquote>
+<div><ol class="arabic simple" start="0">
 <li><p>Feature name</p></li>
 </ol>
-</dd>
+</div></blockquote>
+<dl>
 <dt>value:</dt><dd><ol class="arabic simple" start="0">
 <li><p>feature type (l[1])</p></li>
 <li><p>feature qualifier (Verified or Dubious) (l[2])</p></li>
@@ -793,13 +817,13 @@ For this a list for essential genes is needed (used in ‘list_known_essentials�
 <li><p>start coordinate (starting at 0 for each chromosome) (l[9])</p></li>
 <li><p>end coordinate (starting at 0 for each chromosome) (l[10])</p></li>
 </ol>
-<p>Created on Mon Sep  7 11:32:52 2020</p>
-<p>&#64;author: gregoryvanbeek</p>
 <p>This file reads the SGD_features.txt file found at <a class="reference external" href="http://sgd-archive.yeastgenome.org/curation/chromosomal_feature/">http://sgd-archive.yeastgenome.org/curation/chromosomal_feature/</a></p>
 </dd>
 </dl>
-</p></li>
-</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>

@@ -158,20 +158,66 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../00-Intro/data-analysis-workflow.html">
-   Overview of the pipeline functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../00-Intro/satay_analysis_notes.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../00-Intro/what_is_satay.html">
    What is SATAY
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/experimental_setup.html">
+     SATAY Experimental Process
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/gene_essentiality.html">
+     Gene Essentiality in budding yeast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/research-context-behind-satay.html">
+     Research questions behind the use of SATAY
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About Transposonmapper
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../../00-Intro/flowchart.html">
-   Flowchart of the pipeline
+   What is Transposonmapper
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/software-detailed-description-satay.sh.html">
+     Overview of the software required for satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/satay.sh-detailed-description-file-types.html">
+     Detailed description of the output files from satay.sh
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../00-Intro/interpreting_insertions_reads.html">
+     Interpreting Transposon Counts &amp; Reads
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -201,8 +247,8 @@
   <a class="reference internal" href="../../../api/api.html">
    Transposonmapper
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -331,10 +377,10 @@
 <span class="sd">    filepath : str, optional</span>
 <span class="sd">        filepath of the sgd.tab file , by default None</span>
 
-<span class="sd">    Output</span>
-<span class="sd">    ----------</span>
-<span class="sd">    Output different dictionaries with info from the file. The most </span>
-<span class="sd">    useful is the 2nd output which contain the following information in this order:</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">         A dictionary with the following info: </span>
 <span class="sd">        key:</span>
 <span class="sd">            0. Feature name</span>
 <span class="sd">        value:</span>
@@ -347,10 +393,6 @@
 <span class="sd">            6. start coordinate (starting at 0 for each chromosome) (l[9])</span>
 <span class="sd">            7. end coordinate (starting at 0 for each chromosome) (l[10])</span>
 <span class="sd">           </span>
-<span class="sd">            Created on Mon Sep  7 11:32:52 2020</span>
-
-<span class="sd">            @author: gregoryvanbeek</span>
-
 <span class="sd">            This file reads the SGD_features.txt file found at http://sgd-archive.yeastgenome.org/curation/chromosomal_feature/</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 

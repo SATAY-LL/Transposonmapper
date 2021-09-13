@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>transposonmapper.processing.essential_genes_names &#8212; SATAY pipeline at Delft :)</title>
+    <title>transposonmapper.statistics.dataframe_from_pergene_helpers &#8212; SATAY pipeline at Delft :)</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -334,7 +334,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/SATAY-LL/Transposonmapper/issues/new?title=Issue%20on%20page%20%2F_modules/transposonmapper/processing/essential_genes_names.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/SATAY-LL/Transposonmapper/issues/new?title=Issue%20on%20page%20%2F_modules/transposonmapper/statistics/dataframe_from_pergene_helpers.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -363,81 +363,110 @@
         
               <div>
                 
-  <h1>Source code for transposonmapper.processing.essential_genes_names</h1><div class="highlight"><pre>
-<span></span><span class="c1"># =============================================================================</span>
-<span class="c1"># To import the functions, type:</span>
-<span class="c1">#    import sys</span>
-<span class="c1">#    sys.path.insert(1,r&#39;full\path\to\this\file&#39;)</span>
-<span class="c1">#    from essential_genes import list_known_essentials</span>
-<span class="c1"># =============================================================================</span>
+  <h1>Source code for transposonmapper.statistics.dataframe_from_pergene_helpers</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">re</span> 
 
-<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">transposonmapper.importing</span> <span class="kn">import</span> <span class="n">load_default_files</span>
+<span class="kn">from</span> <span class="nn">transposonmapper.processing</span> <span class="kn">import</span> <span class="n">list_known_essentials</span>
 
-<div class="viewcode-block" id="list_known_essentials"><a class="viewcode-back" href="../../../api/api_processing.html#transposonmapper.processing.list_known_essentials">[docs]</a><span class="k">def</span> <span class="nf">list_known_essentials</span><span class="p">(</span><span class="n">input_files</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">headerlines</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Get all known essential genes from two different files and combine them in one list.</span>
-<span class="sd">        Input is a list of of paths where files can be found with the known essential genes.</span>
-<span class="sd">        A default list is implemented using two files present in the same folder as this file.</span>
-<span class="sd">        It is expected that the files contain genes in a single column and nothing else.</span>
-<span class="sd">        An option can be set for the number of headerlines, which by default is set to 3.</span>
-<span class="sd">        The output is a list containing all the genes present in all files given in the input.</span>
-<span class="sd">        </span>
-<span class="sd">        Note when using the default files: The length of the output list exceed the number of known essential genes as the list sometimes contains both the standard name and the systematic name of a gene.</span>
+<div class="viewcode-block" id="read_pergene_file"><a class="viewcode-back" href="../../../api/api_statistics.html#transposonmapper.statistics.read_pergene_file">[docs]</a><span class="k">def</span> <span class="nf">read_pergene_file</span><span class="p">(</span><span class="n">pergenefile</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;It reads the content of the pergene file , one of the outputs of Transposonmapper </span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    input_files : str, optional</span>
-<span class="sd">        File path for the essential file in your file system, by default None</span>
-<span class="sd">    headerlines : int, optional</span>
-<span class="sd">         by default 3</span>
-<span class="sd">    verbose : bool, optional</span>
-<span class="sd">        To show explanations if True, by default True</span>
+<span class="sd">    pergenefile : str</span>
+<span class="sd">        absolute path to the pergene.txt file , one of the outputs of the transposonmapper module</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        Gene names list</span>
+<span class="sd">    list</span>
+<span class="sd">        Insertion list</span>
+<span class="sd">    list </span>
+<span class="sd">        Reads list </span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">pergenefile</span><span class="p">),</span> <span class="s1">&#39;File not found at: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pergenefile</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pergenefile</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span> <span class="c1">#skip header</span>
+
+    <span class="n">genenames_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    <span class="n">tnpergene_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    <span class="n">readpergene_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> 
+
+    <span class="n">line_counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">line_split</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; |</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">line_split</span> <span class="k">if</span> <span class="n">x</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">genenames_list</span><span class="p">[</span><span class="n">line_counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">tnpergene_list</span><span class="p">[</span><span class="n">line_counter</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">readpergene_list</span><span class="p">[</span><span class="n">line_counter</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+            <span class="n">line_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">genenames_list</span><span class="p">,</span><span class="n">tnpergene_list</span><span class="p">,</span><span class="n">readpergene_list</span><span class="p">,</span><span class="n">lines</span></div>
+
+
+<div class="viewcode-block" id="reads_per_insertion"><a class="viewcode-back" href="../../../api/api_statistics.html#transposonmapper.statistics.reads_per_insertion">[docs]</a><span class="k">def</span> <span class="nf">reads_per_insertion</span><span class="p">(</span><span class="n">tnpergene_list</span><span class="p">,</span><span class="n">readpergene_list</span><span class="p">,</span><span class="n">lines</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;It computes the reads per insertion following the formula:</span>
+<span class="sd">    reads/(insertions-1) if the number of insertions is higher than 5, </span>
+<span class="sd">    if not then the reads per insertion will be 0. </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tnpergene_list : list</span>
+<span class="sd">        A list with all insertions</span>
+<span class="sd">    readpergene_list : list </span>
+<span class="sd">        A list of the reads </span>
+<span class="sd">    lines : int</span>
+<span class="sd">        Number of genes mapped to in the reference genome </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">         A list containing all the reads per insertions per gene. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">readperinspergene_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tnpergene_list</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tnpergene_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">readperinspergene_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">readpergene_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">tnpergene_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">readperinspergene_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">return</span> <span class="n">readperinspergene_list</span></div>
     
-    <span class="k">if</span> <span class="n">input_files</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="essential_genes"><a class="viewcode-back" href="../../../api/api_statistics.html#transposonmapper.statistics.essential_genes">[docs]</a><span class="k">def</span> <span class="nf">essential_genes</span><span class="p">(</span><span class="n">genenames_list</span><span class="p">,</span><span class="n">lines</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;It provides a list of essential genes </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    genenames_list : list</span>
+<span class="sd">        A list will al genes names that were mapped to the reference genome</span>
+<span class="sd">    lines : int </span>
+<span class="sd">        Number of genes in total </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list </span>
+<span class="sd">        List of essential genes </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_</span><span class="p">,</span><span class="n">essential_genes_list</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">load_default_files</span><span class="p">()</span>
+    <span class="n">known_essential_gene_list</span> <span class="o">=</span> <span class="n">list_known_essentials</span><span class="p">(</span><span class="n">essential_genes_list</span><span class="p">)</span>
+    <span class="n">geneessentiality_list</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">genenames_list</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">genenames_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">known_essential_gene_list</span><span class="p">:</span>
+            <span class="n">geneessentiality_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">geneessentiality_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
         
-        <span class="c1"># If necessary, load default files</span>
-        <span class="n">gff_file</span><span class="p">,</span> <span class="n">essential_genes_files</span><span class="p">,</span> <span class="n">gene_name_file</span> <span class="o">=</span> <span class="n">load_default_files</span><span class="p">(</span>
-            <span class="n">gff_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">essentials_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gene_names_file</span><span class="o">=</span><span class="kc">None</span>
-        <span class="p">)</span>
-
-        <span class="c1"># Verify presence of files</span>
-        <span class="n">data_files</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;gff3&quot;</span><span class="p">:</span> <span class="n">gff_file</span><span class="p">,</span>
-            <span class="s2">&quot;essentials&quot;</span><span class="p">:</span> <span class="n">essential_genes_files</span><span class="p">,</span>
-            <span class="s2">&quot;gene_names&quot;</span><span class="p">:</span> <span class="n">gene_name_file</span><span class="p">,</span>
-        <span class="p">}</span>
-
-        <span class="k">for</span> <span class="n">filetype</span><span class="p">,</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">data_files</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">assert</span> <span class="n">file_path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filetype</span><span class="si">}</span><span class="s2"> not found at </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span>
-        
-        <span class="n">input_files</span><span class="o">=</span><span class="n">essential_genes_files</span>
-
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">essential_genes_files</span> <span class="o">=</span> <span class="n">input_files</span>
-
-
-    <span class="n">known_essential_gene_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="c1">#making sure essential_genes_files is a list</span>
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">essential_genes_files</span><span class="p">)</span><span class="o">!=</span><span class="nb">list</span><span class="p">:</span>
-        <span class="n">essential_genes_files</span><span class="o">=</span><span class="p">[</span><span class="n">input_files</span><span class="p">]</span>
-        
-    <span class="k">for</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">essential_genes_files</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">verbose</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reading file :&#39;</span><span class="p">,</span><span class="n">files</span><span class="p">)</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">header_lines</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">headerlines</span><span class="p">):</span>
-                <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">lines</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">known_essential_gene_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lines</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
-                
-    
-    <span class="k">return</span><span class="p">(</span><span class="n">known_essential_gene_list</span><span class="p">)</span></div>
-<span class="c1"># #%%</span>
-<span class="c1"># if __name__ == &#39;__main__&#39;:</span>
-<span class="c1">#     known_essential_gene_list = list_known_essentials()</span>
-
-
+    <span class="k">return</span> <span class="n">geneessentiality_list</span></div>
 </pre></div>
 
               </div>
