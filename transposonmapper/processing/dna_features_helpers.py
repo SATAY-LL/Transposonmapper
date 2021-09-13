@@ -276,9 +276,9 @@ def feature_position(feature_dict, chrom, start_chr, dna_dict, feature_type=None
     feature_type : [type], optional
         [description], by default None
 
-    Output
-    ---------
-    dna_dict: dict 
+    Returns
+    -------
+     dict 
 
     """
     

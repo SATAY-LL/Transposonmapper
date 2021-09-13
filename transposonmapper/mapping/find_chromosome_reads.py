@@ -7,7 +7,7 @@ def find_chromosome_reads(chromosome, N_reads: int):
 
     Parameters
     ----------
-    chromosome : int , or , str 
+    chromosome :  str 
         The name of the chromosome , either in arabic numbers 1, 2 , or roman  "I", "II"
     N_reads : int
         

@@ -11,10 +11,10 @@ def sgd_features(filepath=None):
     filepath : str, optional
         filepath of the sgd.tab file , by default None
 
-    Output
-    ----------
-    Output different dictionaries with info from the file. The most 
-    useful is the 2nd output which contain the following information in this order:
+    Returns
+    -------
+    dict
+         A dictionary with the following info: 
         key:
             0. Feature name
         value:
@@ -27,10 +27,6 @@ def sgd_features(filepath=None):
             6. start coordinate (starting at 0 for each chromosome) (l[9])
             7. end coordinate (starting at 0 for each chromosome) (l[10])
            
-            Created on Mon Sep  7 11:32:52 2020
-
-            @author: gregoryvanbeek
-
             This file reads the SGD_features.txt file found at http://sgd-archive.yeastgenome.org/curation/chromosomal_feature/
     """
 

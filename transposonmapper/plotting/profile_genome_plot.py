@@ -8,6 +8,31 @@ from transposonmapper.processing import list_known_essentials
 
 def profile_genome_plot(bar_width,l_genome,allinsertionsites_list,allcounts_binnedlist,summed_chr_length_dict,
                          middle_chr_position,chrom_list,variable,genes_currentchrom_pos_list,gene_pos_dict):
+    """Plot function to show the whole insertion map throughout the genome 
+
+    Parameters
+    ----------
+    bar_width : int
+        The width for the histogram of the plot, by default None , which means internally the length of the genome over 1000 
+    l_genome : int
+        The length of the genome in bp
+    allinsertionsites_list : list
+        List of insertions sites 
+    allcounts_binnedlist : list
+        List of binned counts 
+    summed_chr_length_dict : dict
+        The cumulative sum of the length of every chromosome 
+    middle_chr_position : dict
+        Middle chromosome position per chromosome
+    chrom_list : list
+        A list of all the chromosomes
+    variable : str
+        It could be "transposons" or "reads"
+    genes_currentchrom_pos_list : list
+        List of genes per chromosome 
+    gene_pos_dict : dict 
+        Postion along the genome of every gene 
+    """    
 
     _,essential_file,_=load_default_files()
     genes_essential_list=list_known_essentials(essential_file)

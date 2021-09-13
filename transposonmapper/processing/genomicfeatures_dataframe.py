@@ -49,15 +49,12 @@ def dna_features(region, wig_file, pergene_insertions_file, variable="reads", pl
     verbose : bool, optional
         Determines how much textual feedback is given. When set to False, only warnings will be shown. By default True
 
-    Outputs
-    -------------------
-    - dna_df2: Dataframe containing information about the selected chromosome. This includes the following columns:
+    Returns
+    -------
+    dataframe
+         Dataframe containing information about the selected chromosome. 
 
-        Notes
-    ------------------
-
-    __Date__: 14-10-2020
-    __Author__: Gregory van Beek
+    
     """
 
     # If necessary, load default files

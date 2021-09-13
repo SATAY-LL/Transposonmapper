@@ -54,14 +54,19 @@ def volcano(path_a, filelist_a, path_b, filelist_b, variable='read_per_gene', si
     figure_title : str, optional
         The title of the figure if not empty, by default ""
 
-    Ouputs:
-    ---------
-        - volcano_df: pandas dataframe containing:
+
+    Returns
+    -------
+    dataframe
+
+        A dataframe containing:
+        
             - gene_names
             - fold change
             - t statistic
             - p value
             - whether p value is above threshold
+    figure
         - volcanoplot with the log2 fold change between the two libraries and the -log10 p-value.
 
     """
