@@ -393,6 +393,19 @@ To get all dictionaries, use: ‘a,b,c, chromosome_and_gene_position.chromosome_
 ‘a’ = chromosome length
 ‘b’ = chromosome start position
 ‘c’ = chromosome end position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gff_file</strong> (<em>str</em>) – The file path of  a .gff file downloaded from <a class="reference external" href="https://www.ensembl.org/Saccharomyces_cerevisiae/Info/Index">https://www.ensembl.org/Saccharomyces_cerevisiae/Info/Index</a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>dict</em> – A dictionary relating each chromosome with its length</p></li>
+<li><p><em>dict</em> – A dictionary relating each chromosome with its start position</p></li>
+<li><p><em>dict</em> – A dictionary relating each chromosome with its end  position</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -410,6 +423,20 @@ The keys of the dictionaries are the systematic names of the genes (e.g. YBR200W
 <dt>Search through lists to get corresponding key:</dt><dd><p>[key for key, val in aliases.items() if ‘TFC3’ in val]</p>
 </dd>
 </dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gene_information_file</strong> (<em>str</em><em>, </em><em>optional</em>) – Input is the path to ‘Protein_Names.txt’ file downloaded from <a class="reference external" href="https://www.uniprot.org/docs/yeast">https://www.uniprot.org/docs/yeast</a>.
+If no input is given the file is automatically searched for at Yeast_Protein_Names.txt inside the package, by default None</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>dict</em> – gene aliases for common names (e.g. Bem1 and Sro1)</p></li>
+<li><p><em>dict</em> – gene aliases for the search names in SGD (e.g. Bem1 and S000000404)</p></li>
+<li><p><em>dict</em> – gene aliases for Swiss Prot</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -420,8 +447,24 @@ Input is a .gff file downloaded from <a class="reference external" href="https:/
 Output is a dictionary that includes all gene names as keys. The values are lists with four inputs.
 The first is the chromosome number the gene belong to, the second is the start position, the third is the end position of the gene in terms of basepairs, the fourth is the reading orientation of the gene.
 The reading orientation is indicated with a ‘+’ (forward reading) or ‘-‘ (reverse reading).
-The get_dict by defulat sets that the output should be given as a dictionary with keys the different genes and the values a list of the different parameters.
+The get_dict by default sets that the output should be given as a dictionary with keys the different genes and the values a list of the different parameters.
 When the get_dict is set to False, the code returns all the values as individual lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gff_file</strong> (<em>str</em>) – The file path of  a .gff file downloaded from <a class="reference external" href="https://www.ensembl.org/Saccharomyces_cerevisiae/Info/Index">https://www.ensembl.org/Saccharomyces_cerevisiae/Info/Index</a></p></li>
+<li><p><strong>get_dict</strong> (<em>bool</em><em>, </em><em>optional</em>) – When the get_dict is set to False, the code returns all the values as individual lists, by default True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Output is a dictionary that includes all gene names as keys. The values are lists with four inputs.
+The first is the chromosome number the gene belong to, the second is the start position, the third is the end position of the gene in terms of basepairs, the fourth is the reading orientation of the gene.
+The reading orientation is indicated with a ‘+’ (forward reading) or ‘-‘ (reverse reading).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -507,6 +550,17 @@ It makes use of the method get_index_statistics() from the pysam module.
 <dd><p>Create a list of all known gene names and their aliases as listed on SGD (or as provided as an optional input file)
 Input is a standard file downloaded from <a class="reference external" href="https://www.uniprot.org/docs/yeast">https://www.uniprot.org/docs/yeast</a>.
 Output is list of all genes, which also includes all the aliases (if they exists).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gene_information_file</strong> (<em>str</em><em>, </em><em>optional</em>) – Input is a standard file downloaded from <a class="reference external" href="https://www.uniprot.org/docs/yeast">https://www.uniprot.org/docs/yeast</a>, by default None</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Output is list of all genes, which also includes all the aliases (if they exists).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
