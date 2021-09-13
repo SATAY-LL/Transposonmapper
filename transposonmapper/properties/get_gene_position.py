@@ -4,9 +4,23 @@ def gene_position(gff_file, get_dict=True):
     Output is a dictionary that includes all gene names as keys. The values are lists with four inputs.
     The first is the chromosome number the gene belong to, the second is the start position, the third is the end position of the gene in terms of basepairs, the fourth is the reading orientation of the gene.
     The reading orientation is indicated with a '+' (forward reading) or '-' (reverse reading).
-    The get_dict by defulat sets that the output should be given as a dictionary with keys the different genes and the values a list of the different parameters.
+    The get_dict by default sets that the output should be given as a dictionary with keys the different genes and the values a list of the different parameters.
     When the get_dict is set to False, the code returns all the values as individual lists.
-    """
+
+    Parameters
+    ----------
+    gff_file : str
+        The file path of  a .gff file downloaded from https://www.ensembl.org/Saccharomyces_cerevisiae/Info/Index
+    get_dict : bool, optional
+        When the get_dict is set to False, the code returns all the values as individual lists, by default True
+
+    Returns
+    -------
+    dict
+        Output is a dictionary that includes all gene names as keys. The values are lists with four inputs.
+        The first is the chromosome number the gene belong to, the second is the start position, the third is the end position of the gene in terms of basepairs, the fourth is the reading orientation of the gene.
+        The reading orientation is indicated with a '+' (forward reading) or '-' (reverse reading).
+    """    
 
     if get_dict == True:
         gene_pos_dict = {}

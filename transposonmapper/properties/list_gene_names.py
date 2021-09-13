@@ -6,7 +6,17 @@ def list_gene_names(gene_information_file=None):
     """Create a list of all known gene names and their aliases as listed on SGD (or as provided as an optional input file)
     Input is a standard file downloaded from https://www.uniprot.org/docs/yeast.
     Output is list of all genes, which also includes all the aliases (if they exists).
-    """
+
+    Parameters
+    ----------
+    gene_information_file : str, optional
+        Input is a standard file downloaded from https://www.uniprot.org/docs/yeast, by default None
+
+    Returns
+    -------
+    list
+        Output is list of all genes, which also includes all the aliases (if they exists).
+    """   
 
     if gene_information_file == None:
        
