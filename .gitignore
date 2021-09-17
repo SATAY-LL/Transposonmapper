@@ -23,13 +23,9 @@
 # !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam_clean.wig
 # !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam_clean.bed
 
+
 # jupyter Book build
 jupyter_book/_build/
-
-# Ignore unused python function
-transposonmapper/mapping/correct_read_position.py
-transposonmapper/mapping/find_chromosome_reads.py
-
 
 
 # Compiled source #

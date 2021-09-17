@@ -98,13 +98,13 @@ def dna_features(region, wig_file, pergene_insertions_file, variable="reads", pl
 
 ## GET FEATURES FROM INTERGENIC REGIONS 
 
-    dna_dict,genomicregions_list=intergenic_regions(chrom,start_chr,dna_dict)
+    dna_dict_new,genomicregions_list=intergenic_regions(chrom,start_chr,dna_dict)
 
 
     ### TEST IF ELEMENTS IN FEATURE_ORF_DICT FOR SELECTED CHROMOSOME ARE THE SAME AS THE GENES IN GENE_POSITION_DICT BY CREATING THE DICTIONARY FEATURE_POSITION_DICT CONTAINING ALL THE GENES IN FEATURE_ORF_DICT WITH THEIR CORRESPONDING POSITION IN THE CHROMOSOME
     checking_features(feature_orf_dict,chrom,gene_position_dict,verbose)
 
-    dna_df2=build_dataframe(dna_dict,start_chr,end_chr,insrt_in_chrom_list,reads_in_chrom_list,genomicregions_list,chrom)
+    dna_df2=build_dataframe(dna_dict_new,start_chr,end_chr,insrt_in_chrom_list,reads_in_chrom_list,genomicregions_list,chrom)
 
     #PRINT INFORMATION FOR THE SELECTED GENE
     if region_type == 'Gene':

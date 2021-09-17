@@ -1,5 +1,5 @@
 import os
-from transposonmapper.properties.gene_aliases import gene_aliases
+
 import pkg_resources
 import glob
 import pandas 
@@ -9,7 +9,7 @@ import numpy
 
 
 from transposonmapper import transposonmapper
-
+from transposonmapper.properties.gene_aliases import gene_aliases
 from transposonmapper.processing import (input_region,read_pergene_file,
 read_wig_file,gene_location,feature_position,intergenic_regions, build_dataframe)
 from transposonmapper.utils import chromosomename_roman_to_arabic
@@ -158,7 +158,7 @@ def test_output_intergenic_regions(pergenefile,bamfile):
 def test_output_build_dataframe(pergenefile,bamfile,wigfile):
 
     transposonmapper(bamfile)
-    chrom="I"
+    chrom="V"
     insrt_in_chrom_list, reads_in_chrom_list=read_wig_file(wigfile,chrom)
     gene_position_dict=read_pergene_file(pergenefile,chrom=chrom)
     
