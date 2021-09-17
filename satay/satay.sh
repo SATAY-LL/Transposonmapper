@@ -194,7 +194,7 @@ main () {
 			"TRUE" \
 			"TRUE" \
 			"bash -c 'xdg-open ${adapterfile}'"\
-			"bash -c 'evince ${documentation}'"\
+			"bash -c 'evince ${documentation}'" `
 
 			if [ ! -z "$settings" ] && [ $filepath1 != "none" ] && [ $(echo $settings | awk 'BEGIN {FS="|" } { print $9 }') == TRUE ] && [ $(echo $settings | awk 'BEGIN {FS="|" } { print $7 }') == TRUE ] #Create cachefile only if settings or filepath1 is not empty and Qualitycheck interrupt is set to True and Quality check raw files is set to True.
 			then
