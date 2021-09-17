@@ -15,13 +15,14 @@ def get_insertions_and_reads(coordinates, tn_coordinates, readnumb_array):
 
     Returns
     -------
-    tn_per_gene : dict 
+     dict 
         A dict which every key corresponds with each gene and each value with the total number of transposons found in that gene
-    reads_per_gene: dict
+    
+     dict
         A dict which every key corresponds with each gene and each value with the total number of reads for all the transposons found in that gene
 
-    tn_coordinates_per_gene: dict 
-         A dict which every key corresponds with each gene and each value with a  list of 4 elements:
+     dict 
+        A dict which every key corresponds with each gene and each value with a  list of 4 elements:
             - the chromosome number
             - gene start position
             - gene end position

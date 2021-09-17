@@ -133,21 +133,21 @@ def info_from_datasets(datafiles_list_a,datafiles_list_b,variable,normalize):
 
 
 def apply_stats(variable_a_array,variable_b_array,significance_threshold,volcano_df):
-    """[summary]
+    """This function computes the statistics measure for the volcano plot 
 
     Parameters
     ----------
-    variable_a_array : [type]
-        [description]
-    variable_b_array : [type]
-        [description]
-    significance_threshold : [type]
-        [description]
+    variable_a_array : array
+        The values (# of insertions or reads) of the replicates of one library
+    variable_b_array : array 
+        The values (# of insertions or reads) of the  replicates of the other library
+    significance_threshold : float 
+        It will use the default value in the volcano function which is 0.01
 
     Returns
     -------
-    [type]
-        [description]
+    dataframe 
+        A dataframe containing all the info for the volcano plot. 
     """
     
     ttest_tval_list = [np.nan]*len(variable_a_array) #initialize list for storing t statistics

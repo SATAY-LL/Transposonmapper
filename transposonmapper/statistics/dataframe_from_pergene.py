@@ -22,14 +22,16 @@ def dataframe_from_pergenefile(pergenefile, verbose=True):
         absolute path to the pergene.txt file , one of the outputs of the transposonmapper module
     verbose : bool, optional
         [description], by default True
-    Outputs
+
+    Returns
     -----------
-    Output is a dataframe where each row is a single gene and with the following columns:
-        - gene_names
-        - gene_essentiality
-        - tn_per_gene
-        - read_per_gene
-        - Nreadsperinsrt
+    dataframe
+        Output is a dataframe where each row is a single gene and with the following columns:
+            - gene_names
+            - gene_essentiality
+            - tn_per_gene
+            - read_per_gene
+            - Nreadsperinsrt
     """
 
    

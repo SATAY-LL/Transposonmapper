@@ -35,6 +35,19 @@ setup(
         "Programming Language :: Bash",
     ],
     test_suite="tests",
-    install_requires=["numpy", "pysam", "matplotlib","scipy"],
-    extras_require={"dev": ["bump2version", "pandas", "pytest", "pytest-cov"]},
+    install_requires=["numpy", "pysam", "matplotlib", "scipy"],
+    extras_require={
+        "dev": [
+            "bump2version",
+            "pandas",
+            "pytest",
+            "pytest-cov",
+            "jupyter-book>=0.7.0",
+            "sphinx-click",
+            "sphinx-tabs",
+            "sphinxext-rediraffe",
+            "sphinx_inline_tabs",
+            "ghp-import"
+        ]
+    },
 )

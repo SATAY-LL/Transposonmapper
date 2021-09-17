@@ -10,7 +10,21 @@ def chromosome_position(gff_file):
     'a' = chromosome length
     'b' = chromosome start position
     'c' = chromosome end position
-    """
+
+    Parameters
+    ----------
+    gff_file : str
+        The file path of  a .gff file downloaded from https://www.ensembl.org/Saccharomyces_cerevisiae/Info/Index
+
+    Returns
+    -------
+    dict 
+        A dictionary relating each chromosome with its length
+    dict 
+        A dictionary relating each chromosome with its start position
+    dict 
+        A dictionary relating each chromosome with its end  position
+    """    
 
     if gff_file==None:
         default_path = pkg_resources.resource_filename("transposonmapper", "data_files/")
