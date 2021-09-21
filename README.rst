@@ -123,9 +123,9 @@ Docker
 ------
 
 For a full installation and user guide for Docker containers, 
-`see our documentation <https://satay-ll.github.io/SATAY-jupyter-book/03-docker-doc/00-Docker-Users.html>`_.
+`see our documentation <https://satay-ll.github.io/Transposonmapper/03-docker-doc/01-Docker-Setup.html>`_.
 
-The Docker image is hosted at `mwakok/satay <https://hub.docker.com/r/mwakok/satay>`_.
+The Docker image is hosted at `leilaicruz/satay <https://hub.docker.com/repository/docker/leilaicruz/satay>`_.
 
 Prerequisites:
 
@@ -142,7 +142,7 @@ To build the image locally in your computer, from DockerHub :
 .. code-block:: console
 
 
-   docker pull mwakok/satay:latest
+   docker pull leilaicruz/satay:latest
 
 - Verify the image is in your computer 
 
@@ -157,7 +157,7 @@ To build the image locally in your computer, from DockerHub :
 .. code-block:: console
 
 
-   docker build . -t mwakok/satay:latest
+   docker build . -t leilaicruz/satay:latest
 
 - Move to the location where you have the data you would like to mount to the container ,
 to use ``$(pwd)`` in the command bellow (simplest option) , otherwise indicate the absolute path from your computer
