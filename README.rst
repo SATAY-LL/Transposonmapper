@@ -168,13 +168,13 @@ To run the docker container, use the commands for your Operating System:
 .. code-block:: console
 
     # For Windows (and WSL):
-    docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):/data mwakok/satay:latest
+    docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):/data leilaicruz/satay:latest
 
     # For macOS
-    docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data mwakok/satay
+    docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data leilaicruz/satay
 
     # For Linux
-    docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data mwakok/satay
+    docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data leilaicruz/satay
 
 - The flag ``-e`` enables viewing of the GUI outside the container via the Xserver 
 - The flag ``-v`` mounts the current directory (pwd) on the host system to the ``data/`` folder inside the container
