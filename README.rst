@@ -100,7 +100,7 @@ For more extensive documentation, `see our JupyterBook <https://satay-ll.github.
 SATAY pipeline
 ==============
 
-.. image:: https://user-images.githubusercontent.com/15414938/125289522-9c421580-e31f-11eb-9fc9-79c5f96d994c.png
+.. image:: https://user-images.githubusercontent.com/11459658/134164634-0806ce7a-4cae-4040-9ea4-e93a27b0b4b3.png
    :width: 400
    :align: center
 
