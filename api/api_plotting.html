@@ -383,6 +383,56 @@
                 
   <div class="section" id="module-transposonmapper.plotting">
 <span id="transposonmapper-plotting"></span><h1>transposonmapper.plotting<a class="headerlink" href="#module-transposonmapper.plotting" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="transposonmapper.plotting.dna_features_plot">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.plotting.</span></code><code class="sig-name descname"><span class="pre">dna_features_plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dna_df2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roi_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roi_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">len_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/plotting/dna_features_plot.html#dna_features_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.plotting.dna_features_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot function for the genomic features per chromosome</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chrom</strong> (<em>str</em>) – <ul>
+<li><p>Region: e.g. chromosome number (either a normal number between 1 and 16 or in roman numerals between I and XVI),</p></li>
+</ul>
+<blockquote>
+<div><p>a list like [‘V’, 0, 14790] which creates a barplot between basepair 0 and 14790) or a genename.</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>dna_df2</strong> (<em>pandas.dataframe</em>) – Dataframe containing information about the selected chromosome</p></li>
+<li><p><strong>roi_start</strong> (<em>int</em>) – The start of the chromosome
+roi_start,roi_end,region_type,chrom=input_region(region=region,verbose=verbose)</p></li>
+<li><p><strong>roi_end</strong> (<em>int</em>) – The end of the chromosome
+roi_start,roi_end,region_type,chrom=input_region(region=region,verbose=verbose)</p></li>
+<li><p><strong>len_chr</strong> (<em>[</em><em>type</em><em>]</em>) – Length of the  chromosome
+dna_dict,start_chr,end_chr,len_chr,feature_orf_dict=gene_location(chrom,gene_position_dict,verbose)</p></li>
+<li><p><strong>plotting</strong> (<em>optional</em>) – default True</p></li>
+<li><p><strong>variable</strong> (<em>optional</em>) – default “reads”</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="transposonmapper.plotting.profile_genome_plot">
+<code class="sig-prename descclassname"><span class="pre">transposonmapper.plotting.</span></code><code class="sig-name descname"><span class="pre">profile_genome_plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bar_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_genome</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allinsertionsites_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allcounts_binnedlist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summed_chr_length_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">middle_chr_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genes_currentchrom_pos_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_pos_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/plotting/profile_genome_plot.html#profile_genome_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.plotting.profile_genome_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot function to show the whole insertion map throughout the genome</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bar_width</strong> (<em>int</em>) – The width for the histogram of the plot, by default None , which means internally the length of the genome over 1000</p></li>
+<li><p><strong>l_genome</strong> (<em>int</em>) – The length of the genome in bp</p></li>
+<li><p><strong>allinsertionsites_list</strong> (<em>list</em>) – List of insertions sites</p></li>
+<li><p><strong>allcounts_binnedlist</strong> (<em>list</em>) – List of binned counts</p></li>
+<li><p><strong>summed_chr_length_dict</strong> (<em>dict</em>) – The cumulative sum of the length of every chromosome</p></li>
+<li><p><strong>middle_chr_position</strong> (<em>dict</em>) – Middle chromosome position per chromosome</p></li>
+<li><p><strong>chrom_list</strong> (<em>list</em>) – A list of all the chromosomes</p></li>
+<li><p><strong>variable</strong> (<em>str</em>) – It could be “transposons” or “reads”</p></li>
+<li><p><strong>genes_currentchrom_pos_list</strong> (<em>list</em>) – List of genes per chromosome</p></li>
+<li><p><strong>gene_pos_dict</strong> (<em>dict</em>) – Postion along the genome of every gene</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
     <script type="text/x-thebe-config">

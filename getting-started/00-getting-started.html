@@ -379,8 +379,8 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-transposonmapper-from-pypi-work-in-progress">
-   Installing Transposonmapper from PyPi (work in progress)
+  <a class="reference internal nav-link" href="#installing-transposonmapper-from-pypi">
+   Installing Transposonmapper from PyPi
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -415,12 +415,17 @@
 <h1>Installing transposonmapper<a class="headerlink" href="#installing-transposonmapper" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Installing the transposonmapper package is optional. When running SATAY from the docker container, transposonmapper is pre-installed. Also, the transposonmapper package requires the <code class="docutils literal notranslate"><span class="pre">pysam</span></code> package, which only runs on a Linux system.</p>
+<p>Installing the transposonmapper package is optional. When running SATAY from the docker container, transposonmapper is pre-installed.</p>
 </div>
-<div class="section" id="installing-transposonmapper-from-pypi-work-in-progress">
-<h2>Installing Transposonmapper from PyPi (work in progress)<a class="headerlink" href="#installing-transposonmapper-from-pypi-work-in-progress" title="Permalink to this headline">¶</a></h2>
-<p>In a terminal, enter</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install transposonmapper
+<div class="section" id="installing-transposonmapper-from-pypi">
+<h2>Installing Transposonmapper from PyPi<a class="headerlink" href="#installing-transposonmapper-from-pypi" title="Permalink to this headline">¶</a></h2>
+<p>For users that only require post processing analysis of the data (the bam file was already analyzed),
+do use the default installation. For example <code class="docutils literal notranslate"><span class="pre">pysam</span></code> won’t be installed, hence Linux is not required.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>   pip install transposonmapper 
+</pre></div>
+</div>
+<p>For users that require the whole processing pipeline, do use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>   pip install transposonmapper<span class="o">[</span>linux<span class="o">]</span>
 </pre></div>
 </div>
 </div>

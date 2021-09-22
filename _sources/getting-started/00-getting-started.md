@@ -1,16 +1,27 @@
 # Installing transposonmapper
 
 ```{note}
-Installing the transposonmapper package is optional. When running SATAY from the docker container, transposonmapper is pre-installed. Also, the transposonmapper package requires the `pysam` package, which only runs on a Linux system.
+Installing the transposonmapper package is optional. When running SATAY from the docker container, transposonmapper is pre-installed. 
 ```
 
-## Installing Transposonmapper from PyPi (work in progress)
-In a terminal, enter
+## Installing Transposonmapper from PyPi 
+
+For users that only require post processing analysis of the data (the bam file was already analyzed),
+do use the default installation. For example `pysam` won't be installed, hence Linux is not required.
+
 
 ```bash
 
-pip install transposonmapper
+   pip install transposonmapper 
 
+```
+
+For users that require the whole processing pipeline, do use: 
+
+
+```bash
+
+   pip install transposonmapper[linux]
 ```
 
 ## Installing Transposonmapper from the GitHub repository 

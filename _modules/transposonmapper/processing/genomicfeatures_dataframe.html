@@ -464,13 +464,13 @@
 
 <span class="c1">## GET FEATURES FROM INTERGENIC REGIONS </span>
 
-    <span class="n">dna_dict</span><span class="p">,</span><span class="n">genomicregions_list</span><span class="o">=</span><span class="n">intergenic_regions</span><span class="p">(</span><span class="n">chrom</span><span class="p">,</span><span class="n">start_chr</span><span class="p">,</span><span class="n">dna_dict</span><span class="p">)</span>
+    <span class="n">dna_dict_new</span><span class="p">,</span><span class="n">genomicregions_list</span><span class="o">=</span><span class="n">intergenic_regions</span><span class="p">(</span><span class="n">chrom</span><span class="p">,</span><span class="n">start_chr</span><span class="p">,</span><span class="n">dna_dict</span><span class="p">)</span>
 
 
     <span class="c1">### TEST IF ELEMENTS IN FEATURE_ORF_DICT FOR SELECTED CHROMOSOME ARE THE SAME AS THE GENES IN GENE_POSITION_DICT BY CREATING THE DICTIONARY FEATURE_POSITION_DICT CONTAINING ALL THE GENES IN FEATURE_ORF_DICT WITH THEIR CORRESPONDING POSITION IN THE CHROMOSOME</span>
     <span class="n">checking_features</span><span class="p">(</span><span class="n">feature_orf_dict</span><span class="p">,</span><span class="n">chrom</span><span class="p">,</span><span class="n">gene_position_dict</span><span class="p">,</span><span class="n">verbose</span><span class="p">)</span>
 
-    <span class="n">dna_df2</span><span class="o">=</span><span class="n">build_dataframe</span><span class="p">(</span><span class="n">dna_dict</span><span class="p">,</span><span class="n">start_chr</span><span class="p">,</span><span class="n">end_chr</span><span class="p">,</span><span class="n">insrt_in_chrom_list</span><span class="p">,</span><span class="n">reads_in_chrom_list</span><span class="p">,</span><span class="n">genomicregions_list</span><span class="p">,</span><span class="n">chrom</span><span class="p">)</span>
+    <span class="n">dna_df2</span><span class="o">=</span><span class="n">build_dataframe</span><span class="p">(</span><span class="n">dna_dict_new</span><span class="p">,</span><span class="n">start_chr</span><span class="p">,</span><span class="n">end_chr</span><span class="p">,</span><span class="n">insrt_in_chrom_list</span><span class="p">,</span><span class="n">reads_in_chrom_list</span><span class="p">,</span><span class="n">genomicregions_list</span><span class="p">,</span><span class="n">chrom</span><span class="p">)</span>
 
     <span class="c1">#PRINT INFORMATION FOR THE SELECTED GENE</span>
     <span class="k">if</span> <span class="n">region_type</span> <span class="o">==</span> <span class="s1">&#39;Gene&#39;</span><span class="p">:</span>

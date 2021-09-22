@@ -660,8 +660,11 @@
 
     <span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">position_dict</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="n">start_chr</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">position_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feat</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span><span class="o">+</span><span class="n">start_chr</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;noncoding&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
-                <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">feat</span><span class="p">,</span> <span class="n">feature_type</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">bp</span> <span class="ow">in</span> <span class="n">dna_dict</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;noncoding&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+                    <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">feat</span><span class="p">,</span> <span class="n">feature_type</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span> 
+                <span class="n">dna_dict</span><span class="p">[</span><span class="n">bp</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="n">feat</span><span class="p">,</span> <span class="n">feature_type</span><span class="p">]</span>
 
 
     <span class="k">return</span><span class="p">(</span><span class="n">dna_dict</span><span class="p">)</span></div>
@@ -791,9 +794,12 @@
 
     <span class="n">reads_loc_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">dna_dict</span><span class="p">)</span> <span class="c1"># CONTAINS ALL READS JUST LIKE READS_IN_CHROM_LIST, BUT THIS LIST HAS THE SAME LENGTH AS THE NUMBER OF BP IN THE CHROMOSOME WHERE THE LOCATIONS WITH NO READS ARE FILLED WITH ZEROS</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    
     <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">insrt_in_chrom_list</span><span class="p">:</span>
-        <span class="n">reads_loc_list</span><span class="p">[</span><span class="n">ins</span><span class="p">]</span> <span class="o">=</span> <span class="n">reads_in_chrom_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">reads_loc_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">ins</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="c1"># there are some insertions outside  the chromosome that gives an error </span>
+            <span class="n">reads_loc_list</span><span class="p">[</span><span class="n">ins</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">reads_in_chrom_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    
 
     <span class="n">feature_NameAndType_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">f_previous</span> <span class="o">=</span> <span class="n">dna_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">start_chr</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
