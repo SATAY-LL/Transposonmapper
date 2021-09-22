@@ -42,7 +42,7 @@ Also a list of genes is generated where the number and distribution of insertion
    * - **Code quality checks**
      -
    * - Continuous integration
-     - |CI Test|
+     - |CI Build| |CI Publish| 
    * - Documentation
      - |JupyterBook Badge|
    * - Code Quality
@@ -62,22 +62,26 @@ Also a list of genes is generated where the number and distribution of insertion
 .. |Pypi Badge| image:: https://img.shields.io/pypi/v/transposonmapper?color=blue
    :target: https://pypi.org/project/transposonmapper
    :alt: Pypi Badge
+  
+.. |Docker Badge| image:: https://img.shields.io/docker/automated/leilaicruz/satay
+   :target: https://hub.docker.com/r/leilaicruz/satay
+   :alt: Docker Automated build
 
-.. |Docker Badge| image:: https://img.shields.io/docker/automated/mwakok/satay
-   :target: https://hub.docker.com/r/mwakok/satay
-   :alt: Docker Badge
-
-.. |Zenodo Badge| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4636310.svg
-   :target: https://doi.org/10.5281/zenodo.4636310
+.. |Zenodo Badge| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.5521578.svg
+   :target: https://doi.org/10.5281/zenodo.5521578
    :alt: Zenodo Badge
 
 .. |Howfairis Badge| image:: https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F-green
    :target: https://fair-software.eu
    :alt: Howfairis badge
 
-.. |CI Test| image:: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_test.yml/badge.svg
+.. |CI Build| image:: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_build.yml/badge.svg
    :alt: Continuous integration workflow
-   :target: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_test.yml
+   :target: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_build.yml
+   
+.. |CI Publish| image:: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_publish.yml/badge.svg
+   :alt: Continuous integration workflow
+   :target: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_publish.yml
 
 .. |JupyterBook Badge| image:: https://img.shields.io/badge/docs-JupyterBook-green
    :alt: Jupyter Book documentation
@@ -306,4 +310,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-*Last updated: July 12, 2021*
+
