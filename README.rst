@@ -120,7 +120,7 @@ For more extensive documentation, `see our JupyterBook <https://satay-ll.github.
 SATAY pipeline
 ==============
 
-.. image:: https://user-images.githubusercontent.com/15414938/125289522-9c421580-e31f-11eb-9fc9-79c5f96d994c.png
+.. image:: https://user-images.githubusercontent.com/11459658/134164634-0806ce7a-4cae-4040-9ea4-e93a27b0b4b3.png
    :width: 400
    :align: center
 
@@ -143,9 +143,9 @@ Docker
 ------
 
 For a full installation and user guide for Docker containers, 
-`see our documentation <https://satay-ll.github.io/SATAY-jupyter-book/03-docker-doc/00-Docker-Users.html>`_.
+`see our documentation <https://satay-ll.github.io/Transposonmapper/03-docker-doc/01-Docker-Setup.html>`_.
 
-The Docker image is hosted at `mwakok/satay <https://hub.docker.com/r/mwakok/satay>`_.
+The Docker image is hosted at `leilaicruz/satay <https://hub.docker.com/repository/docker/leilaicruz/satay>`_.
 
 Prerequisites:
 
@@ -161,7 +161,10 @@ To build the image locally in your computer, from DockerHub:
 
 .. code-block:: console
 
-   docker pull mwakok/satay:latest
+
+
+   docker pull leilaicruz/satay:latest
+
 
 - Verify the image is in your computer 
 
@@ -175,7 +178,7 @@ To build the image locally in your computer, from DockerHub:
 
 .. code-block:: console
 
-   docker build . -t mwakok/satay:latest
+   docker build . -t leilaicruz/satay:latest
 
 - Move to the location where you have the data you would like to mount to the container, to use ``$(pwd)`` in the command bellow (simplest option), otherwise indicate the absolute path from your computer you would like to be loaded. 
 
@@ -185,13 +188,13 @@ To run the docker container, use the commands for your Operating System:
 .. code-block:: console
 
     # For Windows (and WSL):
-    docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):data/ mwakok/satay:latest
+    docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):/data leilaicruz/satay:latest
 
     # For macOS
-    docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data mwakok/satay
+    docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data leilaicruz/satay
 
     # For Linux
-    docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data mwakok/satay
+    docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data leilaicruz/satay
 
 - The flag ``-e`` enables viewing of the GUI outside the container via the Xserver 
 - The flag ``-v`` mounts the current directory (pwd) on the host system to the ``data/`` folder inside the container
