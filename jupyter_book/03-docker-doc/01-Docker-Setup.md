@@ -62,17 +62,17 @@ To start a container from an image, we use the command `docker run <image_name>`
 
 ````{tab} Windows
 ```
-docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):data/ mwakok/satay:latest 
+docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):/data leilaicruz/satay:latest 
 ```
 ````
 ````{tab} macOS
 ```
-docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data mwakok/satay 
+docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data leilaicruz/satay:latest 
 ```
 ````
 ````{tab} Linux
 ```
-docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data mwakok/satay
+docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data leilaicruz/satay:latest
 ```
 ````
 
@@ -81,17 +81,17 @@ If you wish to inspect the content of the container interactively, add the comma
 
 ````{tab} Windows
 ```
-docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):data/ mwakok/satay:latest bash
+docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):/data leilaicruz/satay:latest bash
 ```
 ````
 ````{tab} macOS
 ```
-docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data mwakok/satay bash
+docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data leilaicruz/satay:latest bash
 ```
 ````
 ````{tab} Linux
 ```
-docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data mwakok/satay bash
+docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data leilaicruz/satay:latest bash
 ```
 ````
 

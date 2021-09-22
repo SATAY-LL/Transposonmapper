@@ -22,6 +22,7 @@ To build and test a docker image locally on your computer, run the following com
 ```bash
 docker build . -t satay
 ```
+Note: You dont need to upload the image to dockerHub. The continuous integration workflow on Github will do this automatically upon new release.
 
 For more information about building Docker images, see the [Docker reference documentation](https://docs.docker.com/engine/reference/builder/)
 
