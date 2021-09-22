@@ -95,6 +95,26 @@ Also a list of genes is generated where the number and distribution of insertion
 Documentation for users
 ***********************
 
+PyPI package
+============
+
+For users that only require post processing analysis of the data (the bam file was already analyzed),
+do use the default installation. For example `pysam` won't be installed, hence Linux is not required.
+
+
+.. code-block:: console
+
+   pip install transposonmapper 
+
+For users that require the whole processing pipeline, do use: 
+
+
+.. code-block:: console
+
+   pip install transposonmapper[linux]
+
+
+
 For more extensive documentation, `see our JupyterBook <https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html>`_.
 
 SATAY pipeline
@@ -236,26 +256,16 @@ Run tests (including coverage) with:
     
     pytest
 
-PyPI package
-============
-
-For users that only require post processing analysis of the data (the bam file was already analyzed),
-do use the default installation. For example `pysam` won't be installed, hence Linux is not required.
 
 
-.. code-block:: console
 
-   pip install transposonmapper 
-
-For users that require the whole processing pipeline, do use: 
-
-.. code-block:: console
-
-   pip install transposonmapper[dev]
 
 Docker image
 ============
-Coming soon!
+
+For more information go to our [Jupyter Book](https://satay-ll.github.io/Transposonmapper/03-docker-doc/03-Docker-Developers.html)
+
+
 
 
 Contributing
