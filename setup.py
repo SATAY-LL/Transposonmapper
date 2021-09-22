@@ -17,6 +17,7 @@ setup(
     version=version["__version__"],
     description="A libray for processing sequencing data for SAturated Transposon Analysis in Yeast (SATAY)",
     long_description=readme,
+    long_description_content_type='text/x-rst',
     url="https://github.com/SATAY-LL/Transposonmapper",
     author="Liedewij Laan Lab",
     author_email="L.M.InigoDeLaCruz@tudelft.nl",
@@ -32,9 +33,28 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Natural Language :: English",
         "Programming Language :: Python :: 3.8",
-        "Programming Language :: Bash",
+        "Programming Language :: Unix Shell",
     ],
     test_suite="tests",
-    install_requires=["numpy", "pysam", "matplotlib","scipy"],
-    extras_require={"dev": ["bump2version", "pandas", "pytest", "pytest-cov"]},
+    install_requires=["numpy", "matplotlib", "scipy","pandas"],
+    extras_require={
+        "dev": [
+            "bump2version",
+            "pysam",
+            "pytest",
+            "pytest-cov",
+            "jupyter-book>=0.7.0",
+            "sphinx-click",
+            "sphinx-tabs",
+            "sphinxext-rediraffe",
+            "sphinx_inline_tabs",
+            "ghp-import"
+
+        ],
+        "linux":[
+            "pysam"
+
+        ]
+
+    },
 )

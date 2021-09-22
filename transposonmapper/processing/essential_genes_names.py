@@ -9,7 +9,7 @@ import os
 from transposonmapper.importing import load_default_files
 
 def list_known_essentials(input_files = None, headerlines=3, verbose=True):
-    ''' Get all known essential genes from two different files and combine them in one list.
+    """Get all known essential genes from two different files and combine them in one list.
         Input is a list of of paths where files can be found with the known essential genes.
         A default list is implemented using two files present in the same folder as this file.
         It is expected that the files contain genes in a single column and nothing else.
@@ -17,7 +17,16 @@ def list_known_essentials(input_files = None, headerlines=3, verbose=True):
         The output is a list containing all the genes present in all files given in the input.
         
         Note when using the default files: The length of the output list exceed the number of known essential genes as the list sometimes contains both the standard name and the systematic name of a gene.
-    '''
+
+    Parameters
+    ----------
+    input_files : str, optional
+        File path for the essential file in your file system, by default None
+    headerlines : int, optional
+         by default 3
+    verbose : bool, optional
+        To show explanations if True, by default True
+    """
     
     if input_files == None:
         

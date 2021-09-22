@@ -6,37 +6,33 @@ def load_default_files(gff_file=None, essentials_file=None, gene_names_file=None
     It will look inside the satay/data_files folder for the files if the input is None. 
     Otherwise it will return the same input file.  
     
-    Usage:
-    ------
-    file1, file2, file3=load_default_files(gff_file=file1,
-                                            essentials_file=file2,
-                                            gene_names_file=file3)
-    if you dont provide a specific file as an input , then it will look into the default folder
-    satay/data_files/ and it will give the standard file provided in the package.
 
-    file1, file2, file3=load_default_files(gff_file=None,
-                                            essentials_file=None,
-                                            gene_names_file=None)
 
     Parameters
     ----------
-    gff_file : [.gff3] --> Annotated genome from Saccharomyces cerevisiae (baker's yeast) 
-        (https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz)
-    essentials_file : [.txt] -->  Essentials genes annotated from yeast , written using the systematic name standard , 
-        all in one column
-    gene_names_file : [.txt] --> This documents lists all the Saccharomyces cerevisiae S288c entries present in
-this release of UniProtKB/Swiss-Prot. Yeast (Saccharomyces cerevisiae): entries, gene names and cross-references to SGD. 
-             Release:     2021_01 of 10-Feb-2021
+    gff_file : .gff3, optional
+         Annotated genome from Saccharomyces cerevisiae (baker's yeast) 
+        (https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz), by default None
+    essentials_file : .txt, optional
+        Essentials genes annotated from yeast , written using the systematic name standard , 
+        all in one column, by default None
+    gene_names_file : .txt, optional
+        This documents lists all the Saccharomyces cerevisiae S288c entries present in
+        this release of UniProtKB/Swiss-Prot. Yeast (Saccharomyces cerevisiae): entries, 
+        gene names and cross-references to SGD. 
+        Release:     2021_01 of 10-Feb-2021, by default None
 
     Returns
     -------
-    gff_file : [.gff3]--> Annotated genome from Saccharomyces cerevisiae (baker's yeast) 
-        (https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz)
-    essentials_file : [.txt]-->  Essentials genes annotated from yeast , written using the systematic name standard , 
-        all in one column
-    gene_names_file : [.txt]--> This documents lists all the Saccharomyces cerevisiae S288c entries present in
-this release of UniProtKB/Swiss-Prot. Yeast (Saccharomyces cerevisiae): entries, gene names and cross-references to SGD. 
-             Release:     2021_01 of 10-Feb-2021
+    str: 
+
+        The correct path of the .gff3 input required file for the further analysis. 
+    str: 
+
+        The correct path of the essential file input required file for the further analysis. 
+    str: 
+
+        The correct path of the gene_name_file required file for the further analysis.
     """
 
     default_path = pkg_resources.resource_filename("transposonmapper", "data_files/")
@@ -60,19 +56,18 @@ def load_sgd_tab(sgd_features_file=None):
     The latest version of the SGD_features.tab file is based on Genome Version R64-2-1.
     If a specific file is provided it will output that file , otherwise , if it is set to None then 
     it will give the standard file provided in the package. 
-    Usage:
-    file1=load_sgd_tab(sgd_features_file=file1)
-    if you dont provide a specific file as an input , then it will look into the default folder
-    satay/data_files/ and it will give the standard file provided in the package.
-
-    file1=load_sgd_tab(sgd_features_file=None)
-    
+        
    
-    Arguments:
-        sgd_features_file {.gff3} -- The latest version of the SGD_features.tab file is based on Genome Version R64-2-1.
 
-    Returns:
-        sgd_features_file {.gff3} -- The latest version of the SGD_features.tab file is based on Genome Version R64-2-1.
+    Parameters
+    ----------
+    sgd_features_file : str, optional
+        The latest version of the SGD_features.tab file is based on Genome Version R64-2-1., by default None
+
+    Returns
+    -------
+    str: 
+        The path corresponding to this file in the package 
     """
     default_path = pkg_resources.resource_filename("transposonmapper", "data_files/")
     if sgd_features_file is None: 

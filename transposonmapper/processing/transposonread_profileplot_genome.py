@@ -18,21 +18,36 @@ length_genome,middle_chrom_pos,counts_genome,binned_list)
 
 
 def profile_genome(bed_file=None, variable="transposons", bar_width=None, savefig=False,showfig=False):
-    '''
-    Created on Thu Mar 18 13:05:39 2021
+    """Created on Thu Mar 18 13:05:39 2021
 
     @author: gregoryvanbeek
     This function creates a bar plot along the entire genome.
     The height of each bar represents the number of transposons or reads at the genomic position indicated on the x-axis.
-    The input is as follows:
-        - bed file
-        - variable ('transposons' or 'reads')
-        - bar_width
-        - savefig
+   
+    The bar_width determines how many basepairs are put in one bin. Little basepairs per bin may be slow. 
+    Too many basepairs in one bin and possible low transposon areas might be obscured.
+    
 
-    The bar_width determines how many basepairs are put in one bin. Little basepairs per bin may be slow. Too many basepairs in one bin and possible low transposon areas might be obscured.
-    For this a list for essential genes is needed (used in 'list_known_essentials' function) and a .gff file is required (for the functions in 'chromosome_and_gene_positions.py') and a list for gene aliases (used in the function 'gene_aliases')
-    '''
+    Parameters
+    ----------
+    bed_file : str, optional
+        The file path to the location of the bed file in your filesystem, by default None
+    variable : str, optional
+        The variable for plotting throughput the genome, by default "transposons"
+    bar_width : int, optional
+        The width for the histogram of the plot, by default None , which means internally the length of the genome over 1000 
+    savefig : bool, optional
+        Save the figure if True, by default False
+    showfig : bool, optional
+        Show the figure if True, by default False
+
+    Returns
+    -------
+    list
+        All insertion sites
+    list
+        Binned insertion sites according the width 
+    """
 
 
 

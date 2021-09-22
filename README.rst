@@ -95,6 +95,26 @@ Also a list of genes is generated where the number and distribution of insertion
 Documentation for users
 ***********************
 
+PyPI package
+============
+
+For users that only require post processing analysis of the data (the bam file was already analyzed),
+do use the default installation. For example `pysam` won't be installed, hence Linux is not required.
+
+
+.. code-block:: console
+
+   pip install transposonmapper 
+
+For users that require the whole processing pipeline, do use: 
+
+
+.. code-block:: console
+
+   pip install transposonmapper[linux]
+
+
+
 For more extensive documentation, `see our JupyterBook <https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html>`_.
 
 SATAY pipeline
@@ -133,7 +153,7 @@ Prerequisites:
 - Docker 
 - Xserver (for displaying the GUI)
 
-To build the image locally in your computer, from DockerHub : 
+To build the image locally in your computer, from DockerHub: 
 
    - create an account in DockerHub
 
@@ -142,26 +162,26 @@ To build the image locally in your computer, from DockerHub :
 .. code-block:: console
 
 
+
    docker pull leilaicruz/satay:latest
+
 
 - Verify the image is in your computer 
 
 
 .. code-block:: console
 
-
    docker images
 
 - Move to where you have the Dockerfile and build the image 
 
-.. code-block:: console
 
+.. code-block:: console
 
    docker build . -t leilaicruz/satay:latest
 
-- Move to the location where you have the data you would like to mount to the container ,
-to use ``$(pwd)`` in the command bellow (simplest option) , otherwise indicate the absolute path from your computer
-you would like to be loaded. 
+- Move to the location where you have the data you would like to mount to the container, to use ``$(pwd)`` in the command bellow (simplest option), otherwise indicate the absolute path from your computer you would like to be loaded. 
+
 
 To run the docker container, use the commands for your Operating System:
 
@@ -181,14 +201,14 @@ To run the docker container, use the commands for your Operating System:
 
 - Troubleshooting 
 
-If an error regarding the connection pops up :
+If an error regarding the connection pops up:
 
 .. code-block:: console
 
 
     Gtk-WARNING **: cannot open display: :0
 
-There is a  solution in Linux is typing the  following command in the terminal : ``xhost +``
+There is a solution in Linux is typing the following command in the terminal : ``xhost +``
       
  
 
@@ -239,13 +259,16 @@ Run tests (including coverage) with:
     
     pytest
 
-PyPI package
-============
-Coming soon!
+
+
+
 
 Docker image
 ============
-Coming soon!
+
+For more information go to our [Jupyter Book](https://satay-ll.github.io/Transposonmapper/03-docker-doc/03-Docker-Developers.html)
+
+
 
 
 Contributing

@@ -1,9 +1,21 @@
 import numpy as np
 
 def correct_read_position(flags, start_position, readlength):
-    """
-    Correct starting position for reads with reversed orientation    
+    """Correct starting position for reads with reversed orientation
 
+    Parameters
+    ----------
+    flags : numpy.array
+        [description]
+    start_position : numpy.array
+        [description]
+    readlength : numpy.array
+        [description]
+
+    Returns
+    -------
+    numpy.array 
+        start position and flags corrected 
     """
 
     flag0coor_array = np.where(flags == 1)  # coordinates reads 5' -> 3'

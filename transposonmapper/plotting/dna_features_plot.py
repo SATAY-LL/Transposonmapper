@@ -4,7 +4,31 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np 
         
-def dna_features_plot(chrom, dna_df2,roi_start,roi_end,len_chr,plotting,variable):    
+def dna_features_plot(chrom, dna_df2,roi_start,roi_end,len_chr,plotting,variable):  
+    """Plot function for the genomic features per chromosome 
+
+    Parameters
+    ----------
+    chrom : str
+        - Region: e.g. chromosome number (either a normal number between 1 and 16 or in roman numerals between I and XVI),
+         a list like ['V', 0, 14790] which creates a barplot between basepair 0 and 14790) or a genename.
+    dna_df2 : pandas.dataframe 
+        Dataframe containing information about the selected chromosome
+    roi_start : int
+        The start of the chromosome
+        roi_start,roi_end,region_type,chrom=input_region(region=region,verbose=verbose)
+    roi_end : int
+        The end of the chromosome
+        roi_start,roi_end,region_type,chrom=input_region(region=region,verbose=verbose)
+    len_chr : [type]
+        Length of the  chromosome
+        dna_dict,start_chr,end_chr,len_chr,feature_orf_dict=gene_location(chrom,gene_position_dict,verbose)
+    plotting : optional
+        default True
+    variable : optional 
+        default "reads"
+    
+    """ 
 
 
     if plotting == True:

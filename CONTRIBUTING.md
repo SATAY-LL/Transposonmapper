@@ -49,5 +49,5 @@ To create release you need write permission on the repository.
 1. Update the `CHANGELOG.md` to include changes made
 1. Goto [GitHub release page](https://github.com/SATAY-LL/Transposonmapper/releases)
 1. Press draft a new release button
-1. Fill version, title and description field
+1. Fill version, title and description field (descipion can be the same as the CHANGELOG update)
 1. Press the Publish Release button

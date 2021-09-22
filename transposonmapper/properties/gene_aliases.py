@@ -12,7 +12,23 @@ def gene_aliases(gene_information_file=None):
     
     Search through lists to get corresponding key:
         [key for key, val in aliases.items() if 'TFC3' in val]
-    """
+
+    Parameters
+    ----------
+    gene_information_file : str, optional
+        Input is the path to 'Protein_Names.txt' file downloaded from https://www.uniprot.org/docs/yeast.
+        If no input is given the file is automatically searched for at Yeast_Protein_Names.txt inside the package, by default None
+
+    Returns
+    -------
+    dict 
+        gene aliases for common names (e.g. Bem1 and Sro1)
+    dict
+        gene aliases for the search names in SGD (e.g. Bem1 and S000000404)
+    dict 
+         gene aliases for Swiss Prot
+
+    """  
 
     if gene_information_file == None:
 
