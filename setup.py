@@ -36,10 +36,11 @@ setup(
         "Programming Language :: Unix Shell",
     ],
     test_suite="tests",
-    install_requires=["numpy", "pysam", "matplotlib", "scipy"],
+    install_requires=["numpy", "matplotlib", "scipy"],
     extras_require={
         "dev": [
             "bump2version",
+            "pysam",
             "pandas",
             "pytest",
             "pytest-cov",
