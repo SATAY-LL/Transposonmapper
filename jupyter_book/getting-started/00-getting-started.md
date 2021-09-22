@@ -9,7 +9,7 @@ In a terminal, enter
 
 ```bash
 
-pip install transposonmapper
+pip install transposonmapper 
 
 ```
 

@@ -238,7 +238,20 @@ Run tests (including coverage) with:
 
 PyPI package
 ============
-Coming soon!
+
+For users that only require post processing analysis of the data (the bam file was already analyzed),
+do use the default installation. For example `pysam` won't be installed, hence Linux is not required.
+
+
+.. code-block:: console
+
+   pip install transposonmapper 
+
+For users that require the whole processing pipeline, do use: 
+
+.. code-block:: console
+
+   pip install transposonmapper[dev]
 
 Docker image
 ============
