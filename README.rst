@@ -42,9 +42,9 @@ Also a list of genes is generated where the number and distribution of insertion
    * - **Code quality checks**
      -
    * - Continuous integration
-     - |CI Build| |CI Publish| 
+     - |CI Build| |CI Publish| |CI Book|
    * - Documentation
-     - |JupyterBook Badge|
+     - |JupyterBook Badge| 
    * - Code Quality
      - |Sonarcloud Quality Gate Badge| |Sonarcloud Coverage Badge|
 
@@ -82,6 +82,10 @@ Also a list of genes is generated where the number and distribution of insertion
 .. |CI Publish| image:: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_publish.yml/badge.svg
    :alt: Continuous integration workflow
    :target: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_publish.yml
+
+.. |CI Book| image:: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_deploy_book.yml/badge.svg
+   :alt: CI to build and deploy jupyterbook in gh-pages
+   :target: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_deploy_book.yml
 
 .. |JupyterBook Badge| image:: https://img.shields.io/badge/docs-JupyterBook-green
    :alt: Jupyter Book documentation
