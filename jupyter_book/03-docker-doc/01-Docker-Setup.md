@@ -37,9 +37,22 @@ Desktop applications will run in Docker and will try to communicate with the X s
 
 In order to set up the environment variable, we need to add the following code to the `docker run` command in the terminal:
 
-For macOS: `-e DISPLAY=docker.for.mac.host.internal:0`   
-For Windows: `-e DISPLAY=host.docker.internal:0`   
-For Linux: `--net=host -e DISPLAY=:0`   
+````{tab} Windows
+```
+-e DISPLAY=host.docker.internal:0
+```
+````
+````{tab} macOS
+```
+-e DISPLAY=docker.for.mac.host.internal:0
+```
+````
+````{tab} Linux
+```
+--net=host -e DISPLAY=:0
+```
+````
+
 
 With these commands (and an active X server on the host system), any graphical output inside the container will be shown on your own desktop. 
 
