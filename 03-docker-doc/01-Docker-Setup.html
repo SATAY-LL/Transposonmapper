@@ -416,8 +416,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#issues">
-   Issues
+  <a class="reference internal nav-link" href="#issues-troubleshooting">
+   Issues/Troubleshooting
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -440,7 +440,7 @@
 <h1>Setting up docker<a class="headerlink" href="#setting-up-docker" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="docker-installation">
 <h2>Docker installation<a class="headerlink" href="#docker-installation" title="Permalink to this headline">¶</a></h2>
-<p>Docker can be installed on Windows, macOS, and Linux. Please visit the <a class="reference external" href="https://docs.docker.com/get-docker/">Docker website</a> for downloading and installation instructions. Note, you will need admin access to your system.</p>
+<p>Docker can be installed on Windows, macOS, and Linux. Please visit the <a class="reference external" href="https://docs.docker.com/get-docker/">Docker website</a> for downloading and installation instructions. Note, you will need admin access to your system. <strong>Please check the Issues/troubleshooting session at the end of this page if you encounter some problems during installation. If your problem is not listed you can add it as an issue in the main repository.</strong></p>
 <div class="section" id="verify-docker-installation">
 <h3>Verify Docker installation<a class="headerlink" href="#verify-docker-installation" title="Permalink to this headline">¶</a></h3>
 <p>Run the following commands in the terminal (see below) to verify your installation:</p>
@@ -528,9 +528,17 @@ For Linux and macOS:  <code class="docutils literal notranslate"><span class="pr
 </div>
 </div>
 </div>
-<div class="section" id="issues">
-<h2>Issues<a class="headerlink" href="#issues" title="Permalink to this headline">¶</a></h2>
-<p>For Linux users encountering the error <em>Unable to init server</em>, please run <code class="docutils literal notranslate"><span class="pre">xhost</span> <span class="pre">+</span></code> in the terminal and rerun the <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command. For more info, see <a class="reference external" href="https://www.thegeekstuff.com/2010/06/xhost-cannot-open-display/">here</a>.</p>
+<div class="section" id="issues-troubleshooting">
+<h2>Issues/Troubleshooting<a class="headerlink" href="#issues-troubleshooting" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>For Linux users encountering the error <em>Unable to init server</em>, please run <code class="docutils literal notranslate"><span class="pre">xhost</span> <span class="pre">+</span></code> in the terminal and rerun the <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command. For more info, see <a class="reference external" href="https://www.thegeekstuff.com/2010/06/xhost-cannot-open-display/">here</a>.</p></li>
+<li><p><strong>WSL 2 installation incomplete for Windows users</strong></p>
+<ul>
+<li><p>Enable the virtualization in the BIOS</p></li>
+<li><p>Follow ALL the steps described in: <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-manual">https://docs.microsoft.com/en-us/windows/wsl/install-manual</a></p></li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>

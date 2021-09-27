@@ -2,8 +2,7 @@
 
 ## Docker installation
 
-Docker can be installed on Windows, macOS, and Linux. Please visit the [Docker website](https://docs.docker.com/get-docker/) for downloading and installation instructions. Note, you will need admin access to your system.
-
+Docker can be installed on Windows, macOS, and Linux. Please visit the [Docker website](https://docs.docker.com/get-docker/) for downloading and installation instructions. Note, you will need admin access to your system. **Please check the Issues/troubleshooting session at the end of this page if you encounter some problems during installation. If your problem is not listed you can add it as an issue in the main repository.**
 
 ### Verify Docker installation
 Run the following commands in the terminal (see below) to verify your installation:
@@ -95,8 +94,14 @@ docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data leilaicruz/satay:la
 ```
 ````
 
-## Issues
-For Linux users encountering the error _Unable to init server_, please run `xhost +` in the terminal and rerun the `docker run` command. For more info, see [here](https://www.thegeekstuff.com/2010/06/xhost-cannot-open-display/).
+## Issues/Troubleshooting
+
+- For Linux users encountering the error _Unable to init server_, please run `xhost +` in the terminal and rerun the `docker run` command. For more info, see [here](https://www.thegeekstuff.com/2010/06/xhost-cannot-open-display/).
+
+- **WSL 2 installation incomplete for Windows users** 
+    - Enable the virtualization in the BIOS
+    - Follow ALL the steps described in: https://docs.microsoft.com/en-us/windows/wsl/install-manual
+    
 
 ## References
 - https://betterprogramming.pub/running-desktop-apps-in-docker-43a70a5265c4
