@@ -6,7 +6,12 @@ Hello there 😄 Welcome to this Jupyter Book instance to document our data proc
 
 ## Status of the project
 
-- [Beta release on Zenodo](https://doi.org/10.5281/zenodo.4636310) 
+- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5521811.svg)](https://doi.org/10.5281/zenodo.5521811)
+- [Version 1.1.1 in Pypi](https://pypi.org/project/transposonmapper/)
+  - ![PyPI](https://img.shields.io/pypi/v/transposonmapper)
+- [Version 1.1.1 in Dockerhub](https://hub.docker.com/repository/docker/leilaicruz/satay)
+  - ![Docker Pulls](https://img.shields.io/docker/pulls/leilaicruz/satay)
+
 
   
 ### Next steps
