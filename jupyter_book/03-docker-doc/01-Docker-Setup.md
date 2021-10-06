@@ -115,6 +115,15 @@ docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data leilaicruz/satay:la
     - Enable the virtualization in the BIOS
     - Follow ALL the steps described in: https://docs.microsoft.com/en-us/windows/wsl/install-manual
     
+- Failing to port a display in the docker container for Mac users.
+    - Solution: Change the docker run command by this one , 
+
+    `docker run --rm -it -e DISPLAY=IPADDRESS:0 -v $(pwd):/data leilaicruz/satay:latest`
+
+    - The *IPADDRESS* is gotten from typing `ifconfig` in the terminal. 
+
+- Failing to run the pipeline once the GUI is open
+    - Check that all documents are closed before run it , namely the *Getting started* and the *adapter files* documents. 
 
 ## References
 - https://betterprogramming.pub/running-desktop-apps-in-docker-43a70a5265c4
