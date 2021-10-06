@@ -548,12 +548,26 @@ For Linux and macOS:  <code class="docutils literal notranslate"><span class="pr
 </div>
 <div class="section" id="issues-troubleshooting">
 <h2>Issues/Troubleshooting<a class="headerlink" href="#issues-troubleshooting" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
+<ul>
 <li><p>For Linux users encountering the error <em>Unable to init server</em>, please run <code class="docutils literal notranslate"><span class="pre">xhost</span> <span class="pre">+</span></code> in the terminal and rerun the <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command. For more info, see <a class="reference external" href="https://www.thegeekstuff.com/2010/06/xhost-cannot-open-display/">here</a>.</p></li>
 <li><p><strong>WSL 2 installation incomplete for Windows users</strong></p>
-<ul>
+<ul class="simple">
 <li><p>Enable the virtualization in the BIOS</p></li>
 <li><p>Follow ALL the steps described in: <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-manual">https://docs.microsoft.com/en-us/windows/wsl/install-manual</a></p></li>
+</ul>
+</li>
+<li><p>Failing to port a display in the docker container for Mac users.</p>
+<ul class="simple">
+<li><p>Solution: Change the docker run command by this one ,</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--rm</span> <span class="pre">-it</span> <span class="pre">-e</span> <span class="pre">DISPLAY=IPADDRESS:0</span> <span class="pre">-v</span> <span class="pre">$(pwd):/data</span> <span class="pre">leilaicruz/satay:latest</span></code></p>
+<ul class="simple">
+<li><p>The <em>IPADDRESS</em> is gotten from typing <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> in the terminal.</p></li>
+</ul>
+</li>
+<li><p>Failing to run the pipeline once the GUI is open</p>
+<ul class="simple">
+<li><p>Check that all documents are closed before run it , namely the <em>Getting started</em> and the <em>adapter files</em> documents.</p></li>
 </ul>
 </li>
 </ul>
