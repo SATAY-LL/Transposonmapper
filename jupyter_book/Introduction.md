@@ -39,14 +39,9 @@ Reproducible data analysis through a configuration file.
 ---
 **Multiple files analysis** 🎁
 ^^^
-Allow mulitple files to be processed at once using a for-loop in the bash script.
+Allow multiple files to be processed at once using a for-loop in the bash script.
 Currently only one dataset at the time can be processed, but this can be extended to allow a series of datasets to be processed in a for-loop.
 
-
----
-**Python package** 🛰
-^^^
-Build a python package that is pip installable for the ease of use for other researchers. 
 
 
 :::
