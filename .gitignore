@@ -15,6 +15,9 @@
 *.bai
 *.xlsx
 *.txt 
+## exception files
+
+paper/paper.pdf
 ## Exceptions test data files 
 !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam
 !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam.bai
