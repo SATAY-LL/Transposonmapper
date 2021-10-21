@@ -6,7 +6,7 @@ This workflow is created for processing sequencing data for SAturated Transposon
 It performs the steps from raw sequencing data until the transposon mapping that outputs files containing all insertion sites combined with the number of reads.
 
 For more information regarding SATAY, see `the satay user website <https://sites.google.com/site/satayusers/>`_ created by the Kornmann-lab.
-For more extensive documentation, `see our JupyterBook <https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html>`_.
+For more extensive documentation, `see our JupyterBook <https://satay-ll.github.io/Transposonmapper/Introduction.html>`_.
 
 The workflow requires input sequencing data in fastq format.
 It can perform the following tasks:
@@ -89,7 +89,7 @@ Also a list of genes is generated where the number and distribution of insertion
 
 .. |JupyterBook Badge| image:: https://img.shields.io/badge/docs-JupyterBook-green
    :alt: Jupyter Book documentation
-   :target: https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html
+   :target: https://satay-ll.github.io/Transposonmapper/Introduction.html
 
 .. |Sonarcloud Quality Gate Badge| image:: https://sonarcloud.io/api/project_badges/measure?project=SATAY-LL_Transposonmapper&metric=alert_status
    :target: https://sonarcloud.io/dashboard?id=SATAY-LL_Transposonmapper
@@ -123,7 +123,7 @@ For users that require the whole processing pipeline, do use:
 
 
 
-For more extensive documentation, `see our JupyterBook <https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html>`_.
+For more extensive documentation, `see our JupyterBook <https://satay-ll.github.io/Transposonmapper/Introduction.html>`_.
 
 SATAY pipeline
 ==============
