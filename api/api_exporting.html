@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -35,7 +35,7 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -43,10 +43,10 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/tabs.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -97,7 +97,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Getting started
  </span>
@@ -157,7 +157,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   About SATAY
  </span>
@@ -191,7 +191,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   About Transposonmapper
  </span>
@@ -225,7 +225,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Community
  </span>
@@ -242,7 +242,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   API reference
  </span>
@@ -388,8 +388,8 @@
   <div class="section" id="module-transposonmapper.exporting">
 <span id="transposonmapper-exporting"></span><h1>transposonmapper.exporting<a class="headerlink" href="#module-transposonmapper.exporting" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="transposonmapper.exporting.save_as_bed">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></code><code class="sig-name descname"><span class="pre">save_as_bed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tncoordinates_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readnumb_array</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_as_bed.html#save_as_bed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_as_bed" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.exporting.save_as_bed">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></span><span class="sig-name descname"><span class="pre">save_as_bed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tncoordinates_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readnumb_array</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_as_bed.html#save_as_bed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_as_bed" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function writes in a .bed file located in the same folder as the bamfile, the information abot how many transposons
 were found in each genomic location.</p>
 <dl class="field-list simple">
@@ -407,8 +407,8 @@ Example, if the bamfile path is data_file/data_1.bam then the bed file will be d
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.exporting.save_as_wig">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></code><code class="sig-name descname"><span class="pre">save_as_wig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wigfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tncoordinates_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readnumb_array</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_as_wig.html#save_as_wig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_as_wig" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.exporting.save_as_wig">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></span><span class="sig-name descname"><span class="pre">save_as_wig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wigfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tncoordinates_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readnumb_array</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_as_wig.html#save_as_wig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_as_wig" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function writes in a .wig file located in the same folder as the bamfile, the information abot how many transposons
 were found in each genomic location.</p>
 <dl class="field-list simple">
@@ -426,8 +426,8 @@ Example, if the bamfile path is data_file/data_1.bam then the wig file will be d
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.exporting.save_per_essential_insertions">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></code><code class="sig-name descname"><span class="pre">save_per_essential_insertions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chr_lengths_cumsum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid_roman</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases_designation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_per_gene_insertions.html#save_per_essential_insertions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_per_essential_insertions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.exporting.save_per_essential_insertions">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></span><span class="sig-name descname"><span class="pre">save_per_essential_insertions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chr_lengths_cumsum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid_roman</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases_designation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_per_gene_insertions.html#save_per_essential_insertions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_per_essential_insertions" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function generates a .txt file with the insertions in the annotated
 essential genes in WT.</p>
 <dl class="field-list simple">
@@ -454,8 +454,8 @@ gff_file, essential_file, gene_name_file)</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.exporting.save_per_gene">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></code><code class="sig-name descname"><span class="pre">save_per_gene</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn_per_gene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reads_per_gene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases_designation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_per_gene.html#save_per_gene"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_per_gene" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.exporting.save_per_gene">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></span><span class="sig-name descname"><span class="pre">save_per_gene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn_per_gene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reads_per_gene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases_designation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_per_gene.html#save_per_gene"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_per_gene" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create text file with transposons and reads per gene</p>
 <p>NOTE THAT THE TRANSPOSON WITH THE HIGHEST READ COUNT IS IGNORED.
 E.G. IF THIS FILE IS COMPARED WITH THE _PERGENE_INSERTIONS.TXT FILE THE
@@ -479,8 +479,8 @@ gff_file, essential_file, gene_name_file)</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.exporting.save_per_gene_insertions">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></code><code class="sig-name descname"><span class="pre">save_per_gene_insertions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chr_lengths_cumsum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid_roman</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases_designation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_per_gene_insertions.html#save_per_gene_insertions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_per_gene_insertions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.exporting.save_per_gene_insertions">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.exporting.</span></span><span class="sig-name descname"><span class="pre">save_per_gene_insertions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chr_lengths_cumsum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid_roman</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases_designation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/exporting/save_per_gene_insertions.html#save_per_gene_insertions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.exporting.save_per_gene_insertions" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function write in txt file 5 columns of information about transposon insertions separated by tabs.
 The tabs are: Gene name,Chromosome,Start location,End location,Insertion locations,Reads per insertion location</p>
 <dl class="field-list simple">

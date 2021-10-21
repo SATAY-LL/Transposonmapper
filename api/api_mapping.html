@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -35,7 +35,7 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -43,10 +43,10 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/tabs.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -97,7 +97,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Getting started
  </span>
@@ -157,7 +157,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   About SATAY
  </span>
@@ -191,7 +191,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   About Transposonmapper
  </span>
@@ -225,7 +225,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Community
  </span>
@@ -242,7 +242,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   API reference
  </span>
@@ -388,8 +388,8 @@
   <div class="section" id="module-transposonmapper.mapping">
 <span id="transposonmapper-mapping"></span><h1>transposonmapper.mapping<a class="headerlink" href="#module-transposonmapper.mapping" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="transposonmapper.mapping.add_chromosome_length">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></code><code class="sig-name descname"><span class="pre">add_chromosome_length</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chr_lengths_cumsum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid_roman</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/concatenate_chromosomes.html#add_chromosome_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.add_chromosome_length" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.mapping.add_chromosome_length">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></span><span class="sig-name descname"><span class="pre">add_chromosome_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chr_lengths_cumsum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_tid_roman</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/concatenate_chromosomes.html#add_chromosome_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.add_chromosome_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function returns a dictionary that for every gene , there is the chromosome number
 information of where the gene belongs to , the coordinates for the start position, the end position
 and the direction of the gene.</p>
@@ -415,15 +415,15 @@ ref_tid = get_chromosome_names(bam)</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.mapping.add_chromosome_length_inserts">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></code><code class="sig-name descname"><span class="pre">add_chromosome_length_inserts</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chr_lengths</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/concatenate_chromosomes.html#add_chromosome_length_inserts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.add_chromosome_length_inserts" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.mapping.add_chromosome_length_inserts">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></span><span class="sig-name descname"><span class="pre">add_chromosome_length_inserts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chr_lengths</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/concatenate_chromosomes.html#add_chromosome_length_inserts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.add_chromosome_length_inserts" title="Permalink to this definition">¶</a></dt>
 <dd><p>For each insertion location, add the length of all previous chromosomes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>numpy.array</strong> – Third output from get_reads(bam)</p></li>
 <li><p><strong>list</strong> – </p></li>
-<li><p><strong>from the following</strong> (<em>Output</em>) – <p>ref_tid = get_chromosome_names(bam)</p>
+<li><p><strong>following</strong> (<em>Output from the</em>) – <p>ref_tid = get_chromosome_names(bam)</p>
 <p>ref_names = list(ref_tid.keys())</p>
 </p></li>
 <li><p><strong>dict</strong> – First output from get_sequence_length(bam)</p></li>
@@ -439,8 +439,8 @@ ref_tid = get_chromosome_names(bam)</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.mapping.correct_read_position">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></code><code class="sig-name descname"><span class="pre">correct_read_position</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readlength</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/correct_read_position.html#correct_read_position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.correct_read_position" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.mapping.correct_read_position">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></span><span class="sig-name descname"><span class="pre">correct_read_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readlength</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/correct_read_position.html#correct_read_position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.correct_read_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Correct starting position for reads with reversed orientation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -460,8 +460,8 @@ ref_tid = get_chromosome_names(bam)</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.mapping.find_chromosome_reads">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></code><code class="sig-name descname"><span class="pre">find_chromosome_reads</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chromosome</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N_reads</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/find_chromosome_reads.html#find_chromosome_reads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.find_chromosome_reads" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.mapping.find_chromosome_reads">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></span><span class="sig-name descname"><span class="pre">find_chromosome_reads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chromosome</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N_reads</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/find_chromosome_reads.html#find_chromosome_reads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.find_chromosome_reads" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the reads inside each chromosome</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -480,8 +480,8 @@ ref_tid = get_chromosome_names(bam)</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.mapping.get_insertions_and_reads">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></code><code class="sig-name descname"><span class="pre">get_insertions_and_reads</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readnumb_array</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/get_insertions_and_reads.html#get_insertions_and_reads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.get_insertions_and_reads" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.mapping.get_insertions_and_reads">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></span><span class="sig-name descname"><span class="pre">get_insertions_and_reads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tn_coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readnumb_array</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/get_insertions_and_reads.html#get_insertions_and_reads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.get_insertions_and_reads" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function computes the total number of transposons per gene , the number of reads per gene and
 the distribution  of transposons along the gene.</p>
 <dl class="field-list simple">
@@ -514,8 +514,8 @@ the distribution  of transposons along the gene.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.mapping.get_reads">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></code><code class="sig-name descname"><span class="pre">get_reads</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bam</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/get_reads.html#get_reads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.get_reads" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.mapping.get_reads">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.mapping.</span></span><span class="sig-name descname"><span class="pre">get_reads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bam</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/mapping/get_reads.html#get_reads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.mapping.get_reads" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function retrieves  all reads within a specified genomic region.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

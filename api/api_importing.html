@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -35,7 +35,7 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -43,10 +43,10 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/tabs.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -97,7 +97,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Getting started
  </span>
@@ -157,7 +157,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   About SATAY
  </span>
@@ -191,7 +191,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   About Transposonmapper
  </span>
@@ -225,7 +225,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Community
  </span>
@@ -242,7 +242,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   API reference
  </span>
@@ -388,8 +388,8 @@
   <div class="section" id="module-transposonmapper.importing">
 <span id="transposonmapper-importing"></span><h1>transposonmapper.importing<a class="headerlink" href="#module-transposonmapper.importing" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="transposonmapper.importing.load_default_files">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.importing.</span></code><code class="sig-name descname"><span class="pre">load_default_files</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gff_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">essentials_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_names_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/importing/load_default_files.html#load_default_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.importing.load_default_files" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.importing.load_default_files">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.importing.</span></span><span class="sig-name descname"><span class="pre">load_default_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gff_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">essentials_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_names_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/importing/load_default_files.html#load_default_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.importing.load_default_files" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function loads some files that have a recurrent use throughout the pipeline.
 It will look inside the satay/data_files folder for the files if the input is None.
 Otherwise it will return the same input file.</p>
@@ -418,8 +418,8 @@ Release:     2021_01 of 10-Feb-2021, by default None</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.importing.load_sgd_tab">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.importing.</span></code><code class="sig-name descname"><span class="pre">load_sgd_tab</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sgd_features_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/importing/load_default_files.html#load_sgd_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.importing.load_sgd_tab" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.importing.load_sgd_tab">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.importing.</span></span><span class="sig-name descname"><span class="pre">load_sgd_tab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sgd_features_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/importing/load_default_files.html#load_sgd_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.importing.load_sgd_tab" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function loads the file SGD_features.tab
 The latest version of the SGD_features.tab file is based on Genome Version R64-2-1.
 If a specific file is provided it will output that file , otherwise , if it is set to None then
@@ -438,8 +438,8 @@ it will give the standard file provided in the package.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.importing.read_genes">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.importing.</span></code><code class="sig-name descname"><span class="pre">read_genes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gff_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">essentials_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_names_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/importing/read_genes.html#read_genes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.importing.read_genes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.importing.read_genes">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.importing.</span></span><span class="sig-name descname"><span class="pre">read_genes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gff_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">essentials_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_names_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/importing/read_genes.html#read_genes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.importing.read_genes" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function reads the useful information inside the gff_file, essentials_file and
 gene_names_file.
 For the gff_file and essentials_file extracts the gene coordinates , specifying the chromosome, start ,end

@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -35,7 +35,7 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -43,12 +43,12 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/tabs.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -99,7 +99,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Getting started
  </span>
@@ -159,7 +159,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   About SATAY
  </span>
@@ -193,7 +193,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   About Transposonmapper
  </span>
@@ -227,7 +227,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Community
  </span>
@@ -244,7 +244,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   API reference
  </span>
@@ -449,7 +449,7 @@
         
               <div>
                 
-  <div class="section" id="transposonmapper-output-data-postprocessing">
+  <div class="tex2jax_ignore mathjax_ignore section" id="transposonmapper-output-data-postprocessing">
 <h1>Transposonmapper output data postprocessing<a class="headerlink" href="#transposonmapper-output-data-postprocessing" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -465,7 +465,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="how-to-clean-the-wig-and-bed-files">
+<div class="tex2jax_ignore mathjax_ignore section" id="how-to-clean-the-wig-and-bed-files">
 <h1>How to clean the wig and bed files<a class="headerlink" href="#how-to-clean-the-wig-and-bed-files" title="Permalink to this headline">¶</a></h1>
 <p>Here we will remove transposon insertions in .bed and .wig files that were mapped outside the chromosomes, creates consistent naming for chromosomes and change the header of files with custom headers.</p>
 <p>Clean wig files for proper visualization in the genome Browser <a class="reference external" href="http://genome-euro.ucsc.edu/cgi-bin/hgGateway">http://genome-euro.ucsc.edu/cgi-bin/hgGateway</a></p>
@@ -504,7 +504,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="visualize-the-insertions-and-reads-per-gene-throughout-the-genome">
+<div class="tex2jax_ignore mathjax_ignore section" id="visualize-the-insertions-and-reads-per-gene-throughout-the-genome">
 <h1>Visualize the insertions and reads per gene  throughout the genome<a class="headerlink" href="#visualize-the-insertions-and-reads-per-gene-throughout-the-genome" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -539,7 +539,7 @@
 </div>
 <p><img alt="" src="../_images/profile-plot-dummy.png" /></p>
 </div>
-<div class="section" id="zoom-in-into-the-chromosomes">
+<div class="tex2jax_ignore mathjax_ignore section" id="zoom-in-into-the-chromosomes">
 <h1>Zoom in into the chromosomes<a class="headerlink" href="#zoom-in-into-the-chromosomes" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -581,7 +581,7 @@
 <p>This is the plot for the case of the dummy sample files for chromosome I.</p>
 <p><img alt="" src="../_images/region_I_dna_features_dummy.png" /></p>
 </div>
-<div class="section" id="volcano-plots">
+<div class="tex2jax_ignore mathjax_ignore section" id="volcano-plots">
 <h1>Volcano plots<a class="headerlink" href="#volcano-plots" title="Permalink to this headline">¶</a></h1>
 <p>Do you want to compare two differente libraries to discover which genes stood out from their comparison?</p>
 <p>Then do volcano plots!!</p>

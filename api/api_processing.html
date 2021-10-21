@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -35,7 +35,7 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -43,10 +43,10 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/tabs.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -97,7 +97,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Getting started
  </span>
@@ -157,7 +157,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   About SATAY
  </span>
@@ -191,7 +191,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   About Transposonmapper
  </span>
@@ -225,7 +225,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Community
  </span>
@@ -242,7 +242,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   API reference
  </span>
@@ -388,8 +388,8 @@
   <div class="section" id="module-transposonmapper.processing">
 <span id="transposonmapper-processing"></span><h1>transposonmapper.processing<a class="headerlink" href="#module-transposonmapper.processing" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="transposonmapper.processing.binned_list">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">binned_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allcounts_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#binned_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.binned_list" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.binned_list">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">binned_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allcounts_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#binned_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.binned_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>A binned list for a histogram of the counts</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -408,8 +408,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.build_dataframe">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">build_dataframe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dna_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insrt_in_chrom_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reads_in_chrom_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genomicregions_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#build_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.build_dataframe" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.build_dataframe">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">build_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dna_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insrt_in_chrom_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reads_in_chrom_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genomicregions_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#build_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.build_dataframe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main function that build the big dataframe with all genes characteristics</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -451,8 +451,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.checking_features">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">checking_features</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_orf_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_position_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#checking_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.checking_features" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.checking_features">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">checking_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_orf_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_position_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#checking_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.checking_features" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checking input values</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -467,8 +467,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.chromosome_name_bedfile">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">chromosome_name_bedfile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bed_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/chromosome_names_in_files.html#chromosome_name_bedfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.chromosome_name_bedfile" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.chromosome_name_bedfile">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">chromosome_name_bedfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bed_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/chromosome_names_in_files.html#chromosome_name_bedfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.chromosome_name_bedfile" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function returns some properties of the chromosomes in a bed file.
 Input can be either of two options:</p>
 <blockquote>
@@ -485,8 +485,8 @@ The third is the end line in the bed file of each chromosome (keys are the roman
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.cleanfiles">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">cleanfiles</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_chromosomes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/clean_bedwigfiles.html#cleanfiles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.cleanfiles" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.cleanfiles">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">cleanfiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_chromosomes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/clean_bedwigfiles.html#cleanfiles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.cleanfiles" title="Permalink to this definition">¶</a></dt>
 <dd><p>This script removes transposon insertions in .bed and .wig files that were mapped outside the chromosomes, creates consistent naming for chromosomes and change the header of files with custom headers.
 This code reads a .bed or .wig file and remove any insertions that were mapped outside a chromosome.
 Mapping of a read outside a chromosome can happen during the alignment and transposon mapping steps and means that the position of an insertions site of a read is larger than the length of the chromosome it is mapped to.
@@ -518,8 +518,8 @@ there will be a file containing all the info for all chromosomes.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.counts_genome">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">counts_genome</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bed_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gff_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#counts_genome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.counts_genome" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.counts_genome">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">counts_genome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bed_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gff_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#counts_genome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.counts_genome" title="Permalink to this definition">¶</a></dt>
 <dd><p>Counts of reads or the transposons per chromosomes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -539,8 +539,8 @@ there will be a file containing all the info for all chromosomes.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.dna_features">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">dna_features</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wig_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pergene_insertions_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'reads'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savefigure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/genomicfeatures_dataframe.html#dna_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.dna_features" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.dna_features">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">dna_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wig_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pergene_insertions_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'reads'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savefigure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/genomicfeatures_dataframe.html#dna_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.dna_features" title="Permalink to this definition">¶</a></dt>
 <dd><p>This scripts takes a user defined genomic region (i.e. chromosome number, region or gene) and creates a dataframe including information about all genomic features in the chromosome (i.e. genes, nc-DNA etc.).
 This can be used to determine the number of reads outside the genes to use this for normalization of the number of reads in the genes.
 Output is a dataframe including major information about all genomic features and optionally a barplot indicating the number of transposons per genomic region.
@@ -572,8 +572,8 @@ This function can be used for normalizing the transposon insertions per gene usi
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.feature_position">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">feature_position</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dna_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#feature_position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.feature_position" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.feature_position">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">feature_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dna_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#feature_position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.feature_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get features for every gene in the chromosome of interest</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -595,8 +595,8 @@ This function can be used for normalizing the transposon insertions per gene usi
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.gene_location">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">gene_location</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_position_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#gene_location"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.gene_location" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.gene_location">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">gene_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene_position_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#gene_location"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.gene_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>It gives structured information from the genes inside the chromosome of interest</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -621,8 +621,8 @@ read_pergene_file</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.input_region">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">input_region</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#input_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.input_region" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.input_region">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">input_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#input_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.input_region" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines the region of interest for further processing</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -646,8 +646,8 @@ is the roman description of the chromosome of interest.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.intergenic_regions">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">intergenic_regions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dna_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#intergenic_regions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.intergenic_regions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.intergenic_regions">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">intergenic_regions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_chr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dna_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#intergenic_regions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.intergenic_regions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Getting intergenic regions from chromosome of interest</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -668,8 +668,8 @@ is the roman description of the chromosome of interest.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.length_genome">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">length_genome</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr_length_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#length_genome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.length_genome" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.length_genome">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">length_genome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr_length_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#length_genome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.length_genome" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output the length of the genome in bp</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -685,8 +685,8 @@ is the roman description of the chromosome of interest.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.list_known_essentials">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">list_known_essentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headerlines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/essential_genes_names.html#list_known_essentials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.list_known_essentials" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.list_known_essentials">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">list_known_essentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headerlines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/essential_genes_names.html#list_known_essentials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.list_known_essentials" title="Permalink to this definition">¶</a></dt>
 <dd><dl>
 <dt>Get all known essential genes from two different files and combine them in one list.</dt><dd><p>Input is a list of of paths where files can be found with the known essential genes.
 A default list is implemented using two files present in the same folder as this file.
@@ -708,8 +708,8 @@ The output is a list containing all the genes present in all files given in the 
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.middle_chrom_pos">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">middle_chrom_pos</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr_length_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#middle_chrom_pos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.middle_chrom_pos" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.middle_chrom_pos">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">middle_chrom_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr_length_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#middle_chrom_pos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.middle_chrom_pos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines the middle poit of each chromosome</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -725,8 +725,8 @@ The output is a list containing all the genes present in all files given in the 
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.profile_genome">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">profile_genome</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bed_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'transposons'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savefig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/transposonread_profileplot_genome.html#profile_genome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.profile_genome" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.profile_genome">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">profile_genome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bed_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'transposons'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savefig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/transposonread_profileplot_genome.html#profile_genome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.profile_genome" title="Permalink to this definition">¶</a></dt>
 <dd><p>Created on Thu Mar 18 13:05:39 2021</p>
 <p>&#64;author: gregoryvanbeek
 This function creates a bar plot along the entire genome.
@@ -754,8 +754,8 @@ Too many basepairs in one bin and possible low transposon areas might be obscure
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.read_pergene_file">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">read_pergene_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pergene_insertions_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#read_pergene_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.read_pergene_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.read_pergene_file">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">read_pergene_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pergene_insertions_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#read_pergene_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.read_pergene_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reading the pergene file , the information per gene , related to where it starts and ends in the genome.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -774,8 +774,8 @@ Too many basepairs in one bin and possible low transposon areas might be obscure
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.read_wig_file">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">read_wig_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wig_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#read_wig_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.read_wig_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.read_wig_file">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">read_wig_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wig_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chrom</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/dna_features_helpers.html#read_wig_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.read_wig_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract the information in the wigfile related to the chromosome of interested</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -795,8 +795,8 @@ Too many basepairs in one bin and possible low transposon areas might be obscure
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.sgd_features">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">sgd_features</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/read_sgdfeatures.html#sgd_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.sgd_features" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.sgd_features">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">sgd_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/read_sgdfeatures.html#sgd_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.sgd_features" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function read the file SGD_features.tab and create a dictionary with useful info for processing</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -833,8 +833,8 @@ key:</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="transposonmapper.processing.summed_chr">
-<code class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></code><code class="sig-name descname"><span class="pre">summed_chr</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr_length_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#summed_chr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.summed_chr" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="transposonmapper.processing.summed_chr">
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.processing.</span></span><span class="sig-name descname"><span class="pre">summed_chr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chr_length_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/processing/profileplot_genome_helpers.html#summed_chr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.processing.summed_chr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a dictionary where each value is the cumulative sum of all bp in each chromosomes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
