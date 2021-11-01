@@ -596,9 +596,17 @@ These values are determined in dicussion with the Kornmann lab.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>path_a</strong> (<em>str</em>) – paths to location of the datafiles for library a</p></li>
-<li><p><strong>filelist_a</strong> (<em>str</em>) – list of the names of the datafiles for library a  located in path_a</p></li>
+<li><p><strong>filelist_a</strong> (<em>str</em>) – list of the names of the datafiles for library a  located in path_a.
+The type of file here is the pergene.txt file , which is one of the outputs from  the transposonmapper function.
+The format of the pergene file should be TAB separated and NOT COMMA separated. if you have
+it as comma separated you can convert to tab separated using the command line with
+this command: <cite>cat oldfile.txt | tr ‘[,]’ ‘[    ]’ &gt; newfile.txt</cite></p></li>
 <li><p><strong>path_b</strong> (<em>str</em>) – paths to location of the datafiles for library b</p></li>
-<li><p><strong>filelist_b</strong> (<em>str</em>) – list of the names of the datafiles for  library b located in path_b</p></li>
+<li><p><strong>filelist_b</strong> (<em>str</em>) – list of the names of the datafiles for  library b located in path_b
+The type of file here is the pergene.txt file , which is one of the outputs from  the transposonmapper function.
+The format of the pergene file should be TAB separated and NOT COMMA separated. if you have
+it as comma separated you can convert to tab separated using the command line with
+this command: <cite>cat oldfile.txt | tr ‘[,]’ ‘[    ]’ &gt; newfile.txt</cite></p></li>
 <li><p><strong>variable</strong> (<em>str</em><em>, </em><em>optional</em>) – tn_per_gene, read_per_gene or Nreadsperinsrt , by default ‘read_per_gene’</p></li>
 <li><p><strong>significance_threshold</strong> (<em>float</em><em>, </em><em>optional</em>) – Threshold value above which the fold change is regarded significant, only for plotting, by default 0.01</p></li>
 <li><p><strong>normalize</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to normalize variable. If set to True, each gene is normalized based on the total count in each dataset (i.e. each file in <a href="#id3"><span class="problematic" id="id4">filelist_</span></a>)
