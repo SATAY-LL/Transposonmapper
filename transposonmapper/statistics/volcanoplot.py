@@ -37,11 +37,19 @@ def volcano(path_a, filelist_a, path_b, filelist_b, variable='read_per_gene', si
     path_a : str
         paths to location of the datafiles for library a 
     filelist_a : str
-        list of the names of the datafiles for library a  located in path_a 
+        list of the names of the datafiles for library a  located in path_a. 
+        The type of file here is the pergene.txt file , which is one of the outputs from  the transposonmapper function. 
+        The format of the pergene file should be TAB separated and NOT COMMA separated. if you have
+        it as comma separated you can convert to tab separated using the command line with 
+        this command: `cat oldfile.txt | tr '[,]' '[\t]' > newfile.txt`
     path_b : str
         paths to location of the datafiles for library b
     filelist_b : str
         list of the names of the datafiles for  library b located in path_b 
+        The type of file here is the pergene.txt file , which is one of the outputs from  the transposonmapper function. 
+        The format of the pergene file should be TAB separated and NOT COMMA separated. if you have
+        it as comma separated you can convert to tab separated using the command line with 
+        this command: `cat oldfile.txt | tr '[,]' '[\t]' > newfile.txt`
     variable : str, optional
         tn_per_gene, read_per_gene or Nreadsperinsrt , by default 'read_per_gene'
     significance_threshold : float, optional
