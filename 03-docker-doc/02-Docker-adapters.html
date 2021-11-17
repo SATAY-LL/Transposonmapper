@@ -390,21 +390,9 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="creating-a-custom-adapters-fa-file">
 <h1>Creating a custom <em>adapters.fa</em> file<a class="headerlink" href="#creating-a-custom-adapters-fa-file" title="Permalink to this headline">¶</a></h1>
-<p>To know the adapters sequence, one way is to look for the overrepresented sequences in your dataset.
-Steps:</p>
+<p>The sequencing company should already trim the adaptes sequence. Therefore , what is usually left to trim is the sequencing primer sequence.</p>
+<p>The overrepresented sequences typically dont align very well to the genome , so these sequences are majorly lost during alignment.</p>
 <ol>
-<li><p>Run the pipeline with the</p>
-<ul class="simple">
-<li><p>[x] Quality checking raw data CHECKED</p></li>
-<li><p>[x] Quality check interrupt CHECKED</p></li>
-</ul>
-</li>
-<li><p>When the GUI ask you to continue, say NO and go to your local <code class="docutils literal notranslate"><span class="pre">/data/fastqc_out/</span></code></p>
-<ul class="simple">
-<li><p>Open the corresponding html file and go to the “Overrepresented sequences” section</p></li>
-<li><p>Copy the sequence that has more than 15% of representation.</p></li>
-</ul>
-</li>
 <li><p>Create the adapters.fa in your local data folder</p>
 <ul class="simple">
 <li><p>Open a bash terminal and move to the location where you have the data you would like to mount in the pipeline (fastq files)</p></li>
@@ -423,11 +411,8 @@ Steps:</p>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; <span class="se">\&gt;</span> Sequence1
 &gt;
-&gt; Overrepresented sequence <span class="m">1</span>
+&gt; Sequencing primer sequence
 &gt;
-&gt; <span class="se">\&gt;</span> Sequence2
-&gt;
-&gt; Overrepresented sequence <span class="m">2</span>
 </pre></div>
 </div>
 <ul class="simple">

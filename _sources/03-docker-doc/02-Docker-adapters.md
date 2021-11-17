@@ -1,17 +1,10 @@
 # Creating a custom _adapters.fa_ file
 
-To know the adapters sequence, one way is to look for the overrepresented sequences in your dataset.
-Steps:
+The sequencing company should already trim the adaptes sequence. Therefore , what is usually left to trim is the sequencing primer sequence.
 
-1. Run the pipeline with the
-    - [x] Quality checking raw data CHECKED    
-    - [x] Quality check interrupt CHECKED
+The overrepresented sequences typically dont align very well to the genome , so these sequences are majorly lost during alignment. 
 
-2. When the GUI ask you to continue, say NO and go to your local `/data/fastqc_out/` 
-    - Open the corresponding html file and go to the "Overrepresented sequences" section
-    - Copy the sequence that has more than 15% of representation. 
-
-3. Create the adapters.fa in your local data folder 
+1. Create the adapters.fa in your local data folder 
 
     - Open a bash terminal and move to the location where you have the data you would like to mount in the pipeline (fastq files)
 
@@ -27,12 +20,8 @@ Steps:
     ```bash
     > \> Sequence1
     >
-    > Overrepresented sequence 1
+    > Sequencing primer sequence
     >
-    > \> Sequence2
-    >
-    > Overrepresented sequence 2
-
     ```
     -  Ctrl-O save , Ctrl-X and quit the editor
 
