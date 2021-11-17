@@ -125,6 +125,24 @@ docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data leilaicruz/satay:la
 - Failing to run the pipeline once the GUI is open
     - Check that all documents are closed before run it , namely the *Getting started* and the *adapter files* documents. 
 
+- Failing to mount an external hard drive in Windows when running a docker container 
+
+    - Error:
+
+```bash
+
+libGL error: No matching fbConfigs or visuals found
+libGL error: failed to load driver: swrast
+
+```
+
+    - Solution (noy yet found):
+
+- Look into this links: 
+    - https://stackoverflow.com/questions/46586013/glxgears-not-working-inside-of-docker
+    
+
+
 ## References
 - https://betterprogramming.pub/running-desktop-apps-in-docker-43a70a5265c4
 - https://coderefinery.github.io/installation/shell-and-git/#shell-and-git
