@@ -9,6 +9,7 @@ dependencies:
   - bcftools>=1.10.2
   - bwa>=0.7.17
   - fastqc>=0.11.9
+  - mock
   - numpy>=1.19.4
   - sambamba>=0.8.0
   - pandas
@@ -21,5 +22,5 @@ dependencies:
       - bump2version
       - pytest
       - pytest-cov
-      - matplotlib 
+      - matplotlib
       - scipy
