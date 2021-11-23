@@ -40,6 +40,7 @@ setup(
     extras_require={
         "dev": [
             "bump2version",
+            "mock",
             "pysam",
             "pytest",
             "pytest-cov",

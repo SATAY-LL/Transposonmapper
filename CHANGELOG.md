@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.3] - 2021-11-23
+
+### Added
+- Fix a bug on the pysam module import when using the default version of transposonmapper, that should not require this installation from the user. This is an issue for Windows and Mac users, where pysam can not be used.
+- Add an integration test for the pysam module import.
+
 ## [1.1.2] - 2021-11-01
 ### Added 
 - FIX to the volcano plot function from the statistics module of transposonmapper (https://github.com/SATAY-LL/Transposonmapper/issues/62)

@@ -26,5 +26,5 @@ message: "If you use this software, please cite it using these metadata."
 repository-code: "https://github.com/SATAY-LL/Transposonmapper"
 title: transposonmapper
 doi: 10.5281/zenodo.4636301
-version: 1.1.2
+version: 1.1.3
 ...
