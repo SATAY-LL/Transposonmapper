@@ -385,7 +385,7 @@
 <span class="sd">    1.5; Added functionality to handle all possible sam flags in the alignment file (bam-file) instead of only flag=0 or flag=16. This is needed for the function to handle paired-end sequencing data [2021-01-11]</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">pysam</span>
+
 
 <span class="c1"># Local imports</span>
 <span class="kn">from</span> <span class="nn">transposonmapper.properties</span> <span class="kn">import</span> <span class="p">(</span>
@@ -415,6 +415,7 @@
     <span class="n">save_as_wig</span>
 <span class="p">)</span>
 
+<span class="kn">import</span> <span class="nn">sys</span>
 
 <div class="viewcode-block" id="transposonmapper"><a class="viewcode-back" href="../../api/api.html#transposonmapper.transposonmapper">[docs]</a><span class="k">def</span> <span class="nf">transposonmapper</span><span class="p">(</span><span class="n">bamfile</span><span class="p">,</span> <span class="n">gff_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">essential_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gene_name_file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This function is created for analysis of SATAY data using the species Saccharomyces Cerevisiae.</span>
@@ -477,6 +478,11 @@
         <span class="n">gff_file</span><span class="p">,</span> <span class="n">essential_file</span><span class="p">,</span> <span class="n">gene_name_file</span>
     <span class="p">)</span>
 
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">pysam</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed to import pysam&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="c1"># Read bam file</span>
     <span class="n">bam</span> <span class="o">=</span> <span class="n">pysam</span><span class="o">.</span><span class="n">AlignmentFile</span><span class="p">(</span><span class="n">bamfile</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
 

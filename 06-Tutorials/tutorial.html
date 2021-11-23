@@ -482,18 +482,16 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">######## Lets save the wig and bed files as variables to clean them and call the function#####################</span>
+<span class="kn">import</span> <span class="nn">glob</span> 
 
 <span class="n">wig_files</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">bed_files</span><span class="o">=</span><span class="p">[]</span>
 
 <span class="n">data_dir</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">&quot;transposonmapper&quot;</span><span class="p">,</span> <span class="s2">&quot;data_files/files4test/&quot;</span><span class="p">)</span>
 <span class="c1">#data_dir=&quot;../transposonmapper/data_files/files4test/&quot;</span>
-<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">data_dir</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;sorted.bam.wig&quot;</span><span class="p">):</span>
-            <span class="n">wig_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
-        <span class="k">elif</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;sorted.bam.bed&quot;</span><span class="p">):</span>
-             <span class="n">bed_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
+
+<span class="n">wig_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;*sorted.bam.wig&#39;</span><span class="p">))</span>
+<span class="n">bed_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;*sorted.bam.bed&#39;</span><span class="p">))</span>
 
 <span class="c1">############## Cleaning the files #############################</span>
             
@@ -502,6 +500,44 @@
 <span class="k">for</span> <span class="n">files</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">wig_files</span><span class="p">,</span><span class="n">bed_files</span><span class="p">):</span>
     <span class="n">cleanfiles</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">custom_header</span><span class="o">=</span><span class="n">custom_header</span><span class="p">,</span> <span class="n">split_chromosomes</span><span class="o">=</span><span class="n">split_chromosomes</span><span class="p">)</span>
     <span class="n">cleanfiles</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="n">files</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">custom_header</span><span class="o">=</span><span class="n">custom_header</span><span class="p">,</span> <span class="n">split_chromosomes</span><span class="o">=</span><span class="n">split_chromosomes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wig file loaded /data/localhome/linigodelacruz/Documents/PhD_2018/Documentation/SATAY/src(source-code)/Transposonmapper/transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam.wig
+evaluating chromosome I
+evaluating chromosome II
+evaluating chromosome III
+evaluating chromosome IV
+evaluating chromosome V
+evaluating chromosome VI
+evaluating chromosome VII
+evaluating chromosome VIII
+evaluating chromosome IX
+evaluating chromosome X
+evaluating chromosome XI
+evaluating chromosome XII
+evaluating chromosome XIII
+evaluating chromosome XIV
+evaluating chromosome XV
+evaluating chromosome XVI
+Bed file loaded /data/localhome/linigodelacruz/Documents/PhD_2018/Documentation/SATAY/src(source-code)/Transposonmapper/transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam.bed
+evaluating chromosome I
+evaluating chromosome II
+evaluating chromosome III
+evaluating chromosome IV
+evaluating chromosome V
+evaluating chromosome VI
+evaluating chromosome VII
+evaluating chromosome VIII
+evaluating chromosome IX
+evaluating chromosome X
+evaluating chromosome XI
+evaluating chromosome XII
+evaluating chromosome XIII
+evaluating chromosome XIV
+evaluating chromosome XV
+evaluating chromosome XVI
 </pre></div>
 </div>
 </div>
@@ -551,7 +587,8 @@
 <span class="c1">##### getting the files #########</span>
 <span class="n">pergene_files</span><span class="o">=</span><span class="p">[]</span>
 
-<span class="n">data_dir</span><span class="o">=</span><span class="s2">&quot;../transposonmapper/data_files/files4test/&quot;</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">&quot;transposonmapper&quot;</span><span class="p">,</span> <span class="s2">&quot;data_files/files4test/&quot;</span><span class="p">)</span>
+<span class="c1"># data_dir=&quot;../transposonmapper/data_files/files4test/&quot;</span>
 <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">data_dir</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;sorted.bam_pergene_insertions.txt&#39;</span><span class="p">):</span>
@@ -594,6 +631,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transposonmapper.statistics</span> <span class="kn">import</span> <span class="n">volcano</span>
+
+<span class="c1"># Please be aware that you should add the location of your tab separated pergene files (output of the pipeline)</span>
+<span class="c1"># to the volcano function from </span>
+<span class="c1"># two libraries.</span>
+<span class="c1"># And also be aware you will need at least two replicates per library in order to have statistics</span>
+<span class="c1"># for the volcano plot.</span>
 
 <span class="n">path_a</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
 <span class="n">filelist_a</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
