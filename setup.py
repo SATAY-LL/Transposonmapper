@@ -36,11 +36,12 @@ setup(
         "Programming Language :: Unix Shell",
     ],
     test_suite="tests",
-    install_requires=["numpy", "pysam", "matplotlib", "scipy"],
+    install_requires=["numpy", "matplotlib", "scipy","pandas"],
     extras_require={
         "dev": [
             "bump2version",
-            "pandas",
+            "mock",
+            "pysam",
             "pytest",
             "pytest-cov",
             "jupyter-book>=0.7.0",
@@ -49,6 +50,12 @@ setup(
             "sphinxext-rediraffe",
             "sphinx_inline_tabs",
             "ghp-import"
+
+        ],
+        "linux":[
+            "pysam"
+
         ]
+
     },
 )

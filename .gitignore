@@ -18,10 +18,10 @@
 ## Exceptions test data files 
 !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam
 !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam.bai
-# !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam.bed
-# !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam.wig
-# !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam_clean.wig
-# !transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam_clean.bed
+!transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam.bed
+!transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam.wig
+!transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam_clean.wig
+!transposonmapper/data_files/files4test/SRR062634.filt_trimmed.sorted.bam_clean.bed
 
 
 # jupyter Book build

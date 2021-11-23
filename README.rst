@@ -6,7 +6,7 @@ This workflow is created for processing sequencing data for SAturated Transposon
 It performs the steps from raw sequencing data until the transposon mapping that outputs files containing all insertion sites combined with the number of reads.
 
 For more information regarding SATAY, see `the satay user website <https://sites.google.com/site/satayusers/>`_ created by the Kornmann-lab.
-For more extensive documentation, `see our JupyterBook <https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html>`_.
+For more extensive documentation, `see our JupyterBook <https://satay-ll.github.io/Transposonmapper/Introduction.html>`_.
 
 The workflow requires input sequencing data in fastq format.
 It can perform the following tasks:
@@ -42,9 +42,9 @@ Also a list of genes is generated where the number and distribution of insertion
    * - **Code quality checks**
      -
    * - Continuous integration
-     - |CI Test|
+     - |CI Build| |CI Publish| |CI Book|
    * - Documentation
-     - |JupyterBook Badge|
+     - |JupyterBook Badge| 
    * - Code Quality
      - |Sonarcloud Quality Gate Badge| |Sonarcloud Coverage Badge|
 
@@ -62,26 +62,34 @@ Also a list of genes is generated where the number and distribution of insertion
 .. |Pypi Badge| image:: https://img.shields.io/pypi/v/transposonmapper?color=blue
    :target: https://pypi.org/project/transposonmapper
    :alt: Pypi Badge
+  
+.. |Docker Badge| image:: https://img.shields.io/docker/automated/leilaicruz/satay
+   :target: https://hub.docker.com/r/leilaicruz/satay
+   :alt: Docker Automated build
 
-.. |Docker Badge| image:: https://img.shields.io/docker/automated/mwakok/satay
-   :target: https://hub.docker.com/r/mwakok/satay
-   :alt: Docker Badge
-
-.. |Zenodo Badge| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4636310.svg
-   :target: https://doi.org/10.5281/zenodo.4636310
+.. |Zenodo Badge| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.5521578.svg
+   :target: https://doi.org/10.5281/zenodo.5521578
    :alt: Zenodo Badge
 
 .. |Howfairis Badge| image:: https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F-green
    :target: https://fair-software.eu
    :alt: Howfairis badge
 
-.. |CI Test| image:: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_test.yml/badge.svg
+.. |CI Build| image:: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_build.yml/badge.svg
    :alt: Continuous integration workflow
-   :target: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_test.yml
+   :target: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_build.yml
+   
+.. |CI Publish| image:: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_publish.yml/badge.svg
+   :alt: Continuous integration workflow
+   :target: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_publish.yml
+
+.. |CI Book| image:: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_deploy_book.yml/badge.svg
+   :alt: CI to build and deploy jupyterbook in gh-pages
+   :target: https://github.com/SATAY-LL/Transposonmapper/actions/workflows/CI_deploy_book.yml
 
 .. |JupyterBook Badge| image:: https://img.shields.io/badge/docs-JupyterBook-green
    :alt: Jupyter Book documentation
-   :target: https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html
+   :target: https://satay-ll.github.io/Transposonmapper/Introduction.html
 
 .. |Sonarcloud Quality Gate Badge| image:: https://sonarcloud.io/api/project_badges/measure?project=SATAY-LL_Transposonmapper&metric=alert_status
    :target: https://sonarcloud.io/dashboard?id=SATAY-LL_Transposonmapper
@@ -95,12 +103,32 @@ Also a list of genes is generated where the number and distribution of insertion
 Documentation for users
 ***********************
 
-For more extensive documentation, `see our JupyterBook <https://satay-ll.github.io/SATAY-jupyter-book/Introduction.html>`_.
+PyPI package
+============
+
+For users that only require post processing analysis of the data (the bam file was already analyzed),
+do use the default installation. For example `pysam` won't be installed, hence Linux is not required.
+
+
+.. code-block:: console
+
+   pip install transposonmapper 
+
+For users that require the whole processing pipeline, do use: 
+
+
+.. code-block:: console
+
+   pip install transposonmapper[linux]
+
+
+
+For more extensive documentation, `see our JupyterBook <https://satay-ll.github.io/Transposonmapper/Introduction.html>`_.
 
 SATAY pipeline
 ==============
 
-.. image:: https://user-images.githubusercontent.com/15414938/125289522-9c421580-e31f-11eb-9fc9-79c5f96d994c.png
+.. image:: https://user-images.githubusercontent.com/11459658/134164634-0806ce7a-4cae-4040-9ea4-e93a27b0b4b3.png
    :width: 400
    :align: center
 
@@ -123,9 +151,9 @@ Docker
 ------
 
 For a full installation and user guide for Docker containers, 
-`see our documentation <https://satay-ll.github.io/SATAY-jupyter-book/03-docker-doc/00-Docker-Users.html>`_.
+`see our documentation <https://satay-ll.github.io/Transposonmapper/03-docker-doc/01-Docker-Setup.html>`_.
 
-The Docker image is hosted at `mwakok/satay <https://hub.docker.com/r/mwakok/satay>`_.
+The Docker image is hosted at `leilaicruz/satay <https://hub.docker.com/repository/docker/leilaicruz/satay>`_.
 
 Prerequisites:
 
@@ -141,7 +169,10 @@ To build the image locally in your computer, from DockerHub:
 
 .. code-block:: console
 
-   docker pull mwakok/satay:latest
+
+
+   docker pull leilaicruz/satay:latest
+
 
 - Verify the image is in your computer 
 
@@ -155,7 +186,7 @@ To build the image locally in your computer, from DockerHub:
 
 .. code-block:: console
 
-   docker build . -t mwakok/satay:latest
+   docker build . -t leilaicruz/satay:latest
 
 - Move to the location where you have the data you would like to mount to the container, to use ``$(pwd)`` in the command bellow (simplest option), otherwise indicate the absolute path from your computer you would like to be loaded. 
 
@@ -165,13 +196,13 @@ To run the docker container, use the commands for your Operating System:
 .. code-block:: console
 
     # For Windows (and WSL):
-    docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):data/ mwakok/satay:latest
+    docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):/data leilaicruz/satay:latest
 
     # For macOS
-    docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data mwakok/satay
+    docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data leilaicruz/satay
 
     # For Linux
-    docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data mwakok/satay
+    docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data leilaicruz/satay
 
 - The flag ``-e`` enables viewing of the GUI outside the container via the Xserver 
 - The flag ``-v`` mounts the current directory (pwd) on the host system to the ``data/`` folder inside the container
@@ -236,13 +267,16 @@ Run tests (including coverage) with:
     
     pytest
 
-PyPI package
-============
-Coming soon!
+
+
+
 
 Docker image
 ============
-Coming soon!
+
+For more information go to our [Jupyter Book](https://satay-ll.github.io/Transposonmapper/03-docker-doc/03-Docker-Developers.html)
+
+
 
 
 Contributing
@@ -280,4 +314,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-*Last updated: July 12, 2021*
+

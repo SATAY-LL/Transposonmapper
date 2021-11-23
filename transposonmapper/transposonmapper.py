@@ -19,7 +19,7 @@ Version history:
     1.5; Added functionality to handle all possible sam flags in the alignment file (bam-file) instead of only flag=0 or flag=16. This is needed for the function to handle paired-end sequencing data [2021-01-11]
 """
 
-import pysam
+
 
 # Local imports
 from transposonmapper.properties import (
@@ -49,6 +49,7 @@ from transposonmapper.exporting import (
     save_as_wig
 )
 
+import sys
 
 def transposonmapper(bamfile, gff_file=None, essential_file=None, gene_name_file=None):
     """This function is created for analysis of SATAY data using the species Saccharomyces Cerevisiae.
@@ -111,6 +112,11 @@ def transposonmapper(bamfile, gff_file=None, essential_file=None, gene_name_file
         gff_file, essential_file, gene_name_file
     )
 
+    try:
+        import pysam
+    except ImportError:
+        print("Failed to import pysam")
+        sys.exit(1)
     # Read bam file
     bam = pysam.AlignmentFile(bamfile, "rb")
 

@@ -734,7 +734,7 @@ help_text (){
 	echo "- [-p] Select data format. Either 'Paired-end' or 'Single-end' [default is 'Single-end']"
 	echo "- [-s] Select which trimming software to use. Either 'bbduk', 'trimmomatic' or 'donottrim' (use the latter to skip trimming) [default is 'bbduk']"
 	echo "- [-t] Input trimming options (preferably use '') [default is 'ktrim=l k=15 mink=10 hdist=1 qtrim=r trimq=10 minlen=30' which is used for bbduk]."
-	ech785o "- [-a] Input alignment options (preferably use '') [default is '-v 2']"
+	echo "- [-a] Input alignment options (preferably use '') [default is '-v 2']"
 	echo "- [-i] Run index-and-sorting of bam-file [TRUE or FALSE, default is TRUE]"
 	echo "- [-m] Run transposon mapping [TRUE or FALSE, default is TRUE]"
 	echo "- [-d] Delete .sam file [TRUE or FALSE, default is TRUE]"

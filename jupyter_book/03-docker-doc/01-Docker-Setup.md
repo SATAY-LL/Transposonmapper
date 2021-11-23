@@ -2,8 +2,7 @@
 
 ## Docker installation
 
-Docker can be installed on Windows, macOS, and Linux. Please visit the [Docker website](https://docs.docker.com/get-docker/) for downloading and installation instructions. Note, you will need admin access to your system.
-
+Docker can be installed on Windows, macOS, and Linux. Please visit the [Docker website](https://docs.docker.com/get-docker/) for downloading and installation instructions. Note, you will need admin access to your system. **Please check the Issues/troubleshooting session at the end of this page if you encounter some problems during installation. If your problem is not listed you can add it as an issue in the main repository.**
 
 ### Verify Docker installation
 Run the following commands in the terminal (see below) to verify your installation:
@@ -38,9 +37,22 @@ Desktop applications will run in Docker and will try to communicate with the X s
 
 In order to set up the environment variable, we need to add the following code to the `docker run` command in the terminal:
 
-For macOS: `-e DISPLAY=docker.for.mac.host.internal:0`   
-For Windows: `-e DISPLAY=host.docker.internal:0`   
-For Linux: `--net=host -e DISPLAY=:0`   
+````{tab} Windows
+```
+-e DISPLAY=host.docker.internal:0
+```
+````
+````{tab} macOS
+```
+-e DISPLAY=docker.for.mac.host.internal:0
+```
+````
+````{tab} Linux
+```
+--net=host -e DISPLAY=:0
+```
+````
+
 
 With these commands (and an active X server on the host system), any graphical output inside the container will be shown on your own desktop. 
 
@@ -62,17 +74,17 @@ To start a container from an image, we use the command `docker run <image_name>`
 
 ````{tab} Windows
 ```
-docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):data/ mwakok/satay:latest 
+docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):/data leilaicruz/satay:latest 
 ```
 ````
 ````{tab} macOS
 ```
-docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data mwakok/satay 
+docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data leilaicruz/satay:latest 
 ```
 ````
 ````{tab} Linux
 ```
-docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data mwakok/satay
+docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data leilaicruz/satay:latest
 ```
 ````
 
@@ -81,22 +93,55 @@ If you wish to inspect the content of the container interactively, add the comma
 
 ````{tab} Windows
 ```
-docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):data/ mwakok/satay:latest bash
+docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /$(pwd):/data leilaicruz/satay:latest bash
 ```
 ````
 ````{tab} macOS
 ```
-docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data mwakok/satay bash
+docker run --rm -it -e DISPLAY=docker.for.mac.host.internal:0 -v $(pwd):/data leilaicruz/satay:latest bash
 ```
 ````
 ````{tab} Linux
 ```
-docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data mwakok/satay bash
+docker run --rm -it --net=host -e DISPLAY=:0 -v $(pwd):/data leilaicruz/satay:latest bash
 ```
 ````
 
-## Issues
-For Linux users encountering the error _Unable to init server_, please run `xhost +` in the terminal and rerun the `docker run` command. For more info, see [here](https://www.thegeekstuff.com/2010/06/xhost-cannot-open-display/).
+## Issues/Troubleshooting
+
+- For Linux users encountering the error _Unable to init server_, please run `xhost +` in the terminal and rerun the `docker run` command. For more info, see [here](https://www.thegeekstuff.com/2010/06/xhost-cannot-open-display/).
+
+- **WSL 2 installation incomplete for Windows users** 
+    - Enable the virtualization in the BIOS
+    - Follow ALL the steps described in: https://docs.microsoft.com/en-us/windows/wsl/install-manual
+    
+- Failing to port a display in the docker container for Mac users.
+    - Solution: Change the docker run command by this one , 
+
+    `docker run --rm -it -e DISPLAY=IPADDRESS:0 -v $(pwd):/data leilaicruz/satay:latest`
+
+    - The *IPADDRESS* is gotten from typing `ifconfig` in the terminal. 
+
+- Failing to run the pipeline once the GUI is open
+    - Check that all documents are closed before run it , namely the *Getting started* and the *adapter files* documents. 
+
+- Failing to mount an external hard drive in Windows when running a docker container 
+
+    - Error:
+
+```bash
+
+libGL error: No matching fbConfigs or visuals found
+libGL error: failed to load driver: swrast
+
+```
+
+    - Solution (noy yet found):
+
+- Look into this links: 
+    - https://stackoverflow.com/questions/46586013/glxgears-not-working-inside-of-docker
+    
+
 
 ## References
 - https://betterprogramming.pub/running-desktop-apps-in-docker-43a70a5265c4

@@ -21,7 +21,7 @@ COPY setup.py README.rst /opt/src/
 
 # Install the transposonmapper package inside the container
 WORKDIR /opt/src/
-RUN pip install .
+RUN pip install -e .[dev]
 
 # Set environment variables
 ENV adapters=/opt/conda/bbtools/lib/resources/adapters.fa \
