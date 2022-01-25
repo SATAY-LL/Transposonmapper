@@ -1,5 +1,5 @@
 track type=wiggle_0 ,maxheightPixels=60 name=SRR062634.filt_trimmed.sorted.bam
-VariableStep chrom=chrref|NC_001133|
+variableStep chrom=chrref|NC_001133|
 23708 1
 23719 1
 31487 1
@@ -8,7 +8,7 @@ VariableStep chrom=chrref|NC_001133|
 120156 1
 120186 1
 126867 2
-VariableStep chrom=chrref|NC_001134|
+variableStep chrom=chrref|NC_001134|
 68281 1
 68324 2
 72368 1
@@ -39,7 +39,7 @@ VariableStep chrom=chrref|NC_001134|
 681992 2
 682025 1
 682029 2
-VariableStep chrom=chrref|NC_001135|
+variableStep chrom=chrref|NC_001135|
 42004 1
 57049 1
 57086 1
@@ -49,7 +49,7 @@ VariableStep chrom=chrref|NC_001135|
 247924 2
 247930 1
 247952 3
-VariableStep chrom=chrref|NC_001136|
+variableStep chrom=chrref|NC_001136|
 133 1
 33361 1
 57025 1
@@ -100,10 +100,10 @@ VariableStep chrom=chrref|NC_001136|
 1357513 4
 1412423 3
 1412424 1
-VariableStep chrom=chrref|NC_001137|
+variableStep chrom=chrref|NC_001137|
 79258 1
 86481 3
-VariableStep chrom=chrref|NC_001138|
+variableStep chrom=chrref|NC_001138|
 210337 1
 210344 5
 210350 4
@@ -113,7 +113,7 @@ VariableStep chrom=chrref|NC_001138|
 210372 1
 210396 43
 210412 1
-VariableStep chrom=chrref|NC_001139|
+variableStep chrom=chrref|NC_001139|
 69350 8
 69357 5
 69383 1
@@ -164,7 +164,7 @@ VariableStep chrom=chrref|NC_001139|
 808415 1
 1010880 1
 1010911 2
-VariableStep chrom=chrref|NC_001140|
+variableStep chrom=chrref|NC_001140|
 81890 1
 81893 2
 111561 1
@@ -186,7 +186,7 @@ VariableStep chrom=chrref|NC_001140|
 549757 2
 549762 3
 549764 1
-VariableStep chrom=chrref|NC_001141|
+variableStep chrom=chrref|NC_001141|
 105779 1
 105789 1
 128704 1
@@ -195,7 +195,7 @@ VariableStep chrom=chrref|NC_001141|
 154019 1
 163218 1
 254921 2
-VariableStep chrom=chrref|NC_001142|
+variableStep chrom=chrref|NC_001142|
 141069 1
 470174 1
 519258 1
@@ -214,7 +214,7 @@ VariableStep chrom=chrref|NC_001142|
 701728 1
 701747 5
 701767 2
-VariableStep chrom=chrref|NC_001143|
+variableStep chrom=chrref|NC_001143|
 22037 2
 22040 2
 22079 1
@@ -231,7 +231,7 @@ VariableStep chrom=chrref|NC_001143|
 518141 1
 613752 1
 635450 2
-VariableStep chrom=chrref|NC_001144|
+variableStep chrom=chrref|NC_001144|
 41219 1
 41265 1
 48856 1
@@ -266,7 +266,7 @@ VariableStep chrom=chrref|NC_001144|
 829458 1
 873640 1
 873669 2
-VariableStep chrom=chrref|NC_001145|
+variableStep chrom=chrref|NC_001145|
 40166 2
 87027 1
 87060 2
@@ -279,7 +279,7 @@ VariableStep chrom=chrref|NC_001145|
 822618 1
 822626 16
 822628 1
-VariableStep chrom=chrref|NC_001146|
+variableStep chrom=chrref|NC_001146|
 135871 1
 357010 4
 359341 26
@@ -309,7 +309,7 @@ VariableStep chrom=chrref|NC_001146|
 772656 1
 784227 1
 784259 2
-VariableStep chrom=chrref|NC_001147|
+variableStep chrom=chrref|NC_001147|
 13998 1
 45693 4
 63057 1
@@ -338,7 +338,7 @@ VariableStep chrom=chrref|NC_001147|
 944460 1
 954134 4
 954135 1
-VariableStep chrom=chrref|NC_001148|
+variableStep chrom=chrref|NC_001148|
 9540 1
 138286 1
 138292 1
@@ -352,7 +352,7 @@ VariableStep chrom=chrref|NC_001148|
 536772 1
 536777 1
 536780 2
-VariableStep chrom=chrref|NC_001224|
+variableStep chrom=chrref|NC_001224|
 1212 1
 2847 1
 3267 1
