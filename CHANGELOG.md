@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix the file in the transposonmapper module inside the exporting submodule: save_as_wig.py
 - The change is related to save the wig file as the standard convention which requires a lower case letter instead of a capital one that was the case of previous versions. Specifically, the change of the `VariableStep` line to `variableStep`. 
 - This change is not affecting the functionality of the code.
+- Fix the 10% first truncation of the gene calculation. Basically redefine`N10percent` to `int(len(N_reads) * 0.1)`
 
 ## [1.1.3] - 2021-11-23
 
