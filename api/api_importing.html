@@ -44,7 +44,7 @@
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/tabs.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -344,7 +344,7 @@
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -378,14 +378,24 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>transposonmapper.importing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="module-transposonmapper.importing">
@@ -399,11 +409,11 @@ Otherwise it will return the same input file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>gff_file</strong> (<em>gff3</em><em>, </em><em>optional</em>) – Annotated genome from Saccharomyces cerevisiae (baker’s yeast)
+<li><p><strong>gff_file</strong> (<em>.gff3</em><em>, </em><em>optional</em>) – Annotated genome from Saccharomyces cerevisiae (baker’s yeast)
 (<a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz">https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz</a>), by default None</p></li>
-<li><p><strong>essentials_file</strong> (<em>txt</em><em>, </em><em>optional</em>) – Essentials genes annotated from yeast , written using the systematic name standard ,
+<li><p><strong>essentials_file</strong> (<em>.txt</em><em>, </em><em>optional</em>) – Essentials genes annotated from yeast , written using the systematic name standard ,
 all in one column, by default None</p></li>
-<li><p><strong>gene_names_file</strong> (<em>txt</em><em>, </em><em>optional</em>) – This documents lists all the Saccharomyces cerevisiae S288c entries present in
+<li><p><strong>gene_names_file</strong> (<em>.txt</em><em>, </em><em>optional</em>) – This documents lists all the Saccharomyces cerevisiae S288c entries present in
 this release of UniProtKB/Swiss-Prot. Yeast (Saccharomyces cerevisiae): entries,
 gene names and cross-references to SGD.
 Release:     2021_01 of 10-Feb-2021, by default None</p></li>
@@ -451,9 +461,9 @@ For the gene_names_files it translates the systematic name into the standard nam
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>gff_file</strong> (<em>gff3</em>) – Annotated genome from Saccharomyces cerevisiae (baker’s yeast) (<a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz">https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz</a>)</p></li>
-<li><p><strong>essentials_file</strong> (<em>txt</em>) – Essentials genes annotated from yeast , written using the systematic name standard , all in one column</p></li>
-<li><p><strong>gene_names_file</strong> (<em>txt</em>) – This documents lists all the Saccharomyces cerevisiae S288c entries present in
+<li><p><strong>gff_file</strong> (<em>.gff3</em>) – Annotated genome from Saccharomyces cerevisiae (baker’s yeast) (<a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz">https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz</a>)</p></li>
+<li><p><strong>essentials_file</strong> (<em>.txt</em>) – Essentials genes annotated from yeast , written using the systematic name standard , all in one column</p></li>
+<li><p><strong>gene_names_file</strong> (<em>.txt</em>) – This documents lists all the Saccharomyces cerevisiae S288c entries present in
 this release of UniProtKB/Swiss-Prot. Yeast (Saccharomyces cerevisiae): entries,
 gene names and cross-references to SGD.
 Release:     2021_01 of 10-Feb-2021</p></li>
@@ -496,8 +506,8 @@ belongs to, the start gene coordinate, the end gene coordinate and the strand di
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="api_exporting.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -514,19 +524,17 @@ belongs to, the start gene coordinate, the end gene coordinate and the strand di
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
-        
-            &copy; Copyright Apache 2.0.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Gregory van Beek , Maurits Kok, Leila Iñigo de la Cruz<br/>
+    
+        &copy; Copyright Apache 2.0.<br/>
+  </p>
+</footer>
 </main>
 
 
