@@ -463,7 +463,7 @@ def build_dataframe(dna_dict,start_chr,end_chr,insrt_in_chrom_list,reads_in_chro
             N_reads_list_true.append(np.array(N_reads,dtype=float))
             N_insrt_list.append(len([ins for ins in N_reads if not ins == 0]))
             if not f_type == None and f_type.startswith('Gene'):
-                N10percent = 100#int(len(N_reads) * 0.1) #TRUNCATED GENE DEFINITION
+                N10percent = int(len(N_reads) * 0.1) #TRUNCATED GENE DEFINITION 100
                 N_reads_truncatedgene_list.append(sum(N_reads[N10percent:-N10percent]))
                 N_insrt_truncatedgene_list.append(len([ins for ins in N_reads[N10percent:-N10percent] if not ins == 0]))
             else:
