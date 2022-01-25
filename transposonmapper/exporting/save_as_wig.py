@@ -73,7 +73,7 @@ def save_as_wig(wigfile, tncoordinates_array, ref_tid, readnumb_array):
         filename = os.path.splitext(base)[0]
         f.write("track type=wiggle_0 ,maxheightPixels=60 name=" + filename + "\n")
         for kk in ref_names:
-            f.write("VariableStep chrom=chr" + kk + "\n")
+            f.write("variableStep chrom=chr" + kk + "\n")
 
             index = np.where(
                 tncoordinateswig_duplicatesremoved_array[:, 0] == int(ref_tid[kk] + 1)
