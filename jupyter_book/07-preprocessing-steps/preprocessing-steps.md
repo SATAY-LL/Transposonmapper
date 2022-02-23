@@ -8,11 +8,13 @@ The pipeline does not process each digestion separately and therefore any pre-pr
 
 If the data is paired end, only one of the pairs will map to the transposon insertion site (the end that has been sequenced from the sequencing primer), while the other end will map back to a location arbitrarily far upstream or downstream of the insertion site (depends on where the restriction site is).
 
+**Preprocessing steps prior to use the satay pipeline:**
+
 - Convert the data to single end by:
     - Extracting the forward reads, which are the reads that contain the sequencing primer, as it is (harsh filtering) or allowing some mismatches in the sequencing primer, due to likely sequencing errors (gentle filtering). 
     - We use a bash script for each type of filtering, if you would like to use it , please contact us by writing [here](mailto:L.M.InigoDeLaCruz@tudelft.nl).
-- Remove the sequence after the first restriction site for NiaIII and DpnII to avoid having chimeras sequences in our data, that have poor alignment.
-    - And discard reads bellow 100bp after trimming of the restriction site. 
+- Remove the sequence downstream the first restriction site for NiaIII and DpnII to avoid having chimeras sequences in our data, that have poor alignment.
+    - Discard reads bellow 50bp after trimming of the restriction site to ensure a decent confidence alignment score for that read. 
     - We use a bash script for this, if you would like to use it , please contact us by writing [here](mailto:L.M.InigoDeLaCruz@tudelft.nl).
     - Technical explanation regarding this, thanks to [Agnes Michel from the Kornmann Lab](https://www.kornmann.group/people/agn%C3%A8s) : 
 
