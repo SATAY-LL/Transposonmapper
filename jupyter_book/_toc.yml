@@ -3,6 +3,7 @@ root: Introduction
 parts:
   - caption: Getting started
     chapters:
+      - file: 07-preprocessing-steps/preprocessing-steps.md
       - file: 03-docker-doc/00-Docker-Intro
         sections:
           - file: 03-docker-doc/01-Docker-Setup
