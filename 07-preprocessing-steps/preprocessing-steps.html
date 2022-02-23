@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Building the Docker image &#8212; SATAY pipeline at Delft :)</title>
+    <title>Preprocessing steps &#8212; SATAY pipeline at Delft :)</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/genetica_modified_neon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installing transposonmapper" href="../getting-started/00-getting-started.html" />
-    <link rel="prev" title="Creating a custom adapters.fa file" href="02-Docker-adapters.html" />
+    <link rel="next" title="SATAY pipeline" href="../03-docker-doc/00-Docker-Intro.html" />
+    <link rel="prev" title="Status of the project" href="../Introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,28 +108,28 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../07-preprocessing-steps/preprocessing-steps.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Preprocessing steps
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00-Docker-Intro.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-docker-doc/00-Docker-Intro.html">
    SATAY pipeline
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01-Docker-Setup.html">
+    <a class="reference internal" href="../03-docker-doc/01-Docker-Setup.html">
      Setting up docker
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02-Docker-adapters.html">
+    <a class="reference internal" href="../03-docker-doc/02-Docker-adapters.html">
      Creating a custom
      <em>
       adapters.fa
@@ -137,8 +137,8 @@ const thebe_selector_output = ".output, .cell_output"
      file
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-docker-doc/03-Docker-Developers.html">
      Building the Docker image
     </a>
    </li>
@@ -346,7 +346,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/03-docker-doc/03-Docker-Developers.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/07-preprocessing-steps/preprocessing-steps.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -366,7 +366,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/SATAY-LL/Transposonmapper/issues/new?title=Issue%20on%20page%20%2F03-docker-doc/03-Docker-Developers.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/SATAY-LL/Transposonmapper/issues/new?title=Issue%20on%20page%20%2F07-preprocessing-steps/preprocessing-steps.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -393,8 +393,8 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#continuous-integration">
-   Continuous integration
+  <a class="reference internal nav-link" href="#what-we-do-if-the-sequencing-data-is-paired-end">
+   What we do if the sequencing data is paired end:
   </a>
  </li>
 </ul>
@@ -407,7 +407,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Building the Docker image</h1>
+                <h1>Preprocessing steps</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -418,8 +418,8 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#continuous-integration">
-   Continuous integration
+  <a class="reference internal nav-link" href="#what-we-do-if-the-sequencing-data-is-paired-end">
+   What we do if the sequencing data is paired end:
   </a>
  </li>
 </ul>
@@ -431,37 +431,30 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="building-the-docker-image">
-<h1>Building the Docker image<a class="headerlink" href="#building-the-docker-image" title="Permalink to this headline">¶</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This documentation is for developers, users do not need to build docker images.</p>
-</div>
-<p>The SATAY Docker container is built from the <a class="reference external" href="https://github.com/SATAY-LL/Transposonmapper/blob/main/Dockerfile">Dockerfile</a>. The Dockerfile uses the following general commands</p>
-<ol class="simple">
-<li><p>The SATAY docker image uses <code class="docutils literal notranslate"><span class="pre">continuumio/miniconda3</span></code> as a base image.</p></li>
-<li><p>Install ubuntu packages</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="preprocessing-steps">
+<h1>Preprocessing steps<a class="headerlink" href="#preprocessing-steps" title="Permalink to this headline">¶</a></h1>
+<p>Before inputting the data into the satay pipeline, it is necessary to preprocess the data that comes from the sequencing company.</p>
+<p>The pipeline does not process each digestion separately and therefore any pre-processing and trimming of the restriction sites should be done <strong>prior</strong> to running the pipeline.</p>
+<div class="section" id="what-we-do-if-the-sequencing-data-is-paired-end">
+<h2>What we do if the sequencing data is paired end:<a class="headerlink" href="#what-we-do-if-the-sequencing-data-is-paired-end" title="Permalink to this headline">¶</a></h2>
+<p>If the data is paired end, only one of the pairs will map to the transposon insertion site (the end that has been sequenced from the sequencing primer), while the other end will map back to a location arbitrarily far upstream or downstream of the insertion site (depends on where the restriction site is).</p>
+<p><strong>Preprocessing steps prior to use the satay pipeline:</strong></p>
+<ul>
+<li><p>Convert the data to single end by:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">yad</span></code>: required to run the GUI</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">xdg-utils</span></code>, <code class="docutils literal notranslate"><span class="pre">gedit</span></code>, <code class="docutils literal notranslate"><span class="pre">dbus-x11</span></code>: required to open text files</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">evince</span></code>: pdf viewer</p></li>
+<li><p>Extracting the forward reads, which are the reads that contain the sequencing primer, as it is (harsh filtering) or allowing some mismatches in the sequencing primer, due to likely sequencing errors (gentle filtering).</p></li>
+<li><p>We use a bash script for each type of filtering, if you would like to use it , please contact us by writing <a class="reference external" href="mailto:L&#46;M&#46;InigoDeLaCruz&#37;&#52;&#48;tudelft&#46;nl">here</a>.</p></li>
 </ul>
 </li>
-<li><p>Download and install all dependencies with conda from <a class="reference external" href="https://github.com/SATAY-LL/Transposonmapper/blob/main/conda/environment.yml">environment.yml</a></p></li>
-<li><p>Copy all required code into the image</p></li>
-<li><p>pip install the transposonmapper package</p></li>
-<li><p>Define environment variables</p></li>
-<li><p>Set <code class="docutils literal notranslate"><span class="pre">/data</span></code> as the default directory</p></li>
-</ol>
-<p>To build and test a docker image locally on your computer, run the following command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker build . -t satay
-</pre></div>
-</div>
-<p>Note: You dont need to upload the image to dockerHub. The continuous integration workflow on Github will do this automatically upon new release.</p>
-<p>For more information about building Docker images, see the <a class="reference external" href="https://docs.docker.com/engine/reference/builder/">Docker reference documentation</a></p>
-<div class="section" id="continuous-integration">
-<h2>Continuous integration<a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h2>
-<p>The Docker image is automatically built and uploaded to DockerHub through a <a class="reference external" href="https://github.com/SATAY-LL/Transposonmapper/blob/main/.github/workflows/CI_publish.yml">GitHub Action</a> whenever a new version is released.</p>
+<li><p>Remove the sequence downstream the first restriction site for NiaIII and DpnII to avoid having chimeras sequences in our data, that have poor alignment.</p>
+<ul class="simple">
+<li><p>Discard reads bellow 50bp after trimming of the restriction site to ensure a decent confidence alignment score for that read.</p></li>
+<li><p>We use a bash script for this, if you would like to use it , please contact us by writing <a class="reference external" href="mailto:L&#46;M&#46;InigoDeLaCruz&#37;&#52;&#48;tudelft&#46;nl">here</a>.</p></li>
+<li><p>Technical explanation regarding this, thanks to <a class="reference external" href="https://www.kornmann.group/people/agn%C3%A8s">Agnes Michel from the Kornmann Lab</a> :</p></li>
+</ul>
+<p><em>What happens is that during the ligation of the NlaIII or DpnII digests, more than one molecule can ligate together. The conditions are set to favor intramolecular ligation but I have seen that it is not always the case. At the beginning of setting up SATAY, we were identifying reads that were chimeric between 2 genome loci that had nothing to do with each other, even though we were sequencing only 75bp. In our case, it was usually because the first restriction site after the insertion was very close to the insertion point itself (less than 75bp), and the resulting digestion product was too small to self-religate. Instead, another random molecule of digested gDNA would ligate with it, creating a circular chimeric molecule. Because the restriction site was less than 75bp of the insertion point, the sequencing read was a chimer between the genuine transposon insertion site and whatever gDNA molecule had co-ligated. By barcoding the NlaIII and DpnII sub libraries and trimming the reads containing a restriction site (NlaIII for the NlaIII sublibrary, DpnII for the DpnII sublibrary), before aligning it, you can solve the problem. The important thing to visualize is that the transposon is itself digested. So one end of the digested product is the first NlaIII or DpnII site after the insertion point, but the other end is the transoson itself. So, if this molecule self ligate, then the sequencing reads from both ends will map to the transposon-genome junction. If intermolecualr ligation has happened, then the sequencing read that correspond to the NlaIII or DpnII side of the transposon will be the sequence of whatever digested piece of gDNA has co-ligated with the genuine insertion locus.</em></p>
+</li>
+</ul>
 </div>
 </div>
 
@@ -478,7 +471,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./03-docker-doc"
+            path: "./07-preprocessing-steps"
         },
         predefinedOutput: true
     }
@@ -490,17 +483,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="02-Docker-adapters.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../Introduction.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Creating a custom <em>adapters.fa</em> file</p>
+            <p class="prev-next-title">Status of the project</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../getting-started/00-getting-started.html" title="next page">
+    <a class='right-next' id="next-link" href="../03-docker-doc/00-Docker-Intro.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Installing transposonmapper</p>
+        <p class="prev-next-title">SATAY pipeline</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
