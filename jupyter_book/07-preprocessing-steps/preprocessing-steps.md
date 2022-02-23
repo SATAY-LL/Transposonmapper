@@ -2,9 +2,11 @@
 
 Before inputting the data into the satay pipeline, it is necessary to preprocess the data that comes from the sequencing company. 
 
-The pipeline understands single end sequencing data, in which the data from every digestion is mixed together. You dont need to analyze them separately. 
+The pipeline does not process each digestion separately and therefore any pre-processing and trimming of the restriction sites should be done **prior** to running the pipeline.
 
 ## What we do if the sequencing data is paired end: 
+
+If the data is paired end, only one of the pairs will map to the transposon insertion site (the end that has been sequenced from the sequencing primer), while the other end will map back to a location arbitrarily far upstream or downstream of the insertion site (depends on where the restriction site is).
 
 - Convert the data to single end by:
     - Extracting the forward reads, which are the reads that contain the sequencing primer, as it is (harsh filtering) or allowing some mismatches in the sequencing primer, due to likely sequencing errors (gentle filtering). 
