@@ -147,15 +147,15 @@ on the following libraries:
 These libraries are called as a processing pipeline by the script `satay.sh <https://github.com/SATAY-LL/Transposonmapper/blob/main/satay.sh>`_, 
 which generates a GUI.
 
-Preprocessing steps
-------
+**Preprocessing steps**
+
 
 Before inputting the data into the satay pipeline, it is necessary to preprocess the data that comes from the sequencing company. 
 
 The pipeline does not process each digestion separately and therefore any pre-processing and trimming of the restriction sites should be done **prior** to running the pipeline.
 
-What we do if the sequencing data is paired end: 
-------
+**What we do if the sequencing data is paired end:**
+
 
 If the data is paired end, only one of the pairs will map to the transposon insertion site (the end that has been sequenced from the sequencing primer), while the other end will map back to a location arbitrarily far upstream or downstream of the insertion site (depends on where the restriction site is).
 
