@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.5]-2022-03-22
+
+### Modified
+
+- Update the plot that generates the volcano module.
+- Update font size, colors and size of the plot.
+- Allowing for save the figure as a png file.
+- Allowing to annotate the plot based on the fold change and p values. 
+
 ## [1.1.4] - 2022-01-25
 
 ### Modified
