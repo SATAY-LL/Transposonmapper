@@ -1,11 +1,13 @@
 import os, sys
 
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 from transposonmapper.statistics.volcano_helpers import apply_stats,  info_from_datasets, make_datafile
 
-def volcano(path_a, filelist_a, path_b, filelist_b, variable='read_per_gene', significance_threshold=0.01, normalize=True, trackgene_list=[], figure_title=""):
+def volcano(path_a, filelist_a, path_b, filelist_b,fold_change_interval,p_value_interval,variable='read_per_gene',
+significance_threshold=0.01, normalize=True, trackgene_list=[], figure_title="",savefigure=False):
     """This script creates a volcanoplot to show the significance of fold change between two datasets.
     It is based on this website:
         - https://towardsdatascience.com/inferential-statistics-series-t-test-using-numpy-2718f8f9bf2f
@@ -50,6 +52,16 @@ def volcano(path_a, filelist_a, path_b, filelist_b, variable='read_per_gene', si
         The format of the pergene file should be TAB separated and NOT COMMA separated. if you have
         it as comma separated you can convert to tab separated using the command line with 
         this command: `cat oldfile.txt | tr '[,]' '[\t]' > newfile.txt`
+
+    fold_change_interval : numpy.array
+
+            a vector of two elements where the first element(positive value) set the upper threshold for the positive
+            values and the second element(negative value) set the lower threshold for the negative values.
+
+
+    p_value_interval : numpy.array
+            a vector of two elements where the first element set the upper threshold for the positive
+           values and the second element set the lower threshold for the negative values.
     variable : str, optional
         tn_per_gene, read_per_gene or Nreadsperinsrt , by default 'read_per_gene'
     significance_threshold : float, optional
@@ -101,18 +113,21 @@ def volcano(path_a, filelist_a, path_b, filelist_b, variable='read_per_gene', si
     grid = plt.GridSpec(1, 1, wspace=0.0, hspace=0.0)
     ax = plt.subplot(grid[0,0])
 
-    colors = {False:'black', True:'red'} # based on p-value significance 
-    sc = ax.scatter(x=volcano_df['fold_change'], y=volcano_df['p_value'], alpha=0.4, marker='.', c=volcano_df['significance'].apply(lambda x:colors[x]))
+    colors = {False:'gray', True:'red'} # based on p-value significance 
+    sc = ax.scatter(x=volcano_df['fold_change'], y=volcano_df['p_value'], alpha=0.4, 
+    s=100, c=volcano_df['significance'].apply(lambda x:colors[x]),label=variable)
     ax.grid(True, which='major', axis='both', alpha=0.4)
-    ax.set_xlabel('Log2 FC')
-    ax.set_ylabel('-1*Log10 p-value')
+    ax.set_xlabel('Log2 FC',fontsize=16)
+    ax.set_ylabel('-*Log10 p-value',fontsize=16)
+    ax.tick_params(axis='both', which='major', labelsize=14)
+    ax.legend(loc='best',fontsize=16)
     if not figure_title == "":
-        ax.set_title(variable + " - " + figure_title)
+        ax.set_title(figure_title,fontsize=20)
     else:
-        ax.set_title(variable)
-    ax.scatter(x=[],y=[],marker='.',color='black', label='p-value > {}'.format(significance_threshold)) #set empty scatterplot for legend
-    ax.scatter(x=[],y=[],marker='.',color='red', label='p-value < {}'.format(significance_threshold)) #set empty scatterplot for legend
-    ax.legend()
+        ax.set_title(variable,fontsize=20)
+    # ax.scatter(x=[],y=[],marker='.',color='black', label='p-value > {}'.format(significance_threshold)) #set empty scatterplot for legend
+    # ax.scatter(x=[],y=[],marker='.',color='red', label='p-value < {}'.format(significance_threshold)) #set empty scatterplot for legend
+    # ax.legend()
     if not trackgene_list == []:
         genenames_array = volcano_df['gene_names'].to_numpy()
         for trackgene in trackgene_list:
@@ -120,7 +135,7 @@ def volcano(path_a, filelist_a, path_b, filelist_b, variable='read_per_gene', si
             if trackgene in genenames_array:
                 trackgene_index = tnread_gene_a.loc[tnread_gene_a['gene_names'] == trackgene].index[0]
                 trackgene_annot = ax.annotate(volcano_df.iloc[trackgene_index,:]['gene_names'], (volcano_df.iloc[trackgene_index,:]['fold_change'], volcano_df.iloc[trackgene_index,:]['p_value']),
-                            size=10, c='green', bbox=dict(boxstyle="round", fc="w"))
+                            size=12, c='green', bbox=dict(boxstyle="round", fc="w"))
                 trackgene_annot.get_bbox_patch().set_alpha(0.6)
             else:
                 print('WARNING: %s not found' % trackgene)
@@ -133,6 +148,36 @@ def volcano(path_a, filelist_a, path_b, filelist_b, variable='read_per_gene', si
                         arrowprops=dict(arrowstyle="->"))
     annot.set_visible(False)
 
+    ## Annotate based on fold change and p values 
+    if not fold_change_interval == [] or not p_value_interval == []:
+        target=volcano_df[(volcano_df["fold_change"]>fold_change_interval[0]) & (volcano_df["p_value"]>p_value_interval[0])]["gene_names"]
+        target_left=volcano_df[(volcano_df["fold_change"]<fold_change_interval[1]) & (volcano_df["p_value"]>p_value_interval[1])]["gene_names"]
+
+        if len(target)!=0:
+            for i in np.arange(0,len(target)):
+
+                index=np.where(volcano_df==target.iloc[i])[0][0]
+
+            
+
+                trackgene_annot = ax.annotate(volcano_df.iloc[index,:]['gene_names'], (volcano_df.iloc[index,:]['fold_change'],
+                                            volcano_df.iloc[index,:]['p_value']),
+                                            size=12, c='green', bbox=dict(boxstyle="round", fc="w"))
+                trackgene_annot.get_bbox_patch().set_alpha(0.6)
+
+        if len(target_left)!=0:
+            for i in np.arange(0,len(target_left)):
+
+                index=np.where(volcano_df==target_left.iloc[i])[0][0]
+
+            
+
+                trackgene_annot = ax.annotate(volcano_df.iloc[index,:]['gene_names'], (volcano_df.iloc[index,:]['fold_change'],
+                                            volcano_df.iloc[index,:]['p_value']),
+                                            size=12, c='green', bbox=dict(boxstyle="round", fc="w"))
+                trackgene_annot.get_bbox_patch().set_alpha(0.6)
+
+    
 
     
     def update_annot(ind):
@@ -161,6 +206,9 @@ def volcano(path_a, filelist_a, path_b, filelist_b, variable='read_per_gene', si
                     fig.canvas.draw_idle()
                     
     fig.canvas.mpl_connect("motion_notify_event", hover)
+
+    if savefigure:
+        fig.savefig("volcano_"+filelist_a[0].split("_")[0]+"vs"+filelist_b[0].split("_")[0]+".png", dpi=400)
 
 
 ## return function
