@@ -580,7 +580,7 @@ if not then the reads per insertion will be 0.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="transposonmapper.statistics.volcano">
-<span class="sig-prename descclassname"><span class="pre">transposonmapper.statistics.</span></span><span class="sig-name descname"><span class="pre">volcano</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filelist_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filelist_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'read_per_gene'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">significance_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trackgene_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/statistics/volcanoplot.html#volcano"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.statistics.volcano" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">transposonmapper.statistics.</span></span><span class="sig-name descname"><span class="pre">volcano</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filelist_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filelist_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fold_change_interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_value_interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'read_per_gene'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">significance_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trackgene_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savefigure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/transposonmapper/statistics/volcanoplot.html#volcano"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#transposonmapper.statistics.volcano" title="Permalink to this definition">¶</a></dt>
 <dd><p>This script creates a volcanoplot to show the significance of fold change between two datasets.
 It is based on this website:</p>
 <blockquote>
@@ -627,16 +627,33 @@ The type of file here is the pergene.txt file , which is one of the outputs from
 The format of the pergene file should be TAB separated and NOT COMMA separated. if you have
 it as comma separated you can convert to tab separated using the command line with
 this command: <cite>cat oldfile.txt | tr ‘[,]’ ‘[    ]’ &gt; newfile.txt</cite></p></li>
-<li><p><strong>variable</strong> (<em>str</em><em>, </em><em>optional</em>) – tn_per_gene, read_per_gene or Nreadsperinsrt , by default ‘read_per_gene’</p></li>
-<li><p><strong>significance_threshold</strong> (<em>float</em><em>, </em><em>optional</em>) – Threshold value above which the fold change is regarded significant, only for plotting, by default 0.01</p></li>
-<li><p><strong>normalize</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to normalize variable. If set to True, each gene is normalized based on the total count in each dataset (i.e. each file in <a href="#id3"><span class="problematic" id="id4">filelist_</span></a>)
-, by default True</p></li>
-<li><p><strong>trackgene_list</strong> (<em>list</em><em>, </em><em>optional</em>) – Enter a list of gene name(s) which will be highlighted in the plot (e.g. [‘cdc42’, ‘nrp1’]), by default []</p></li>
-<li><p><strong>figure_title</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of the figure if not empty, by default “”</p></li>
+<li><p><strong>fold_change_interval</strong> (<em>numpy.array</em>) – a vector of two elements where the first element(positive value) set the upper threshold for the positive
+values and the second element(negative value) set the lower threshold for the negative values.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul>
+</dl>
+<dl>
+<dt>p_value_interval<span class="classifier">numpy.array</span></dt><dd><blockquote>
+<div><p>a vector of two elements where the first element set the upper threshold for the positive</p>
+</div></blockquote>
+<p>values and the second element set the lower threshold for the negative values.</p>
+</dd>
+<dt>variable<span class="classifier">str, optional</span></dt><dd><p>tn_per_gene, read_per_gene or Nreadsperinsrt , by default ‘read_per_gene’</p>
+</dd>
+<dt>significance_threshold<span class="classifier">float, optional</span></dt><dd><p>Threshold value above which the fold change is regarded significant, only for plotting, by default 0.01</p>
+</dd>
+<dt>normalize<span class="classifier">bool, optional</span></dt><dd><p>Whether to normalize variable. If set to True, each gene is normalized based on the total count in each dataset (i.e. each file in <a href="#id3"><span class="problematic" id="id4">filelist_</span></a>)
+, by default True</p>
+</dd>
+<dt>trackgene_list<span class="classifier">list, optional</span></dt><dd><p>Enter a list of gene name(s) which will be highlighted in the plot (e.g. [‘cdc42’, ‘nrp1’]), by default []</p>
+</dd>
+<dt>figure_title<span class="classifier">str, optional</span></dt><dd><p>The title of the figure if not empty, by default “”</p>
+</dd>
+</dl>
+<p>savefigure : bool, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul>
 <li><p><em>dataframe</em> –</p>
 <p>A dataframe containing:</p>
 <blockquote>
