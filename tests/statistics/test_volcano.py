@@ -10,6 +10,6 @@ def test_output():
     file_b= ['dnrp1-1_merged-DpnII-NlaIII-a_trimmed.sorted.bam_pergene.txt',
  'dnrp1-1_merged-DpnII-NlaIII-b_trimmed.sorted.bam_pergene.txt']
     
-    data=volcano(path,file_a,path,file_b)
+    data=volcano(path,file_a,path,file_b,fold_change_interval=[1,-1],p_value_interval=[2,2])
     
     assert  isinstance(data,pandas.core.frame.DataFrame) , "It is expected a dataframe"
