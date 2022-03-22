@@ -73,6 +73,7 @@ significance_threshold=0.01, normalize=True, trackgene_list=[], figure_title="",
         Enter a list of gene name(s) which will be highlighted in the plot (e.g. ['cdc42', 'nrp1']), by default []
     figure_title : str, optional
         The title of the figure if not empty, by default ""
+    savefigure : bool, optional
 
 
     Returns
