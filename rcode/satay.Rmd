@@ -1,0 +1,582 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+
+# SATAY data analysis pipeline
+
+The workflow is as follow:
+
+1.  Prepare workspace
+2.  Read Fastq file
+3.  Trim adaptors and low qual. bases
+4.  align to reference genome
+5.  attribute every sequence reads to a transposon
+6.  count the number of transposons and reads per genomic features
+7.  save output files in bed, wig, bigwig, and csv formats
+
+
+# Prepare Workspace
+
+## Before we start
+
+### Install Libraries
+
+We need to install the important libraries (must be done once per
+system) *note that, on linux system, you might need to install the
+following packages:* *openssl-dev, libxml2-dev and maybe others*
+
+```{r}
+#libraries to install:
+
+#install.packages("tidyverse")
+#install.packages("ggplot2")
+#install.packages("plyr")
+#install.packages("BiocManager")
+#library(BiocManager)
+
+#BiocManager::install("Rsamtools")
+#BiocManager::install("Rbowtie2")
+#BiocManager::install("ShortRead")
+#BiocManager::install("BSgenome.Scerevisiae.UCSC.sacCer3", version = "3.8") #We'll use v3.8 throughout for future compatibility 
+```
+
+### Loading Libraries
+
+Loading the libraries must be done in each session
+
+```{r}
+#load libraries
+#library(ggplot2)  # already loads with tidyverse
+library(tidyverse)
+library(tcltk)
+library(plyr)
+library(Rsamtools)
+library(Rbowtie2)
+library(ShortRead)
+library("BSgenome.Scerevisiae.UCSC.sacCer3")
+```
+
+
+### Declare variables
+
+**First we'll need to declare important variables**, such as the path
+for the fastq files and where to store the temporary trimmed fastq file
+
+
+```{r}
+samplename <- "out"                        #This can be anything. It will be used to name the output files
+
+genomepath <- "yeastgenome"  #points to the folder where the genome and the genome annotation files are stored
+workpath <- "results"        #points to the folder in which the results will be saved
+
+tmpfolder <- "tmp"        #points to a temporary folder where intermediate data will be temporarily stored.
+dir.create(tmpfolder)
+
+fastqFolder <- "reads" #points to the folder where the fastq Files are saved
+
+#The variables below are generated automatically
+trimmed <- paste0(tmpfolder, "/trimmed.fq")
+samfile <- paste0(tmpfolder, "/aligned.sam")
+#setwd(workpath)
+#bamfile <- paste0(workpath, "/", samplename)
+bamfile <- samplename
+
+#yeastGFF <- paste0(genomepath, "/saccharomyces_cerevisiae_R64-2-1_20150113.gff")
+#yeastgenome <- paste0(genomepath, "/yeastgenome.fa")
+yeastGFF <- paste0(genomepath, "/Saccharomyces_cerevisiae.R64-1-1.99.gff3")
+yeastgenome <- paste0(genomepath, "/S288C_reference_sequence_R64-2-1_20150113.fsa")
+```
+
+### find NlaIII and DpnII files in the list of fastQ files found in the folder
+
+We use a recursive search and a pattern to distinguish NlaIII and DpnII
+files. This means that "NlaIII" and "DpnII" must be present in the file
+name of the fastq files.
+
+```{r}
+fastqfilesNlaIII <- list.files(fastqFolder, "NlaIII.*[.]fq[.]gz", ignore.case = T, recursive = T)
+fastqfilesDpnII <- list.files(fastqFolder, "DpnII.*[.]fq[.]gz", ignore.case = T, recursive = T)
+```
+
+
+
+# Reading Fastq File
+
+and
+
+# Trimming
+
+Because reading a whole fastq file uses a lot of memory, we'll read it
+piecemeal, trim it and write it on the go.
+
+## For the NlaIII library:
+
+```{r}
+#preprocess NLAIII Fastq file and remove adaptors
+NlaIII = "CATG"
+file.remove(trimmed)
+for (i in fastqfilesNlaIII){
+  stream <- open(FastqStreamer(paste0(fastqFolder, "/" , i), 100000))
+  repeat{
+    fq <- yield(stream)
+    if (length(fq) == 0)
+      +             break
+    
+    ########Trimming of adaptors
+    vmatchPattern(NlaIII, fq@sread) -> matchingReads
+    lapply(matchingReads@ends, function(l) l[[1]]) -> matchingReads
+    matchingReads[unlist(lapply(matchingReads, is.null))] <- NA
+    unlist(matchingReads) -> matchingReads
+    narrow(fq, end = matchingReads) -> fq
+    
+  
+    #######trimming based on quality: 
+      #### the phred score (here 13) relates to the CLC quality score limit like this: 
+      #### clcscore=10^(phredscore/-10). for a clcscore of 0.05, phredscore = 13 but 13 won't work
+    phredscore = "4"
+    
+    fq <- trimTailw(fq, 2, phredscore, 2) 
+    writeFastq(fq, trimmed, "a", compress = FALSE)
+  }
+  close(stream)
+}
+```
+
+## for the DpnII library,
+
+*we append the DpnII read on the same output file, thus concatenating
+both datasets:*
+
+```{r}
+#preprocess DpnII Fastq file and remove adaptors
+
+DpnII = "GATC"
+#file.remove(trimmedDpnII)
+for (i in fastqfilesDpnII){
+  stream <- open(FastqStreamer(paste0(fastqFolder, "/", i), 100000))
+  repeat{
+    fq <- yield(stream)
+    if (length(fq) == 0)
+      +             break
+    
+    ########Trimming of adaptors
+    vmatchPattern(DpnII,fq@sread)->matchingReads
+    lapply(matchingReads@ends, function(l) l[[1]])->matchingReads
+    matchingReads[unlist(lapply(matchingReads, is.null))]<-NA
+    unlist(matchingReads)->matchingReads
+    narrow(fq, end = matchingReads)->fq
+  
+    #######trimming based on quality: 
+    fq <- trimTailw(fq, 2, phredscore, 2) 
+    writeFastq(fq, trimmed, "a", compress=FALSE)
+  }
+  close(stream)
+}
+```
+
+# Aligning to reference genome
+
+## Load the genome
+
+must be done only once. The files are then written
+
+```{r}
+genome <- BSgenome.Scerevisiae.UCSC.sacCer3
+infoseq<-genome@seqinfo
+writeBSgenomeToFasta(genome, yeastgenome)
+dir.create(paste0(dirname(yeastgenome), "/bowtie2/"))
+indexedgenome<-paste0(dirname(yeastgenome), "/bowtie2/indexedgenome")
+bowtie2_build(yeastgenome, indexedgenome, overwrite = TRUE)
+```
+
+## align with Bowtie2
+
+*the version of bowtie shipped in the Rbowtie2 package did not run on my
+windows machine! I had to download bowtie2-2.3.4 and replace the
+executable bowtie2-align-s.exe in the Rbowtie directory with the
+downloaded version.*
+
+### alignment
+
+**you may want to change the option `--threads`. It is now set to 6, but
+it may not be best for your setup**
+
+```{r}
+indexedgenome<-paste0(dirname(yeastgenome), "/bowtie2/indexedgenome")
+bowtie2(indexedgenome,
+        samfile,
+        trimmed,
+        "--local --threads 6",
+        overwrite=TRUE
+        )
+```
+
+### convert SAM file to BAM file
+
+and remove SAM file and trimmed reads file (for spce saving purpose)
+
+```{r}
+asBam(samfile,destination = bamfile)
+file.remove(samfile)
+file.remove(trimmed)
+```
+
+## read BAM file
+
+We will only get the chromosome, the coordinates, the orientation (flag)
+and the length of the read. Moreover will filter for reads with quality
+\> than `qual` (meaning the mapping is confident) **There is a stupid
+glitch: the `asBam`command above does add an `.bam` extension
+automatically. So we have to add it in our command pointing to the
+file.**
+
+```{r}
+qual<-5
+parameters<-ScanBamParam(what=c("rname", "strand", "pos", "qwidth"), mapqFilter= qual)
+bamdata<-scanBam(paste0(bamfile,".bam"), param = parameters)
+
+bamdata[[1]]$strand->orientation
+bamdata[[1]]$pos->position
+bamdata[[1]]$qwidth->size
+bamdata[[1]]$rname->chr
+
+remove(bamdata)
+```
+
+### select reads in + and - orientations
+
+```{r}
+posplus<-as.array(position[(orientation == "+")])
+chrplus<-as.factor(chr[(orientation == "+")])
+oriplus<-as.factor(orientation[(orientation == "+")])
+
+posminus<-as.array(position[(orientation == "-")])
+sizeminus<-as.array(size[(orientation == "-")])
+chrminus<-as.factor(chr[(orientation == "-")])
+oriminus<-as.factor(orientation[(orientation == "-")])
+```
+
+For all reads that are in the `+` orientation, the position is correct.
+For those in the `-` orientation, the insertion site must be corrected
+by
+
+### adding the length of the read to the position
+
+```{r}
+corrpositionminus<-posminus+sizeminus
+```
+
+Let's put everything in a `readcoordinate` data frame and sort it by
+chromosome, then by coordinate
+
+```{r}
+readcoordinates<-data.frame(
+  chrom = fct_c(chrplus,chrminus), 
+  coord = c(posplus,corrpositionminus), 
+  strand = fct_c(oriplus, oriminus)
+)
+
+
+readcoordinates<-readcoordinates[
+  order(readcoordinates$chrom, readcoordinates$coord),
+]
+```
+
+**Here the '-' orientation has been translated into `2` while the '+'
+has been translated into `1`, because it is not a "factor" anymore, it
+is an "integer".**
+
+#Remove few reads mapping outside of chromosome bounds This happens
+because of the extra nt added to '-' oriented reads, and the imprecision
+of sequences at chromosome ends, but causes problems downstream
+
+```{r}
+len_chr = c(230218,  813184, 316620, 1531933,  576874,
+              270161, 1090940, 562643,  439888,  745751, 
+              666816, 1078177, 924431,  784333, 1091291,
+              948066,   85799)
+  chr_name = c("chrI",   "chrII",  "chrIII",  "chrIV",  "chrV",
+               "chrVI",  "chrVII", "chrVIII", "chrIX",  "chrX",
+               "chrXI",  "chrXII", "chrXIII", "chrXIV", "chrXV", 
+               "chrXVI", "chrmt")
+  
+outofbounds<-integer()  
+for (i in 1:length(len_chr)) {
+      outofbounds<-c(outofbounds, which(readcoordinates$chrom == chr_name[i] & readcoordinates$coord > len_chr[i]))
+}
+
+readcoordinates<-readcoordinates[-outofbounds,]
+```
+
+# Group reads according to their transposon
+
+We're going to go through each one after the other and if the position
+is within 2bp of the previous one, we'll count the reads as being part
+of the same transposon.
+
+```{r}
+rm(tncoordinates)
+```
+
+
+```{r}
+tncoordinates<-list()
+lvlchrom<-levels(readcoordinates$chrom)
+
+
+pb<-txtProgressBar(min=0, max = length(readcoordinates$chrom))
+#process first read
+readcounter<-1
+tnnumber<-1
+readnumb<-1
+tncounter<-1
+coord<-readcoordinates$coord[readcounter]
+strand<-readcoordinates$strand[readcounter]
+readnumb<-1
+tncoordinates$chrom[tncounter]<-readcoordinates$chrom[readcounter]
+tncoordinates$pos[tncounter]<-readcoordinates$pos[readcounter]
+tncoordinates$strand[tncounter]<-readcoordinates$strand[readcounter]
+
+
+#process further reads
+for (readcounter in 2:length(readcoordinates$chrom)) {
+      if (abs(readcoordinates$coord[readcounter]-coord)<3 & readcoordinates$strand[readcounter]==strand) {
+        readnumb<-readnumb+1
+      } else {
+        tncoordinates$chrom[tncounter]<-readcoordinates$chrom[readcounter-1]
+        tncoordinates$coord[tncounter]<-as.integer(mean(readcoordinates$coord[(readcounter-readnumb):(readcounter-1)]))
+        tncoordinates$strand[tncounter]<-readcoordinates$strand[readcounter-1]
+        tncoordinates$readnumb[tncounter]<-readnumb
+        
+        readnumb<-1
+        tncounter<-tncounter+1
+        coord<-readcoordinates$coord[readcounter]
+        strand<-readcoordinates$strand[readcounter]
+      }
+  setTxtProgressBar(pb,readcounter)
+
+}
+```
+
+
+*cleanup time!*
+
+```{r}
+rm(pb)
+rm(parameters)
+rm(chr)
+rm(chrminus)
+rm(chrplus)
+rm(coord)
+rm(corrpositionminus)
+rm(fastqFilesDpnII)
+```
+
+
+```{r}
+rm(fastqFilesNlaIII)
+```
+
+
+```{r}
+rm(trimmed)
+rm(orientation)
+rm(oriminus)
+rm(oriplus)
+rm(position)
+rm(posminus)
+rm(posplus)
+rm(qual)
+rm(readcounter)
+rm(readnumb)
+rm(samfile)
+rm(size)
+rm(sizeminus)
+rm(strand)
+rm(tncounter)
+rm(tnnumber)
+rm(outofbounds)
+```
+
+## prepare chromosomal features from gff file
+
+extract `gene`and `centromere` into separate objects.
+
+```{r}
+#read GFF 
+
+gffdata<-import.gff(yeastGFF)
+GFF<-list()
+GFF$type<-gffdata@elementMetadata@listData$type
+GFF$name<-gffdata@elementMetadata@listData$Name
+GFF$gene<-gffdata@elementMetadata@listData$gene
+GFF$start<-gffdata@ranges@start
+GFF$end<-gffdata@ranges@start+gffdata@ranges@width
+
+
+
+
+read.delim(yeastGFF, header=F, comment.char="#", skip = 18, nrows = 23058) -> tmpgff
+gff<-plyr::rename(tmpgff, c("V1" = "chrom", "V2"="source", "V3"="type","V4"="start","V5"="end","V7"="strand"))
+gff$chrom<-as.character(gff$chrom)
+gff$chrom<-factor(gff$chrom, levels = lvlchrom)
+
+GFF$chrom<-gff$chrom
+GFF$strand<-gff$strand
+
+GFF<-data.frame(GFF)
+
+GFF[GFF$type=="gene",]->gene
+knowngene<-which(gene$gene!="NA")
+gene$name<-as.character(gene$name)
+gene$name[knowngene]<-as.character(gene$gene[knowngene])
+
+
+
+GFF[GFF$type=="centromere",]->centromere
+```
+
+## (optional) plot transposon density along chromosomes
+
+```{r}
+centromereplot<-list()
+centromereplot$chrom<-(1:16)
+centromereplot$coord<-(centromere$start+centromere$end)/2
+
+ggplot()+
+  geom_histogram(data=data.frame(tncoordinates), aes(x=coord), binwidth=20000)+
+  geom_point(data = data.frame(centromereplot), aes(x=coord, y=1000),color="red")+
+  facet_wrap(~ chrom, nrow = 5)
+```
+
+
+# Count number of transposons and of reads per chromosomal features
+
+```{r}
+tnpergene<-numeric()
+readpergene<-numeric()
+readpergenecrude<-numeric()
+pb<-txtProgressBar(min=0, max = length(gene$chrom))
+
+for (i in 1:length(gene$start)) {
+  tnindex<-which((tncoordinates$coord > gene$start[i]) &
+    (tncoordinates$coord < gene$end[i]) & 
+    (tncoordinates$chrom == as.numeric(gene$chrom[i])))
+  
+  tnpergene[i]<-length(tnindex)
+  
+  if (length(tnindex)>0) {
+    readpergene[i]<-sum(tncoordinates$readnumb[tnindex])-max(tncoordinates$readnumb[tnindex])
+  } else {
+    readpergene[i]<-0
+  }
+  
+  readpergenecrude[i]<-sum(tncoordinates$readnumb[tnindex])
+  
+    setTxtProgressBar(pb,i)
+}
+```
+
+
+```{r}
+hist(tnpergene, breaks=seq(min(tnpergene),max(tnpergene)),xlim=c(0,200),ylim=c(0,100))
+```
+
+
+```{r}
+hist(readpergene, breaks=seq(min(readpergene),max(readpergene)),xlim=c(0,200), ylim=c(0,100))
+```
+
+
+```{r}
+# ggplot()+
+#   geom_point(mapping=aes(x=tnpergene, y=readpergene, color=gene$chrom))+
+#   xlim(0,500)+
+#   ylim(0,5000)
+```
+
+# write output to files
+
+## write a big bed file
+
+```{r}
+bedfile<-paste0(bamfile,".bed")
+headerline<-paste0("track name=\"",basename(bamfile),"\" useScore=1")
+
+
+
+bed<-list()
+bed$chrom<-plyr::mapvalues(tncoordinates$chrom, as.character(1:17), lvlchrom)
+bed$start<-format(tncoordinates$coord, scientific = FALSE)
+bed$end<-format((tncoordinates$coord+1), scientific = FALSE)
+bed$desc<-paste(replicate(length(bed$start),"."))
+bed$score<-tncoordinates$readnumb*10+100
+bed<-data.frame(bed)
+
+
+
+writeLines(headerline, con = bedfile)
+write.table(bed,bedfile, quote =FALSE, row.names = FALSE, col.names =FALSE, append=TRUE)
+
+readLines(bedfile, n=10)
+```
+
+
+## write a wig file
+
+It is necessary to have only one transposon at any given place. If two
+(one `+` and one `-`) map at the same place, both must be summed
+
+```{r}
+wigfile<-paste0(bamfile,".wig")
+headerline<-paste0("track type=wiggle_0 maxHeightPixels=60 name=\"",basename(bamfile),"\"")
+
+
+wig<-list()
+wig$chrom<-plyr::mapvalues(tncoordinates$chrom, as.character(1:17), lvlchrom)
+wig$coord<-format(tncoordinates$coord, scientific = FALSE)
+wig$score<-tncoordinates$readnumb
+wig<-data.frame(wig)
+
+wigdup<-which(duplicated(wig[,1:2]))
+wig[(wigdup-1),3]<-wig[(wigdup-1),3]+wig[(wigdup),3]
+wig<-wig[-wigdup,]
+wigchrom<-wig$chrom
+wig$chrom<-NULL
+
+writeLines(headerline, con = wigfile)
+for (i in lvlchrom) {
+  
+  write(paste0("variableStep chrom=",i), file = wigfile, append=TRUE)
+  write.table(wig[
+    wigchrom == i
+  ,],
+  wigfile, quote =FALSE, row.names = FALSE, col.names =FALSE, append=TRUE)
+}
+
+readLines(wigfile, n=10)
+```
+
+
+## write a pergene file
+
+```{r}
+pergenefile<-paste0(bamfile,"_pergene.txt")
+headerline<-paste("gene_name", "number_of_transposon_per_gene","number_of_read_per_gene")
+
+pergene<-list()
+pergene$name<-gene$name
+pergene$tn<-tnpergene
+pergene$read<-readpergene
+pergene<-data.frame(pergene)
+
+writeLines(headerline, con = pergenefile)
+write.table(pergene,pergenefile, quote =FALSE, row.names = FALSE, col.names =FALSE, append=TRUE)
+
+
+readLines(pergenefile, n=10)
+```
+
+
